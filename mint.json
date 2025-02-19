@@ -46,6 +46,39 @@
       ]
     },
     {
+      "group": "Cyber Console",
+      "pages": [
+        "./documentation/acc/what-is-acc"
+      ]  
+    },
+    {
+      "group": "Virtual CISO",
+      "pages": [
+        "./documentation/vciso/what-is-vciso"
+      ]  
+    },
+    {
+      "group": "Threat Blocker",
+      "pages": [
+        "./documentation/atb/what-is-atb"
+      ]  
+    },
+    {
+      "group": "Cloud Defender",
+      "pages": [
+        "./documentation/cloud-defender/what-is-cloud-defender",
+        "./documentation/cloud-defender/how-it-works",
+        "./documentation/cloud-defender/how-to-get-started"
+      ]  
+    },
+    {
+      "group": "VPN",
+      "pages": [
+        "./documentation/vpn/what-is-vpn",
+        "./documentation/vpn/how-to-get-started"
+      ]  
+    },
+    {
       "group": "API Documentation",
       "pages": [
         "api-reference/token",
