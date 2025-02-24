@@ -1,0 +1,45 @@
+---
+title: "Come Funziona"
+description: "Guida al funzionamento di ATB: modalità in serie e in parallelo per soddisfare le diverse esigenze di protezione perimetrale."
+---
+
+Aegister Threat Blocker (ATB) è un dispositivo flessibile che può essere configurato in due modalità per rispondere a differenti esigenze di protezione perimetrale.
+
+## 1. Modalità In Serie
+
+La modalità **in serie** è la soluzione consigliata per i clienti che non dispongono di altri dispositivi di protezione perimetrale. In questo scenario:
+
+- **Posizionamento:**  
+  ATB viene configurato in serie al gateway aziendale, fungendo da **firewall principale**.
+
+- **Configurazione:**  
+  Il dispositivo viene configurato come un sistema basato su **PFSense**, includendo:
+  - Le regole di sicurezza necessarie per la protezione aziendale.
+  - La threat intelligence di Aegister per l'analisi in tempo reale delle minacce.
+  - Una VPN integrata per consentire l’accesso remoto, indispensabile per operazioni di manutenzione e aggiornamento.
+
+Questa configurazione centralizza la protezione, rendendo ATB il punto nevralgico per il controllo e la sicurezza del traffico.
+
+## 2. Modalità In Parallelo
+
+La modalità **in parallelo** è la configurazione più comune per le aziende che già dispongono di un firewall esistente (ad esempio, Sophos, Fortigate, SonicWall). In questo caso:
+
+- **Posizionamento:**  
+  ATB viene implementato in parallelo al firewall principale.
+
+- **Funzionalità:**  
+  In questa modalità, il dispositivo svolge un duplice ruolo:
+  - **Fornitura di Threat Intelligence:**  
+    ATB invia aggiornamenti e informazioni sulla sicurezza al firewall principale, potenziando le capacità di rilevamento e prevenzione delle minacce.
+  - **Mirroring dei Log (Opzionale):**  
+    Può effettuare il mirroring dei log, consentendo di visualizzare nella Aegister Cyber Console gli ultimi 100k eventi e gli IP bloccati dalla nostra threat intelligence. Questa funzione offre una visibilità dettagliata e un controllo avanzato delle attività di sicurezza.
+  - **VPN integrata:**
+    Per consentire l’accesso remoto, indispensabile per operazioni di manutenzione e aggiornamento.
+
+## Conclusioni
+
+ATB può essere configurato in base alle specifiche esigenze dell'azienda:
+- **Modalità in serie:** Ideale per una protezione integrata e centralizzata, in assenza di altri dispositivi perimetrali.
+- **Modalità in parallelo:** Ottimale per integrare le capacità avanzate di ATB con un firewall già esistente, migliorando la sicurezza e il monitoraggio tramite mirroring dei log.
+
+Scegli la modalità più adatta al tuo ambiente per sfruttare al meglio le potenzialità di Aegister Threat Blocker.

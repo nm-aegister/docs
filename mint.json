@@ -60,7 +60,9 @@
     {
       "group": "Threat Blocker",
       "pages": [
-        "./documentation/atb/what-is-atb"
+        "./documentation/atb/what-is-atb",
+        "./documentation/atb/how-atb-works",
+        "./documentation/atb/how-to-get-started"
       ]  
     },
     {

@@ -1,0 +1,85 @@
+---
+title: "Come Attivare (Installazione Parallelo)"
+description: "Guida passo-passo per l'attivazione e il collegamento di Aegister Threat Blocker alla tua infrastruttura di sicurezza."
+---
+
+Questa guida descrive la procedura completa per collegare e attivare **Aegister Threat Blocker (ATB)**, sia in modalità in serie che in parallelo. Segui i passaggi per garantire una corretta integrazione del dispositivo con la tua infrastruttura di sicurezza.
+
+## 1. Creazione dell'Account Aziendale
+
+- **Preliminare:**  
+  Prima di procedere, crea un account per la tua organizzazione sulla **Aegister Cyber Console**. Questo passaggio è fondamentale per la gestione e il monitoraggio del dispositivo ATB.
+
+---
+
+## 2. Collegamento Fisico del Dispositivo
+
+- **Connessione alla Rete:**  
+  Collega fisicamente il dispositivo ATB al firewall, inserendolo in rete (utilizza la porta Ethernet su **LAN1**).
+  
+- **Conferma del Collegamento:**  
+  Dopo aver collegato il dispositivo, invia la conferma di avvenuto collegamento al nostro team.
+
+---
+
+## 3. Verifiche Tecniche e Configurazioni Iniziali
+
+- **Check Collegamento ATB – Cyber Console (Aegister):**  
+  Il team Aegister eseguirà un controllo per verificare la corretta comunicazione tra ATB e la Cyber Console.
+  
+- **Test Funzionamento VPN Aegister (Aegister):**  
+  Verifica che il tunnel VPN integrato funzioni correttamente, permettendo l’accesso remoto per manutenzione e aggiornamenti.
+  
+- **Scansione Posizione ATB:**  
+  Esegui una scansione per identificare la posizione dell’ATB rispetto al Gateway o Firewall, in base alla configurazione (in serie o in parallelo).
+
+- **Invio Parametri di Configurazione (Aegister):**  
+  Dopo le verifiche, Aegister invierà i parametri di configurazione da inserire sul firewall (IP, Porta, PATH).
+
+- **Inserimento Parametri di Configurazione (Cliente):**  
+  Il cliente dovrà aggiornare la configurazione del proprio firewall con i parametri forniti.
+
+- **Call di Verifica:**  
+  Organizza una call con un nostro esperto per verificare l’effettivo funzionamento e il collegamento del dispositivo con [app.aegister.com](https://app.aegister.com/).
+
+---
+
+## 4. Passaggi Finali per il Collegamento in Parallelo (Caso Fortigate)
+
+Se la configurazione prevede il collegamento in parallelo al firewall esistente (ad esempio, Fortigate), seguire i seguenti passaggi:
+
+1. **Accesso al Pannello di Controllo Fortigate:**  
+   Accedi all'interfaccia di gestione del tuo firewall Fortigate.
+
+2. **Creazione del Security Fabric Object:**  
+   - Crea un oggetto di tipo Security Fabric denominato **“Aegister_Blacklist”**.  
+   - Utilizza il link:  
+     ```
+     https://IP_LOCALE_ATB/blacklist.txt
+     ```  
+     Verifica che lo stato risulti "luce verde" e che la lista venga scaricata correttamente.
+
+3. **Configurazione delle Regole nel Firewall Policy:**  
+   - **Regola 1:**  
+     - **From:** Any  
+     - **To:** Aegister_Blacklist  
+     - Configura la regola con un ID elevato e imposta l’azione su **Deny**.
+     
+   - **Regola 2:**  
+     - **From:** Aegister_Blacklist  
+     - **To:** Any  
+     - Configura anche questa regola in modalità Deny, con ID elevato.
+
+4. **Abilitazione dei Log:**  
+   Abilita il logging sulla porta UDP **514** per monitorare gli eventi relativi alle regole configurate.
+
+5. **Nota per Fortigate:**  
+   Per garantire la sicurezza delle connessioni, è necessario installare un certificato sul dispositivo ATB. Ciò è dovuto al fatto che Fortigate accetta solo connessioni **HTTPS** per gli oggetti di Security Fabric. Inoltre, indica il nome completo del file `blacklist.txt` anziché il percorso predefinito `/blacklist`.
+
+---
+
+## Conclusione
+
+Seguendo questi passaggi, potrai attivare e integrare **Aegister Threat Blocker (ATB)** nella tua infrastruttura, migliorando la protezione perimetrale della tua azienda. In caso di dubbi o necessità di assistenza, il nostro supporto è a disposizione per guidarti in ogni fase del processo.
+
+Con Aegister, la sicurezza della tua rete è nelle mani di esperti.
