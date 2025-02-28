@@ -48,13 +48,15 @@
     {
       "group": "Cyber Console",
       "pages": [
-        "./documentation/acc/what-is-acc"
+        "./documentation/acc/what-is-acc",
+        "./documentation/acc/how-get-account"
       ]  
     },
     {
       "group": "Virtual CISO",
       "pages": [
-        "./documentation/vciso/what-is-vciso"
+        "./documentation/vciso/what-is-vciso",
+        "./documentation/vciso/how-to-get-started"
       ]  
     },
     {
