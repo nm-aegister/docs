@@ -15,10 +15,10 @@ Questa guida descrive la procedura completa per collegare e attivare **Aegister 
 ## 2. Collegamento Fisico del Dispositivo
 
 - **Connessione alla Rete:**  
-  Collega fisicamente il dispositivo ATB al firewall, inserendolo in rete (utilizza la porta Ethernet su **LAN1**).
+  Collega fisicamente il dispositivo ATB al firewall, inserendolo in rete (utilizza una qualsiasi porta Ethernet **LAN1-4**).
   
 - **Conferma del Collegamento:**  
-  Dopo aver collegato il dispositivo, invia la conferma di avvenuto collegamento al nostro team.
+  Dopo aver collegato il dispositivo, il nostro team riceverà una notifica di collegamento ed inizierà l'ultima fase di configurazione in remoto.
 
 ---
 
@@ -30,21 +30,53 @@ Questa guida descrive la procedura completa per collegare e attivare **Aegister 
 - **Test Funzionamento VPN Aegister (Aegister):**  
   Verifica che il tunnel VPN integrato funzioni correttamente, permettendo l’accesso remoto per manutenzione e aggiornamenti.
   
-- **Scansione Posizione ATB:**  
-  Esegui una scansione per identificare la posizione dell’ATB rispetto al Gateway o Firewall, in base alla configurazione (in serie o in parallelo).
-
-- **Invio Parametri di Configurazione (Aegister):**  
-  Dopo le verifiche, Aegister invierà i parametri di configurazione da inserire sul firewall (IP, Porta, PATH).
-
-- **Inserimento Parametri di Configurazione (Cliente):**  
-  Il cliente dovrà aggiornare la configurazione del proprio firewall con i parametri forniti.
+- **IP locale ATB:**  
+  Accedi alla sezione [ATB](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/) della tua [Aegister Cyber Console](/documentation/acc/how-get-account) e verifica l'effettiva connessione dell'ATB ed il relativo **IP_PUBBLICO** ed **IP_LOCALE** 
+  ![ATB Dashboard](/images/atb-dashboard.png).
 
 - **Call di Verifica:**  
-  Organizza una call con un nostro esperto per verificare l’effettivo funzionamento e il collegamento del dispositivo con [app.aegister.com](https://app.aegister.com/).
+  In caso di malfunzionamenti organizza una call con un nostro esperto per verificare l’effettivo funzionamento ed il collegamento del dispositivo con [app.aegister.com](https://app.aegister.com/perimeter-protection/aegister-threat-blocker//).
 
 ---
 
-## 4. Passaggi Finali per il Collegamento in Parallelo (Caso Fortigate)
+## 4. Passaggi Finali per il Collegamento in Parallelo (Firewall generico)
+
+Seguire i seguenti passaggi:
+
+1. **Accesso all'Interfaccia di Gestione del Firewall:**  
+   Accedi all'interfaccia di gestione del tuo firewall attraverso l'indirizzo IP o il nome host dedicato, utilizzando le credenziali di amministratore.
+
+2. **Verifica della Connettività:**  
+   - Assicurati che il dispositivo ATB sia correttamente collegato alla rete e raggiungibile.  
+   - Il feed degli IP è disponibile su:
+   ```
+   http://IP_ATB_LOCALE:8080/blacklist.txt
+   ```
+   qui puoi verificare che la lista degli IP venga scaricata correttamente tramite una semplice chiamata.
+
+3. **Configurazione delle Regole di Sicurezza:**  
+   - Crea o modifica le regole del firewall per bloccare il traffico verso o proveniente dagli IP elencati nella blacklist.  
+   - In molti casi, sarà necessario configurare almeno due regole: una per il traffico in ingresso e una per il traffico in uscita, impostando l'azione su "Deny" o "Block".
+
+4. **Impostazioni Avanzate e Sicurezza della Connessione:**  
+   - Se il firewall supporta il download automatico della blacklist, configura l'aggiornamento periodico del file.  
+   - Per una connessione sicura (HTTPS), fornisci un certificato valido da installare sul dispositivo ATB oppure su richiesta possiamo installare un certificato self signed.
+
+5. **Configurazione del Logging e Monitoraggio:**  
+   - Attiva il logging per monitorare gli eventi relativi alle regole del firewall.  
+   - Configura il mirroring dei log in base alle funzionalità del tuo firewall sulla porta UDP **514** per verificare che il traffico indesiderato venga correttamente bloccato.
+
+6. **Verifica Finale e Test di Funzionamento:**  
+   - Dopo aver completato la configurazione, scarica nuovamente la blacklist per confermare che il file sia aggiornato e che il simbolo di spunta verde (o un indicatore equivalente) sia visibile.  
+   - Esegui test di connessione per accertarti che le regole di blocco siano operative.
+
+7. **Documentazione e Supporto:**  
+   - Documenta le configurazioni applicate per future consultazioni o aggiornamenti.  
+   - Se riscontri problemi, contatta il supporto tecnico del firewall o il nostro team di assistenza per ulteriori verifiche.
+
+---
+
+## 4.b Passaggi Finali per il Collegamento in Parallelo (Firewall: Fortigate)
 
 Se la configurazione prevede il collegamento in parallelo al firewall esistente (ad esempio, Fortigate), seguire i seguenti passaggi:
 
@@ -75,6 +107,40 @@ Se la configurazione prevede il collegamento in parallelo al firewall esistente 
 
 5. **Nota per Fortigate:**  
    Per garantire la sicurezza delle connessioni, è necessario installare un certificato sul dispositivo ATB. Ciò è dovuto al fatto che Fortigate accetta solo connessioni **HTTPS** per gli oggetti di Security Fabric. Inoltre, indica il nome completo del file `blacklist.txt` anziché il percorso predefinito `/blacklist`.
+
+---
+
+## 4.c Passaggi Finali per il Collegamento in Parallelo (Firewall: Sonicwall)
+
+Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi dettagliati sulla base della [guida del produttore](https://www.sonicwall.com/support/knowledge-base/how-to-configure-botnet-filtering-with-firewall-access-rules/170503936467975):
+
+1. **Accesso al Pannello di Controllo Sonicwall:**
+   Accedi all'interfaccia di gestione del tuo firewall Sonicwall.
+
+2. **Navigazione alla Sezione Botnet Filtering:**
+   Vai alla sezione relativa al Botnet Filtering e alle Firewall Access Rules. Per ulteriori dettagli, consulta la guida ufficiale [How to Configure Botnet Filtering with Firewall Access Rules](https://www.sonicwall.com/support/knowledge-base/how-to-configure-botnet-filtering-with-firewall-access-rules/170503936467975).
+
+3. **Configurazione dell'URL del Botnet Filter:**
+   Imposta l'URL del Botnet Filter su:
+   ```
+   http://IP_ATB_LOCALE:8080/blacklist.txt
+   ```
+
+4. **Configurazione del Certificato:**
+   Se la tua configurazione richiede HTTPS, fornisci un certificato da installare sulla macchina oppure possiamo installare un certificato self signed per garantire una connessione sicura.
+
+5. **Impostazione delle Regole e Limite degli Oggetti:**
+   Configura le regole per il botnet filter e imposta il campo "maximum_rules" con il valore:
+   ```json
+   "maximum_rules": 1999
+   ```
+   In questo modo si limiterà la lista ai 2000 IP più pericolosi.
+
+6. **Verifica della Configurazione:**
+   Dopo aver completato la configurazione, verifica che il botnet filter scarichi correttamente gli IP e che venga visualizzato il simbolo di spunta verde, indicante il corretto aggiornamento della blacklist.
+
+7. **Abilitazione dei Log:**  
+   Abilita il logging sulla porta UDP **514** per monitorare gli eventi relativi alle regole configurate.
 
 ---
 
