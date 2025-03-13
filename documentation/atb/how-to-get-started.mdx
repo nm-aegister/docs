@@ -9,6 +9,9 @@ Questa guida descrive la procedura completa per collegare e attivare **Aegister 
 
 - **Preliminare:**  
   Prima di procedere, crea un account per la tua organizzazione sulla **Aegister Cyber Console**. Questo passaggio è fondamentale per la gestione e il monitoraggio del dispositivo ATB.
+  
+  N.B. per i dispositivi già preconfigurati da Aegister per i Partner l'organizzazione è stata già creata ed è possibile registrarsi direttamente in piattaforma [qui](https://app.aegister.com/keycloak/realms/aegister/protocol/openid-connect/auth?response_type=code&scope=openid+email&client_id=webapp&redirect_uri=http%3A%2F%2Fapp.aegister.com%2Foidc%2Fcallback%2F&state=2im9Pol7ebxPo8NiOIOTe1BCEEIIUanY&nonce=aGU8lHJY54kTamcYrfg6Ar9tBgX3S9EN) con un account aziendale registranto email e passoword oppure utilizzando il SSO. 
+  Una volta registrati dovete richiedere al vostro contatto Aegister le autorizzazioni per accedere alla dashboard dell'ATB.
 
 ---
 
@@ -71,8 +74,7 @@ Seguire i seguenti passaggi:
    - Esegui test di connessione per accertarti che le regole di blocco siano operative.
 
 7. **Documentazione e Supporto:**  
-   - Documenta le configurazioni applicate per future consultazioni o aggiornamenti.  
-   - Se riscontri problemi, contatta il supporto tecnico del firewall o il nostro team di assistenza per ulteriori verifiche.
+   - Se riscontri problemi, contatta il nostro team di assistenza per ulteriori verifiche.
 
 ---
 
@@ -125,6 +127,8 @@ Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi det
    ```
    http://IP_ATB_LOCALE:8080/blacklist.txt
    ```
+
+   IP_ATB_LOCALE è riscontrabile all'interno della [Aegister Cyber Console - ATB](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/) come indicato al punto 3 oppure tramite il vostro Firewall.
 
 4. **Configurazione del Certificato:**
    Se la tua configurazione richiede HTTPS, fornisci un certificato da installare sulla macchina oppure possiamo installare un certificato self signed per garantire una connessione sicura.
