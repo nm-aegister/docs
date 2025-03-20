@@ -143,8 +143,10 @@ Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi det
 6. **Verifica della Configurazione:**
    Dopo aver completato la configurazione, verifica che il botnet filter scarichi correttamente gli IP e che venga visualizzato il simbolo di spunta verde ✅, indicante il corretto aggiornamento della blacklist.
 
-7. **Abilitazione dei Log:**  
-   Abilita il logging sulla porta UDP **514** per monitorare gli eventi relativi alle regole configurate.
+7. **Abilitazione dei Log e Mirroring del Traffico:**  
+   Configura il mirroring del traffico wan-lan su IP_LOCALE_ATB:514 (UDP) sul dispositivo ATB. I log grezzi vengono inviati automaticamente ad [app.aegister.com](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/). Se i log non vengono visualizzati, il team Aegister interverrà repentinamente per identificare e correggere eventuali errori nel parsing.
+
+   Per ulteriori dettagli sulla configurazione del Packet Mirroring su dispositivi SonicWall, consulta la documentazione ufficiale di SonicOS disponibile a questo [link](https://www.sonicwall.com/support/knowledge-base/configuring-packet-mirroring/170504587646444).
 
 ---
 
