@@ -133,12 +133,14 @@ Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi det
 4. **Configurazione del Certificato:**
    Se la tua configurazione richiede HTTPS, fornisci un certificato da installare sulla macchina oppure possiamo installare un certificato self signed per garantire una connessione sicura.
 
-5. **Impostazione delle Regole e Limite degli Oggetti:**
-   Se il botnet filter presenta un limite nel numero di ip configura le regole e imposta il campo "maximum_rules" con il valore:
+5. **Impostazione delle Regole e Limite degli Oggetti (Team Aegister)**
+   Accedere all'ATB, cliccare su "Configuration" e verificare che il campo "maximum_rules" abbia un valore pari a 1999:
    ```json
    "maximum_rules": 1999
    ```
    In questo modo si limiterà la lista ai 2000 IP più pericolosi.
+
+   ![ATB Settings](/images/atb-settings.png)
 
 6. **Verifica della Configurazione:**
    Dopo aver completato la configurazione, verifica che il botnet filter scarichi correttamente gli IP e che venga visualizzato il simbolo di spunta verde ✅, indicante il corretto aggiornamento della blacklist.
