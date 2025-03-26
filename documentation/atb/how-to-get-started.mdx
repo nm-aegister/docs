@@ -134,7 +134,7 @@ Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi det
    Se la tua configurazione richiede HTTPS, fornisci un certificato da installare sulla macchina oppure possiamo installare un certificato self signed per garantire una connessione sicura.
 
 5. **Impostazione delle Regole e Limite degli Oggetti (Team Aegister)**
-   Accedere all'ATB, cliccare su "Configuration" e verificare che il campo "maximum_rules" abbia un valore pari a 1999:
+   Accedere alla pagina della Cyber Console relativa all'ATB, cliccare su "Configuration" e verificare che il campo "maximum_rules" abbia un valore pari a 1999 (per ovviare ad un limite del Botnet Filter del SonicOS):
    ```json
    "maximum_rules": 1999
    ```
@@ -150,7 +150,7 @@ Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi det
 
    Per ulteriori dettagli sulla configurazione del Packet Mirroring su dispositivi SonicWall, consulta la documentazione ufficiale di SonicOS disponibile a questo [link](https://www.sonicwall.com/support/knowledge-base/configuring-packet-mirroring/170504587646444).
 
-   Si ricorda che il Log Mirroring è opzionale e a discrezione del cliente. La funzione permette di inviare i log dal firewall alla dashboard aegister in modo da poter mostrare in maniera visuale e puntuale (in forma tabellare) gli eventi relativi al traffico (con evidenza dei soli indirizzi IP e delle porte) in ingresso e in uscita accettato e bloccato dalla nostra Threat Intelligence.
+   Il Log Mirroring è una funzione opzionale, attivabile a discrezione del cliente. Essa consente di inviare i log del firewall alla dashboard di Aegister che memorizza gli ultimi 100k eventi, offrendo una rappresentazione visiva e tabellare, in tempo reale, degli eventi di traffico con un focus specifico sugli indirizzi IP del traffico in ingresso che in uscita che vengono bloccati in conformità con le analisi della nostra Threat Intelligence.
 
 ---
 
