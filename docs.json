@@ -32,40 +32,40 @@
               {
                 "group": "Cyber Console",
                 "pages": [
-                  "documentation/acc/what-is-acc",
-                  "documentation/acc/how-get-account"
+                  "documentation/it/acc/what-is-acc",
+                  "documentation/it/acc/how-get-account"
                 ]
               },
               {
                 "group": "Virtual CISO",
                 "pages": [
-                  "documentation/vciso/what-is-vciso",
-                  "documentation/vciso/how-to-get-started"
+                  "documentation/it/vciso/what-is-vciso",
+                  "documentation/it/vciso/how-to-get-started"
                 ]
               },
               {
                 "group": "Threat Blocker",
                 "pages": [
-                  "documentation/atb/what-is-atb",
-                  "documentation/atb/how-atb-works",
-                  "documentation/atb/how-to-get-started",
-                  "documentation/atb/faq"
+                  "documentation/it/atb/what-is-atb",
+                  "documentation/it/atb/how-atb-works",
+                  "documentation/it/atb/how-to-get-started",
+                  "documentation/it/atb/faq"
                 ]
               },
               {
                 "group": "Cloud Defender",
                 "pages": [
-                  "documentation/cloud-defender/what-is-cloud-defender",
-                  "documentation/cloud-defender/how-it-works",
-                  "documentation/cloud-defender/how-to-get-started",
-                  "documentation/cloud-defender/faq"
+                  "documentation/it/cloud-defender/what-is-cloud-defender",
+                  "documentation/it/cloud-defender/how-it-works",
+                  "documentation/it/cloud-defender/how-to-get-started",
+                  "documentation/it/cloud-defender/faq"
                 ]
               },
               {
                 "group": "VPN",
                 "pages": [
-                  "documentation/vpn/what-is-vpn",
-                  "documentation/vpn/how-to-get-started"
+                  "documentation/it/vpn/what-is-vpn",
+                  "documentation/it/vpn/how-to-get-started"
                 ]
               }
             ]
@@ -238,40 +238,40 @@
               {
                 "group": "Cyber Console",
                 "pages": [
-                  "documentation/acc/what-is-acc",
-                  "documentation/acc/how-get-account"
+                  "documentation/en/acc/what-is-acc",
+                  "documentation/en/acc/how-get-account"
                 ]
               },
               {
                 "group": "Virtual CISO",
                 "pages": [
-                  "documentation/vciso/what-is-vciso",
-                  "documentation/vciso/how-to-get-started"
+                  "documentation/en/vciso/what-is-vciso",
+                  "documentation/en/vciso/how-to-get-started"
                 ]
               },
               {
                 "group": "Threat Blocker",
                 "pages": [
-                  "documentation/atb/what-is-atb",
-                  "documentation/atb/how-atb-works",
-                  "documentation/atb/how-to-get-started",
-                  "documentation/atb/faq"
+                  "documentation/en/atb/what-is-atb",
+                  "documentation/en/atb/how-atb-works",
+                  "documentation/en/atb/how-to-get-started",
+                  "documentation/en/atb/faq"
                 ]
               },
               {
                 "group": "Cloud Defender",
                 "pages": [
-                  "documentation/cloud-defender/what-is-cloud-defender",
-                  "documentation/cloud-defender/how-it-works",
-                  "documentation/cloud-defender/how-to-get-started",
-                  "documentation/cloud-defender/faq"
+                  "documentation/en/cloud-defender/what-is-cloud-defender",
+                  "documentation/en/cloud-defender/how-it-works",
+                  "documentation/en/cloud-defender/how-to-get-started",
+                  "documentation/en/cloud-defender/faq"
                 ]
               },
               {
                 "group": "VPN",
                 "pages": [
-                  "documentation/vpn/what-is-vpn",
-                  "documentation/vpn/how-to-get-started"
+                  "documentation/en/vpn/what-is-vpn",
+                  "documentation/en/vpn/how-to-get-started"
                 ]
               }
             ]

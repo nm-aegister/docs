@@ -1,22 +1,22 @@
 ---
 title: "FAQ"
-description: "Frequently Asked Questions sul servizio ATB"
+description: "Frequently Asked Questions about the ATB Service"
 ---
 
-### Come vengono raccolti i dati dell'ATB?
-Il servizio ATB invia i metadati di log del firewall tramite API direttamente verso i nostri server in maniera sicura.
+### How is ATB data collected?
+The ATB service securely transmits firewall log metadata directly to our servers via API.
 
-### Dove vengono conservati i dati raccolti?
-I dati vengono memorizzati all'interno del database Aegister su GCP (Postgres) e ospitati sui server di Milano.
+### Where is the collected data stored?
+The data are stored in the Aegister database on GCP (Postgres) and hosted on servers in Milan.
 
-### Qual è la durata della conservazione dei dati?
-I dati vengono conservati fino a sovrascrittura, mantenendo esclusivamente gli ultimi 100k eventi.
+### What is the data retention period?
+Data is retained until it is overwritten, keeping only the latest 100k events.
 
-### Come vengono protetti i dati durante la trasmissione e la conservazione?
-Durante la trasmissione i dati sono protetti tramite TLS 1.2, mentre la conservazione avviene grazie a sistemi di autenticazione sicura.
+### How is the data protected during transmission and storage?
+Data is secured via TLS 1.2 during transmission, while robust authentication systems safeguard it during storage.
 
-### Chi ha accesso ai dati raccolti dall'ATB?
-L'accesso ai dati è riservato esclusivamente ai sistemisti e agli account di sistema; nessun altro può accedervi.
+### Who has access to the data collected by ATB?
+Access is exclusively restricted to system administrators and designated system accounts; no one else can access this information.
 
-### Come vengono eliminati i dati?
-I dati vengono automaticamente sovrascritti all'arrivo di nuovi eventi, garantendo così che siano conservati solo gli ultimi 100k log.
+### How are the data deleted?
+Data are automatically overwritten as new events arrive, ensuring that only the most recent 100k logs are retained.

@@ -1,57 +1,58 @@
 ---
-title: "Come Attivarlo"
-description: "Guida alla procedura di attivazione e configurazione di Aegister Cloud Defender per proteggere la tua applicazione web."
+title: "How to Activate"
+description: "Step-by-step guide for activating and configuring Aegister Cloud Defender to secure your web application."
 ---
 
-## 1. Informazioni Richieste
+## 1. Required Information
 
-Per permettere ad Aegister di creare l’organizzazione e attivare il servizio, il Cliente deve comunicare i seguenti dati:
+To enable Aegister to create your organization and activate the service, you must provide the following details:
 
-- **Dati dell’organizzazione:** Ragione sociale e settore.
-- **Utenti di riferimento:** Nomi ed email dei referenti tecnici e/o amministrativi.
-- **Dominio (FQDN):** Il nome di dominio completo del sito (es. www.esempio.it).
-- **Endpoint:** L’indirizzo pubblico (IP o URL) a cui è esposta l’applicazione web.
-- **Email del referente tecnico:** Per notifiche e comunicazioni tecniche.
-- **Servizi richiesti:** Lista dei servizi da attivare (es. Caching, DDoS, Threat Intelligence, WAF).
-
----
-
-## 2. Aggiornamento del DNS
-
-Una volta configurato il Cloud Defender da parte di Aegister, sarà necessario aggiornare i record DNS del vostro dominio. Ecco come procedere:
-
-1. **Accesso al pannello DNS:**  
-   Accedi al pannello di controllo del tuo provider DNS o hosting, dove gestisci i record del dominio.
-
-2. **Modifica del record A o CNAME:**  
-   Aggiorna il record principale dell’applicazione da proteggere (sia esso un record A o CNAME) affinché punti a: secure.aegister.com
-
-3. **Conferma e propagazione:**  
-Salva le modifiche e attendi la propagazione dei DNS, che solitamente richiede da 1 a 24 ore a seconda del provider.
+- **Organization Details:** Legal name and industry.
+- **Primary Contacts:** Names and email addresses of technical and/or administrative contacts.
+- **Domain (FQDN):** The full domain name of your site (e.g., www.example.com).
+- **Endpoint:** The public address (IP or URL) where your web application is hosted.
+- **Technical Contact Email:** For notifications and technical communications.
+- **Requested Services:** A list of services to activate (e.g., Caching, DDoS, Threat Intelligence, WAF).
 
 ---
 
-## 3. Verifica Finale
+## 2. DNS Update
 
-Dopo la propagazione dei DNS, esegui alcuni test per verificare che il sito sia correttamente protetto da Aegister Cloud Defender:
+Once Aegister configures Cloud Defender, you will need to update your domain's DNS records. Follow these steps:
 
-- **Navigazione:**  
-Accedi al dominio (es. www.esempio.it) e verifica che il sito si carichi regolarmente.
+1. **Access the DNS Control Panel:**  
+   Log in to your DNS provider or hosting control panel where you manage your domain records.
 
-- **Monitoraggio del Traffico:**  
-Richiedi, se disponibile, report o log ad Aegister per confermare che il traffico venga instradato attraverso la piattaforma Cloud Defender.
+2. **Modify the A or CNAME Record:**  
+   Update the primary record for the web application (whether an A record or a CNAME) so that it points to:  
+   `secure.aegister.com`
 
----
-
-## 4. Supporto e Contatti
-
-In caso di dubbi, problemi durante l’aggiornamento dei DNS o post-configurazione, contatta il supporto Aegister per assistenza:
-
-- **Supporto Tecnico:** .......
+3. **Confirmation and Propagation:**  
+   Save your changes and wait for DNS propagation, which typically takes between 1 and 24 hours depending on your provider.
 
 ---
 
-## 5. Conclusione
+## 3. Final Verification
 
-Seguendo i passaggi sopra indicati, il vostro sito web sarà protetto da **Aegister Cloud Defender** una volta che i record DNS saranno aggiornati correttamente. I servizi abilitati (Caching, DDoS, Threat Intelligence, WAF) inizieranno a operare in maniera trasparente, offrendo una protezione e un’ottimizzazione avanzate per la vostra applicazione web.
-Per ulteriori informazioni o chiarimenti, non esitate a contattare il nostro supporto.
+After DNS propagation, perform the following tests to ensure that your site is properly protected by Aegister Cloud Defender:
+
+- **Browsing Test:**  
+  Visit your domain (e.g., www.example.com) to verify that the site loads correctly.
+
+- **Traffic Monitoring:**  
+  If available, request reports or logs from Aegister to confirm that traffic is being routed through the Cloud Defender platform.
+
+---
+
+## 4. Support and Contacts
+
+If you have any questions or encounter issues during the DNS update or after configuration, please contact Aegister Support for assistance:
+
+- **Technical Support:** .......
+
+---
+
+## 5. Conclusion
+
+By following the steps outlined above, your website will be protected by **Aegister Cloud Defender** once the DNS records are updated correctly. The activated services (Caching, DDoS, Threat Intelligence, WAF) will begin operating seamlessly, providing advanced protection and optimization for your web application.  
+For additional information or clarification, please do not hesitate to contact our support team.

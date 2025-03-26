@@ -3,18 +3,18 @@ title: "FAQs"
 description: "Frequently Asked Questions"
 ---
 
-### È possibile escludere specifici percorsi o indirizzi IP dalla protezione del WAF?
+### Can specific paths or IP addresses be excluded from WAF protection?
 
-Sì, è possibile configurare esclusioni per specifici percorsi (path) oppure utilizzare espressioni regolari per definire le aree da escludere. Questa opzione permette di evitare che il filtro interferisca con servizi interni o critici.
+Yes, you can configure exclusions for specific paths or use regular expressions to define areas to be excluded. This option prevents the filter from interfering with internal or critical services.
 
-### Qual è l'indirizzo IP utilizzato dalla CDN del Cloud Defender?
+### What is the IP address used by the Cloud Defender CDN?
 
-Per garantire una sicurezza ottimale ed evitare un bypass del WAF, è possibile configurare il filtro in modo che accetti richieste esclusivamente dalla nostra CDN. L'indirizzo IP da utilizzare in whitelist è 34.110.162.74 (secure.aegister.com).
+To ensure optimal security and prevent WAF bypass, you can configure the filter to accept requests exclusively from our CDN. The IP address to whitelist is 34.110.162.74 (secure.aegister.com).
 
-### È possibile effettuare un downgrade da HTTPS a HTTP tra il WAF e il sito protetto?
+### Is it possible to downgrade from HTTPS to HTTP between the WAF and the protected site?
 
-Sì, è possibile prevedere un downgrade della sessione da HTTPS a HTTP tra il WAF e il sito protetto, anche se questa soluzione non è considerata la migliore in termini di sicurezza.
+Yes, a downgrade from HTTPS to HTTP between the WAF and the protected site is possible, although this approach is not considered best practice in terms of security.
 
-### Quali vantaggi offre il Cloud Defender rispetto ad altre soluzioni come AWS Cloudfront + WAF?
+### What advantages does Cloud Defender offer compared to solutions like AWS Cloudfront + WAF?
 
-Il Cloud Defender offre funzionalità classiche quali mascheramento degli IP, protezione DDoS, WAF tradizionale e caching. La sua principale differenziazione risiede nella capacità di bloccare automaticamente il traffico proveniente da fonti malevoli grazie ai dati di threat intelligence di [OneFirewall](https://onefirewall.com/intelligence.html). Ad esempio, se un attaccante viene identificato durante un attacco su un altro target, il sistema impedirà l'accesso da quella stessa origine anche al tuo sito.
+Cloud Defender provides traditional features such as IP masking, DDoS protection, a conventional WAF, and caching. Its key differentiator is its ability to automatically block traffic from malicious sources using threat intelligence data from [OneFirewall](https://onefirewall.com/intelligence.html). For example, if an attacker is identified during an attack on another target, the system will block access from that same source to your site.

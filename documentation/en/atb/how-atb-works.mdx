@@ -1,45 +1,45 @@
 ---
-title: "Come Funziona"
-description: "Guida al funzionamento di ATB: modalità in serie e in parallelo per soddisfare le diverse esigenze di protezione perimetrale."
+title: "How It Works"
+description: "A guide to ATB operation: series and parallel modes designed to meet diverse perimeter protection needs."
 ---
 
-Aegister Threat Blocker (ATB) è un dispositivo flessibile che può essere configurato in due modalità per rispondere a differenti esigenze di protezione perimetrale.
+Aegister Threat Blocker (ATB) is a versatile device that can be configured in two modes to address different perimeter security requirements.
 
-## 1. Modalità In Serie
+## 1. Series Mode
 
-La modalità **in serie** è la soluzione consigliata per i clienti che non dispongono di altri dispositivi di protezione perimetrale. In questo scenario:
+Series mode is the recommended solution for customers who do not have any other perimeter protection devices. In this scenario:
 
-- **Posizionamento:**  
-  ATB viene configurato in serie al gateway aziendale, fungendo da **firewall principale**.
+- **Placement:**  
+  ATB is deployed in line with the corporate gateway, acting as the **primary firewall**.
 
-- **Configurazione:**  
-  Il dispositivo viene configurato come un sistema basato su **PFSense**, includendo:
-  - Le regole di sicurezza necessarie per la protezione aziendale.
-  - La threat intelligence di Aegister per l'analisi in tempo reale delle minacce.
-  - Una VPN integrata per consentire l’accesso remoto, indispensabile per operazioni di manutenzione e aggiornamento.
+- **Configuration:**  
+  The device is set up as a PFSense-based system, incorporating:
+  - The necessary security rules for comprehensive enterprise protection.
+  - Aegister’s threat intelligence for real-time threat analysis.
+  - An integrated VPN to facilitate remote access, which is essential for maintenance and updates.
 
-Questa configurazione centralizza la protezione, rendendo ATB il punto nevralgico per il controllo e la sicurezza del traffico.
+This configuration centralizes security, making ATB the pivotal point for traffic control and protection.
 
-## 2. Modalità In Parallelo
+## 2. Parallel Mode
 
-La modalità **in parallelo** è la configurazione più comune per le aziende che già dispongono di un firewall esistente (ad esempio, Sophos, Fortigate, SonicWall). In questo caso:
+Parallel mode is the most common configuration for organizations that already have an existing firewall (e.g., Sophos, Fortigate, SonicWall). In this case:
 
-- **Posizionamento:**  
-  ATB viene implementato in parallelo al firewall principale.
+- **Placement:**  
+  ATB is implemented alongside the main firewall.
 
-- **Funzionalità:**  
-  In questa modalità, il dispositivo svolge un duplice ruolo:
-  - **Fornitura di Threat Intelligence:**  
-    ATB invia aggiornamenti e informazioni sulla sicurezza al firewall principale, potenziando le capacità di rilevamento e prevenzione delle minacce.
-  - **Mirroring dei Log (Opzionale):**  
-    Può effettuare il mirroring dei log, consentendo di visualizzare nella Aegister Cyber Console gli ultimi 100k eventi e gli IP bloccati dalla nostra threat intelligence. Questa funzione offre una visibilità dettagliata e un controllo avanzato delle attività di sicurezza.
-  - **VPN integrata:**
-    Per consentire l’accesso remoto, indispensabile per operazioni di manutenzione e aggiornamento.
+- **Functionality:**  
+  In parallel mode, the device serves a dual purpose:
+  - **Provision of Threat Intelligence:**  
+    ATB delivers security updates and threat information to the primary firewall, enhancing its detection and prevention capabilities.
+  - **Optional Log Mirroring:**  
+    It can mirror logs, allowing the Aegister Cyber Console to display the latest 100k events and the IP addresses blocked by our threat intelligence. This feature provides detailed visibility and advanced control over security operations.
+  - **Integrated VPN:**  
+    Ensures remote access for essential maintenance and updates.
 
-## Conclusioni
+## Conclusion
 
-ATB può essere configurato in base alle specifiche esigenze dell'azienda:
-- **Modalità in serie:** Ideale per una protezione integrata e centralizzata, in assenza di altri dispositivi perimetrali.
-- **Modalità in parallelo:** Ottimale per integrare le capacità avanzate di ATB con un firewall già esistente, migliorando la sicurezza e il monitoraggio tramite mirroring dei log.
+ATB can be configured to meet the specific needs of your organization:
+- **Series Mode:** Ideal for a centralized, integrated security solution when no other perimeter devices are present.
+- **Parallel Mode:** Best suited for augmenting an existing firewall with ATB’s advanced capabilities, enhancing security and monitoring through log mirroring.
 
-Scegli la modalità più adatta al tuo ambiente per sfruttare al meglio le potenzialità di Aegister Threat Blocker.
+Choose the mode that best fits your environment to fully leverage the potential of the Aegister Threat Blocker.
