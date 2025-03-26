@@ -19,14 +19,14 @@
         "language": "it",
         "tabs": [
           {
-            "tab": "Documentation",
+            "tab": "Documentazione",
             "groups": [
               {
                 "group": "Aegister S.p.A.",
                 "pages": [
-                  "introduction",
-                  "services",
-                  "faq"
+                  "documentation/it/introduzione",
+                  "documentation/it/servizi",
+                  "documentation/it/faq"
                 ]
               },
               {
@@ -230,9 +230,9 @@
               {
                 "group": "Aegister S.p.A.",
                 "pages": [
-                  "introduction",
-                  "services",
-                  "faq"
+                  "documentation/en/introduction",
+                  "documentation/en/services",
+                  "documentation/en/faq"
                 ]
               },
               {
