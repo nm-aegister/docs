@@ -1,0 +1,20 @@
+---
+title: "FAQs"
+description: "Frequently Asked Questions"
+---
+
+### È possibile escludere specifici percorsi o indirizzi IP dalla protezione del WAF?
+
+Sì, è possibile configurare esclusioni per specifici percorsi (path) oppure utilizzare espressioni regolari per definire le aree da escludere. Questa opzione permette di evitare che il filtro interferisca con servizi interni o critici.
+
+### Qual è l'indirizzo IP utilizzato dalla CDN del Cloud Defender?
+
+Per garantire una sicurezza ottimale ed evitare un bypass del WAF, è possibile configurare il filtro in modo che accetti richieste esclusivamente dalla nostra CDN. L'indirizzo IP da utilizzare in whitelist è 34.110.162.74 (secure.aegister.com).
+
+### È possibile effettuare un downgrade da HTTPS a HTTP tra il WAF e il sito protetto?
+
+Sì, è possibile prevedere un downgrade della sessione da HTTPS a HTTP tra il WAF e il sito protetto, anche se questa soluzione non è considerata la migliore in termini di sicurezza.
+
+### Quali vantaggi offre il Cloud Defender rispetto ad altre soluzioni come AWS Cloudfront + WAF?
+
+Il Cloud Defender offre funzionalità classiche quali mascheramento degli IP, protezione DDoS, WAF tradizionale e caching. La sua principale differenziazione risiede nella capacità di bloccare automaticamente il traffico proveniente da fonti malevoli grazie ai dati di threat intelligence di [OneFirewall](https://onefirewall.com/intelligence.html). Ad esempio, se un attaccante viene identificato durante un attacco su un altro target, il sistema impedirà l'accesso da quella stessa origine anche al tuo sito.
