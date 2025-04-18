@@ -60,6 +60,7 @@ Seguire i seguenti passaggi:
 3. **Configurazione delle Regole di Sicurezza:**  
    - Crea o modifica le regole del firewall per bloccare il traffico verso o proveniente dagli IP elencati nella blacklist.  
    - In molti casi, sarà necessario configurare almeno due regole: una per il traffico in ingresso e una per il traffico in uscita, impostando l'azione su "Deny" o "Block".
+   - ** Comunica i nomi utilizzati per le Regole del Firewall ad Aegister in modo da tener correttamente traccia delle richieste bloccate dalle nostre regole.**
 
 4. **Impostazioni Avanzate e Sicurezza della Connessione:**  
    - Se il firewall supporta il download automatico della blacklist, configura l'aggiornamento periodico del file.  
@@ -130,10 +131,9 @@ Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi det
 
    IP_ATB_LOCALE è riscontrabile all'interno della [Aegister Cyber Console - ATB](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/) come indicato al punto 3 oppure tramite il vostro Firewall.
 
-4. **Configurazione del Certificato:**
-   Se la tua configurazione richiede HTTPS, fornisci un certificato da installare sulla macchina oppure possiamo installare un certificato self signed per garantire una connessione sicura.
+   **Dopo aver impostato le regole comunicare al team Aegister i nomi delle Firewall Rule utilizzate.**
 
-5. **Impostazione delle Regole e Limite degli Oggetti (Team Aegister)**
+4. **Impostazione Limite degli Oggetti (Team Aegister)**
    Accedere alla pagina della Cyber Console relativa all'ATB, cliccare su "Configuration" e verificare che il campo "maximum_rules" abbia un valore pari a 1999 (per ovviare ad un limite del Botnet Filter del SonicOS):
    ```json
    "maximum_rules": 1999
@@ -142,15 +142,30 @@ Se il tuo ambiente utilizza un firewall Sonicwall, segui i seguenti passaggi det
 
    ![ATB Settings](/images/atb-settings.png)
 
-6. **Verifica della Configurazione:**
+5. **Verifica della Configurazione:**
    Dopo aver completato la configurazione, verifica che il botnet filter scarichi correttamente gli IP e che venga visualizzato il simbolo di spunta verde ✅, indicante il corretto aggiornamento della blacklist.
 
-7. **Abilitazione dei Log e Mirroring del Traffico:**  
+6. **Abilitazione dei Log e Mirroring del Traffico:**  
    Configura il mirroring del traffico wan-lan su IP_LOCALE_ATB:514 (UDP) sul dispositivo ATB. I log grezzi vengono inviati automaticamente ad [app.aegister.com](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/). Se i log non vengono visualizzati, il team Aegister interverrà repentinamente per identificare e correggere eventuali errori nel parsing.
 
    Per ulteriori dettagli sulla configurazione del Packet Mirroring su dispositivi SonicWall, consulta la documentazione ufficiale di SonicOS disponibile a questo [link](https://www.sonicwall.com/support/knowledge-base/configuring-packet-mirroring/170504587646444).
 
-   Il Log Mirroring è una funzione opzionale, attivabile a discrezione del cliente. Essa consente di inviare i log del firewall alla dashboard di Aegister che memorizza gli ultimi 100k eventi, offrendo una rappresentazione visiva e tabellare, in tempo reale, degli eventi di traffico con un focus specifico sugli indirizzi IP del traffico in ingresso che in uscita che vengono bloccati in conformità con le analisi della nostra Threat Intelligence.
+   Il Log Mirroring è una funzione opzionale, attivabile a discrezione del cliente. Essa consente di inviare i Syslog del firewall alla dashboard di Aegister che memorizza gli ultimi 10m di eventi, offrendo una rappresentazione visiva e tabellare, in tempo reale, degli eventi di traffico con un focus specifico sugli indirizzi IP del traffico in ingresso che in uscita che vengono bloccati in conformità con le analisi della nostra Threat Intelligence.
+
+---
+
+## Distribuzione Multi-Firewall
+
+Nel caso di una distribuzione con più firewall, è possibile configurare tutti i dispositivi affinché puntino allo stesso ATB per il filtraggio della botnet.  
+L’unica differenza riguarda il **Log Mirroring**: ogni firewall deve inviare i log su una **porta UDP diversa** verso l’ATB.
+
+Esempio di configurazione con tre firewall:
+
+- Firewall 1 → UDP/514  
+- Firewall 2 → UDP/515  
+- Firewall 3 → UDP/516
+
+Assicurati che ciascun firewall utilizzi una porta dedicata per il mirroring, in modo da mantenere separati i flussi di log per un monitoraggio accurato e una diagnostica efficace.
 
 ---
 

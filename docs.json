@@ -71,7 +71,7 @@
             ]
           },
           {
-            "tab": "API Reference",
+            "tab": "API Docs",
             "groups": [
               {
                 "group": "API Documentation",
@@ -215,6 +215,17 @@
                       "api-reference/vpn/delete-api-v1-vpn"
                     ]
                   }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Manuale Interno",
+            "groups": [
+              {
+                "group": "Manuale Interno",
+                "pages": [
+                  "handbook/it/introduzione"
                 ]
               }
             ]
@@ -421,6 +432,17 @@
                       "api-reference/vpn/delete-api-v1-vpn"
                     ]
                   }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Handbook",
+            "groups": [
+              {
+                "group": "Aegister S.p.A.",
+                "pages": [
+                  "handbook/en/introduction"
                 ]
               }
             ]
