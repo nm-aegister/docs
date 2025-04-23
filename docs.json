@@ -227,7 +227,13 @@
                 "pages": [
                   "handbook/it/introduzione"
                 ]
-              }
+              },
+              {
+                "group": "HR & Careers",
+                "pages": [
+                  "handbook/it/hr/hr-careers"                  
+                ]
+              }              
             ]
           }
         ]    
@@ -443,6 +449,12 @@
                 "group": "Aegister S.p.A.",
                 "pages": [
                   "handbook/en/introduction"
+                ]
+              },
+              {
+                "group": "HR & Careers",
+                "pages": [
+                  "handbook/en/hr/hr-careers"                  
                 ]
               }
             ]
