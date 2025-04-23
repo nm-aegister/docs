@@ -1,0 +1,32 @@
+---
+title: 👨‍💻 Developer Experience & Infrastructure
+description: 'Gli strumenti che utilizziamo per fornire i nostri prodotti/servizi'
+---
+
+### Missione
+
+Gestiamo internamente o costruiamo e manteniamo i nostri strumenti di sviluppo, infrastruttura e documentazione per migliorare la produttività e la soddisfazione degli sviluppatori che lavorano con la nostra piattaforma. Garantiamo inoltre che i prodotti Aegister siano facili da distribuire fornendo documentazione chiara, guide al deployment e strumenti infrastrutturali.
+
+### Strumenti che utilizziamo
+
+#### GitLab
+Utilizzato per il versionamento del codice, pipeline CI/CD e sviluppo collaborativo su tutti i progetti interni e rivolti ai clienti.
+
+#### Google Cloud
+Il nostro principale fornitore cloud, usato per:
+
+- **Kubernetes**: Per l'orchestrazione dei container e il deployment scalabile.
+- **Postgres**: Servizi di database relazionali gestiti.
+- **Storage**: Per l'archiviazione di dati applicativi, log e backup.
+
+#### Cloudflare
+Utilizzato per l'hosting del sito pubblico, applicazione di policy di rate limiting.
+
+#### Keycloak
+Soluzione open-source per la gestione delle identità e degli accessi (IAM) che fornisce Single Sign-On (SSO), federazione degli utenti e controllo degli accessi basato sui ruoli. In Aegister, Keycloak viene utilizzato per gestire l'autenticazione tra i nostri servizi, garantendo una gestione centralizzata e sicura degli utenti.
+
+#### Activepieces
+Strumento open-source per l'automazione dei workflow che consente di creare flussi di lavoro automatizzati integrando diversi servizi e API. Aegister utilizza Activepieces per automatizzare attività ripetitive e integrare processi guidati dall'AI, migliorando l'efficienza operativa.
+
+#### Sentry
+Piattaforma per il monitoraggio e il tracciamento degli errori in tempo reale che aiuta gli sviluppatori a identificare, diagnosticare e risolvere problemi nelle applicazioni. In Aegister, Sentry è integrato nei nostri sistemi per monitorare le performance, rilevare eccezioni e ottenere insight utili al miglioramento continuo dell’esperienza utente.

@@ -233,7 +233,19 @@
                 "pages": [
                   "handbook/it/hr/hr-careers"                  
                 ]
-              }              
+              },             
+              {
+                "group": "Operations",
+                "pages": [
+                  "handbook/it/operations/devops-infrastructure"                  
+                ]
+              },
+              {
+                "group": "Policies",
+                "pages": [
+                  "handbook/it/policies/comunicazione"
+                ]
+              }        
             ]
           }
         ]    
@@ -455,6 +467,18 @@
                 "group": "HR & Careers",
                 "pages": [
                   "handbook/en/hr/hr-careers"                  
+                ]
+              },
+              {
+                "group": "Operations",
+                "pages": [
+                  "handbook/en/operations/devops-infrastructure"                  
+                ]
+              },
+              {
+                "group": "Policies",
+                "pages": [
+                  "handbook/en/policies/communication"                  
                 ]
               }
             ]
