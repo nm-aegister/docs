@@ -1,0 +1,13 @@
+---
+title: Associate Workflow to Organization
+sidebarTitle: Associate Workflow
+openapi: post /api/v1/organizations/{organizationid}/workflows/{workflowid}
+---
+
+Associates a workflow (by ID) to an organization.
+
+**Path params**
+- `organizationid` — Organization ID
+- `workflowid` — Workflow ID
+
+The request may include a `name` field to store a human-friendly workflow name.

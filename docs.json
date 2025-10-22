@@ -116,13 +116,18 @@
                     ]
                   },
                   {
-                    "group": "Cyber Assurance",
+                    "group": "V-CISO",
                     "pages": [
                       "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks-list",
                       "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks",
                       "api-reference/cyber-assurance/post-api-v1-cyber-assurance-security-frameworks",
                       "api-reference/cyber-assurance/put-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/delete-api-v1-cyber-assurance-security-frameworks"
+                      "api-reference/cyber-assurance/delete-api-v1-cyber-assurance-security-frameworks",
+                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows",
+                      "api-reference/cyber-assurance/post-api-v1-organizations-workflows",
+                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows",
+                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-evaluations",
+                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations"
                     ]
                   },
                   {
@@ -351,13 +356,18 @@
                     ]
                   },
                   {
-                    "group": "Cyber Assurance",
+                    "group": "V=CISO",
                     "pages": [
                       "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks-list",
                       "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks",
                       "api-reference/cyber-assurance/post-api-v1-cyber-assurance-security-frameworks",
                       "api-reference/cyber-assurance/put-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/delete-api-v1-cyber-assurance-security-frameworks"
+                      "api-reference/cyber-assurance/delete-api-v1-cyber-assurance-security-frameworks",
+                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows",
+                      "api-reference/cyber-assurance/post-api-v1-organizations-workflows",
+                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows",
+                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-evaluations",
+                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations"
                     ]
                   },
                   {
