@@ -140,11 +140,14 @@ If your environment uses a SonicWall firewall, follow these steps based on the [
 5.	Verify the Configuration
    After completing the configuration, verify that the botnet filter correctly downloads the IPs and shows a green checkmark ✅ indicating the blacklist is properly updated.
 
-6.	Enable Log Mirroring and Traffic Monitoring
-   Configure traffic mirroring from WAN to LAN to <LOCAL_ATB_IP>:514 (UDP) on the ATB device. Raw logs are automatically sent to [the Aegister Cyber Console](app.aegister.com).
+6. Enable Log Mirroring and Traffic Monitoring  
+   Configure traffic mirroring from WAN to LAN to `<LOCAL_ATB_IP>`:514 (UDP) on the ATB device. Raw logs are automatically sent to [the Aegister Cyber Console](https://app.aegister.com).
+   
    If logs are not displayed, the Aegister team will promptly investigate and correct any parsing issues.
+
    For more information on setting up Packet Mirroring on SonicWall devices, refer to the [SonicOS documentation](https://www.sonicwall.com/support/knowledge-base/configuring-packet-mirroring/170504587646444).
-   Optional: Log Mirroring is an optional feature that can be enabled at the client’s discretion. It allows sending Syslog traffic from the firewall to the Aegister dashboard, which stores the last 10 million events and provides real-time visual and tabular traffic analytics. These logs focus on both inbound and outbound IPs blocked by our Threat Intelligence system.
+
+   **Optional:** Log Mirroring is an optional feature that can be enabled at the client’s discretion. It allows sending Syslog traffic from the firewall to the Aegister dashboard, which stores the last 10 million events and provides real-time visual and tabular traffic analytics. These logs focus on both inbound and outbound IPs blocked by our Threat Intelligence system.
 
 ⸻
 
