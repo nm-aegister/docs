@@ -1,0 +1,21 @@
+---
+title: Workflow Webhook Proxy
+sidebarTitle: Workflow Webhook
+openapi: get /api/v1/organizations/{organizationid}/workflows/{workflowid}/proxy
+---
+
+Fetch workflow data and questions through Aegister's proxy.
+
+**Path params**
+- `organizationid` — Organization ID  
+- `workflowid` — Workflow ID
+
+**Query params**
+- `action` *(optional)* — forwarded upstream (defaults to `get_framework`)  
+- Any **custom** key/value pairs — forwarded upstream as-is  
+- `organization_id` is injected from the path automatically if you don’t provide it
+
+**Example**
+```bash
+curl -H "X-Aegister-Token: <TOKEN>" \
+  "https://app.aegister.com/api/v1/organizations/7/workflows/WfI1ZG8MdmAVowB7Av2w6/proxy?action=get_framework"

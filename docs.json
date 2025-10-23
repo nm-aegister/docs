@@ -127,7 +127,9 @@
                       "api-reference/cyber-assurance/post-api-v1-organizations-workflows",
                       "api-reference/cyber-assurance/delete-api-v1-organizations-workflows",
                       "api-reference/cyber-assurance/get-api-v1-organizations-workflows-evaluations",
-                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations"
+                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations",
+                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-proxy"
+
                     ]
                   },
                   {
@@ -367,7 +369,8 @@
                       "api-reference/cyber-assurance/post-api-v1-organizations-workflows",
                       "api-reference/cyber-assurance/delete-api-v1-organizations-workflows",
                       "api-reference/cyber-assurance/get-api-v1-organizations-workflows-evaluations",
-                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations"
+                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations",
+                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-proxy"
                     ]
                   },
                   {
