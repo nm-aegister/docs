@@ -1,0 +1,35 @@
+---
+title: "Come Funziona"
+description: "Scopri il funzionamento del sistema Cloud Defender, che integra Cloud WAF e OneFirewall Threat Prevention per analizzare e proteggere il traffico web."
+---
+
+# Come Funziona Aegister Cloud Defender
+
+Aegister Cloud Defender garantisce la sicurezza delle applicazioni web analizzando in tempo reale il traffico in ingresso. Il processo si articola in diverse fasi chiave:
+
+![How it works](/images/cloud-defender-how.png)
+
+## Connessione e Integrazione
+
+- Il dominio **secure.aegister.com** è collegato al Cloud Defender tramite l'indirizzo **Cloud_External_IP_Address**.
+- Il sistema integra le soluzioni **Cloud WAF** e **OneFirewall Threat Prevention**, offrendo una protezione multilivello contro le minacce.
+
+## Gestione delle Richieste
+
+- Quando un client effettua una richiesta, ad esempio verso **client1.domain1.com**:
+  - **client1.domain1.com** è configurato come **CNAME di secure.aegister.com**.
+  - La richiesta include informazioni critiche, come l'indirizzo IP di origine e l'header **X-Forwarded-For**, che forniscono dettagli sul percorso del traffico.
+
+## Analisi del Traffico
+
+- Il traffico del cliente attraversa il Cloud Defender (rappresentato dallo **"tunnel azzurro"** nello schema), dove viene sottoposto a:
+  - **Analisi basata su Threat Intelligence:** Le regole WAF, costantemente aggiornate, valutano il rischio associato alla richiesta.
+  - **Valutazione del traffico:** Vengono generate richieste verso i domini o gli hostname dei clienti, per verificare l'origine e l'autenticità del traffico.
+
+## Decisione e Azione
+
+- In base all'analisi:
+  - Se il traffico è considerato sicuro, viene **consentito** l'accesso all'endpoint associato a **client1.domain1.com**.
+  - Se viene rilevato un livello di rischio elevato o un IP malevolo, il sistema **blocca automaticamente** la richiesta, impedendo l'accesso.
+
+Questo processo assicura che solo il traffico legittimo raggiunga le applicazioni web, proteggendo in modo dinamico ed efficace i clienti da eventuali minacce informatiche.

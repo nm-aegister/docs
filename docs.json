@@ -10,9 +10,9 @@
   "favicon": "/favicon.png",
   "integrations": {
     "ga4": {
-        "measurementId": "G-65HW0KZ4C7"
+      "measurementId": "G-65HW0KZ4C7"
     }
-  },  
+  },
   "navigation": {
     "languages": [
       {
@@ -81,181 +81,327 @@
                 ]
               },
               {
-                "group": "Endpoints",
+                "group": "V-CISO",
                 "pages": [
                   {
-                    "group": "Aegister Threat Blocker",
+                    "group": "Incidents",
                     "pages": [
-                      {
-                        "group": "ATB",
-                        "pages": [
-                          "api-reference/atb/get-api-v1-atb-list",
-                          "api-reference/atb/get-api-v1-atb",
-                          "api-reference/atb/post-api-v1-atb",
-                          "api-reference/atb/put-api-v1-atb",
-                          "api-reference/atb/delete-api-v1-atb"
-                        ]
-                      },
-                      {
-                        "group": "Traffic Logs",
-                        "pages": [
-                          "api-reference/atb/get-api-v1-atb-traffic",
-                          "api-reference/atb/post-api-v1-atb-traffic"
-                        ]
-                      }
+                      "api-reference/v-ciso/list-incidents",
+                      "api-reference/v-ciso/get-incident",
+                      "api-reference/v-ciso/create-incident",
+                      "api-reference/v-ciso/update-incident",
+                      "api-reference/v-ciso/delete-incident"
                     ]
                   },
                   {
-                    "group": "Cloud Defender",
+                    "group": "Incident Attachments",
                     "pages": [
-                      "api-reference/cloud-defender/get-api-v1-cloud-defender-list",
-                      "api-reference/cloud-defender/get-api-v1-cloud-defender",
-                      "api-reference/cloud-defender/post-api-v1-cloud-defender",
-                      "api-reference/cloud-defender/put-api-v1-cloud-defender",
-                      "api-reference/cloud-defender/delete-api-v1-cloud-defender"
+                      "api-reference/v-ciso/list-incident-attachments",
+                      "api-reference/v-ciso/download-incident-attachment",
+                      "api-reference/v-ciso/upload-incident-attachment",
+                      "api-reference/v-ciso/delete-incident-attachment"
                     ]
                   },
                   {
-                    "group": "V-CISO",
+                    "group": "Incident Utilities",
                     "pages": [
-                      "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks-list",
-                      "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/post-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/put-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/delete-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows",
-                      "api-reference/cyber-assurance/post-api-v1-organizations-workflows",
-                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows",
-                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-evaluations",
-                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations",
-                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-proxy"
-
+                      "api-reference/incidents/get-incident-taxonomy",
+                      "api-reference/v-ciso/enrich-incident-with-threat-intelligence",
+                      "api-reference/v-ciso/generate-incident-report-template"
                     ]
                   },
                   {
-                    "group": "Documents",
+                    "group": "Security Frameworks",
                     "pages": [
-                      "api-reference/documents/get-api-v1-documents"
+                      "api-reference/v-ciso/list-security-frameworks",
+                      "api-reference/v-ciso/get-security-framework",
+                      "api-reference/v-ciso/create-security-framework",
+                      "api-reference/v-ciso/update-security-framework",
+                      "api-reference/v-ciso/delete-security-framework"
                     ]
                   },
                   {
-                    "group": "Notifications",
+                    "group": "Workflows",
                     "pages": [
-                      "api-reference/notifications/get-api-v1-notifications",
-                      "api-reference/notifications/put-api-v1-notifications"
-                    ]
-                  },
-                  {
-                    "group": "Organizations",
-                    "pages": [
-                      {
-                        "group": "Organization",
-                        "pages": [
-                          "api-reference/organizations/get-api-v1-organizations-list",
-                          "api-reference/organizations/get-api-v1-organizations",
-                          "api-reference/organizations/post-api-v1-organizations",
-                          "api-reference/organizations/put-api-v1-organizations",
-                          "api-reference/organizations/delete-api-v1-organizations"
-                        ]
-                      },
-                      {
-                        "group": "Users",
-                        "pages": [
-                          "api-reference/organizations/get-api-v1-organizations-users",
-                          "api-reference/organizations/post-api-v1-organizations-users",
-                          "api-reference/organizations/put-api-v1-organizations-users",
-                          "api-reference/organizations/delete-api-v1-organizations-users"
-                        ]
-                      },
-                      {
-                        "group": "Security Frameworks",
-                        "pages": [
-                          "api-reference/organizations/get-api-v1-organizations-security-frameworks-list",
-                          "api-reference/organizations/get-api-v1-organizations-security-frameworks",
-                          "api-reference/organizations/post-api-v1-organizations-security-frameworks",
-                          "api-reference/organizations/post-api-v1-organizations-security-frameworks-documents",
-                          "api-reference/organizations/put-api-v1-organizations-security-frameworks",
-                          "api-reference/organizations/delete-api-v1-organizations-security-frameworks"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Perimeter Protection",
-                    "pages": [
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-domain-list",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-domain",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-file",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-ip-list",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-ip",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-url"
-                    ]
-                  },
-                  {
-                    "group": "Search",
-                    "pages": [
-                      "api-reference/search/get-api-v1-search"
-                    ]
-                  },
-                  {
-                    "group": "Assessments",
-                    "pages": [
-                      "api-reference/assessments/get-api-v1-assessments-list",
-                      "api-reference/assessments/get-api-v1-assessments"
-                    ]
-                  },
-                  {
-                    "group": "Log Analysis",
-                    "pages": [
-                      "api-reference/log-analysis/get-api-v1-log-analysis-list",
-                      "api-reference/log-analysis/get-api-v1-log-analysis",
-                      "api-reference/log-analysis/post-api-v1-log-analysis",
-                      "api-reference/log-analysis/delete-api-v1-log-analysis"
-                    ]
-                  },
-                  {
-                    "group": "VPN",
-                    "pages": [
-                      "api-reference/vpn/get-api-v1-vpn-list",
-                      "api-reference/vpn/get-api-v1-vpn",
-                      "api-reference/vpn/post-api-v1-vpn",
-                      "api-reference/vpn/delete-api-v1-vpn"
+                      "api-reference/v-ciso/list-workflow-associations"
                     ]
                   }
                 ]
+              },
+              {
+                "group": "Aegister Threat Blocker",
+                "pages": [
+                  {
+                    "group": "ATB Devices",
+                    "pages": [
+                      "api-reference/atb/list-threat-blocker-configurations",
+                      "api-reference/atb/get-threat-blocker-configuration",
+                      "api-reference/atb/create-threat-blocker-configuration",
+                      "api-reference/atb/update-threat-blocker-configuration",
+                      "api-reference/atb/delete-threat-blocker-configuration"
+                    ]
+                  },
+                  {
+                    "group": "Store Window",
+                    "pages": [
+                      "api-reference/atb/get-atb-store-window",
+                      "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device",
+                      "api-reference/atb/post-atb-store-window",
+                      "api-reference/atb/upload-threat-blocker-traffic-v2"
+                    ]
+                  },
+                  {
+                    "group": "Traffic Logs",
+                    "pages": [
+                      "api-reference/atb/list-threat-blocker-traffic-logs",
+                      "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+                      "api-reference/atb/upload-threat-blocker-traffic-logs",
+                      "api-reference/atb/upload-threat-blocker-traffic-v2-1"
+                    ]
+                  },
+                  {
+                    "group": "Traffic Statistics",
+                    "pages": [
+                      "api-reference/atb/get-threat-blocker-traffic-statistics",
+                      "api-reference/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
+                      "api-reference/atb/blocked-requests-over-the-last-7-days",
+                      "api-reference/atb/most-blocked-source-ips",
+                      "api-reference/atb/traffic-stats-per-crime-level"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Cloud Defender",
+                "pages": [
+                  {
+                    "group": "Devices",
+                    "pages": [
+                      "api-reference/cloud-defender/list-cloud-defender-configurations",
+                      "api-reference/cloud-defender/get-cloud-defender-configuration",
+                      "api-reference/cloud-defender/create-cloud-defender-configuration",
+                      "api-reference/cloud-defender/update-cloud-defender-configuration",
+                      "api-reference/cloud-defender/delete-cloud-defender-configuration"
+                    ]
+                  },
+                  {
+                    "group": "Traffic",
+                    "pages": [
+                      "api-reference/cloud-defender/get-cloud-defender-traffic-logs",
+                      "api-reference/cloud-defender/upload-cloud-defender-traffic-logs"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Organizations",
+                "pages": [
+                  {
+                    "group": "Organization",
+                    "pages": [
+                      "api-reference/organizations/list-organizations",
+                      "api-reference/organizations/get-organization",
+                      "api-reference/organizations/create-organization",
+                      "api-reference/organizations/update-organization",
+                      "api-reference/organizations/delete-organization"
+                    ]
+                  },
+                  {
+                    "group": "Branding",
+                    "pages": [
+                      "api-reference/organizations/get-organization-branding",
+                      "api-reference/organizations/upload-organization-logo",
+                      "api-reference/organizations/update-organization-branding",
+                      "api-reference/organizations/delete-organization-logo"
+                    ]
+                  },
+                  {
+                    "group": "Users",
+                    "pages": [
+                      "api-reference/organizations/list-organization-users",
+                      "api-reference/organizations/add-user-to-organization",
+                      "api-reference/organizations/update-organization-user-role",
+                      "api-reference/organizations/remove-user-from-organization"
+                    ]
+                  },
+                  {
+                    "group": "Security Frameworks",
+                    "pages": [
+                      "api-reference/organizations/list-organization-security-framework-implementations",
+                      "api-reference/organizations/get-organization-security-framework-implementation",
+                      "api-reference/organizations/associate-security-framework-to-organization",
+                      "api-reference/organizations/upload-document-for-security-framework-self-evaluation",
+                      "api-reference/organizations/update-organization-security-framework-implementation",
+                      "api-reference/organizations/delete-organization-security-framework-implementation"
+                    ]
+                  },
+                  {
+                    "group": "Subscriptions",
+                    "pages": [
+                      "api-reference/organizations/list-organization-subscriptions",
+                      "api-reference/organizations/create-organization-subscription",
+                      "api-reference/organizations/update-organization-subscription",
+                      "api-reference/organizations/delete-organization-subscription"
+                    ]
+                  },
+                  {
+                    "group": "Stripe",
+                    "pages": [
+                      "api-reference/organizations/list-stripe-products",
+                      "api-reference/organizations/list-stripe-subscriptions",
+                      "api-reference/organizations/create-stripe-payment-intent",
+                      "api-reference/organizations/update-stripe-subscription",
+                      "api-reference/organizations/cancel-stripe-payment-intent"
+                    ]
+                  },
+                  {
+                    "group": "Workflows",
+                    "pages": [
+                      "api-reference/organizations/get-organization-workflow-associations",
+                      "api-reference/cyber-assurance-•-workflows/proxy:-fetch-workflow-data-get-only",
+                      "api-reference/organizations/get-apiv1organizations-workflows-",
+                      "api-reference/cyber-assurance-•-workflows/associate-workflow-to-organization",
+                      "api-reference/organizations/post-apiv1organizations-workflows-",
+                      "api-reference/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
+                    ]
+                  },
+                  {
+                    "group": "Workflow Evaluations",
+                    "pages": [
+                      "api-reference/organizations/list-workflow-evaluations",
+                      "api-reference/organizations/create-workflow-evaluation",
+                      "api-reference/organizations/update-workflow-evaluation",
+                      "api-reference/organizations/delete-workflow-evaluations"
+                    ]
+                  },
+                  {
+                    "group": "Workflow Documents",
+                    "pages": [
+                      "api-reference/cyber-assurance-•-documents/list-document-versions-for-an-artifact",
+                      "api-reference/cyber-assurance-•-documents/download-a-document-version",
+                      "api-reference/cyber-assurance-•-documents/upload-a-new-document-version"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Documents",
+                "pages": [
+                  "api-reference/documents/download-document"
+                ]
+              },
+              {
+                "group": "Notifications",
+                "pages": [
+                  "api-reference/notifications/list-notifications",
+                  "api-reference/notifications/mark-notifications-as-read"
+                ]
+              },
+              {
+                "group": "Assessments",
+                "pages": [
+                  {
+                    "group": "Assessments",
+                    "pages": [
+                      "api-reference/assessments/list-assessments",
+                      "api-reference/assessments/get-assessment"
+                    ]
+                  },
+                  {
+                    "group": "Assessment Templates",
+                    "pages": [
+                      "api-reference/assessments/list-assessment-templates",
+                      "api-reference/assessments/get-assessment-template",
+                      "api-reference/assessments/create-assessment-template",
+                      "api-reference/assessments/update-assessment-template",
+                      "api-reference/assessments/delete-assessment-template"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Log Analysis",
+                "pages": [
+                  "api-reference/log-analysis/list-log-analyses",
+                  "api-reference/log-analysis/get-log-analysis",
+                  "api-reference/log-analysis/create-log-analysis",
+                  "api-reference/log-analysis/delete-log-analysis"
+                ]
+              },
+              {
+                "group": "Perimeter Protection",
+                "pages": [
+                  "api-reference/perimeter-protection/get-threat-intelligence-ip-list",
+                  "api-reference/perimeter-protection/check-ip-threat-intelligence",
+                  "api-reference/perimeter-protection/check-url-threat-intelligence",
+                  "api-reference/perimeter-protection/get-threat-intelligence-domain-list",
+                  "api-reference/perimeter-protection/check-file-threat-intelligence",
+                  "api-reference/perimeter-protection/check-domain-threat-intelligence"
+                ]
+              },
+              {
+                "group": "Search",
+                "pages": [
+                  "api-reference/search/search"
+                ]
+              },
+              {
+                "group": "VPN",
+                "pages": [
+                  "api-reference/vpn/list-vpn-profiles",
+                  "api-reference/vpn/get-vpn-profile",
+                  "api-reference/vpn/create-vpn-profile",
+                  "api-reference/vpn/delete-vpn-profile"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  {
+                    "group": "Users",
+                    "pages": [
+                      "api-reference/settings/list-users",
+                      "api-reference/settings/get-user-details"
+                    ]
+                  },
+                  {
+                    "group": "User Roles",
+                    "pages": [
+                      "api-reference/settings/list-assignable-roles"
+                    ]
+                  },
+                  {
+                    "group": "API Tokens",
+                    "pages": [
+                      "api-reference/settings/list-api-tokens",
+                      "api-reference/settings/create-api-token",
+                      "api-reference/settings/update-api-token",
+                      "api-reference/settings/delete-api-token"
+                    ]
+                  },
+                  {
+                    "group": "Events Log",
+                    "pages": [
+                      "api-reference/settings/list-event-logs"
+                    ]
+                  },
+                  {
+                    "group": "Licenses",
+                    "pages": [
+                      "api-reference/settings/list-licenses"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Webhooks",
+                "pages": [
+                  "api-reference/stripe-webhooks/handle-stripe-webhook"
+                ]
               }
             ]
-          },
-          {
-            "tab": "Manuale Interno",
-            "groups": [
-              {
-                "group": "Manuale Interno",
-                "pages": [
-                  "handbook/it/introduzione"
-                ]
-              },
-              {
-                "group": "HR & Careers",
-                "pages": [
-                  "handbook/it/hr/hr-careers"                  
-                ]
-              },             
-              {
-                "group": "Operations",
-                "pages": [
-                  "handbook/it/operations/devops-infrastructure"                  
-                ]
-              },
-              {
-                "group": "Policies",
-                "pages": [
-                  "handbook/it/policies/comunicazione"
-                ]
-              }        
-            ]
           }
-        ]    
+        ]
       },
       {
         "language": "en",
@@ -323,180 +469,327 @@
                 ]
               },
               {
-                "group": "Endpoints",
+                "group": "V-CISO",
                 "pages": [
                   {
-                    "group": "Aegister Threat Blocker",
+                    "group": "Incidents",
                     "pages": [
-                      {
-                        "group": "ATB",
-                        "pages": [
-                          "api-reference/atb/get-api-v1-atb-list",
-                          "api-reference/atb/get-api-v1-atb",
-                          "api-reference/atb/post-api-v1-atb",
-                          "api-reference/atb/put-api-v1-atb",
-                          "api-reference/atb/delete-api-v1-atb"
-                        ]
-                      },
-                      {
-                        "group": "Traffic Logs",
-                        "pages": [
-                          "api-reference/atb/get-api-v1-atb-traffic",
-                          "api-reference/atb/post-api-v1-atb-traffic"
-                        ]
-                      }
+                      "api-reference/v-ciso/list-incidents",
+                      "api-reference/v-ciso/get-incident",
+                      "api-reference/v-ciso/create-incident",
+                      "api-reference/v-ciso/update-incident",
+                      "api-reference/v-ciso/delete-incident"
                     ]
                   },
                   {
-                    "group": "Cloud Defender",
+                    "group": "Incident Attachments",
                     "pages": [
-                      "api-reference/cloud-defender/get-api-v1-cloud-defender-list",
-                      "api-reference/cloud-defender/get-api-v1-cloud-defender",
-                      "api-reference/cloud-defender/post-api-v1-cloud-defender",
-                      "api-reference/cloud-defender/put-api-v1-cloud-defender",
-                      "api-reference/cloud-defender/delete-api-v1-cloud-defender"
+                      "api-reference/v-ciso/list-incident-attachments",
+                      "api-reference/v-ciso/download-incident-attachment",
+                      "api-reference/v-ciso/upload-incident-attachment",
+                      "api-reference/v-ciso/delete-incident-attachment"
                     ]
                   },
                   {
-                    "group": "V=CISO",
+                    "group": "Incident Utilities",
                     "pages": [
-                      "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks-list",
-                      "api-reference/cyber-assurance/get-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/post-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/put-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/delete-api-v1-cyber-assurance-security-frameworks",
-                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows",
-                      "api-reference/cyber-assurance/post-api-v1-organizations-workflows",
-                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows",
-                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-evaluations",
-                      "api-reference/cyber-assurance/delete-api-v1-organizations-workflows-evaluations",
-                      "api-reference/cyber-assurance/get-api-v1-organizations-workflows-proxy"
+                      "api-reference/incidents/get-incident-taxonomy",
+                      "api-reference/v-ciso/enrich-incident-with-threat-intelligence",
+                      "api-reference/v-ciso/generate-incident-report-template"
                     ]
                   },
                   {
-                    "group": "Documents",
+                    "group": "Security Frameworks",
                     "pages": [
-                      "api-reference/documents/get-api-v1-documents"
+                      "api-reference/v-ciso/list-security-frameworks",
+                      "api-reference/v-ciso/get-security-framework",
+                      "api-reference/v-ciso/create-security-framework",
+                      "api-reference/v-ciso/update-security-framework",
+                      "api-reference/v-ciso/delete-security-framework"
                     ]
                   },
                   {
-                    "group": "Notifications",
+                    "group": "Workflows",
                     "pages": [
-                      "api-reference/notifications/get-api-v1-notifications",
-                      "api-reference/notifications/put-api-v1-notifications"
-                    ]
-                  },
-                  {
-                    "group": "Organizations",
-                    "pages": [
-                      {
-                        "group": "Organization",
-                        "pages": [
-                          "api-reference/organizations/get-api-v1-organizations-list",
-                          "api-reference/organizations/get-api-v1-organizations",
-                          "api-reference/organizations/post-api-v1-organizations",
-                          "api-reference/organizations/put-api-v1-organizations",
-                          "api-reference/organizations/delete-api-v1-organizations"
-                        ]
-                      },
-                      {
-                        "group": "Users",
-                        "pages": [
-                          "api-reference/organizations/get-api-v1-organizations-users",
-                          "api-reference/organizations/post-api-v1-organizations-users",
-                          "api-reference/organizations/put-api-v1-organizations-users",
-                          "api-reference/organizations/delete-api-v1-organizations-users"
-                        ]
-                      },
-                      {
-                        "group": "Security Frameworks",
-                        "pages": [
-                          "api-reference/organizations/get-api-v1-organizations-security-frameworks-list",
-                          "api-reference/organizations/get-api-v1-organizations-security-frameworks",
-                          "api-reference/organizations/post-api-v1-organizations-security-frameworks",
-                          "api-reference/organizations/post-api-v1-organizations-security-frameworks-documents",
-                          "api-reference/organizations/put-api-v1-organizations-security-frameworks",
-                          "api-reference/organizations/delete-api-v1-organizations-security-frameworks"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Perimeter Protection",
-                    "pages": [
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-domain-list",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-domain",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-file",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-ip-list",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-ip",
-                      "api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-url"
-                    ]
-                  },
-                  {
-                    "group": "Search",
-                    "pages": [
-                      "api-reference/search/get-api-v1-search"
-                    ]
-                  },
-                  {
-                    "group": "Assessments",
-                    "pages": [
-                      "api-reference/assessments/get-api-v1-assessments-list",
-                      "api-reference/assessments/get-api-v1-assessments"
-                    ]
-                  },
-                  {
-                    "group": "Log Analysis",
-                    "pages": [
-                      "api-reference/log-analysis/get-api-v1-log-analysis-list",
-                      "api-reference/log-analysis/get-api-v1-log-analysis",
-                      "api-reference/log-analysis/post-api-v1-log-analysis",
-                      "api-reference/log-analysis/delete-api-v1-log-analysis"
-                    ]
-                  },
-                  {
-                    "group": "VPN",
-                    "pages": [
-                      "api-reference/vpn/get-api-v1-vpn-list",
-                      "api-reference/vpn/get-api-v1-vpn",
-                      "api-reference/vpn/post-api-v1-vpn",
-                      "api-reference/vpn/delete-api-v1-vpn"
+                      "api-reference/v-ciso/list-workflow-associations"
                     ]
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "Handbook",
-            "groups": [
+              },
               {
-                "group": "Aegister S.p.A.",
+                "group": "Aegister Threat Blocker",
                 "pages": [
-                  "handbook/en/introduction"
+                  {
+                    "group": "ATB Devices",
+                    "pages": [
+                      "api-reference/atb/list-threat-blocker-configurations",
+                      "api-reference/atb/get-threat-blocker-configuration",
+                      "api-reference/atb/create-threat-blocker-configuration",
+                      "api-reference/atb/update-threat-blocker-configuration",
+                      "api-reference/atb/delete-threat-blocker-configuration"
+                    ]
+                  },
+                  {
+                    "group": "Store Window",
+                    "pages": [
+                      "api-reference/atb/get-atb-store-window",
+                      "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device",
+                      "api-reference/atb/post-atb-store-window",
+                      "api-reference/atb/upload-threat-blocker-traffic-v2"
+                    ]
+                  },
+                  {
+                    "group": "Traffic Logs",
+                    "pages": [
+                      "api-reference/atb/list-threat-blocker-traffic-logs",
+                      "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+                      "api-reference/atb/upload-threat-blocker-traffic-logs",
+                      "api-reference/atb/upload-threat-blocker-traffic-v2-1"
+                    ]
+                  },
+                  {
+                    "group": "Traffic Statistics",
+                    "pages": [
+                      "api-reference/atb/get-threat-blocker-traffic-statistics",
+                      "api-reference/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
+                      "api-reference/atb/blocked-requests-over-the-last-7-days",
+                      "api-reference/atb/most-blocked-source-ips",
+                      "api-reference/atb/traffic-stats-per-crime-level"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "HR & Careers",
+                "group": "Cloud Defender",
                 "pages": [
-                  "handbook/en/hr/hr-careers"                  
+                  {
+                    "group": "Devices",
+                    "pages": [
+                      "api-reference/cloud-defender/list-cloud-defender-configurations",
+                      "api-reference/cloud-defender/get-cloud-defender-configuration",
+                      "api-reference/cloud-defender/create-cloud-defender-configuration",
+                      "api-reference/cloud-defender/update-cloud-defender-configuration",
+                      "api-reference/cloud-defender/delete-cloud-defender-configuration"
+                    ]
+                  },
+                  {
+                    "group": "Traffic",
+                    "pages": [
+                      "api-reference/cloud-defender/get-cloud-defender-traffic-logs",
+                      "api-reference/cloud-defender/upload-cloud-defender-traffic-logs"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Operations",
+                "group": "Organizations",
                 "pages": [
-                  "handbook/en/operations/devops-infrastructure"                  
+                  {
+                    "group": "Organization",
+                    "pages": [
+                      "api-reference/organizations/list-organizations",
+                      "api-reference/organizations/get-organization",
+                      "api-reference/organizations/create-organization",
+                      "api-reference/organizations/update-organization",
+                      "api-reference/organizations/delete-organization"
+                    ]
+                  },
+                  {
+                    "group": "Branding",
+                    "pages": [
+                      "api-reference/organizations/get-organization-branding",
+                      "api-reference/organizations/upload-organization-logo",
+                      "api-reference/organizations/update-organization-branding",
+                      "api-reference/organizations/delete-organization-logo"
+                    ]
+                  },
+                  {
+                    "group": "Users",
+                    "pages": [
+                      "api-reference/organizations/list-organization-users",
+                      "api-reference/organizations/add-user-to-organization",
+                      "api-reference/organizations/update-organization-user-role",
+                      "api-reference/organizations/remove-user-from-organization"
+                    ]
+                  },
+                  {
+                    "group": "Security Frameworks",
+                    "pages": [
+                      "api-reference/organizations/list-organization-security-framework-implementations",
+                      "api-reference/organizations/get-organization-security-framework-implementation",
+                      "api-reference/organizations/associate-security-framework-to-organization",
+                      "api-reference/organizations/upload-document-for-security-framework-self-evaluation",
+                      "api-reference/organizations/update-organization-security-framework-implementation",
+                      "api-reference/organizations/delete-organization-security-framework-implementation"
+                    ]
+                  },
+                  {
+                    "group": "Subscriptions",
+                    "pages": [
+                      "api-reference/organizations/list-organization-subscriptions",
+                      "api-reference/organizations/create-organization-subscription",
+                      "api-reference/organizations/update-organization-subscription",
+                      "api-reference/organizations/delete-organization-subscription"
+                    ]
+                  },
+                  {
+                    "group": "Stripe",
+                    "pages": [
+                      "api-reference/organizations/list-stripe-products",
+                      "api-reference/organizations/list-stripe-subscriptions",
+                      "api-reference/organizations/create-stripe-payment-intent",
+                      "api-reference/organizations/update-stripe-subscription",
+                      "api-reference/organizations/cancel-stripe-payment-intent"
+                    ]
+                  },
+                  {
+                    "group": "Workflows",
+                    "pages": [
+                      "api-reference/organizations/get-organization-workflow-associations",
+                      "api-reference/cyber-assurance-•-workflows/proxy:-fetch-workflow-data-get-only",
+                      "api-reference/organizations/get-apiv1organizations-workflows-",
+                      "api-reference/cyber-assurance-•-workflows/associate-workflow-to-organization",
+                      "api-reference/organizations/post-apiv1organizations-workflows-",
+                      "api-reference/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
+                    ]
+                  },
+                  {
+                    "group": "Workflow Evaluations",
+                    "pages": [
+                      "api-reference/organizations/list-workflow-evaluations",
+                      "api-reference/organizations/create-workflow-evaluation",
+                      "api-reference/organizations/update-workflow-evaluation",
+                      "api-reference/organizations/delete-workflow-evaluations"
+                    ]
+                  },
+                  {
+                    "group": "Workflow Documents",
+                    "pages": [
+                      "api-reference/cyber-assurance-•-documents/list-document-versions-for-an-artifact",
+                      "api-reference/cyber-assurance-•-documents/download-a-document-version",
+                      "api-reference/cyber-assurance-•-documents/upload-a-new-document-version"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Policies",
+                "group": "Documents",
                 "pages": [
-                  "handbook/en/policies/communication"                  
+                  "api-reference/documents/download-document"
+                ]
+              },
+              {
+                "group": "Notifications",
+                "pages": [
+                  "api-reference/notifications/list-notifications",
+                  "api-reference/notifications/mark-notifications-as-read"
+                ]
+              },
+              {
+                "group": "Assessments",
+                "pages": [
+                  {
+                    "group": "Assessments",
+                    "pages": [
+                      "api-reference/assessments/list-assessments",
+                      "api-reference/assessments/get-assessment"
+                    ]
+                  },
+                  {
+                    "group": "Assessment Templates",
+                    "pages": [
+                      "api-reference/assessments/list-assessment-templates",
+                      "api-reference/assessments/get-assessment-template",
+                      "api-reference/assessments/create-assessment-template",
+                      "api-reference/assessments/update-assessment-template",
+                      "api-reference/assessments/delete-assessment-template"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Log Analysis",
+                "pages": [
+                  "api-reference/log-analysis/list-log-analyses",
+                  "api-reference/log-analysis/get-log-analysis",
+                  "api-reference/log-analysis/create-log-analysis",
+                  "api-reference/log-analysis/delete-log-analysis"
+                ]
+              },
+              {
+                "group": "Perimeter Protection",
+                "pages": [
+                  "api-reference/perimeter-protection/get-threat-intelligence-ip-list",
+                  "api-reference/perimeter-protection/check-ip-threat-intelligence",
+                  "api-reference/perimeter-protection/check-url-threat-intelligence",
+                  "api-reference/perimeter-protection/get-threat-intelligence-domain-list",
+                  "api-reference/perimeter-protection/check-file-threat-intelligence",
+                  "api-reference/perimeter-protection/check-domain-threat-intelligence"
+                ]
+              },
+              {
+                "group": "Search",
+                "pages": [
+                  "api-reference/search/search"
+                ]
+              },
+              {
+                "group": "VPN",
+                "pages": [
+                  "api-reference/vpn/list-vpn-profiles",
+                  "api-reference/vpn/get-vpn-profile",
+                  "api-reference/vpn/create-vpn-profile",
+                  "api-reference/vpn/delete-vpn-profile"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  {
+                    "group": "Users",
+                    "pages": [
+                      "api-reference/settings/list-users",
+                      "api-reference/settings/get-user-details"
+                    ]
+                  },
+                  {
+                    "group": "User Roles",
+                    "pages": [
+                      "api-reference/settings/list-assignable-roles"
+                    ]
+                  },
+                  {
+                    "group": "API Tokens",
+                    "pages": [
+                      "api-reference/settings/list-api-tokens",
+                      "api-reference/settings/create-api-token",
+                      "api-reference/settings/update-api-token",
+                      "api-reference/settings/delete-api-token"
+                    ]
+                  },
+                  {
+                    "group": "Events Log",
+                    "pages": [
+                      "api-reference/settings/list-event-logs"
+                    ]
+                  },
+                  {
+                    "group": "Licenses",
+                    "pages": [
+                      "api-reference/settings/list-licenses"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Webhooks",
+                "pages": [
+                  "api-reference/stripe-webhooks/handle-stripe-webhook"
                 ]
               }
             ]
           }
-        ]    
+        ]
       }
     ]
   },

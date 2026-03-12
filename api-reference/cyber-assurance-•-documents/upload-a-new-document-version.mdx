@@ -1,0 +1,6 @@
+---
+title: "Upload a new document version"
+sidebarTitle: "Upload a new document version"
+description: "Upload a file as base64 JSON. Deduplicates by SHA256 checksum — if the same content already exists for this artifact, returns the existing version (200) instead of creating a new one (201). Trims old versions beyond 10 per artifact."
+openapi: post /api/v1/organizations/{organizationid}/workflows/{workflowid}/documents/{artifactid}/versions/
+---
