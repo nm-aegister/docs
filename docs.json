@@ -111,19 +111,41 @@
                     ]
                   },
                   {
-                    "group": "Security Frameworks",
+                    "group": "Workflows",
                     "pages": [
-                      "api-reference/v-ciso/list-security-frameworks",
-                      "api-reference/v-ciso/get-security-framework",
-                      "api-reference/v-ciso/create-security-framework",
-                      "api-reference/v-ciso/update-security-framework",
-                      "api-reference/v-ciso/delete-security-framework"
+                      "api-reference/v-ciso/list-workflow-associations",
+                      "api-reference/v-ciso/get-organization-workflow-associations"
                     ]
                   },
                   {
-                    "group": "Workflows",
+                    "group": "Workflow Evaluations",
                     "pages": [
-                      "api-reference/v-ciso/list-workflow-associations"
+                      "api-reference/v-ciso/list-workflow-evaluations",
+                      "api-reference/v-ciso/create-workflow-evaluation",
+                      "api-reference/v-ciso/update-workflow-evaluation",
+                      "api-reference/v-ciso/delete-workflow-evaluations"
+                    ]
+                  },
+                  {
+                    "group": "Workflow Proxy",
+                    "pages": [
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-framework",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-documents-list",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-a-single-workflow-document",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-a-single-workflow-question",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-step-data",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-report",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-tasks-view",
+                      "api-reference/v-ciso-•-workflows/proxy:-generic-activepieces-action-forwarder",
+                      "api-reference/v-ciso-•-workflows/proxy:-generic-activepieces-action-forwarder-post",
+                      "api-reference/v-ciso-•-workflows/proxy:-request-workflow-translation",
+                      "api-reference/v-ciso-•-workflows/proxy:-submit-workflow-evaluation-scoring"
+                    ]
+                  },
+                  {
+                    "group": "Incident Taxonomy",
+                    "pages": [
+                      "api-reference/v-ciso/get-incident-taxonomy"
                     ]
                   }
                 ]
@@ -225,17 +247,6 @@
                     ]
                   },
                   {
-                    "group": "Security Frameworks",
-                    "pages": [
-                      "api-reference/organizations/list-organization-security-framework-implementations",
-                      "api-reference/organizations/get-organization-security-framework-implementation",
-                      "api-reference/organizations/associate-security-framework-to-organization",
-                      "api-reference/organizations/upload-document-for-security-framework-self-evaluation",
-                      "api-reference/organizations/update-organization-security-framework-implementation",
-                      "api-reference/organizations/delete-organization-security-framework-implementation"
-                    ]
-                  },
-                  {
                     "group": "Subscriptions",
                     "pages": [
                       "api-reference/organizations/list-organization-subscriptions",
@@ -245,23 +256,11 @@
                     ]
                   },
                   {
-                    "group": "Stripe",
-                    "pages": [
-                      "api-reference/organizations/list-stripe-products",
-                      "api-reference/organizations/list-stripe-subscriptions",
-                      "api-reference/organizations/create-stripe-payment-intent",
-                      "api-reference/organizations/update-stripe-subscription",
-                      "api-reference/organizations/cancel-stripe-payment-intent"
-                    ]
-                  },
-                  {
                     "group": "Workflows",
                     "pages": [
                       "api-reference/organizations/get-organization-workflow-associations",
                       "api-reference/cyber-assurance-•-workflows/proxy:-fetch-workflow-data-get-only",
-                      "api-reference/organizations/get-apiv1organizations-workflows-",
                       "api-reference/cyber-assurance-•-workflows/associate-workflow-to-organization",
-                      "api-reference/organizations/post-apiv1organizations-workflows-",
                       "api-reference/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
                     ]
                   },
@@ -295,28 +294,6 @@
                 "pages": [
                   "api-reference/notifications/list-notifications",
                   "api-reference/notifications/mark-notifications-as-read"
-                ]
-              },
-              {
-                "group": "Assessments",
-                "pages": [
-                  {
-                    "group": "Assessments",
-                    "pages": [
-                      "api-reference/assessments/list-assessments",
-                      "api-reference/assessments/get-assessment"
-                    ]
-                  },
-                  {
-                    "group": "Assessment Templates",
-                    "pages": [
-                      "api-reference/assessments/list-assessment-templates",
-                      "api-reference/assessments/get-assessment-template",
-                      "api-reference/assessments/create-assessment-template",
-                      "api-reference/assessments/update-assessment-template",
-                      "api-reference/assessments/delete-assessment-template"
-                    ]
-                  }
                 ]
               },
               {
@@ -355,48 +332,10 @@
                 ]
               },
               {
-                "group": "Settings",
+                "group": "Terms",
                 "pages": [
-                  {
-                    "group": "Users",
-                    "pages": [
-                      "api-reference/settings/list-users",
-                      "api-reference/settings/get-user-details"
-                    ]
-                  },
-                  {
-                    "group": "User Roles",
-                    "pages": [
-                      "api-reference/settings/list-assignable-roles"
-                    ]
-                  },
-                  {
-                    "group": "API Tokens",
-                    "pages": [
-                      "api-reference/settings/list-api-tokens",
-                      "api-reference/settings/create-api-token",
-                      "api-reference/settings/update-api-token",
-                      "api-reference/settings/delete-api-token"
-                    ]
-                  },
-                  {
-                    "group": "Events Log",
-                    "pages": [
-                      "api-reference/settings/list-event-logs"
-                    ]
-                  },
-                  {
-                    "group": "Licenses",
-                    "pages": [
-                      "api-reference/settings/list-licenses"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Webhooks",
-                "pages": [
-                  "api-reference/stripe-webhooks/handle-stripe-webhook"
+                  "api-reference/terms/get-apiv1terms",
+                  "api-reference/terms/post-apiv1termsaccept"
                 ]
               }
             ]
@@ -499,19 +438,41 @@
                     ]
                   },
                   {
-                    "group": "Security Frameworks",
+                    "group": "Workflows",
                     "pages": [
-                      "api-reference/v-ciso/list-security-frameworks",
-                      "api-reference/v-ciso/get-security-framework",
-                      "api-reference/v-ciso/create-security-framework",
-                      "api-reference/v-ciso/update-security-framework",
-                      "api-reference/v-ciso/delete-security-framework"
+                      "api-reference/v-ciso/list-workflow-associations",
+                      "api-reference/v-ciso/get-organization-workflow-associations"
                     ]
                   },
                   {
-                    "group": "Workflows",
+                    "group": "Workflow Evaluations",
                     "pages": [
-                      "api-reference/v-ciso/list-workflow-associations"
+                      "api-reference/v-ciso/list-workflow-evaluations",
+                      "api-reference/v-ciso/create-workflow-evaluation",
+                      "api-reference/v-ciso/update-workflow-evaluation",
+                      "api-reference/v-ciso/delete-workflow-evaluations"
+                    ]
+                  },
+                  {
+                    "group": "Workflow Proxy",
+                    "pages": [
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-framework",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-documents-list",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-a-single-workflow-document",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-a-single-workflow-question",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-step-data",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-report",
+                      "api-reference/v-ciso-•-workflows/proxy:-fetch-workflow-tasks-view",
+                      "api-reference/v-ciso-•-workflows/proxy:-generic-activepieces-action-forwarder",
+                      "api-reference/v-ciso-•-workflows/proxy:-generic-activepieces-action-forwarder-post",
+                      "api-reference/v-ciso-•-workflows/proxy:-request-workflow-translation",
+                      "api-reference/v-ciso-•-workflows/proxy:-submit-workflow-evaluation-scoring"
+                    ]
+                  },
+                  {
+                    "group": "Incident Taxonomy",
+                    "pages": [
+                      "api-reference/v-ciso/get-incident-taxonomy"
                     ]
                   }
                 ]
@@ -613,17 +574,6 @@
                     ]
                   },
                   {
-                    "group": "Security Frameworks",
-                    "pages": [
-                      "api-reference/organizations/list-organization-security-framework-implementations",
-                      "api-reference/organizations/get-organization-security-framework-implementation",
-                      "api-reference/organizations/associate-security-framework-to-organization",
-                      "api-reference/organizations/upload-document-for-security-framework-self-evaluation",
-                      "api-reference/organizations/update-organization-security-framework-implementation",
-                      "api-reference/organizations/delete-organization-security-framework-implementation"
-                    ]
-                  },
-                  {
                     "group": "Subscriptions",
                     "pages": [
                       "api-reference/organizations/list-organization-subscriptions",
@@ -633,23 +583,11 @@
                     ]
                   },
                   {
-                    "group": "Stripe",
-                    "pages": [
-                      "api-reference/organizations/list-stripe-products",
-                      "api-reference/organizations/list-stripe-subscriptions",
-                      "api-reference/organizations/create-stripe-payment-intent",
-                      "api-reference/organizations/update-stripe-subscription",
-                      "api-reference/organizations/cancel-stripe-payment-intent"
-                    ]
-                  },
-                  {
                     "group": "Workflows",
                     "pages": [
                       "api-reference/organizations/get-organization-workflow-associations",
                       "api-reference/cyber-assurance-•-workflows/proxy:-fetch-workflow-data-get-only",
-                      "api-reference/organizations/get-apiv1organizations-workflows-",
                       "api-reference/cyber-assurance-•-workflows/associate-workflow-to-organization",
-                      "api-reference/organizations/post-apiv1organizations-workflows-",
                       "api-reference/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
                     ]
                   },
@@ -683,28 +621,6 @@
                 "pages": [
                   "api-reference/notifications/list-notifications",
                   "api-reference/notifications/mark-notifications-as-read"
-                ]
-              },
-              {
-                "group": "Assessments",
-                "pages": [
-                  {
-                    "group": "Assessments",
-                    "pages": [
-                      "api-reference/assessments/list-assessments",
-                      "api-reference/assessments/get-assessment"
-                    ]
-                  },
-                  {
-                    "group": "Assessment Templates",
-                    "pages": [
-                      "api-reference/assessments/list-assessment-templates",
-                      "api-reference/assessments/get-assessment-template",
-                      "api-reference/assessments/create-assessment-template",
-                      "api-reference/assessments/update-assessment-template",
-                      "api-reference/assessments/delete-assessment-template"
-                    ]
-                  }
                 ]
               },
               {
@@ -743,48 +659,10 @@
                 ]
               },
               {
-                "group": "Settings",
+                "group": "Terms",
                 "pages": [
-                  {
-                    "group": "Users",
-                    "pages": [
-                      "api-reference/settings/list-users",
-                      "api-reference/settings/get-user-details"
-                    ]
-                  },
-                  {
-                    "group": "User Roles",
-                    "pages": [
-                      "api-reference/settings/list-assignable-roles"
-                    ]
-                  },
-                  {
-                    "group": "API Tokens",
-                    "pages": [
-                      "api-reference/settings/list-api-tokens",
-                      "api-reference/settings/create-api-token",
-                      "api-reference/settings/update-api-token",
-                      "api-reference/settings/delete-api-token"
-                    ]
-                  },
-                  {
-                    "group": "Events Log",
-                    "pages": [
-                      "api-reference/settings/list-event-logs"
-                    ]
-                  },
-                  {
-                    "group": "Licenses",
-                    "pages": [
-                      "api-reference/settings/list-licenses"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Webhooks",
-                "pages": [
-                  "api-reference/stripe-webhooks/handle-stripe-webhook"
+                  "api-reference/terms/get-apiv1terms",
+                  "api-reference/terms/post-apiv1termsaccept"
                 ]
               }
             ]

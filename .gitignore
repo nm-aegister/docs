@@ -2,6 +2,13 @@
 *.doc
 *.xlsx
 *.xls
+
+# Dotfiles and IDE
 .DS_Store
+.*
+
+# Dependencies
 node_modules/
-.claude/
+
+# Claude Code
+CLAUDE.md

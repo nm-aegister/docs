@@ -2,5 +2,5 @@
 title: "Proxy: fetch workflow data (GET only)"
 sidebarTitle: "List Proxy"
 description: "Proxies a GET request to The workflow webhook sync endpoint. All query parameters are forwarded as-is, except `workflow_id` which is taken from the path. If `action` is not provided, it defaults to `get_framework`. Ensures `organization_id` is present (from path if not supplied)."
-openapi: get /api/v1/organizations/{organizationid}/workflows/{workflowid}/proxy
+openapi: get /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/proxy
 ---
