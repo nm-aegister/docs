@@ -1,0 +1,6 @@
+---
+title: "Submit a framework step's control answers"
+sidebarTitle: "Controls Import"
+description: "Submit framework control answers for one step: JSON {answers, dry_run?} with ?step=<stepId>. dry_run validates without writing; otherwise it validates then submits via /evaluate (Aegister scores and persists), exactly like saving a step in the web app. Requires the edit role."
+openapi: post /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/framework/controls-import
+---

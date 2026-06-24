@@ -1,0 +1,6 @@
+---
+title: "Invia le risposte ai controlli di uno step del framework"
+sidebarTitle: "Invia controlli"
+description: "Invia le risposte ai controlli del framework per uno step: JSON {answers, dry_run?} con ?step=<stepId>. dry_run valida senza scrivere; altrimenti valida e poi invia tramite /evaluate (Aegister calcola il punteggio e persiste), esattamente come salvare uno step nella web app. Richiede il ruolo edit."
+openapi: post /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/framework/controls-import
+---

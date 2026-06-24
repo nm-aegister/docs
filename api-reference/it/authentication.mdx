@@ -1,0 +1,43 @@
+---
+title: 'Autenticazione'
+description: 'Metodi di autenticazione supportati dalle nostre API.'
+---
+
+## Metodi di autenticazione
+
+Le API autenticano le richieste tramite l'header `X-Aegister-Token`. Puoi inviarlo in due modi.
+
+### 1. Autenticazione tramite header
+
+Includi `X-Aegister-Token` negli header della richiesta. Preferisci questo metodo: mantiene il token fuori dall'URL e dai log del server.
+
+**Esempio di richiesta:**
+
+```http
+GET /api/v1/resource HTTP/1.1
+Host: app.aegister.com
+X-Aegister-Token: il_tuo_token
+```
+
+**Esempio con curl:**
+
+```bash
+curl -H "X-Aegister-Token: il_tuo_token" https://app.aegister.com/api/v1/resource
+```
+
+### 2. Autenticazione tramite parametro di query
+
+Passa `X-Aegister-Token` come parametro di query nell'URL. Usa questo metodo quando non puoi impostare gli header della richiesta.
+
+**Esempio di richiesta:**
+
+```http
+GET /api/v1/resource?X-Aegister-Token=il_tuo_token HTTP/1.1
+Host: app.aegister.com
+```
+
+**Esempio con curl:**
+
+```bash
+curl https://app.aegister.com/api/v1/resource?X-Aegister-Token=il_tuo_token
+```

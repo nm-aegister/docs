@@ -5,11 +5,11 @@ description: 'Authentication methods supported by our API.'
 
 ## Authentication Methods
 
-Our API supports two methods for authentication using the `X-Aegister-Token`. You can choose either method based on your preference or use case.
+The API authenticates requests with the `X-Aegister-Token`. Send it in either of two ways.
 
 ### 1. Header-Based Authentication
 
-In this method, you include the `X-Aegister-Token` in the headers of your HTTP request. This is typically preferred as it keeps the token out of the URL, enhancing security.
+Include the `X-Aegister-Token` in the request headers. Prefer this method: it keeps the token out of the URL and out of server logs.
 
 **Example Request:**
 
@@ -27,7 +27,7 @@ curl -H "X-Aegister-Token: your_token_here" https://app.aegister.com/api/v1/reso
 
 ### 2. Query Parameter Authentication
 
-Alternatively, you can include the `X-Aegister-Token` as a query parameter in the URL. This method is useful in scenarios where setting request headers is not feasible.
+Pass the `X-Aegister-Token` as a query parameter in the URL. Use this method when you cannot set request headers.
 
 **Example Request:**
 

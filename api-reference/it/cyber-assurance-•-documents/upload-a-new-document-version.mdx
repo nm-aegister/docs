@@ -1,0 +1,6 @@
+---
+title: "Carica una nuova versione del documento"
+sidebarTitle: "Carica versione"
+description: "Carica un file come JSON in base64. Effettua la deduplicazione tramite checksum SHA256: se lo stesso contenuto esiste già per questo artefatto, restituisce la versione esistente (200) invece di crearne una nuova (201). Rimuove le versioni più vecchie oltre le 10 per artefatto."
+openapi: post /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/documents/{artifactid}/versions
+---

@@ -1,0 +1,227 @@
+---
+title: 'Guide: the spec-driven V-CISO API'
+description: 'Fill tables, answer questions, and complete framework controls programmatically with the same spec-driven validation the web app uses: discover, spec, dry_run, submit.'
+---
+
+Drive V-CISO workflows entirely from the API. Tables (inventories, registries),
+question tasks, and framework controls all share one pattern: **discover, read the spec,
+validate with `dry_run`, then submit**. The server validates exactly like a save in the web
+app, then scores and persists a new evaluation.
+
+All requests authenticate with an `X-Aegister-Token` header (see
+[Authentication](/api-reference/authentication) and [API token](/api-reference/token)).
+The organization must hold the `v_ciso` license. Reading needs the **view** role; writing
+needs the **edit** role (`security_officer`, `owner`, or `super_admin`).
+
+<Note>
+Paths below are abbreviated as `.../workflows/{wid}/...`. The full base is
+`https://app.aegister.com/api/v1/v-ciso/organizations/{oid}`. All responses use the house
+envelope `{ "error": 0|1, "messages": [], "data": {…} }` (plus `"total"` on lists).
+</Note>
+
+## Before you start
+
+This guide starts from an **existing organization that already holds the `v_ciso` license** and
+has the framework you want to fill **associated and configured**. You only need its organization
+id (`{oid}`) and a token with the **edit** role (`security_officer`, `owner`, or `super_admin`).
+
+<Warning>
+For **NIS 2**, the organization profile must declare its **entity type** (Essential or Important).
+Until it does, the framework returns **no controls and no tasks**, and the calls below come back
+empty. Set it in the organization's NIS 2 profile first.
+</Warning>
+
+## 1. Discover what to fill
+
+List every task (table **and** question) in the org, each with its `type`, so a script can
+locate what to work on. Filter with `?type=table` or `?type=questions`.
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" \
+  "https://app.aegister.com/api/v1/v-ciso/organizations/123/tasks"
+```
+
+```json
+{ "error": 0, "messages": [], "total": 2,
+  "data": [
+    { "workflow_id": "oJJ…", "task_id": "task-nis-inv-hardware",
+      "title": { "en": "Hardware inventory", "it": "Inventario hardware" },
+      "type": "table", "required": true, "status": "Not started" },
+    { "workflow_id": "oJJ…", "task_id": "task-nisAnnual",
+      "title": { "en": "Annual review", "it": "Revisione annuale" },
+      "type": "questions", "required": true, "status": "In progress" } ] }
+```
+
+Use the returned `workflow_id` + `task_id` for the per-task calls. The older
+`GET .../table-tasks` (*List table tasks*) returns only table tasks; `/tasks` covers both.
+
+## 2. Table tasks (rows)
+
+### Read the spec (the contract)
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/spec?lan=en"
+```
+
+Each column declares `type`, `required`, a declarative **`format`** (for example
+`{ "kind": "date", "pattern": "YYYY-MM-DD" }`), and allowed **`choices`** (with both the
+`value` id and localized `label`). Dependent columns carry `depends_on` +
+`choices_by_parent`; cross-task columns carry `source`. Send either the choice **label** or
+its **value id**; multi-value columns accept an array or a `|`-joined string.
+
+### Validate without writing (dry_run)
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/import?lan=en" \
+  -d '{ "dry_run": true, "rows": [
+        { "asset_id": "HW-001", "device_input": "Physical servers",
+          "criticality": "High", "status": "Updated" } ] }'
+```
+
+```json
+{ "error": 0, "messages": [], "data": {
+    "valid_count": 1, "error_count": 0,
+    "columns": [ /* the normalized column set */ ],
+    "rows": [ /* normalized, ready to submit */ ],
+    "errors": [ /* {row, column, message} per problem */ ] } }
+```
+
+Fix any `errors` (wrong choice, bad date/number, a child value not allowed for its parent,
+an unknown cross-task value) and re-run until `error_count` is 0.
+
+### Submit
+
+Drop `dry_run` to persist. The server validates again, submits to the scoring engine, and
+records a new evaluation, exactly like a save in the web app.
+
+```json
+{ "error": 0, "messages": [], "data": { "imported_rows": 1, "evaluation_id": 3780 } }
+```
+
+A request with any validation error returns `400` with `error: 1` and the `data.errors`
+list; nothing is written.
+
+<Tip>
+`GET .../template` returns an enriched XLSX (dropdowns + dependent dropdowns + value/label
+legend) and `GET .../export` returns it pre-filled with current data: handy for humans,
+while scripts use the JSON contract above.
+</Tip>
+
+## 3. Question tasks (answers)
+
+Question tasks use the **same** `/spec` and `/import` endpoints; the payload key is
+`answers` instead of `rows`. Read the spec **and current answers** in one call to prefill,
+then submit.
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" \
+  ".../workflows/oJJ…/tasks/task-nisAnnual/answers?lan=en"
+```
+
+It returns the question spec plus the latest stored answers, keyed by question id. Choice
+answers accept the **label** or **value id**; multi-value answers go as an array or a
+comma/pipe-joined string.
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/tasks/task-nisAnnual/import?lan=en" \
+  -d '{ "dry_run": true, "answers": {
+        "task-nisAnnual-q1": "Yes",
+        "task-nisAnnual-q2": ["Email", "Phone"] } }'
+```
+
+To attach **evidence** or a **justification**, send a composite answer
+`{ "value", "evidence": [<path>], "note": [{ "id", "response" }] }`. Upload the file first
+(see [section 5](#5-evidence-the-two-step-upload)) and use the returned `path`:
+
+```json
+{ "answers": {
+    "task-nisAnnual-q1": {
+      "value": "Yes",
+      "evidence": ["media/docs/frameworks/65/oJJ…/task-nisAnnual-q1/tok_x.pdf"],
+      "note": [{ "id": "note-1", "response": "Notified ACN on 2026-01-10." }] } } }
+```
+
+Drop `dry_run` to persist; the response carries the new `evaluation_id`, same as tables.
+
+## 4. Framework controls
+
+A workflow's framework (the control set behind the score) has its own spec/answers/submit
+trio, grouped into **steps**. Work one step at a time with `?step=<stepId>`.
+
+```bash
+# Contract: control id, type, choices, weight, step
+curl -H "X-Aegister-Token: $TOKEN" \
+  ".../workflows/oJJ…/framework/spec?lan=en&step=E"
+
+# Spec + current answers keyed by control id
+curl -H "X-Aegister-Token: $TOKEN" \
+  ".../workflows/oJJ…/framework/answers?lan=en&step=E"
+```
+
+Each control carries `id`, `label`, `description`, `type`
+(`radio|select|checkbox|date|number|text|…`), `choices`, `required`, an `evidence` flag
+(whether files may be attached), `step`, `subframework`, `category`, and `weight`.
+
+Submit a step's answers with `controls-import`: `dry_run` first, then persist.
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/framework/controls-import?step=E&lan=en" \
+  -d '{ "dry_run": true, "answers": { "nis2-req-E - 2.1.1": "Implemented" } }'
+```
+
+```json
+{ "error": 0, "messages": [], "data": {
+    "valid_count": 1, "error_count": 0,
+    "answers": { /* normalized */ }, "errors": [] } }
+```
+
+Attach evidence the same way as question tasks, with a composite value:
+
+```json
+{ "answers": {
+    "nis2-req-E - 2.1.1": {
+      "value": "Implemented",
+      "evidence": ["media/docs/frameworks/65/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"] } } }
+```
+
+Dropping `dry_run` validates then submits via `/evaluate` (Aegister scores and persists),
+returning `{ "submitted": true, "evaluation_id": … }`.
+
+## 5. Evidence: the two-step upload
+
+Upload evidence separately, not inline. Send the file to its artifact, then reference the
+returned `path` in the answer.
+
+**Step 1, upload** the file as base64 JSON to the artifact (a control id or question id):
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/documents/nis2-req-E%20-%202.1.1/versions" \
+  -d '{ "filename": "policy.pdf",
+        "content": "JVBERi0xLjQK…",
+        "content_type": "application/pdf",
+        "source": "evidence_upload" }'
+```
+
+```json
+{ "error": 0, "messages": [], "data": {
+    "id": 91, "artifact_id": "nis2-req-E - 2.1.1", "original_name": "policy.pdf",
+    "size": 51234, "content_type": "application/pdf",
+    "path": "media/docs/frameworks/65/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf" } }
+```
+
+Constraints: **at most 10 MB** (decoded, else `413`); allowed formats are **PDF, Word
+(.doc/.docx), Excel (.xls/.xlsx), images, and video** (anything else returns `400`). Uploads
+dedupe by SHA-256 (identical content returns the existing version, `200`, instead of a new
+`201`), and only the latest **10 versions** per artifact are kept.
+
+**Step 2, reference** the returned `path` in the `evidence` array of the answer you submit
+(sections 3 and 4).
+
+To list existing evidence across a workflow (every artifact with its latest version and full
+history), call `GET .../workflows/{wid}/documents` (*List Documents* in the sidebar).
+Per-artifact history and downloads use the other *Documents* endpoints under *V-CISO*.

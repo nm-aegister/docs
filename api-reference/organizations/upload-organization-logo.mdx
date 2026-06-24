@@ -1,13 +1,12 @@
 ---
 title: "Upload organization logo"
 sidebarTitle: "Upload organization logo"
-description: "Upload a logo for an organization.
+description: "Upload an organization's logo.
 
-Accepts PNG, JPG, or SVG files up to 2MB.
-Automatically generates:
-- Resized logo (max 400x400)
-- Favicon (32x32)
+Accepts PNG, JPG, or SVG files up to 2MB and generates:
+- a resized logo (max 400x400)
+- a favicon (32x32)
 
-Updates the organization's branding data with the new URLs."
+The new URLs are saved to the organization's branding data."
 openapi: post /api/v1/organizations/{id}/branding/logo
 ---
