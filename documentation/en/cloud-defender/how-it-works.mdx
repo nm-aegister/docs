@@ -3,33 +3,31 @@ title: "How It Works"
 description: "Learn how the Cloud Defender system integrates Cloud WAF and OneFirewall Threat Prevention to analyze and protect web traffic."
 ---
 
-# How Aegister Cloud Defender Works
-
-Aegister Cloud Defender secures web applications by analyzing inbound traffic in real time. The process unfolds in several key stages:
+Aegister Cloud Defender secures web applications by analyzing inbound traffic in real time. The process has several stages:
 
 ![How It Works](/images/cloud-defender-how.png)
 
 ## Connection and Integration
 
-- The domain **secure.aegister.com** connects to Cloud Defender via the **Cloud_External_IP_Address**.
-- The system combines **Cloud WAF** and **OneFirewall Threat Prevention** solutions, delivering multi-layered protection against threats.
+- The domain **secure.aegister.com** connects to Cloud Defender through the **Cloud_External_IP_Address**.
+- The system combines **Cloud WAF** and **OneFirewall Threat Prevention** for layered protection.
 
 ## Request Handling
 
 - When a client sends a request, for example to **client1.domain1.com**:
   - **client1.domain1.com** is set up as a **CNAME for secure.aegister.com**.
-  - The request includes critical details, such as the originating IP address and the **X-Forwarded-For** header, which trace the traffic's path.
+  - The request carries the originating IP address and the **X-Forwarded-For** header, which trace the traffic's path.
 
 ## Traffic Analysis
 
-- Client traffic flows through Cloud Defender (depicted as the **"blue tunnel"** in the diagram) where it undergoes:
-  - **Threat Intelligence Analysis:** Continuously updated WAF rules evaluate the risk associated with each request.
-  - **Traffic Evaluation:** Additional queries to client domains or hostnames verify the traffic’s origin and authenticity.
+- Client traffic flows through Cloud Defender (the **"blue tunnel"** in the diagram), where two checks run:
+  - **Threat Intelligence Analysis:** continuously updated WAF rules score the risk of each request.
+  - **Traffic Evaluation:** further queries to client domains or hostnames verify the traffic's origin and authenticity.
 
 ## Decision and Action
 
-- Based on the analysis:
-  - If the traffic is deemed safe, access is **granted** to the endpoint associated with **client1.domain1.com**.
-  - If a high risk level or a malicious IP is detected, the system **automatically blocks** the request, denying access.
+- The system acts on the analysis:
+  - If the traffic is safe, it **grants** access to the endpoint behind **client1.domain1.com**.
+  - If it detects a high risk level or a malicious IP, it **blocks** the request and denies access.
 
-This workflow ensures that only legitimate traffic reaches your web applications, dynamically and effectively protecting clients from cyber threats.
+This workflow lets only legitimate traffic reach your web applications, protecting clients from cyber threats.

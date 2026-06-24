@@ -5,16 +5,16 @@ description: "Frequently Asked Questions"
 
 ### Can specific paths or IP addresses be excluded from WAF protection?
 
-Yes, you can configure exclusions for specific paths or use regular expressions to define areas to be excluded. This option prevents the filter from interfering with internal or critical services.
+Yes. You can configure exclusions for specific paths or use regular expressions to define excluded areas. This keeps the filter from interfering with internal or critical services.
 
-### What is the IP address used by the Cloud Defender CDN?
+### What IP address does the Cloud Defender CDN use?
 
-To ensure optimal security and prevent WAF bypass, you can configure the filter to accept requests exclusively from our CDN. The IP address to whitelist is 34.110.162.74 (secure.aegister.com).
+To prevent WAF bypass, you can configure the filter to accept requests only from our CDN. Whitelist the IP address 34.110.162.74 (secure.aegister.com).
 
-### Is it possible to downgrade from HTTPS to HTTP between the WAF and the protected site?
+### Can I downgrade from HTTPS to HTTP between the WAF and the protected site?
 
-Yes, a downgrade from HTTPS to HTTP between the WAF and the protected site is possible, although this approach is not considered best practice in terms of security.
+Yes, you can downgrade from HTTPS to HTTP between the WAF and the protected site, though this weakens security and we do not recommend it.
 
-### What advantages does Cloud Defender offer compared to solutions like AWS Cloudfront + WAF?
+### What advantages does Cloud Defender offer over solutions like AWS Cloudfront + WAF?
 
-Cloud Defender provides traditional features such as IP masking, DDoS protection, a conventional WAF, and caching. Its key differentiator is its ability to automatically block traffic from malicious sources using threat intelligence data from [OneFirewall](https://onefirewall.com/intelligence.html). For example, if an attacker is identified during an attack on another target, the system will block access from that same source to your site.
+Cloud Defender provides IP masking, DDoS protection, a conventional WAF, and caching. What sets it apart is that it blocks traffic from malicious sources automatically, using threat intelligence data from [OneFirewall](https://onefirewall.com/intelligence.html). If an attacker is identified during an attack on another target, the system blocks that source from reaching your site.

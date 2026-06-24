@@ -4,7 +4,7 @@ description: "Frequently Asked Questions sul servizio ATB"
 ---
 
 ### Come vengono raccolti i dati dell'ATB?
-Il servizio ATB invia i metadati di log del firewall tramite API direttamente verso i nostri server in maniera sicura.
+Il servizio ATB invia i metadati di log del firewall ai nostri server tramite API, in modo sicuro.
 
 ### Dove vengono conservati i dati raccolti?
 I dati vengono memorizzati all'interno del database Aegister su GCP (Postgres) e ospitati sui server di Milano.
@@ -13,10 +13,10 @@ I dati vengono memorizzati all'interno del database Aegister su GCP (Postgres) e
 I dati vengono conservati fino a sovrascrittura, mantenendo esclusivamente gli ultimi 100k eventi.
 
 ### Come vengono protetti i dati durante la trasmissione e la conservazione?
-Durante la trasmissione i dati sono protetti tramite TLS 1.2, mentre la conservazione avviene grazie a sistemi di autenticazione sicura.
+In trasmissione TLS 1.2 protegge i dati; in conservazione li proteggono i sistemi di autenticazione sicura.
 
 ### Chi ha accesso ai dati raccolti dall'ATB?
-L'accesso ai dati è riservato esclusivamente ai sistemisti e agli account di sistema; nessun altro può accedervi.
+Solo i sistemisti e gli account di sistema accedono ai dati. Nessun altro.
 
 ### Come vengono eliminati i dati?
-I dati vengono automaticamente sovrascritti all'arrivo di nuovi eventi, garantendo così che siano conservati solo gli ultimi 100k log.
+All'arrivo di nuovi eventi i dati vengono sovrascritti automaticamente, quindi restano solo gli ultimi 100k log.
