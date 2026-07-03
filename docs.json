@@ -81,7 +81,7 @@
                 ]
               },
               {
-                "group": "V-CISO",
+                "group": "Virtual CISO",
                 "pages": [
                   {
                     "group": "Incidenti",
@@ -163,68 +163,102 @@
                 ]
               },
               {
-                "group": "Aegister Threat Blocker",
+                "group": "Protezione perimetrale",
                 "pages": [
                   {
-                    "group": "Dispositivi ATB",
+                    "group": "Threat Blocker",
                     "pages": [
-                      "api-reference/it/atb/list-threat-blocker-configurations",
-                      "api-reference/it/atb/get-threat-blocker-configuration",
-                      "api-reference/it/atb/create-threat-blocker-configuration",
-                      "api-reference/it/atb/update-threat-blocker-configuration",
-                      "api-reference/it/atb/delete-threat-blocker-configuration"
+                      {
+                        "group": "Dispositivi ATB",
+                        "pages": [
+                          "api-reference/it/atb/list-threat-blocker-configurations",
+                          "api-reference/it/atb/get-threat-blocker-configuration",
+                          "api-reference/it/atb/create-threat-blocker-configuration",
+                          "api-reference/it/atb/update-threat-blocker-configuration",
+                          "api-reference/it/atb/delete-threat-blocker-configuration"
+                        ]
+                      },
+                      {
+                        "group": "Store Window",
+                        "pages": [
+                          "api-reference/it/atb/get-atb-store-window",
+                          "api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device",
+                          "api-reference/it/atb/post-atb-store-window",
+                          "api-reference/it/atb/upload-threat-blocker-traffic-v2"
+                        ]
+                      },
+                      {
+                        "group": "Log di traffico",
+                        "pages": [
+                          "api-reference/it/atb/list-threat-blocker-traffic-logs",
+                          "api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+                          "api-reference/it/atb/upload-threat-blocker-traffic-logs",
+                          "api-reference/it/atb/upload-threat-blocker-traffic-v2-1"
+                        ]
+                      },
+                      {
+                        "group": "Statistiche di traffico",
+                        "pages": [
+                          "api-reference/it/atb/get-threat-blocker-traffic-statistics",
+                          "api-reference/it/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
+                          "api-reference/it/atb/blocked-requests-over-the-last-7-days",
+                          "api-reference/it/atb/most-blocked-source-ips",
+                          "api-reference/it/atb/traffic-stats-per-crime-level"
+                        ]
+                      }
                     ]
                   },
                   {
-                    "group": "Store Window",
+                    "group": "Cloud Defender",
                     "pages": [
-                      "api-reference/it/atb/get-atb-store-window",
-                      "api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device",
-                      "api-reference/it/atb/post-atb-store-window",
-                      "api-reference/it/atb/upload-threat-blocker-traffic-v2"
+                      {
+                        "group": "Dispositivi",
+                        "pages": [
+                          "api-reference/it/cloud-defender/list-cloud-defender-configurations",
+                          "api-reference/it/cloud-defender/get-cloud-defender-configuration",
+                          "api-reference/it/cloud-defender/create-cloud-defender-configuration",
+                          "api-reference/it/cloud-defender/update-cloud-defender-configuration",
+                          "api-reference/it/cloud-defender/delete-cloud-defender-configuration"
+                        ]
+                      },
+                      {
+                        "group": "Traffico",
+                        "pages": [
+                          "api-reference/it/cloud-defender/get-cloud-defender-traffic-logs",
+                          "api-reference/it/cloud-defender/upload-cloud-defender-traffic-logs"
+                        ]
+                      }
                     ]
                   },
                   {
-                    "group": "Log di traffico",
+                    "group": "Analisi dei log",
                     "pages": [
-                      "api-reference/it/atb/list-threat-blocker-traffic-logs",
-                      "api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
-                      "api-reference/it/atb/upload-threat-blocker-traffic-logs",
-                      "api-reference/it/atb/upload-threat-blocker-traffic-v2-1"
+                      "api-reference/it/log-analysis/list-log-analyses",
+                      "api-reference/it/log-analysis/get-log-analysis",
+                      "api-reference/it/log-analysis/create-log-analysis",
+                      "api-reference/it/log-analysis/delete-log-analysis"
                     ]
                   },
                   {
-                    "group": "Statistiche di traffico",
+                    "group": "Threat Intelligence",
                     "pages": [
-                      "api-reference/it/atb/get-threat-blocker-traffic-statistics",
-                      "api-reference/it/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
-                      "api-reference/it/atb/blocked-requests-over-the-last-7-days",
-                      "api-reference/it/atb/most-blocked-source-ips",
-                      "api-reference/it/atb/traffic-stats-per-crime-level"
+                      "api-reference/it/perimeter-protection/get-threat-intelligence-ip-list",
+                      "api-reference/it/perimeter-protection/check-ip-threat-intelligence",
+                      "api-reference/it/perimeter-protection/check-url-threat-intelligence",
+                      "api-reference/it/perimeter-protection/get-threat-intelligence-domain-list",
+                      "api-reference/it/perimeter-protection/check-file-threat-intelligence",
+                      "api-reference/it/perimeter-protection/check-domain-threat-intelligence"
                     ]
                   }
                 ]
               },
               {
-                "group": "Cloud Defender",
+                "group": "Virtual Private Network",
                 "pages": [
-                  {
-                    "group": "Dispositivi",
-                    "pages": [
-                      "api-reference/it/cloud-defender/list-cloud-defender-configurations",
-                      "api-reference/it/cloud-defender/get-cloud-defender-configuration",
-                      "api-reference/it/cloud-defender/create-cloud-defender-configuration",
-                      "api-reference/it/cloud-defender/update-cloud-defender-configuration",
-                      "api-reference/it/cloud-defender/delete-cloud-defender-configuration"
-                    ]
-                  },
-                  {
-                    "group": "Traffico",
-                    "pages": [
-                      "api-reference/it/cloud-defender/get-cloud-defender-traffic-logs",
-                      "api-reference/it/cloud-defender/upload-cloud-defender-traffic-logs"
-                    ]
-                  }
+                  "api-reference/it/vpn/list-vpn-profiles",
+                  "api-reference/it/vpn/get-vpn-profile",
+                  "api-reference/it/vpn/create-vpn-profile",
+                  "api-reference/it/vpn/delete-vpn-profile"
                 ]
               },
               {
@@ -248,7 +282,12 @@
                       "api-reference/it/organizations/update-organization-branding",
                       "api-reference/it/organizations/delete-organization-logo"
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "group": "Amministrazione",
+                "pages": [
                   {
                     "group": "Utenti",
                     "pages": [
@@ -271,58 +310,28 @@
                 ]
               },
               {
-                "group": "Documenti",
+                "group": "Impostazioni / Profilo",
+                "pages": [
+                  {
+                    "group": "Notifiche",
+                    "pages": [
+                      "api-reference/it/notifications/list-notifications",
+                      "api-reference/it/notifications/mark-notifications-as-read"
+                    ]
+                  },
+                  {
+                    "group": "Termini",
+                    "pages": [
+                      "api-reference/it/terms/get-apiv1terms",
+                      "api-reference/it/terms/post-apiv1termsaccept"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Altro",
                 "pages": [
                   "api-reference/it/documents/download-document"
-                ]
-              },
-              {
-                "group": "Notifiche",
-                "pages": [
-                  "api-reference/it/notifications/list-notifications",
-                  "api-reference/it/notifications/mark-notifications-as-read"
-                ]
-              },
-              {
-                "group": "Analisi dei log",
-                "pages": [
-                  "api-reference/it/log-analysis/list-log-analyses",
-                  "api-reference/it/log-analysis/get-log-analysis",
-                  "api-reference/it/log-analysis/create-log-analysis",
-                  "api-reference/it/log-analysis/delete-log-analysis"
-                ]
-              },
-              {
-                "group": "Protezione perimetrale",
-                "pages": [
-                  "api-reference/it/perimeter-protection/get-threat-intelligence-ip-list",
-                  "api-reference/it/perimeter-protection/check-ip-threat-intelligence",
-                  "api-reference/it/perimeter-protection/check-url-threat-intelligence",
-                  "api-reference/it/perimeter-protection/get-threat-intelligence-domain-list",
-                  "api-reference/it/perimeter-protection/check-file-threat-intelligence",
-                  "api-reference/it/perimeter-protection/check-domain-threat-intelligence"
-                ]
-              },
-              {
-                "group": "Ricerca",
-                "pages": [
-                  "api-reference/it/search/search"
-                ]
-              },
-              {
-                "group": "VPN",
-                "pages": [
-                  "api-reference/it/vpn/list-vpn-profiles",
-                  "api-reference/it/vpn/get-vpn-profile",
-                  "api-reference/it/vpn/create-vpn-profile",
-                  "api-reference/it/vpn/delete-vpn-profile"
-                ]
-              },
-              {
-                "group": "Termini",
-                "pages": [
-                  "api-reference/it/terms/get-apiv1terms",
-                  "api-reference/it/terms/post-apiv1termsaccept"
                 ]
               }
             ]
@@ -477,68 +486,102 @@
                 ]
               },
               {
-                "group": "Aegister Threat Blocker",
+                "group": "Perimeter Protection",
                 "pages": [
                   {
-                    "group": "ATB Devices",
+                    "group": "Threat Blocker",
                     "pages": [
-                      "api-reference/atb/list-threat-blocker-configurations",
-                      "api-reference/atb/get-threat-blocker-configuration",
-                      "api-reference/atb/create-threat-blocker-configuration",
-                      "api-reference/atb/update-threat-blocker-configuration",
-                      "api-reference/atb/delete-threat-blocker-configuration"
+                      {
+                        "group": "ATB Devices",
+                        "pages": [
+                          "api-reference/atb/list-threat-blocker-configurations",
+                          "api-reference/atb/get-threat-blocker-configuration",
+                          "api-reference/atb/create-threat-blocker-configuration",
+                          "api-reference/atb/update-threat-blocker-configuration",
+                          "api-reference/atb/delete-threat-blocker-configuration"
+                        ]
+                      },
+                      {
+                        "group": "Store Window",
+                        "pages": [
+                          "api-reference/atb/get-atb-store-window",
+                          "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device",
+                          "api-reference/atb/post-atb-store-window",
+                          "api-reference/atb/upload-threat-blocker-traffic-v2"
+                        ]
+                      },
+                      {
+                        "group": "Traffic Logs",
+                        "pages": [
+                          "api-reference/atb/list-threat-blocker-traffic-logs",
+                          "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+                          "api-reference/atb/upload-threat-blocker-traffic-logs",
+                          "api-reference/atb/upload-threat-blocker-traffic-v2-1"
+                        ]
+                      },
+                      {
+                        "group": "Traffic Statistics",
+                        "pages": [
+                          "api-reference/atb/get-threat-blocker-traffic-statistics",
+                          "api-reference/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
+                          "api-reference/atb/blocked-requests-over-the-last-7-days",
+                          "api-reference/atb/most-blocked-source-ips",
+                          "api-reference/atb/traffic-stats-per-crime-level"
+                        ]
+                      }
                     ]
                   },
                   {
-                    "group": "Store Window",
+                    "group": "Cloud Defender",
                     "pages": [
-                      "api-reference/atb/get-atb-store-window",
-                      "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device",
-                      "api-reference/atb/post-atb-store-window",
-                      "api-reference/atb/upload-threat-blocker-traffic-v2"
+                      {
+                        "group": "Devices",
+                        "pages": [
+                          "api-reference/cloud-defender/list-cloud-defender-configurations",
+                          "api-reference/cloud-defender/get-cloud-defender-configuration",
+                          "api-reference/cloud-defender/create-cloud-defender-configuration",
+                          "api-reference/cloud-defender/update-cloud-defender-configuration",
+                          "api-reference/cloud-defender/delete-cloud-defender-configuration"
+                        ]
+                      },
+                      {
+                        "group": "Traffic",
+                        "pages": [
+                          "api-reference/cloud-defender/get-cloud-defender-traffic-logs",
+                          "api-reference/cloud-defender/upload-cloud-defender-traffic-logs"
+                        ]
+                      }
                     ]
                   },
                   {
-                    "group": "Traffic Logs",
+                    "group": "Log Analysis",
                     "pages": [
-                      "api-reference/atb/list-threat-blocker-traffic-logs",
-                      "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
-                      "api-reference/atb/upload-threat-blocker-traffic-logs",
-                      "api-reference/atb/upload-threat-blocker-traffic-v2-1"
+                      "api-reference/log-analysis/list-log-analyses",
+                      "api-reference/log-analysis/get-log-analysis",
+                      "api-reference/log-analysis/create-log-analysis",
+                      "api-reference/log-analysis/delete-log-analysis"
                     ]
                   },
                   {
-                    "group": "Traffic Statistics",
+                    "group": "Threat Intelligence",
                     "pages": [
-                      "api-reference/atb/get-threat-blocker-traffic-statistics",
-                      "api-reference/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
-                      "api-reference/atb/blocked-requests-over-the-last-7-days",
-                      "api-reference/atb/most-blocked-source-ips",
-                      "api-reference/atb/traffic-stats-per-crime-level"
+                      "api-reference/perimeter-protection/get-threat-intelligence-ip-list",
+                      "api-reference/perimeter-protection/check-ip-threat-intelligence",
+                      "api-reference/perimeter-protection/check-url-threat-intelligence",
+                      "api-reference/perimeter-protection/get-threat-intelligence-domain-list",
+                      "api-reference/perimeter-protection/check-file-threat-intelligence",
+                      "api-reference/perimeter-protection/check-domain-threat-intelligence"
                     ]
                   }
                 ]
               },
               {
-                "group": "Cloud Defender",
+                "group": "Virtual Private Network",
                 "pages": [
-                  {
-                    "group": "Devices",
-                    "pages": [
-                      "api-reference/cloud-defender/list-cloud-defender-configurations",
-                      "api-reference/cloud-defender/get-cloud-defender-configuration",
-                      "api-reference/cloud-defender/create-cloud-defender-configuration",
-                      "api-reference/cloud-defender/update-cloud-defender-configuration",
-                      "api-reference/cloud-defender/delete-cloud-defender-configuration"
-                    ]
-                  },
-                  {
-                    "group": "Traffic",
-                    "pages": [
-                      "api-reference/cloud-defender/get-cloud-defender-traffic-logs",
-                      "api-reference/cloud-defender/upload-cloud-defender-traffic-logs"
-                    ]
-                  }
+                  "api-reference/vpn/list-vpn-profiles",
+                  "api-reference/vpn/get-vpn-profile",
+                  "api-reference/vpn/create-vpn-profile",
+                  "api-reference/vpn/delete-vpn-profile"
                 ]
               },
               {
@@ -562,7 +605,12 @@
                       "api-reference/organizations/update-organization-branding",
                       "api-reference/organizations/delete-organization-logo"
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "group": "Administration",
+                "pages": [
                   {
                     "group": "Users",
                     "pages": [
@@ -585,58 +633,28 @@
                 ]
               },
               {
-                "group": "Documents",
+                "group": "Settings / Profile",
+                "pages": [
+                  {
+                    "group": "Notifications",
+                    "pages": [
+                      "api-reference/notifications/list-notifications",
+                      "api-reference/notifications/mark-notifications-as-read"
+                    ]
+                  },
+                  {
+                    "group": "Terms",
+                    "pages": [
+                      "api-reference/terms/get-apiv1terms",
+                      "api-reference/terms/post-apiv1termsaccept"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Other",
                 "pages": [
                   "api-reference/documents/download-document"
-                ]
-              },
-              {
-                "group": "Notifications",
-                "pages": [
-                  "api-reference/notifications/list-notifications",
-                  "api-reference/notifications/mark-notifications-as-read"
-                ]
-              },
-              {
-                "group": "Log Analysis",
-                "pages": [
-                  "api-reference/log-analysis/list-log-analyses",
-                  "api-reference/log-analysis/get-log-analysis",
-                  "api-reference/log-analysis/create-log-analysis",
-                  "api-reference/log-analysis/delete-log-analysis"
-                ]
-              },
-              {
-                "group": "Perimeter Protection",
-                "pages": [
-                  "api-reference/perimeter-protection/get-threat-intelligence-ip-list",
-                  "api-reference/perimeter-protection/check-ip-threat-intelligence",
-                  "api-reference/perimeter-protection/check-url-threat-intelligence",
-                  "api-reference/perimeter-protection/get-threat-intelligence-domain-list",
-                  "api-reference/perimeter-protection/check-file-threat-intelligence",
-                  "api-reference/perimeter-protection/check-domain-threat-intelligence"
-                ]
-              },
-              {
-                "group": "Search",
-                "pages": [
-                  "api-reference/search/search"
-                ]
-              },
-              {
-                "group": "VPN",
-                "pages": [
-                  "api-reference/vpn/list-vpn-profiles",
-                  "api-reference/vpn/get-vpn-profile",
-                  "api-reference/vpn/create-vpn-profile",
-                  "api-reference/vpn/delete-vpn-profile"
-                ]
-              },
-              {
-                "group": "Terms",
-                "pages": [
-                  "api-reference/terms/get-apiv1terms",
-                  "api-reference/terms/post-apiv1termsaccept"
                 ]
               }
             ]
