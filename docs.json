@@ -105,7 +105,7 @@
                         ]
                       },
                       {
-                        "group": "Attività",
+                        "group": "Task",
                         "pages": [
                           "api-reference/it/v-ciso-•-workflows/bulk-update-a-table-task",
                           "api-reference/it/v-ciso-•-workflows/tasks-list",
@@ -148,7 +148,8 @@
                           "api-reference/it/v-ciso/get-incident",
                           "api-reference/it/v-ciso/create-incident",
                           "api-reference/it/v-ciso/update-incident",
-                          "api-reference/it/v-ciso/delete-incident"
+                          "api-reference/it/v-ciso/delete-incident",
+                          "api-reference/it/v-ciso/get-incident-taxonomy"
                         ]
                       },
                       {
@@ -158,14 +159,6 @@
                           "api-reference/it/v-ciso/download-incident-attachment",
                           "api-reference/it/v-ciso/upload-incident-attachment",
                           "api-reference/it/v-ciso/delete-incident-attachment"
-                        ]
-                      },
-                      {
-                        "group": "Utilità incidenti",
-                        "pages": [
-                          "api-reference/it/v-ciso/get-incident-taxonomy",
-                          "api-reference/it/v-ciso/enrich-incident-with-threat-intelligence",
-                          "api-reference/it/v-ciso/generate-incident-report-template"
                         ]
                       }
                     ]
@@ -481,7 +474,8 @@
                           "api-reference/v-ciso/get-incident",
                           "api-reference/v-ciso/create-incident",
                           "api-reference/v-ciso/update-incident",
-                          "api-reference/v-ciso/delete-incident"
+                          "api-reference/v-ciso/delete-incident",
+                          "api-reference/v-ciso/get-incident-taxonomy"
                         ]
                       },
                       {
@@ -491,14 +485,6 @@
                           "api-reference/v-ciso/download-incident-attachment",
                           "api-reference/v-ciso/upload-incident-attachment",
                           "api-reference/v-ciso/delete-incident-attachment"
-                        ]
-                      },
-                      {
-                        "group": "Incident Utilities",
-                        "pages": [
-                          "api-reference/v-ciso/get-incident-taxonomy",
-                          "api-reference/v-ciso/enrich-incident-with-threat-intelligence",
-                          "api-reference/v-ciso/generate-incident-report-template"
                         ]
                       }
                     ]
