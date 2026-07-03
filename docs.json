@@ -84,61 +84,49 @@
                 "group": "Virtual CISO",
                 "pages": [
                   {
-                    "group": "Incidenti",
+                    "group": "Cyber Posture",
                     "pages": [
-                      "api-reference/it/v-ciso/list-incidents",
-                      "api-reference/it/v-ciso/get-incident",
-                      "api-reference/it/v-ciso/create-incident",
-                      "api-reference/it/v-ciso/update-incident",
-                      "api-reference/it/v-ciso/delete-incident"
-                    ]
-                  },
-                  {
-                    "group": "Allegati incidente",
-                    "pages": [
-                      "api-reference/it/v-ciso/list-incident-attachments",
-                      "api-reference/it/v-ciso/download-incident-attachment",
-                      "api-reference/it/v-ciso/upload-incident-attachment",
-                      "api-reference/it/v-ciso/delete-incident-attachment"
-                    ]
-                  },
-                  {
-                    "group": "Utilità incidenti",
-                    "pages": [
-                      "api-reference/it/v-ciso/get-incident-taxonomy",
-                      "api-reference/it/v-ciso/enrich-incident-with-threat-intelligence",
-                      "api-reference/it/v-ciso/generate-incident-report-template"
-                    ]
-                  },
-                  {
-                    "group": "Workflow",
-                    "pages": [
-                      "api-reference/it/v-ciso/list-workflow-associations",
-                      "api-reference/it/v-ciso/get-organization-workflow-associations",
-                      "api-reference/it/v-ciso-•-workflows/list-available-workflows",
-                      "api-reference/it/cyber-assurance-•-workflows/associate-workflow-to-organization",
-                      "api-reference/it/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
-                    ]
-                  },
-                  {
-                    "group": "Controlli framework",
-                    "pages": [
-                      "api-reference/it/v-ciso-•-workflows/framework-spec",
-                      "api-reference/it/v-ciso-•-workflows/framework-answers",
-                      "api-reference/it/v-ciso-•-workflows/framework-controls-import"
-                    ]
-                  },
-                  {
-                    "group": "Attività",
-                    "pages": [
-                      "api-reference/it/v-ciso-•-workflows/bulk-update-a-table-task",
-                      "api-reference/it/v-ciso-•-workflows/tasks-list",
-                      "api-reference/it/v-ciso-•-workflows/table-tasks-list",
-                      "api-reference/it/v-ciso-•-workflows/table-task-spec",
-                      "api-reference/it/v-ciso-•-workflows/task-answers",
-                      "api-reference/it/v-ciso-•-workflows/table-task-import",
-                      "api-reference/it/v-ciso-•-workflows/table-task-template",
-                      "api-reference/it/v-ciso-•-workflows/table-task-export"
+                      {
+                        "group": "Workflow",
+                        "pages": [
+                          "api-reference/it/v-ciso/list-workflow-associations",
+                          "api-reference/it/v-ciso/get-organization-workflow-associations",
+                          "api-reference/it/v-ciso-•-workflows/list-available-workflows",
+                          "api-reference/it/cyber-assurance-•-workflows/associate-workflow-to-organization",
+                          "api-reference/it/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
+                        ]
+                      },
+                      {
+                        "group": "Controlli framework",
+                        "pages": [
+                          "api-reference/it/v-ciso-•-workflows/framework-spec",
+                          "api-reference/it/v-ciso-•-workflows/framework-answers",
+                          "api-reference/it/v-ciso-•-workflows/framework-controls-import"
+                        ]
+                      },
+                      {
+                        "group": "Attività",
+                        "pages": [
+                          "api-reference/it/v-ciso-•-workflows/bulk-update-a-table-task",
+                          "api-reference/it/v-ciso-•-workflows/tasks-list",
+                          "api-reference/it/v-ciso-•-workflows/table-tasks-list",
+                          "api-reference/it/v-ciso-•-workflows/table-task-spec",
+                          "api-reference/it/v-ciso-•-workflows/task-answers",
+                          "api-reference/it/v-ciso-•-workflows/table-task-import",
+                          "api-reference/it/v-ciso-•-workflows/table-task-template",
+                          "api-reference/it/v-ciso-•-workflows/table-task-export"
+                        ]
+                      },
+                      {
+                        "group": "Documenti",
+                        "pages": [
+                          "api-reference/it/v-ciso-•-workflows/workflow-documents",
+                          "api-reference/it/cyber-assurance-•-documents/list-document-versions-for-an-artifact",
+                          "api-reference/it/cyber-assurance-•-documents/upload-a-new-document-version",
+                          "api-reference/it/cyber-assurance-•-documents/download-a-document-version",
+                          "api-reference/it/v-ciso-•-workflows/get-workflow-report"
+                        ]
+                      }
                     ]
                   },
                   {
@@ -151,13 +139,35 @@
                     ]
                   },
                   {
-                    "group": "Documenti",
+                    "group": "Notifica incidenti",
                     "pages": [
-                      "api-reference/it/v-ciso-•-workflows/workflow-documents",
-                      "api-reference/it/cyber-assurance-•-documents/list-document-versions-for-an-artifact",
-                      "api-reference/it/cyber-assurance-•-documents/upload-a-new-document-version",
-                      "api-reference/it/cyber-assurance-•-documents/download-a-document-version",
-                      "api-reference/it/v-ciso-•-workflows/get-workflow-report"
+                      {
+                        "group": "Incidenti",
+                        "pages": [
+                          "api-reference/it/v-ciso/list-incidents",
+                          "api-reference/it/v-ciso/get-incident",
+                          "api-reference/it/v-ciso/create-incident",
+                          "api-reference/it/v-ciso/update-incident",
+                          "api-reference/it/v-ciso/delete-incident"
+                        ]
+                      },
+                      {
+                        "group": "Allegati incidente",
+                        "pages": [
+                          "api-reference/it/v-ciso/list-incident-attachments",
+                          "api-reference/it/v-ciso/download-incident-attachment",
+                          "api-reference/it/v-ciso/upload-incident-attachment",
+                          "api-reference/it/v-ciso/delete-incident-attachment"
+                        ]
+                      },
+                      {
+                        "group": "Utilità incidenti",
+                        "pages": [
+                          "api-reference/it/v-ciso/get-incident-taxonomy",
+                          "api-reference/it/v-ciso/enrich-incident-with-threat-intelligence",
+                          "api-reference/it/v-ciso/generate-incident-report-template"
+                        ]
+                      }
                     ]
                   }
                 ]
@@ -407,61 +417,49 @@
                 "group": "V-CISO",
                 "pages": [
                   {
-                    "group": "Incidents",
+                    "group": "Cyber Posture",
                     "pages": [
-                      "api-reference/v-ciso/list-incidents",
-                      "api-reference/v-ciso/get-incident",
-                      "api-reference/v-ciso/create-incident",
-                      "api-reference/v-ciso/update-incident",
-                      "api-reference/v-ciso/delete-incident"
-                    ]
-                  },
-                  {
-                    "group": "Incident Attachments",
-                    "pages": [
-                      "api-reference/v-ciso/list-incident-attachments",
-                      "api-reference/v-ciso/download-incident-attachment",
-                      "api-reference/v-ciso/upload-incident-attachment",
-                      "api-reference/v-ciso/delete-incident-attachment"
-                    ]
-                  },
-                  {
-                    "group": "Incident Utilities",
-                    "pages": [
-                      "api-reference/v-ciso/get-incident-taxonomy",
-                      "api-reference/v-ciso/enrich-incident-with-threat-intelligence",
-                      "api-reference/v-ciso/generate-incident-report-template"
-                    ]
-                  },
-                  {
-                    "group": "Workflows",
-                    "pages": [
-                      "api-reference/v-ciso/list-workflow-associations",
-                      "api-reference/v-ciso/get-organization-workflow-associations",
-                      "api-reference/v-ciso-•-workflows/list-available-workflows",
-                      "api-reference/cyber-assurance-•-workflows/associate-workflow-to-organization",
-                      "api-reference/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
-                    ]
-                  },
-                  {
-                    "group": "Framework Controls",
-                    "pages": [
-                      "api-reference/v-ciso-•-workflows/framework-spec",
-                      "api-reference/v-ciso-•-workflows/framework-answers",
-                      "api-reference/v-ciso-•-workflows/framework-controls-import"
-                    ]
-                  },
-                  {
-                    "group": "Tasks",
-                    "pages": [
-                      "api-reference/v-ciso-•-workflows/bulk-update-a-table-task",
-                      "api-reference/v-ciso-•-workflows/tasks-list",
-                      "api-reference/v-ciso-•-workflows/table-tasks-list",
-                      "api-reference/v-ciso-•-workflows/table-task-spec",
-                      "api-reference/v-ciso-•-workflows/task-answers",
-                      "api-reference/v-ciso-•-workflows/table-task-import",
-                      "api-reference/v-ciso-•-workflows/table-task-template",
-                      "api-reference/v-ciso-•-workflows/table-task-export"
+                      {
+                        "group": "Workflows",
+                        "pages": [
+                          "api-reference/v-ciso/list-workflow-associations",
+                          "api-reference/v-ciso/get-organization-workflow-associations",
+                          "api-reference/v-ciso-•-workflows/list-available-workflows",
+                          "api-reference/cyber-assurance-•-workflows/associate-workflow-to-organization",
+                          "api-reference/cyber-assurance-•-workflows/disassociate-workflow-from-organization"
+                        ]
+                      },
+                      {
+                        "group": "Framework Controls",
+                        "pages": [
+                          "api-reference/v-ciso-•-workflows/framework-spec",
+                          "api-reference/v-ciso-•-workflows/framework-answers",
+                          "api-reference/v-ciso-•-workflows/framework-controls-import"
+                        ]
+                      },
+                      {
+                        "group": "Tasks",
+                        "pages": [
+                          "api-reference/v-ciso-•-workflows/bulk-update-a-table-task",
+                          "api-reference/v-ciso-•-workflows/tasks-list",
+                          "api-reference/v-ciso-•-workflows/table-tasks-list",
+                          "api-reference/v-ciso-•-workflows/table-task-spec",
+                          "api-reference/v-ciso-•-workflows/task-answers",
+                          "api-reference/v-ciso-•-workflows/table-task-import",
+                          "api-reference/v-ciso-•-workflows/table-task-template",
+                          "api-reference/v-ciso-•-workflows/table-task-export"
+                        ]
+                      },
+                      {
+                        "group": "Documents",
+                        "pages": [
+                          "api-reference/v-ciso-•-workflows/workflow-documents",
+                          "api-reference/cyber-assurance-•-documents/list-document-versions-for-an-artifact",
+                          "api-reference/cyber-assurance-•-documents/upload-a-new-document-version",
+                          "api-reference/cyber-assurance-•-documents/download-a-document-version",
+                          "api-reference/v-ciso-•-workflows/get-workflow-report"
+                        ]
+                      }
                     ]
                   },
                   {
@@ -474,13 +472,35 @@
                     ]
                   },
                   {
-                    "group": "Documents",
+                    "group": "Incident Notification",
                     "pages": [
-                      "api-reference/v-ciso-•-workflows/workflow-documents",
-                      "api-reference/cyber-assurance-•-documents/list-document-versions-for-an-artifact",
-                      "api-reference/cyber-assurance-•-documents/upload-a-new-document-version",
-                      "api-reference/cyber-assurance-•-documents/download-a-document-version",
-                      "api-reference/v-ciso-•-workflows/get-workflow-report"
+                      {
+                        "group": "Incidents",
+                        "pages": [
+                          "api-reference/v-ciso/list-incidents",
+                          "api-reference/v-ciso/get-incident",
+                          "api-reference/v-ciso/create-incident",
+                          "api-reference/v-ciso/update-incident",
+                          "api-reference/v-ciso/delete-incident"
+                        ]
+                      },
+                      {
+                        "group": "Incident Attachments",
+                        "pages": [
+                          "api-reference/v-ciso/list-incident-attachments",
+                          "api-reference/v-ciso/download-incident-attachment",
+                          "api-reference/v-ciso/upload-incident-attachment",
+                          "api-reference/v-ciso/delete-incident-attachment"
+                        ]
+                      },
+                      {
+                        "group": "Incident Utilities",
+                        "pages": [
+                          "api-reference/v-ciso/get-incident-taxonomy",
+                          "api-reference/v-ciso/enrich-incident-with-threat-intelligence",
+                          "api-reference/v-ciso/generate-incident-report-template"
+                        ]
+                      }
                     ]
                   }
                 ]
