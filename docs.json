@@ -247,6 +247,7 @@
                     "pages": [
                       "api-reference/it/perimeter-protection/get-threat-intelligence-ip-list",
                       "api-reference/it/perimeter-protection/check-ip-threat-intelligence",
+                      "api-reference/it/perimeter-protection/get-ip-intelligence",
                       "api-reference/it/perimeter-protection/check-url-threat-intelligence",
                       "api-reference/it/perimeter-protection/get-threat-intelligence-domain-list",
                       "api-reference/it/perimeter-protection/check-file-threat-intelligence",
@@ -274,7 +275,8 @@
                       "api-reference/it/organizations/get-organization",
                       "api-reference/it/organizations/create-organization",
                       "api-reference/it/organizations/update-organization",
-                      "api-reference/it/organizations/delete-organization"
+                      "api-reference/it/organizations/delete-organization",
+                      "api-reference/it/organizations/compute-nis2-assessment"
                     ]
                   },
                   {
@@ -573,6 +575,7 @@
                     "pages": [
                       "api-reference/perimeter-protection/get-threat-intelligence-ip-list",
                       "api-reference/perimeter-protection/check-ip-threat-intelligence",
+                      "api-reference/perimeter-protection/get-ip-intelligence",
                       "api-reference/perimeter-protection/check-url-threat-intelligence",
                       "api-reference/perimeter-protection/get-threat-intelligence-domain-list",
                       "api-reference/perimeter-protection/check-file-threat-intelligence",
@@ -600,7 +603,8 @@
                       "api-reference/organizations/get-organization",
                       "api-reference/organizations/create-organization",
                       "api-reference/organizations/update-organization",
-                      "api-reference/organizations/delete-organization"
+                      "api-reference/organizations/delete-organization",
+                      "api-reference/organizations/compute-nis2-assessment"
                     ]
                   },
                   {
