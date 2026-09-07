@@ -18,3 +18,34 @@ Sì, puoi effettuare un downgrade della sessione da HTTPS a HTTP tra il WAF e il
 ### Quali vantaggi offre il Cloud Defender rispetto ad altre soluzioni come AWS Cloudfront + WAF?
 
 Il Cloud Defender offre le funzionalità classiche: mascheramento degli IP, protezione DDoS, WAF tradizionale e caching. Si distingue perché blocca automaticamente il traffico proveniente da fonti malevoli grazie ai dati di threat intelligence di [OneFirewall](https://onefirewall.com/intelligence.html). Se un attaccante viene identificato durante un attacco su un altro target, il sistema blocca quella stessa origine anche sul tuo sito.
+
+### Un rilevamento indica "Non bloccate (anteprima)". Il sito è stato attaccato e l'abbiamo lasciato passare?
+
+No. Le regole di firma OWASP sul tuo dominio sono in modalità anteprima: registrano cosa avrebbero
+bloccato senza bloccarlo, così da poter eliminare i falsi positivi sul tuo traffico reale prima di
+attivarle. Una regola tarata sull'applicazione di qualcun altro rifiuterebbe richieste da cui la tua
+dipende.
+
+Nel frattempo a proteggerti sono misure attive: il blocco dell'origine rifiuta tutto ciò che non
+arriva dalla nostra CDN e la blocklist di threat intelligence rifiuta le sorgenti già note per
+attaccare altri. Il dato "minacce bloccate" conteggia quelle.
+
+### Perché il totale bloccato non torna con l'elenco delle sorgenti di attacco?
+
+Le richieste bloccate prima che Cloud Defender iniziasse ad acquisire l'indirizzo del client portano
+l'indirizzo della nostra CDN e non quello del mittente. Rientrano nel totale, perché sono state
+davvero bloccate, ma non possono essere attribuite a una sorgente: per questo non compaiono nella
+tabella degli attaccanti e sono riportate a parte nella frase sotto il totale.
+
+### Il mio dominio risulta "Non attivo" ma il sito funziona. Perché?
+
+Un dominio risulta Non attivo se la licenza non è valida o se i controlli di salute non passano.
+Decide prima la licenza: se è scaduta il dominio è Non attivo anche se il proxy risponde ancora,
+perché non siamo più incaricati di proteggerlo.
+
+### Chi riceve il report settimanale e gli avvisi?
+
+Solo le persone selezionate per Cloud Defender in Organizzazioni → Utenti dell'organizzazione. Nulla
+viene inviato in base al ruolo, e un'organizzazione senza nessuno selezionato non riceve nulla. Un
+Owner può modificarlo. Le comunicazioni su licenze e rinnovi sono separate: vanno agli Owner e al
+punto di contatto amministrativo.

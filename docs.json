@@ -58,6 +58,9 @@
                   "documentation/it/cloud-defender/what-is-cloud-defender",
                   "documentation/it/cloud-defender/how-it-works",
                   "documentation/it/cloud-defender/how-to-get-started",
+                  "documentation/it/cloud-defender/reading-your-status-page",
+                  "documentation/it/cloud-defender/alerts-and-reports",
+                  "documentation/it/cloud-defender/when-a-licence-ends",
                   "documentation/it/cloud-defender/faq"
                 ]
               },
@@ -228,6 +231,8 @@
                         "group": "Traffico",
                         "pages": [
                           "api-reference/it/cloud-defender/get-cloud-defender-traffic-logs",
+                          "api-reference/it/cloud-defender/get-cloud-defender-security-events",
+                          "api-reference/it/cloud-defender/get-cloud-defender-traffic-summary",
                           "api-reference/it/cloud-defender/upload-cloud-defender-traffic-logs"
                         ]
                       }
@@ -386,6 +391,9 @@
                   "documentation/en/cloud-defender/what-is-cloud-defender",
                   "documentation/en/cloud-defender/how-it-works",
                   "documentation/en/cloud-defender/how-to-get-started",
+                  "documentation/en/cloud-defender/reading-your-status-page",
+                  "documentation/en/cloud-defender/alerts-and-reports",
+                  "documentation/en/cloud-defender/when-a-licence-ends",
                   "documentation/en/cloud-defender/faq"
                 ]
               },
@@ -556,6 +564,8 @@
                         "group": "Traffic",
                         "pages": [
                           "api-reference/cloud-defender/get-cloud-defender-traffic-logs",
+                          "api-reference/cloud-defender/get-cloud-defender-security-events",
+                          "api-reference/cloud-defender/get-cloud-defender-traffic-summary",
                           "api-reference/cloud-defender/upload-cloud-defender-traffic-logs"
                         ]
                       }

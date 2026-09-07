@@ -1,0 +1,51 @@
+---
+title: "Reading your status page"
+description: "What each figure on the Cloud Defender status page counts, and what it does not."
+---
+
+The status page answers three separate questions, and they are deliberately not the same number.
+
+## Threats blocked
+
+Requests Cloud Defender **refused**, over the selected window. Every one of them was stopped before
+it reached your application.
+
+Underneath the total you may see a second sentence: *"A further N were blocked before the sending
+address was recorded, and cannot be attributed to a source."* Those requests were blocked like any
+other, but they were recorded before Cloud Defender captured the client's address, so all we hold is
+our own CDN's address rather than the sender's. They count towards the total and they are absent from
+the attacker table, because naming our own CDN as your attacker would be worse than saying nothing.
+
+## Attacker insights
+
+The sources we can identify, ranked by how many of their requests were refused, enriched with
+Aegister Threat Intelligence. This table only ever lists addresses we can attribute — see above.
+
+## Detected attacks
+
+Requests that **matched an attack signature**. This is a different question from "was it blocked",
+and the Outcome column is where the two meet:
+
+| Outcome | Meaning |
+|---|---|
+| **Blocked** | The request was refused. The badge names the layer that stopped it. |
+| **Partly blocked** | A burst where some requests were refused and others served. |
+| **Not blocked (preview)** | The signature matched, and the request was served anyway. |
+| **Outcome unknown** | The detection predates outcome recording. Historical rows only. |
+
+**"Not blocked (preview)" is not a failure.** The OWASP signature rules run in preview on your
+domain: they record what they would have blocked without blocking it. That is deliberate. A signature
+rule tuned against somebody else's traffic will refuse requests your application depends on, so we
+run it in preview against your real traffic first, remove the false positives, and only then enforce.
+Until that is done, the detections tab is a report on what enforcement *would* do.
+
+Your protection in the meantime is not the signature rules. It is the origin lockdown, which refuses
+anything that did not arrive through our CDN, and the threat-intelligence blocklist, which refuses
+sources known to be attacking somebody. Those are enforcing, and they are what the "threats blocked"
+figure counts.
+
+## Protection status
+
+**Active** means the licence is live and the health checks pass. A domain reads **Not active** if
+either is false — including when the licence has ended, whatever the health check says. We do not
+describe a domain as protected when we are no longer contracted to protect it.

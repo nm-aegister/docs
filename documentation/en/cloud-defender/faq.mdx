@@ -18,3 +18,33 @@ Yes, you can downgrade from HTTPS to HTTP between the WAF and the protected site
 ### What advantages does Cloud Defender offer over solutions like AWS Cloudfront + WAF?
 
 Cloud Defender provides IP masking, DDoS protection, a conventional WAF, and caching. What sets it apart is that it blocks traffic from malicious sources automatically, using threat intelligence data from [OneFirewall](https://onefirewall.com/intelligence.html). If an attacker is identified during an attack on another target, the system blocks that source from reaching your site.
+
+### A detection says "Not blocked (preview)". Was my site attacked and we let it through?
+
+No. The OWASP signature rules run in preview on your domain: they record what they would have blocked
+without blocking it, so that we can remove false positives against your real traffic before enforcing.
+A rule tuned on somebody else's application will refuse requests yours depends on.
+
+What is protecting you meanwhile is enforcing: the origin lockdown refuses anything that did not
+arrive through our CDN, and the threat-intelligence blocklist refuses sources known to be attacking
+others. The "threats blocked" figure counts those.
+
+### Why does the blocked total not add up against the list of attacking sources?
+
+Requests blocked before Cloud Defender began capturing the client's address carry our CDN's address
+rather than the sender's. They are counted in the total, because they really were blocked, but they
+cannot be attributed to a source, so they are absent from the attacker table and reported separately
+in the sentence beneath the total.
+
+### My domain says "Not active" but the site is up. Why?
+
+A domain reads Not active if the licence is not live or the health checks do not pass. The licence
+decides first: if it has expired, the domain is Not active even though its proxy still answers,
+because we are no longer contracted to protect it.
+
+### Who receives the weekly report and the alerts?
+
+Only the people ticked for Cloud Defender on Organizations → Organization users. Nothing is sent on
+the basis of somebody's role, and an organization with nobody ticked receives nothing. An Owner can
+change it. Licence and renewal notices are separate — those go to Owners and to the administrative
+point of contact.

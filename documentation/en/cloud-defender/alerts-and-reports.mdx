@@ -1,0 +1,36 @@
+---
+title: "Alerts and reports"
+description: "Who is emailed about Cloud Defender, and how to change it."
+---
+
+## The weekly report
+
+Every Monday, a PDF covering the previous seven days: totals, the most active sources with their
+reputation and network, where the traffic came from, per-domain activity, and the most recent blocked
+requests with the path each one asked for.
+
+## Choosing who receives alerts
+
+Alerts are **opt-in, per person and per product**. Nobody receives them because of the role they
+hold; somebody has to decide.
+
+On **Organizations → your organization → Organization users**, each member has a checkbox per
+product — ATB, Cloud Defender, V-CISO. Tick it and that person receives that product's alerts for
+that organization. Ticking saves immediately.
+
+- Everything starts unticked. An organization where nobody is ticked receives no alerts, which is
+  the intended answer rather than an oversight: an unconfirmed distribution list is not a list.
+- Only an **Owner** can change these. Security Officers see them read-only.
+- A column is disabled where the organization has no subscription for that product.
+- A pending invitation shows a dash. There is no membership to attach a preference to until the
+  invitation is accepted.
+
+## Administrative notices
+
+Separate from the above, and separate on purpose. **Organizations → General information → Point of
+contact** carries an *Administrative notices* switch. That address receives licence and renewal
+notices — it does not receive security alerts or the technical weekly report.
+
+Licence expiry warnings go to Owners and to those administrative contacts, without opt-in: a licence
+running out is contractual, and the people who can renew it need to hear about it whether or not
+anyone ticked a box. You are warned 30 days out, again the day before, and once more when it expires.
