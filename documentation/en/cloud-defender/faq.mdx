@@ -10,9 +10,9 @@ Yes. Specific paths or IP addresses can be excluded, so the filter does not inte
 
 Exclusions are configured by Aegister on request: tell your point of contact which path or address to exclude and we apply it for you.
 
-### What IP address does the Cloud Defender CDN use?
+### Which addresses should my origin accept traffic from?
 
-To prevent WAF bypass, you can configure the filter to accept requests only from our CDN. Whitelist the IP address 34.110.162.74 (secure.aegister.com).
+To prevent WAF bypass, configure your origin to accept web traffic only from Cloud Defender. Aegister gives you the addresses to allow when your domain is activated: see step 4 of the activation guide.
 
 ### Can I downgrade from HTTPS to HTTP between the WAF and the protected site?
 
@@ -21,16 +21,6 @@ Yes, you can downgrade from HTTPS to HTTP between the WAF and the protected site
 ### What advantages does Cloud Defender offer over solutions like AWS Cloudfront + WAF?
 
 Cloud Defender provides IP masking, DDoS protection, a conventional WAF, and caching. What sets it apart is that it blocks traffic from malicious sources automatically, using threat intelligence data from [OneFirewall](https://onefirewall.com/intelligence.html). If an attacker is identified during an attack on another target, the system blocks that source from reaching your site.
-
-### A detection says "Not blocked (preview)". Was my site attacked and we let it through?
-
-No. A newly protected domain runs its signature rules in preview for a short period: they record what
-they would have blocked, so we can derive the exclusions your application needs from your own traffic
-before enforcing. A rule set tuned on somebody else's application will refuse requests yours depends
-on, and finding that out by blocking your users is not an acceptable way to learn it.
-
-Your domain is protected throughout: the origin lockdown refuses anything that did not arrive through
-our CDN, and the threat-intelligence blocklist refuses sources known to be attacking others.
 
 ### Why does the blocked total not add up against the list of attacking sources?
 
@@ -47,7 +37,8 @@ because we are no longer contracted to protect it.
 
 ### Who receives the weekly report and the alerts?
 
-Only the people ticked for Cloud Defender on Organizations → Organization users. Nothing is sent on
-the basis of somebody's role, and an organization with nobody ticked receives nothing. An Owner can
-change it. Licence and renewal notices are separate: those go to Owners and to the administrative
+The weekly report and the email alerts are being rolled out and are not sent to customers yet. Once
+they are, they go only to the people ticked for Cloud Defender on Organizations → Organization users.
+Nothing is sent on the basis of somebody's role, and an organization with nobody ticked receives
+nothing. An Owner can change it. Licence and renewal notices are separate: those go to Owners and to the administrative
 point of contact.

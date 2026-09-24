@@ -4,7 +4,7 @@ sidebarTitle: "Reading your status page"
 description: "What each figure on the Cloud Defender status page counts, and what it does not."
 ---
 
-The status page answers three separate questions, and they are deliberately not the same number.
+The status page answers separate questions, and they are deliberately not the same number.
 
 ## Threats blocked
 
@@ -15,25 +15,6 @@ it reached your application.
 
 The sources we can identify, ranked by how many of their requests were refused, enriched with
 Aegister Threat Intelligence: reputation, country of origin and the network each address belongs to.
-
-## Detected attacks
-
-Requests that **matched an attack signature**. This is a different question from "was it blocked",
-and the Outcome column is where the two meet:
-
-| Outcome | Meaning |
-|---|---|
-| **Blocked** | The request was refused. The badge names the layer that stopped it. |
-| **Partly blocked** | A burst where some requests were refused and others served. |
-| **Not blocked (preview)** | The signature matched, and the request was served anyway. |
-| **Outcome unknown** | The detection predates outcome recording. Historical rows only. |
-
-**"Not blocked (preview)" belongs to onboarding.** When a domain is first protected, its signature
-rules run in preview for a short period: they record what they would have blocked without blocking
-it. That is deliberate, and it protects your application. A signature set tuned on somebody else's
-traffic will refuse requests yours depends on, so we watch it against your real traffic first, derive
-the exclusions your application needs, and then enforce. If you see this badge, your domain is in
-that phase, and the rows carrying it are exactly the evidence we use to finish it.
 
 ## Protection status
 

@@ -10,9 +10,9 @@ Sì. È possibile escludere percorsi (path) o indirizzi IP specifici, così da e
 
 Le esclusioni sono configurate da Aegister su richiesta: segnala il percorso o l'indirizzo al tuo referente e provvediamo noi ad applicarle.
 
-### Qual è l'indirizzo IP utilizzato dalla CDN del Cloud Defender?
+### Da quali indirizzi deve accettare traffico la mia origine?
 
-Per aumentare la sicurezza ed evitare un bypass del WAF, puoi configurare il filtro in modo che accetti richieste solo dalla nostra CDN. L'indirizzo IP da inserire in whitelist è 34.110.162.74 (secure.aegister.com).
+Per evitare un bypass del WAF, configura l'origine in modo che accetti traffico web solo dal Cloud Defender. Aegister ti comunica gli indirizzi da autorizzare al momento dell'attivazione del dominio: vedi il passaggio 4 della guida all'attivazione.
 
 ### È possibile effettuare un downgrade da HTTPS a HTTP tra il WAF e il sito protetto?
 
@@ -21,17 +21,6 @@ Sì, puoi effettuare un downgrade della sessione da HTTPS a HTTP tra il WAF e il
 ### Quali vantaggi offre il Cloud Defender rispetto ad altre soluzioni come AWS Cloudfront + WAF?
 
 Il Cloud Defender offre le funzionalità classiche: mascheramento degli IP, protezione DDoS, WAF tradizionale e caching. Si distingue perché blocca automaticamente il traffico proveniente da fonti malevoli grazie ai dati di threat intelligence di [OneFirewall](https://onefirewall.com/intelligence.html). Se un attaccante viene identificato durante un attacco su un altro target, il sistema blocca quella stessa origine anche sul tuo sito.
-
-### Un rilevamento indica "Non bloccate (anteprima)". Il sito è stato attaccato e l'abbiamo lasciato passare?
-
-No. Un dominio appena protetto esegue le proprie regole di firma in anteprima per un breve periodo:
-registrano cosa avrebbero bloccato, così da ricavare dal tuo traffico le esclusioni di cui la tua
-applicazione ha bisogno prima di attivarle. Un set di regole tarato sull'applicazione di qualcun
-altro rifiuterebbe richieste da cui la tua dipende, e scoprirlo bloccando i tuoi utenti non è un modo
-accettabile di farlo.
-
-Il dominio resta comunque protetto: il blocco dell'origine rifiuta tutto ciò che non arriva dalla
-nostra CDN e la blocklist di threat intelligence rifiuta le sorgenti già note per attaccare altri.
 
 ### Perché il totale bloccato non torna con l'elenco delle sorgenti di attacco?
 
@@ -48,7 +37,8 @@ perché non siamo più incaricati di proteggerlo.
 
 ### Chi riceve il report settimanale e gli avvisi?
 
-Solo le persone selezionate per Cloud Defender in Organizzazioni → Utenti dell'organizzazione. Nulla
-viene inviato in base al ruolo, e un'organizzazione senza nessuno selezionato non riceve nulla. Un
+Il report settimanale e gli avvisi via email sono in fase di attivazione e non vengono ancora inviati
+ai clienti. Una volta attivi, arrivano solo alle persone selezionate per Cloud Defender in
+Organizzazioni → Utenti dell'Organizzazione. Nulla viene inviato in base al ruolo, e un'organizzazione senza nessuno selezionato non riceve nulla. Un
 Owner può modificarlo. Le comunicazioni su licenze e rinnovi sono separate: vanno agli Owner e al
 punto di contatto amministrativo.

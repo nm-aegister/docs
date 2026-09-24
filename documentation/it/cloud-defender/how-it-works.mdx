@@ -22,7 +22,7 @@ Aegister Cloud Defender protegge le applicazioni web analizzando in tempo reale 
 ## Analisi del Traffico
 
 - Il traffico del cliente attraversa il Cloud Defender, **il tunnel azzurro mostrato nello schema**, dove viene sottoposto a:
-  - **Analisi basata su Threat Intelligence:** le regole WAF, aggiornate di continuo, valutano il rischio della richiesta.
+  - **Threat Intelligence:** le richieste provenienti da sorgenti già note per attaccare altri obiettivi vengono respinte, grazie a una blocklist aggiornata di continuo.
   - **Controllo di raggiungibilità:** il sistema interroga periodicamente il dominio e l'endpoint del cliente per verificare che l'origine risponda. L'esito è visibile nella pagina di stato del Cloud Defender.
 
 ## Decisione e Azione
@@ -31,8 +31,7 @@ Ogni richiesta riceve una decisione prima di raggiungere la tua applicazione.
 
 Le richieste che superano i controlli proseguono verso l'endpoint associato a
 **client1.domain1.com**, senza differenze percepibili per l'utente. Vengono invece respinte le
-richieste che provengono da una sorgente già nota per attaccare altri obiettivi, quelle che
-corrispondono a una firma di attacco e quelle che tentano di raggiungere l'origine scavalcando il
+richieste che provengono da una sorgente già nota per attaccare altri obiettivi e quelle che tentano di raggiungere l'origine scavalcando il
 Cloud Defender.
 
 Ogni blocco viene registrato con orario, sorgente e richiesta, e resta consultabile nella pagina di

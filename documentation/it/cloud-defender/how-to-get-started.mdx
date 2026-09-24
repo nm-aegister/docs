@@ -24,8 +24,9 @@ Dopo che Aegister ha configurato il Cloud Defender, aggiorna i record DNS del tu
 1. **Accesso al pannello DNS:**  
    Accedi al pannello di controllo del tuo provider DNS o hosting, dove gestisci i record del dominio.
 
-2. **Modifica del record A o CNAME:**  
-   Aggiorna il record principale dell’applicazione da proteggere (record A o CNAME) in modo che punti a: secure.aegister.com
+2. **Punta il dominio verso Cloud Defender:**  
+   Sostituisci il record dell’applicazione da proteggere con un CNAME che punti a `secure.aegister.com`
+   (sulla radice del dominio, dove un CNAME non è ammesso, usa il record ALIAS o ANAME del tuo provider).
 
 3. **Conferma e propagazione:**  
 Salva le modifiche e attendi la propagazione dei DNS, che di norma richiede da 1 a 24 ore a seconda del provider.
@@ -57,7 +58,8 @@ lo conosce aggira l'intera protezione, perché WAF, Threat Intelligence, mitigaz
 vengono tutti saltati. È il passaggio che rende effettiva la protezione, non un'ottimizzazione
 successiva.
 
-1. **Autorizza l'indirizzo del Cloud Defender:** `34.110.162.74` (`secure.aegister.com`).
+1. **Autorizza gli indirizzi del Cloud Defender:** Aegister ti comunica gli indirizzi da autorizzare
+   al momento dell'attivazione del dominio.
 2. **Blocca tutto il resto** del traffico in ingresso sulle porte 80 e 443.
 3. **Dove applicarlo:** firewall perimetrale, security group del cloud provider oppure regola del web
    server (per esempio `allow` / `deny` in Apache o Nginx).
@@ -68,16 +70,14 @@ attivi prima che il DNS sia propagato, blocchi anche il traffico legittimo.
 </Warning>
 
 Se hai bisogno di mantenere un accesso diretto per manutenzione, autorizza esplicitamente gli
-indirizzi da cui ti colleghi, insieme a quello del Cloud Defender.
+indirizzi da cui ti colleghi, insieme a quelli del Cloud Defender.
 
 ---
 
 ## 5. Supporto e Contatti
 
-Per dubbi o problemi durante l’aggiornamento dei DNS o dopo la configurazione, contatta il supporto Aegister:
-
-Il tuo referente Aegister è indicato nella Cyber Console, nella pagina di dettaglio del Cloud
-Defender. Per assistenza puoi contattare lui oppure scrivere a [info@aegister.com](mailto:info@aegister.com).
+Per dubbi o problemi durante l’aggiornamento dei DNS o dopo la configurazione, contatta il tuo
+referente Aegister oppure scrivi a [info@aegister.com](mailto:info@aegister.com).
 
 ---
 

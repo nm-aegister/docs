@@ -24,9 +24,9 @@ Once Aegister configures Cloud Defender, update your domain's DNS records:
 1. **Access the DNS control panel:**  
    Log in to the DNS provider or hosting control panel where you manage your domain records.
 
-2. **Modify the A or CNAME record:**  
-   Update the primary record for the web application (an A record or a CNAME) to point to:  
-   `secure.aegister.com`
+2. **Point the domain to Cloud Defender:**  
+   Replace the record for the web application with a CNAME pointing to `secure.aegister.com`
+   (at the root of a domain, where a CNAME is not allowed, use your provider's ALIAS or ANAME record).
 
 3. **Confirmation and propagation:**  
    Save your changes and wait for DNS propagation, which takes 1 to 24 hours depending on your provider.
@@ -55,7 +55,8 @@ Without this step the site stays reachable directly at its public IP address: an
 bypasses the whole protection, because the WAF, Threat Intelligence, DDoS mitigation and caching are
 all skipped. This is the step that makes the protection effective, not a later optimisation.
 
-1. **Allow the Cloud Defender address:** `34.110.162.74` (`secure.aegister.com`).
+1. **Allow the Cloud Defender addresses:** Aegister gives you the addresses to allow when your
+   domain is activated.
 2. **Deny all other** inbound traffic on ports 80 and 443.
 3. **Where to apply it:** perimeter firewall, cloud provider security group, or a web server rule
    (for example `allow` / `deny` in Apache or Nginx).
@@ -66,16 +67,14 @@ has propagated will block legitimate traffic too.
 </Warning>
 
 If you need to keep direct access for maintenance, explicitly allow the addresses you connect from
-alongside the Cloud Defender address.
+alongside the Cloud Defender addresses.
 
 ---
 
 ## 5. Support and Contacts
 
-If you have questions or run into issues during the DNS update or after configuration, contact Aegister Support:
-
-Your Aegister point of contact is shown in the Cyber Console, on the Cloud Defender detail page.
-Contact them, or write to [info@aegister.com](mailto:info@aegister.com).
+If you have questions or run into issues during the DNS update or after configuration, contact
+your Aegister point of contact, or write to [info@aegister.com](mailto:info@aegister.com).
 
 ---
 

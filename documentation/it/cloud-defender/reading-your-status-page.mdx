@@ -4,37 +4,17 @@ sidebarTitle: "Leggere la pagina di stato"
 description: "Cosa conta ciascun dato della pagina di stato di Cloud Defender, e cosa non conta."
 ---
 
-La pagina di stato risponde a tre domande distinte, e i numeri non coincidono di proposito.
+La pagina di stato risponde a domande distinte, e i numeri non coincidono di proposito.
 
 ## Minacce bloccate
 
 Le richieste che Cloud Defender ha **rifiutato** nell'intervallo selezionato. Ognuna è stata fermata
 prima di raggiungere la tua applicazione.
 
-## Sorgenti degli attacchi
+## Analisi degli attaccanti
 
 Le sorgenti che riusciamo a identificare, ordinate per numero di richieste rifiutate e arricchite
 con Aegister Threat Intelligence: reputazione, paese di origine e rete di appartenenza.
-
-## Attacchi rilevati
-
-Le richieste che hanno **corrisposto a una firma di attacco**. È una domanda diversa da "è stata
-bloccata", e la colonna Esito è dove le due si incontrano:
-
-| Esito | Significato |
-|---|---|
-| **Bloccata** | La richiesta è stata rifiutata. Il badge indica il livello che l'ha fermata. |
-| **Parzialmente bloccata** | Una serie in cui alcune richieste sono state rifiutate e altre servite. |
-| **Non bloccate (anteprima)** | La firma ha corrisposto e la richiesta è stata comunque servita. |
-| **Esito sconosciuto** | Il rilevamento precede la registrazione dell'esito. Solo dati storici. |
-
-**"Non bloccate (anteprima)" riguarda l'attivazione.** Quando un dominio viene protetto per la prima
-volta, le sue regole di firma restano per un breve periodo in modalità anteprima: registrano cosa
-avrebbero bloccato, senza bloccarlo. È voluto, e serve a proteggere la tua applicazione. Un set di
-firme tarato sul traffico di qualcun altro rifiuterebbe richieste da cui la tua dipende: prima lo
-osserviamo sul tuo traffico reale, ricaviamo le esclusioni necessarie e poi lo attiviamo. Se vedi
-questo badge il tuo dominio è in quella fase, e le righe che lo riportano sono esattamente le prove
-che usiamo per completarla.
 
 ## Stato della protezione
 

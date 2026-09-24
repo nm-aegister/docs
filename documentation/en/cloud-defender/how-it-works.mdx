@@ -22,7 +22,7 @@ Aegister Cloud Defender secures web applications by analyzing inbound traffic in
 ## Traffic Analysis
 
 - Client traffic flows through Cloud Defender (the **"blue tunnel"** in the diagram), where two checks run:
-  - **Threat Intelligence Analysis:** continuously updated WAF rules score the risk of each request.
+  - **Threat Intelligence:** requests from sources already known for attacking other targets are refused, using a continuously updated blocklist.
   - **Reachability checks:** the system periodically queries the client's domain and endpoint to confirm the origin is responding. The result is shown on the Cloud Defender status page.
 
 ## Decision and Action
@@ -30,8 +30,8 @@ Aegister Cloud Defender secures web applications by analyzing inbound traffic in
 Every request gets a decision before it reaches your application.
 
 Requests that pass the checks continue to the endpoint behind **client1.domain1.com**, with nothing
-for the user to notice. Refused are those from a source already known for attacking other targets,
-those matching an attack signature, and those trying to reach the origin while bypassing Cloud
+for the user to notice. Refused are those from a source already known for attacking other targets
+and those trying to reach the origin while bypassing Cloud
 Defender.
 
 Every block is recorded with its time, source and request, and stays available on the status page.
