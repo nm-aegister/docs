@@ -4,14 +4,14 @@ sidebarTitle: "How to Activate (Parallel Installation)"
 description: "Step-by-step guide to activate Aegister Threat Blocker and connect it to your security infrastructure."
 ---
 
-This guide covers the full procedure to connect and activate **Aegister Threat Blocker (ATB)**, whether you deploy it in series or in parallel. Follow these steps to integrate the device with your security infrastructure.
+This guide covers the full procedure to connect and activate **Aegister Threat Blocker (ATB)**. Steps 1 to 3 apply to every installation; step 4 covers the parallel installation next to your existing firewall, with specific instructions for Fortigate and SonicWall.
 
 ## 1. Corporate Account Creation
 
 - **Preliminary:**  
   First, create an account for your organization on the **Aegister Cyber Console**. You need it to manage and monitor the ATB device.
   
-  **Note:** For devices that Aegister pre-configures for Partners, the organization already exists. Register on the platform [here](https://app.aegister.com/keycloak/realms/aegister/protocol/openid-connect/auth?response_type=code&scope=openid+email&client_id=webapp&redirect_uri=http%3A%2F%2Fapp.aegister.com%2Foidc%2Fcallback%2F&state=2im9Pol7ebxPo8NiOIOTe1BCEEIIUanY&nonce=aGU8lHJY54kTamcYrfg6Ar9tBgX3S9EN) with a corporate account, using email and password or SSO. Once registered, ask your Aegister contact for the permissions you need to access the ATB dashboard.
+  **Note:** For devices that Aegister pre-configures for Partners, the organization already exists. Register on the platform [here](https://app.aegister.com) with a corporate account, using email and password or SSO. Once registered, ask your Aegister contact for the permissions you need to access the ATB dashboard.
 
 ---
 
@@ -34,11 +34,11 @@ This guide covers the full procedure to connect and activate **Aegister Threat B
   The team confirms that the built-in VPN tunnel works, so remote maintenance and updates are possible.
   
 - **ATB local IP verification:**  
-  Open the [ATB](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/) section of your [Aegister Cyber Console](/documentation/en/acc/how-get-account) to confirm the ATB is connected and to view its **PUBLIC_IP** and **LOCAL_IP**.  
+  In your [Aegister Cyber Console](/documentation/en/acc/how-get-account), open **Perimeter Protection → [ATB](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/)** and click your device. Its **Threat Blocker status** page confirms the ATB is connected (**Last Update**) and shows its public and local addresses in the **Endpoint / Private IP** field.  
   ![ATB Dashboard](/images/atb-dashboard.png)
 
 - **Verification call:**  
-  If a problem arises, schedule a call with one of our experts to check the device and its connection with [app.aegister.com](https://app.aegister.com/perimeter-protection/aegister-threat-blocker//).
+  If a problem arises, schedule a call with one of our experts to check the device and its connection with [app.aegister.com](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/).
 
 ---
 
@@ -53,14 +53,14 @@ Follow these steps:
    - Confirm the ATB device is connected to the network and reachable.  
    - The IP feed is available at:
      ```
-     http://IP_ATB_LOCALE:8080/blacklist.txt
+     http://<LOCAL_ATB_IP>:8080/blacklist.txt
      ```
      Open this URL to confirm the IP blacklist downloads correctly.
 
 3. **Security rules configuration:**  
    - Create or change firewall rules to block traffic to or from the IPs in the blacklist.  
    - You need at least two rules: one for inbound traffic and one for outbound, with the action set to "Deny" or "Block".
-   - **Share the rule names with the Aegister team.**
+   - **Share the rule names with the Aegister team, so we can track the requests your rules block.**
 
 4. **Advanced settings and connection security:**  
    - If your firewall supports automatic blacklist updates, configure periodic refreshes.  
@@ -68,7 +68,7 @@ Follow these steps:
 
 5. **Logging and monitoring configuration:**  
    - Enable logging to monitor events tied to your firewall rules.  
-   - Configure log mirroring on UDP port **514**, as your firewall supports, to block unwanted traffic.
+   - Configure log mirroring to UDP port **514** on the ATB, as your firewall supports, so you can verify that unwanted traffic is blocked.
 
 6. **Final verification and functionality test:**  
    - Download the blacklist again to confirm it is current and that a green check mark (or equivalent) appears.  
@@ -90,7 +90,7 @@ To connect ATB in parallel to an existing Fortigate firewall, follow these steps
    - Create a Security Fabric object named **"Aegister_Blacklist"**.  
    - Use the link:
      ```
-     https://IP_LOCALE_ATB/blacklist.txt
+     https://<LOCAL_ATB_IP>/blacklist.txt
      ```
      Confirm the status shows "green" and the list downloads correctly.
 
@@ -129,7 +129,7 @@ If your environment uses a SonicWall firewall, follow these steps from the [manu
    http://<LOCAL_ATB_IP>:8080/blacklist.txt
    ```
 
-   Replace `<LOCAL_ATB_IP>` with the local IP address from your firewall or from the [Aegister Cyber Console (ATB)](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/).
+   Replace `<LOCAL_ATB_IP>` with the local IP from the **Endpoint / Private IP** field in the [Aegister Cyber Console (ATB)](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/), as described in step 3, or with the ATB address known to your firewall.
 
    > **Note:** Once you apply the rules, tell the Aegister team the firewall rule names you used.
 
@@ -138,17 +138,23 @@ If your environment uses a SonicWall firewall, follow these steps from the [manu
    ```json
    "maximum_rules": 1999
    ```
+   This keeps the list within a SonicOS Botnet Filter limit, so it holds only the most dangerous IPs.
+
+   ![ATB Settings](/images/atb-settings.png)
+
 5. **Verify the configuration**  
    Confirm the botnet filter downloads the IPs and shows a green check mark ✅, which means the blacklist is current.
 
 6. **Enable log mirroring and traffic monitoring**  
-   Configure traffic mirroring from WAN to LAN to `<LOCAL_ATB_IP>`:514 (UDP) on the ATB device. The device sends raw logs to [the Aegister Cyber Console](https://app.aegister.com) automatically.
+   Configure traffic mirroring from WAN to LAN to `<LOCAL_ATB_IP>:514` (UDP) on the ATB device. The device sends raw logs to [the Aegister Cyber Console](https://app.aegister.com) automatically.
    
    If logs do not appear, the Aegister team investigates and corrects any parsing issues.
 
    For more on Packet Mirroring on SonicWall devices, see the [SonicOS documentation](https://www.sonicwall.com/support/knowledge-base/configuring-packet-mirroring/170504587646444).
 
    **Optional:** Log mirroring is optional and you can enable it at your discretion. It sends Syslog traffic from the firewall to the Aegister dashboard, which stores the last 10 million events and provides real-time visual and tabular traffic analytics. These logs cover both inbound and outbound IPs that our Threat Intelligence system blocked.
+
+---
 
 ## Multi-Firewall Deployment
 
@@ -160,3 +166,9 @@ Example configuration for three firewalls:
 - Firewall 3 → UDP/516
 
 Give each firewall its own UDP port to keep log streams separate for accurate monitoring and troubleshooting.
+
+---
+
+## Conclusion
+
+These steps activate **Aegister Threat Blocker (ATB)** and integrate it with your infrastructure, strengthening your company's perimeter protection. For questions or help, our support team guides you through every step.

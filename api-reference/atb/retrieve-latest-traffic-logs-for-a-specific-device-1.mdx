@@ -1,6 +1,6 @@
 ---
 title: "Get Threat Blocker traffic logs v2"
 sidebarTitle: "List Traffic V2"
-description: "Returns up to 1000 of the most recent traffic log entries for a given ATB device ID, sorted in descending order by timestamp. Each entry includes metadata such as source and destination IPs, firewall rule, direction, and whether the request was considered malicious or blocked."
+description: "Return up to 10000 of the most recent traffic log entries for a Threat Blocker device, newest first: source and destination IPs, destination port, firewall rule, direction, action, score and crime level. Use hours to bound the window and before (ISO timestamp) to page older batches."
 openapi: get /api/v1/atb/{id}/traffic-v2
 ---

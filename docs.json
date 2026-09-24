@@ -188,9 +188,7 @@
                         "group": "Store Window",
                         "pages": [
                           "api-reference/it/atb/get-atb-store-window",
-                          "api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device",
-                          "api-reference/it/atb/post-atb-store-window",
-                          "api-reference/it/atb/upload-threat-blocker-traffic-v2"
+                          "api-reference/it/atb/post-atb-store-window"
                         ]
                       },
                       {
@@ -524,9 +522,7 @@
                         "group": "Store Window",
                         "pages": [
                           "api-reference/atb/get-atb-store-window",
-                          "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device",
-                          "api-reference/atb/post-atb-store-window",
-                          "api-reference/atb/upload-threat-blocker-traffic-v2"
+                          "api-reference/atb/post-atb-store-window"
                         ]
                       },
                       {
@@ -767,6 +763,26 @@
     {
       "source": "/en/faq",
       "destination": "/documentation/en/faq",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device",
+      "destination": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/upload-threat-blocker-traffic-v2",
+      "destination": "/api-reference/atb/upload-threat-blocker-traffic-v2-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device",
+      "destination": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/upload-threat-blocker-traffic-v2",
+      "destination": "/api-reference/it/atb/upload-threat-blocker-traffic-v2-1",
       "permanent": true
     }
   ]

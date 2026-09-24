@@ -1,6 +1,6 @@
 ---
 title: "Recupera i log di traffico di Threat Blocker v2"
 sidebarTitle: "Elenca traffico V2"
-description: "Restituisce fino a 1000 delle voci di log di traffico più recenti per un dato ID dispositivo ATB, ordinate in ordine decrescente per timestamp. Ogni voce include metadati come gli IP sorgente e destinazione, la regola del firewall, la direzione e se la richiesta è stata considerata malevola o bloccata."
+description: "Restituisce fino a 10000 voci di log di traffico più recenti di un dispositivo Threat Blocker, dalla più recente: IP sorgente e destinazione, porta di destinazione, regola del firewall, direzione, azione, punteggio e livello di rischio. Usa hours per limitare la finestra e before (timestamp ISO) per scorrere i blocchi più vecchi."
 openapi: get /api/v1/atb/{id}/traffic-v2
 ---

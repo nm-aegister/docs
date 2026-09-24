@@ -1,8 +1,6 @@
 ---
 title: "Recupera elenco IP threat intelligence"
 sidebarTitle: "Elenco IP"
-description: "Recupera l'elenco degli IPv4 threat intelligence.
-
-Fornito da <a href=\"https://onefirewall.com/?tag=aegister\" taget=\"_blank\">OneFirewall</a>"
+description: "Scarica il feed degli IPv4 malevoli in testo semplice, un IP per riga, per gli IP con crime score almeno pari a score (obbligatorio). Autenticati con l'header X-Aegister-Token o con il parametro auth_token, utile per i firewall che scaricano un URL. Fornito da <a href=\"https://onefirewall.com/?tag=aegister\" target=\"_blank\">OneFirewall</a>"
 openapi: get /api/v1/perimeter-protection/threat-intelligence/ip/list
 ---
