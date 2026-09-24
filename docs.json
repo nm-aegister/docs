@@ -209,7 +209,8 @@
                           "api-reference/it/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
                           "api-reference/it/atb/blocked-requests-over-the-last-7-days",
                           "api-reference/it/atb/most-blocked-source-ips",
-                          "api-reference/it/atb/traffic-stats-per-crime-level"
+                          "api-reference/it/atb/traffic-stats-per-crime-level",
+                          "api-reference/it/atb/get-atb-attacker-insights"
                         ]
                       }
                     ]
@@ -326,7 +327,9 @@
                     "group": "Notifiche",
                     "pages": [
                       "api-reference/it/notifications/list-notifications",
-                      "api-reference/it/notifications/mark-notifications-as-read"
+                      "api-reference/it/notifications/mark-notifications-as-read",
+                      "api-reference/it/notifications/mark-all-notifications-as-read",
+                      "api-reference/it/notifications/dismiss-notification"
                     ]
                   },
                   {
@@ -542,7 +545,8 @@
                           "api-reference/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
                           "api-reference/atb/blocked-requests-over-the-last-7-days",
                           "api-reference/atb/most-blocked-source-ips",
-                          "api-reference/atb/traffic-stats-per-crime-level"
+                          "api-reference/atb/traffic-stats-per-crime-level",
+                          "api-reference/atb/get-atb-attacker-insights"
                         ]
                       }
                     ]
@@ -659,7 +663,9 @@
                     "group": "Notifications",
                     "pages": [
                       "api-reference/notifications/list-notifications",
-                      "api-reference/notifications/mark-notifications-as-read"
+                      "api-reference/notifications/mark-notifications-as-read",
+                      "api-reference/notifications/mark-all-notifications-as-read",
+                      "api-reference/notifications/dismiss-notification"
                     ]
                   },
                   {
