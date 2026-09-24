@@ -8,19 +8,19 @@ description: 'Steps to create a new authentication token for accessing the API.'
 Create an authentication token in four steps:
 
 1. **Open your profile**  
-   Click your profile icon at the top right of the page, or go directly to [Settings → Profile](https://app.aegister.com/settings/profile/).
+   Click your name at the top right of the Cyber Console and choose **Profile**, or go directly to the [profile page](https://app.aegister.com/settings/profile/).
 
 2. **Create a new token**  
-   In the API Tokens section, click *+ New*.
-   ![Step 2](../images/token1.png)
+   In the **API tokens** card, click **+ New token**.
+   ![Step 2](/images/token1.png)
 
 3. **Name the token**  
-   Enter a name and click "Generate".
-   ![Step 3](../images/token2.png)
+   Enter a name and click **Generate**.
+   ![Step 3](/images/token2.png)
 
 4. **Copy the token**  
-   Copy the token now. It will not appear again.
-   ![Step 4](../images/token3.png)
+   Copy the token now. It is not shown again after you close the dialog.
+   ![Step 4](/images/token3.png)
 
 
-Store the token securely. Every API request requires it.
+Store the token securely. Every API request requires it, sent in the `X-Aegister-Token` header (see [Authentication](/api-reference/authentication)).

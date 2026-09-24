@@ -8,19 +8,19 @@ description: 'Procedura per creare un nuovo token di autenticazione per accedere
 Crea un token di autenticazione in quattro passaggi:
 
 1. **Apri il tuo profilo**  
-   Clicca sull'icona del profilo in alto a destra nella pagina, oppure vai direttamente su [Impostazioni → Profilo](https://app.aegister.com/settings/profile/).
+   Clicca sul tuo nome in alto a destra nella Cyber Console e scegli **Profilo**, oppure vai direttamente alla [pagina del profilo](https://app.aegister.com/settings/profile/).
 
 2. **Crea un nuovo token**  
-   Nella sezione Token API, clicca su *+ Nuovo*.
+   Nella scheda **Token API**, clicca su **+ Nuovo token**.
    ![Passaggio 2](/images/token1.png)
 
 3. **Assegna un nome al token**  
-   Inserisci un nome e clicca su "Genera".
+   Inserisci un nome e clicca su **Genera**.
    ![Passaggio 3](/images/token2.png)
 
 4. **Copia il token**  
-   Copia subito il token. Non verrà più mostrato.
+   Copia subito il token. Non viene più mostrato dopo la chiusura della finestra.
    ![Passaggio 4](/images/token3.png)
 
 
-Conserva il token in modo sicuro. Ogni richiesta API lo richiede.
+Conserva il token in modo sicuro. Ogni richiesta API lo richiede, nell'header `X-Aegister-Token` (vedi [Autenticazione](/api-reference/it/authentication)).

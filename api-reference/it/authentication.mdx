@@ -5,16 +5,16 @@ description: 'Metodi di autenticazione supportati dalle nostre API.'
 
 ## Metodi di autenticazione
 
-Le API autenticano le richieste tramite l'header `X-Aegister-Token`. Puoi inviarlo in due modi.
+Le API autenticano le richieste con un token API inviato come `X-Aegister-Token`. Per crearne uno, vedi [Token](/api-reference/it/token).
 
 ### 1. Autenticazione tramite header
 
-Includi `X-Aegister-Token` negli header della richiesta. Preferisci questo metodo: mantiene il token fuori dall'URL e dai log del server.
+Includi `X-Aegister-Token` negli header della richiesta. È il metodo supportato: mantiene il token fuori dall'URL e dai log del server.
 
 **Esempio di richiesta:**
 
 ```http
-GET /api/v1/resource HTTP/1.1
+GET /api/v1/organizations HTTP/1.1
 Host: app.aegister.com
 X-Aegister-Token: il_tuo_token
 ```
@@ -22,22 +22,39 @@ X-Aegister-Token: il_tuo_token
 **Esempio con curl:**
 
 ```bash
-curl -H "X-Aegister-Token: il_tuo_token" https://app.aegister.com/api/v1/resource
+curl -H "X-Aegister-Token: $TOKEN" https://app.aegister.com/api/v1/organizations
 ```
 
-### 2. Autenticazione tramite parametro di query
+**Esempio di risposta** (campi ridotti):
 
-Passa `X-Aegister-Token` come parametro di query nell'URL. Usa questo metodo quando non puoi impostare gli header della richiesta.
+```json
+{
+  "error": 0,
+  "messages": [],
+  "total": 1,
+  "data": [
+    { "id": 123, "name": "Organizzazione di esempio" }
+  ]
+}
+```
+
+Un token mancante o non valido restituisce HTTP `403`:
+
+```json
+{ "error": 1, "messages": [2168] }
+```
+
+### 2. Autenticazione tramite parametro di query (deprecata)
+
+<Warning>
+Questo metodo è deprecato e verrà rimosso. Un token nell'URL finisce nei log di proxy e server e nella cronologia del browser. Usa l'header.
+</Warning>
+
+Le API accettano ancora `X-Aegister-Token` come parametro di query nell'URL.
 
 **Esempio di richiesta:**
 
 ```http
-GET /api/v1/resource?X-Aegister-Token=il_tuo_token HTTP/1.1
+GET /api/v1/organizations?X-Aegister-Token=il_tuo_token HTTP/1.1
 Host: app.aegister.com
-```
-
-**Esempio con curl:**
-
-```bash
-curl https://app.aegister.com/api/v1/resource?X-Aegister-Token=il_tuo_token
 ```

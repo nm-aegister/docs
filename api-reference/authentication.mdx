@@ -5,16 +5,16 @@ description: 'Authentication methods supported by our API.'
 
 ## Authentication Methods
 
-The API authenticates requests with the `X-Aegister-Token`. Send it in either of two ways.
+The API authenticates requests with an API token sent as `X-Aegister-Token`. To create one, see [Token](/api-reference/token).
 
 ### 1. Header-Based Authentication
 
-Include the `X-Aegister-Token` in the request headers. Prefer this method: it keeps the token out of the URL and out of server logs.
+Include the `X-Aegister-Token` in the request headers. This is the supported method: it keeps the token out of the URL and out of server logs.
 
 **Example Request:**
 
 ```http
-GET /api/v1/resource HTTP/1.1
+GET /api/v1/organizations HTTP/1.1
 Host: app.aegister.com
 X-Aegister-Token: your_token_here
 ```
@@ -22,22 +22,39 @@ X-Aegister-Token: your_token_here
 **Curl Example:**
 
 ```bash
-curl -H "X-Aegister-Token: your_token_here" https://app.aegister.com/api/v1/resource
+curl -H "X-Aegister-Token: $TOKEN" https://app.aegister.com/api/v1/organizations
 ```
 
-### 2. Query Parameter Authentication
+**Example Response** (fields trimmed):
 
-Pass the `X-Aegister-Token` as a query parameter in the URL. Use this method when you cannot set request headers.
+```json
+{
+  "error": 0,
+  "messages": [],
+  "total": 1,
+  "data": [
+    { "id": 123, "name": "Example Organization" }
+  ]
+}
+```
+
+A missing or invalid token returns HTTP `403`:
+
+```json
+{ "error": 1, "messages": [2168] }
+```
+
+### 2. Query Parameter Authentication (deprecated)
+
+<Warning>
+This method is deprecated and will be removed. A token in the URL ends up in proxy and server logs and in browser history. Use the header instead.
+</Warning>
+
+The API still accepts `X-Aegister-Token` as a query parameter in the URL.
 
 **Example Request:**
 
 ```http
-GET /api/v1/resource?X-Aegister-Token=your_token_here HTTP/1.1
+GET /api/v1/organizations?X-Aegister-Token=your_token_here HTTP/1.1
 Host: app.aegister.com
-```
-
-**Curl Example:**
-
-```bash
-curl https://app.aegister.com/api/v1/resource?X-Aegister-Token=your_token_here
 ```

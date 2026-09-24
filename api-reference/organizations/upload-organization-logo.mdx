@@ -1,12 +1,6 @@
 ---
 title: "Upload organization logo"
 sidebarTitle: "Upload organization logo"
-description: "Upload an organization's logo.
-
-Accepts PNG, JPG, or SVG files up to 2MB and generates:
-- a resized logo (max 400x400)
-- a favicon (32x32)
-
-The new URLs are saved to the organization's branding data."
+description: "Upload an organization's logo (PNG, JPG or SVG, up to 2MB). Aegister generates a resized logo (max 400x400) and a 32x32 favicon and saves their URLs in the organization's branding. Only super_admin users can upload a logo."
 openapi: post /api/v1/organizations/{id}/branding/logo
 ---

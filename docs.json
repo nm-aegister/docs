@@ -753,6 +753,21 @@
       "source": "/documentation/acc/what-is-acc",
       "destination": "/documentation/it/acc/what-is-acc",
       "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/documentation/it/faq",
+      "permanent": true
+    },
+    {
+      "source": "/introduction",
+      "destination": "/documentation/it/introduzione",
+      "permanent": true
+    },
+    {
+      "source": "/en/faq",
+      "destination": "/documentation/en/faq",
+      "permanent": true
     }
   ]
 }
