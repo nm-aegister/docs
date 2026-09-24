@@ -1,11 +1,14 @@
 ---
-title: "FAQs"
-description: "Frequently Asked Questions"
+title: "Cloud Defender FAQ"
+sidebarTitle: "FAQs"
+description: "Frequently asked questions about Aegister Cloud Defender."
 ---
 
 ### Can specific paths or IP addresses be excluded from WAF protection?
 
-Yes. You can configure exclusions for specific paths or use regular expressions to define excluded areas. This keeps the filter from interfering with internal or critical services.
+Yes. Specific paths or IP addresses can be excluded, so the filter does not interfere with internal or critical services.
+
+Exclusions are configured by Aegister on request: tell your point of contact which path or address to exclude and we apply it for you.
 
 ### What IP address does the Cloud Defender CDN use?
 
@@ -21,13 +24,13 @@ Cloud Defender provides IP masking, DDoS protection, a conventional WAF, and cac
 
 ### A detection says "Not blocked (preview)". Was my site attacked and we let it through?
 
-No. The OWASP signature rules run in preview on your domain: they record what they would have blocked
-without blocking it, so that we can remove false positives against your real traffic before enforcing.
-A rule tuned on somebody else's application will refuse requests yours depends on.
+No. A newly protected domain runs its signature rules in preview for a short period: they record what
+they would have blocked, so we can derive the exclusions your application needs from your own traffic
+before enforcing. A rule set tuned on somebody else's application will refuse requests yours depends
+on, and finding that out by blocking your users is not an acceptable way to learn it.
 
-What is protecting you meanwhile is enforcing: the origin lockdown refuses anything that did not
-arrive through our CDN, and the threat-intelligence blocklist refuses sources known to be attacking
-others. The "threats blocked" figure counts those.
+Your domain is protected throughout: the origin lockdown refuses anything that did not arrive through
+our CDN, and the threat-intelligence blocklist refuses sources known to be attacking others.
 
 ### Why does the blocked total not add up against the list of attacking sources?
 
@@ -46,5 +49,5 @@ because we are no longer contracted to protect it.
 
 Only the people ticked for Cloud Defender on Organizations → Organization users. Nothing is sent on
 the basis of somebody's role, and an organization with nobody ticked receives nothing. An Owner can
-change it. Licence and renewal notices are separate — those go to Owners and to the administrative
+change it. Licence and renewal notices are separate: those go to Owners and to the administrative
 point of contact.

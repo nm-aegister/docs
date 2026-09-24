@@ -1,5 +1,6 @@
 ---
-title: "Leggere la pagina di stato"
+title: "Cloud Defender: leggere la pagina di stato"
+sidebarTitle: "Leggere la pagina di stato"
 description: "Cosa conta ciascun dato della pagina di stato di Cloud Defender, e cosa non conta."
 ---
 
@@ -10,17 +11,10 @@ La pagina di stato risponde a tre domande distinte, e i numeri non coincidono di
 Le richieste che Cloud Defender ha **rifiutato** nell'intervallo selezionato. Ognuna è stata fermata
 prima di raggiungere la tua applicazione.
 
-Sotto il totale può comparire una seconda frase: *"Altre N sono state bloccate prima che venisse
-registrato l'indirizzo di origine e non possono essere attribuite a una sorgente."* Quelle richieste
-sono state bloccate come tutte le altre, ma sono state registrate prima che Cloud Defender acquisisse
-l'indirizzo del client: di esse conserviamo solo l'indirizzo della nostra CDN, non quello del
-mittente. Rientrano nel totale e non compaiono nella tabella degli attaccanti, perché indicare la
-nostra stessa CDN come tuo attaccante sarebbe peggio che non dire nulla.
-
 ## Sorgenti degli attacchi
 
-Le sorgenti che riusciamo a identificare, ordinate per numero di richieste rifiutate e arricchite con
-Aegister Threat Intelligence. Questa tabella elenca solo indirizzi attribuibili — vedi sopra.
+Le sorgenti che riusciamo a identificare, ordinate per numero di richieste rifiutate e arricchite
+con Aegister Threat Intelligence: reputazione, paese di origine e rete di appartenenza.
 
 ## Attacchi rilevati
 
@@ -34,19 +28,16 @@ bloccata", e la colonna Esito è dove le due si incontrano:
 | **Non bloccate (anteprima)** | La firma ha corrisposto e la richiesta è stata comunque servita. |
 | **Esito sconosciuto** | Il rilevamento precede la registrazione dell'esito. Solo dati storici. |
 
-**"Non bloccate (anteprima)" non è un fallimento.** Le regole di firma OWASP sul tuo dominio sono in
-modalità anteprima: registrano cosa avrebbero bloccato, senza bloccarlo. È voluto. Una regola tarata
-sul traffico di qualcun altro rifiuterebbe richieste da cui la tua applicazione dipende, quindi la
-eseguiamo prima in anteprima sul tuo traffico reale, eliminiamo i falsi positivi e solo dopo la
-attiviamo.
-
-Nel frattempo la tua protezione non sono le regole di firma, ma il blocco dell'origine — che rifiuta
-tutto ciò che non arriva dalla nostra CDN — e la blocklist di threat intelligence, che rifiuta le
-sorgenti già note per attaccare qualcuno. Quelle sono attive, ed è ciò che il dato "minacce bloccate"
-conteggia.
+**"Non bloccate (anteprima)" riguarda l'attivazione.** Quando un dominio viene protetto per la prima
+volta, le sue regole di firma restano per un breve periodo in modalità anteprima: registrano cosa
+avrebbero bloccato, senza bloccarlo. È voluto, e serve a proteggere la tua applicazione. Un set di
+firme tarato sul traffico di qualcun altro rifiuterebbe richieste da cui la tua dipende: prima lo
+osserviamo sul tuo traffico reale, ricaviamo le esclusioni necessarie e poi lo attiviamo. Se vedi
+questo badge il tuo dominio è in quella fase, e le righe che lo riportano sono esattamente le prove
+che usiamo per completarla.
 
 ## Stato della protezione
 
 **Attivo** significa licenza valida e controlli di salute superati. Un dominio risulta **Non attivo**
-se una delle due condizioni non è vera — anche quando la licenza è scaduta, a prescindere dai
+se una delle due condizioni non è vera, anche quando la licenza è scaduta, a prescindere dai
 controlli. Non descriviamo un dominio come protetto se non siamo più incaricati di proteggerlo.

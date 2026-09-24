@@ -1,5 +1,6 @@
 ---
-title: "Introduzione"
+title: "Cloud Defender: introduzione"
+sidebarTitle: "Introduzione"
 description: "Scopri Aegister Cloud Defender, il Web Application Firewall (WAF) avanzato per proteggere le applicazioni web dalle minacce comuni e mitigare i principali rischi OWASP."
 ---
 
@@ -22,19 +23,25 @@ Con regole **personalizzabili** e aggiornate di continuo tramite la Threat Intel
 
 ## Caratteristiche Distintive
 
-### Multicloud
-- **Infrastruttura Multicloud:**  
-  Cloud Defender è sviluppato principalmente sulla Google Cloud Platform (GCP) e integrato con risorse distribuite a livello globale tramite altri provider.  
-  Questo approccio offre:
-  - Analisi e rilevamento delle minacce in tempo reale.
-  - Performance migliori.
-  - Minore dipendenza da un singolo cloud, con alta affidabilità e continuità operativa.
-
 ### Dashboard Interattiva
-- **Monitoraggio Continuo:**  
-  Dall'Aegister Cyber Console puoi:
-  - Monitorare lo stato del sistema dedicato al Cloud Defender.
-  - Verificare i servizi attivi e analizzare il volume di richieste elaborate (e bloccate) nel tempo.
-  - Vedere in dettaglio gli indirizzi IP di origine e destinazione degli accessi bloccati.
 
-Con **Aegister Cloud Defender** le aziende proteggono le applicazioni web e gestiscono il traffico tramite soluzioni multicloud.
+Dall'**Aegister Cyber Console** hai una vista completa su ciò che accade al tuo dominio.
+
+![Pagina di stato del Cloud Defender](/images/cloud-defender-status-overview.png)
+
+- **Stato del servizio:** licenza, servizi attivi, raggiungibilità di dominio ed endpoint, data
+  dell'ultimo controllo.
+- **Indicatori del periodo:** richieste bloccate, sorgenti distinte e volume di traffico gestito,
+  su una finestra a scelta.
+- **Andamento nel tempo:** blocchi e volume di traffico giorno per giorno, con zoom sull'intervallo.
+
+**Sorgenti degli attacchi.** Ogni indirizzo bloccato è arricchito con la Threat Intelligence di
+Aegister: reputazione, paese di origine e rete di appartenenza.
+
+![Sorgenti degli attacchi](/images/cloud-defender-attacker-insights.png)
+
+- **Attacchi rilevati:** tipo di attacco, gravità, percorso richiesto, esito e una spiegazione in
+  chiaro di cosa è stato riconosciuto.
+- **Log delle minacce bloccate:** ogni richiesta negata con orario, sorgente, richiesta e livello che
+  l'ha fermata; ricercabile ed esportabile in CSV.
+- **Report settimanale in PDF** e **avvisi via email**, con destinatari scelti persona per persona.

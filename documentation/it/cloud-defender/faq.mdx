@@ -1,11 +1,14 @@
 ---
-title: "FAQs"
-description: "Frequently Asked Questions"
+title: "FAQ su Cloud Defender"
+sidebarTitle: "FAQs"
+description: "Domande frequenti su Aegister Cloud Defender."
 ---
 
 ### È possibile escludere specifici percorsi o indirizzi IP dalla protezione del WAF?
 
-Sì. Puoi configurare esclusioni per percorsi (path) specifici oppure usare espressioni regolari per definire le aree da escludere. Così eviti che il filtro interferisca con servizi interni o critici.
+Sì. È possibile escludere percorsi (path) o indirizzi IP specifici, così da evitare che il filtro interferisca con servizi interni o critici.
+
+Le esclusioni sono configurate da Aegister su richiesta: segnala il percorso o l'indirizzo al tuo referente e provvediamo noi ad applicarle.
 
 ### Qual è l'indirizzo IP utilizzato dalla CDN del Cloud Defender?
 
@@ -13,7 +16,7 @@ Per aumentare la sicurezza ed evitare un bypass del WAF, puoi configurare il fil
 
 ### È possibile effettuare un downgrade da HTTPS a HTTP tra il WAF e il sito protetto?
 
-Sì, puoi effettuare un downgrade della sessione da HTTPS a HTTP tra il WAF e il sito protetto, anche se questa scelta riduce la sicurezza.
+Sì, puoi effettuare un downgrade della sessione da HTTPS a HTTP tra il WAF e il sito protetto, anche se questa scelta riduce la sicurezza e ne sconsigliamo l'uso.
 
 ### Quali vantaggi offre il Cloud Defender rispetto ad altre soluzioni come AWS Cloudfront + WAF?
 
@@ -21,14 +24,14 @@ Il Cloud Defender offre le funzionalità classiche: mascheramento degli IP, prot
 
 ### Un rilevamento indica "Non bloccate (anteprima)". Il sito è stato attaccato e l'abbiamo lasciato passare?
 
-No. Le regole di firma OWASP sul tuo dominio sono in modalità anteprima: registrano cosa avrebbero
-bloccato senza bloccarlo, così da poter eliminare i falsi positivi sul tuo traffico reale prima di
-attivarle. Una regola tarata sull'applicazione di qualcun altro rifiuterebbe richieste da cui la tua
-dipende.
+No. Un dominio appena protetto esegue le proprie regole di firma in anteprima per un breve periodo:
+registrano cosa avrebbero bloccato, così da ricavare dal tuo traffico le esclusioni di cui la tua
+applicazione ha bisogno prima di attivarle. Un set di regole tarato sull'applicazione di qualcun
+altro rifiuterebbe richieste da cui la tua dipende, e scoprirlo bloccando i tuoi utenti non è un modo
+accettabile di farlo.
 
-Nel frattempo a proteggerti sono misure attive: il blocco dell'origine rifiuta tutto ciò che non
-arriva dalla nostra CDN e la blocklist di threat intelligence rifiuta le sorgenti già note per
-attaccare altri. Il dato "minacce bloccate" conteggia quelle.
+Il dominio resta comunque protetto: il blocco dell'origine rifiuta tutto ciò che non arriva dalla
+nostra CDN e la blocklist di threat intelligence rifiuta le sorgenti già note per attaccare altri.
 
 ### Perché il totale bloccato non torna con l'elenco delle sorgenti di attacco?
 

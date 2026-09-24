@@ -1,5 +1,6 @@
 ---
-title: "How to Activate"
+title: "Cloud Defender: how to activate"
+sidebarTitle: "How to Activate"
 description: "Step-by-step guide for activating and configuring Aegister Cloud Defender to secure your web application."
 ---
 
@@ -40,19 +41,45 @@ After DNS propagation, run these tests to confirm that Aegister Cloud Defender p
   Visit your domain (e.g., www.example.com) to verify that the site loads correctly.
 
 - **Traffic monitoring:**  
-  If available, request reports or logs from Aegister to confirm that traffic routes through the Cloud Defender platform.
+  Open the Cloud Defender page in the Cyber Console: it shows the traffic handled, the requests
+  blocked and the detail of every single block: time, source, request and the layer that stopped it.
 
 ---
 
-## 4. Support and Contacts
+## 4. Lock the Origin (essential step)
+
+Once you have confirmed the site responds correctly through Cloud Defender, configure your origin
+firewall, or an application level rule, to accept traffic **only** from Cloud Defender.
+
+Without this step the site stays reachable directly at its public IP address: anyone who knows it
+bypasses the whole protection, because the WAF, Threat Intelligence, DDoS mitigation and caching are
+all skipped. This is the step that makes the protection effective, not a later optimisation.
+
+1. **Allow the Cloud Defender address:** `34.110.162.74` (`secure.aegister.com`).
+2. **Deny all other** inbound traffic on ports 80 and 443.
+3. **Where to apply it:** perimeter firewall, cloud provider security group, or a web server rule
+   (for example `allow` / `deny` in Apache or Nginx).
+
+<Warning>
+Apply the rule **only after** verifying the site works through Cloud Defender. Enabling it before DNS
+has propagated will block legitimate traffic too.
+</Warning>
+
+If you need to keep direct access for maintenance, explicitly allow the addresses you connect from
+alongside the Cloud Defender address.
+
+---
+
+## 5. Support and Contacts
 
 If you have questions or run into issues during the DNS update or after configuration, contact Aegister Support:
 
-- **Technical support:** .......
+Your Aegister point of contact is shown in the Cyber Console, on the Cloud Defender detail page.
+Contact them, or write to [info@aegister.com](mailto:info@aegister.com).
 
 ---
 
-## 5. Conclusion
+## 6. Conclusion
 
 Once you update the DNS records correctly, **Aegister Cloud Defender** protects your website. The activated services (Caching, DDoS, Threat Intelligence, WAF) start running, protecting and optimizing your web application.  
 For more information, contact our support team.

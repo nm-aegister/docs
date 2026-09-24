@@ -1,5 +1,6 @@
 ---
-title: "How It Works"
+title: "How Cloud Defender works"
+sidebarTitle: "How It Works"
 description: "Learn how the Cloud Defender system integrates Cloud WAF and OneFirewall Threat Prevention to analyze and protect web traffic."
 ---
 
@@ -22,12 +23,15 @@ Aegister Cloud Defender secures web applications by analyzing inbound traffic in
 
 - Client traffic flows through Cloud Defender (the **"blue tunnel"** in the diagram), where two checks run:
   - **Threat Intelligence Analysis:** continuously updated WAF rules score the risk of each request.
-  - **Traffic Evaluation:** further queries to client domains or hostnames verify the traffic's origin and authenticity.
+  - **Reachability checks:** the system periodically queries the client's domain and endpoint to confirm the origin is responding. The result is shown on the Cloud Defender status page.
 
 ## Decision and Action
 
-- The system acts on the analysis:
-  - If the traffic is safe, it **grants** access to the endpoint behind **client1.domain1.com**.
-  - If it detects a high risk level or a malicious IP, it **blocks** the request and denies access.
+Every request gets a decision before it reaches your application.
 
-This workflow lets only legitimate traffic reach your web applications, protecting clients from cyber threats.
+Requests that pass the checks continue to the endpoint behind **client1.domain1.com**, with nothing
+for the user to notice. Refused are those from a source already known for attacking other targets,
+those matching an attack signature, and those trying to reach the origin while bypassing Cloud
+Defender.
+
+Every block is recorded with its time, source and request, and stays available on the status page.

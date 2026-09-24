@@ -1,5 +1,6 @@
 ---
-title: "Introduction"
+title: "Cloud Defender: introduction"
+sidebarTitle: "Introduction"
 description: "Aegister Cloud Defender is a Web Application Firewall (WAF) that protects web applications from common threats and the top OWASP risks."
 ---
 
@@ -22,19 +23,25 @@ The system analyzes HTTP/HTTPS traffic in real time and blocks anomalous or harm
 
 ## Distinctive Features
 
-### Multicloud Infrastructure
-- **Multicloud architecture:**  
-  Cloud Defender runs mainly on the Google Cloud Platform (GCP) and draws on globally distributed resources from other providers.  
-  This approach delivers:
-  - Real-time threat analysis and detection.
-  - Better overall performance.
-  - Less dependence on a single cloud, for higher reliability and operational continuity.
-
 ### Interactive Dashboard
-- **Continuous monitoring:**  
-  Through the Aegister Cyber Console, you can:
-  - Monitor the status of the Cloud Defender system.
-  - Check active services and review the volume of requests processed and blocked over time.
-  - View the source and destination IP addresses behind blocked traffic.
 
-**Aegister Cloud Defender** lets companies protect their web applications across multicloud infrastructure with integrated traffic management.
+The **Aegister Cyber Console** gives you a complete view of what is happening to your domain.
+
+![Cloud Defender status page](/images/cloud-defender-status-overview.png)
+
+- **Service state:** licence, active services, domain and endpoint reachability, and when they were
+  last checked.
+- **Figures for the period:** requests blocked, distinct sources and the volume of traffic handled,
+  over a window you choose.
+- **Activity over time:** blocks and traffic volume day by day, with a zoomable range.
+
+**Attacker insights.** Every blocked address is enriched with Aegister Threat Intelligence:
+reputation, country of origin and the network it belongs to.
+
+![Attacker insights](/images/cloud-defender-attacker-insights.png)
+
+- **Detected attacks:** attack type, severity, the path requested, the outcome, and a plain-language
+  explanation of what was recognised.
+- **Blocked-threat log:** every denied request with its time, source, request and the layer that
+  stopped it, searchable and exportable as CSV.
+- **A weekly PDF report** and **email alerts**, with recipients chosen person by person.
