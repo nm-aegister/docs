@@ -709,7 +709,44 @@
   "footer": {
     "socials": {
       "linkedin": "https://www.linkedin.com/company/aegister-s-p-a",
-      "website": "https://app.aegister.com/"
+      "website": "https://www.aegister.com/"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/api-reference/notifications/put-api-v1-notifications",
+      "destination": "/api-reference/notifications/mark-notifications-as-read",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-ip",
+      "destination": "/api-reference/perimeter-protection/get-threat-intelligence-ip-list",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/perimeter-protection/get-api-v1-perimeter-protection-threat-intelligence-domain",
+      "destination": "/api-reference/perimeter-protection/get-threat-intelligence-domain-list",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/put-api-v1-atb",
+      "destination": "/api-reference/atb/update-threat-blocker-configuration",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/v-ciso/create-workflow-evaluation",
+      "destination": "/api-reference/v-ciso/list-workflow-evaluations",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/acc/how-get-account",
+      "destination": "/documentation/it/acc/how-get-account",
+      "permanent": true
+    },
+    {
+      "source": "/documentation/acc/what-is-acc",
+      "destination": "/documentation/it/acc/what-is-acc",
+      "permanent": true
+    }
+  ]
 }
