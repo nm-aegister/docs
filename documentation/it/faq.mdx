@@ -1,36 +1,116 @@
 ---
 title: "FAQ di Aegister"
 sidebarTitle: "FAQs"
-description: "Di seguito sono riportate le domande più frequenti sull'utilizzo dell'app Aegister."
+description: "Le domande più frequenti sulla Aegister Cyber Console."
 ---
 
-## Domande Frequenti
+## Account e accesso
 
-### Dove posso trovare le statistiche di tutte le mie organizzazioni?
-La **Dashboard** elenca le organizzazioni di cui fai parte sotto **Le tue organizzazioni** e mostra una scheda per ogni servizio.  
-Nelle schede **Virtual CISO** e **Gestione Notifiche** usa il selettore dell'organizzazione per scegliere quali dati vedere.
+### Come creo un account?
+Vai su [app.aegister.com](https://app.aegister.com/), clicca su **Accedi** e poi su **Registrati**.
+Tutti i passaggi sono in [Cyber Console: creazione account e primo accesso](/documentation/it/acc/how-get-account).
 
-### Come posso valutare manualmente un framework di conformità?
-Apri **Virtual CISO → Valutazione** nel menu a sinistra.  
-Sulla riga del framework clicca su **Valuta**, rispondi alle domande e clicca su **Invia valutazione**.
+### Mi sono registrato ma vedo solo "Benvenuto!". Cosa devo fare?
+Il tuo account non è ancora collegato a un'organizzazione. Chiedi a un Proprietario della tua
+organizzazione di invitarti, oppure scrivi a [info@aegister.com](mailto:info@aegister.com). Se il
+dominio della tua email corrisponde a un'organizzazione già presente nella console, al momento
+dell'accesso ne entri a far parte come Visualizzatore.
 
-### Come posso aggiungere un framework di conformità alla mia organizzazione?
-Apri **Virtual CISO → Valutazione** nel menu a sinistra e clicca su **Nuovo framework** (solo Owner e Security Officer).  
-Scegli l'organizzazione e il framework (ad esempio NIS 2 o ISO 27001) e salva.
+### Quali metodi di accesso sono disponibili?
+Email e password, oppure il tuo account **GitHub**, **Microsoft** o **Google**. L'accesso con
+password richiede un'app di autenticazione: la configuri al primo accesso e a ogni login inserisci
+un codice temporaneo. Per reimpostare la password clicca su **Password dimenticata?** nella pagina
+di accesso.
 
-### Come posso controllare le minacce relative a URL, file e IP?
-Apri **Protezione Perimetrale → Threat Intelligence** nel menu a sinistra.  
-Qui puoi cercare un IP, un URL, un dominio o l'hash di un file per riconoscere anomalie e minacce.
+### Come cambio la lingua?
+Usa il selettore **EN / IT** nella barra in alto. La scelta viene salvata nel browser, non
+nell'account.
 
-### Come posso verificare lo stato della mia Web app?
-Apri **Protezione Perimetrale → Cloud Defender** e clicca sulla riga del tuo dominio per aprire la pagina di stato.
+## Organizzazioni, ruoli e licenze
+
+### Cosa può fare ciascun ruolo?
+- **Visualizzatore**: sola lettura. Dashboard, Postura Cyber, valutazioni ed elenchi degli
+  incidenti, senza modifiche.
+- **Responsabile sicurezza**: tutto ciò che può fare un Visualizzatore, e in più valutare e
+  aggiungere framework, gestire le notifiche di incidente, modificare il profilo
+  dell'organizzazione e rimuovere utenti.
+- **Proprietario**: tutto ciò che può fare un Responsabile sicurezza, e in più aggiungere utenti e
+  cambiarne il ruolo, gestire i profili VPN e richiedere licenze.
+
+### Come ottengo una licenza, o più postazioni VPN?
+Le licenze vengono attivate da Aegister. In una pagina per cui l'organizzazione non ha la licenza,
+un Proprietario può cliccare su **Acquista licenza** e poi su **Richiedi licenze**: si apre
+un'email per [info@aegister.com](mailto:info@aegister.com).
+
+### Dove trovo le statistiche di tutte le mie organizzazioni?
+La **Dashboard** elenca le tue organizzazioni in **Le tue organizzazioni** e mostra una sezione per
+ogni servizio di cui hai la licenza. Se ne hai più di uno, scegli cosa vedere con il selettore di
+ciascuna sezione: per dispositivo in Threat Blocker, per applicazione in Cloud Defender, per
+organizzazione in Virtual CISO e in Gestione Notifiche.
+
+## Virtual CISO
+
+### Come valuto un framework di conformità?
+Apri **Virtual CISO → Valutazione** e clicca su **Valuta** nella riga del framework. Scegli una
+categoria e clicca di nuovo su **Valuta**: le domande compaiono una per passaggio, ciascuna con la
+risposta, una giustificazione e i file di evidenza. Clicca su **Invia valutazione** all'ultimo
+passaggio, oppure su **Salva tutto e invia** da qualsiasi passaggio precedente.
+
+### Come aggiungo un framework di conformità alla mia organizzazione?
+Apri **Virtual CISO → Valutazione** e clicca su **Nuovo framework**. Scegli l'organizzazione e il
+framework (ad esempio NIS 2 o ISO 27001) e salva. L'elenco mostra i framework offerti da Aegister.
+
+### Perché non vedo i pulsanti Valuta o Nuovo framework?
+Entrambi richiedono la licenza Virtual CISO dell'organizzazione e il ruolo di Responsabile
+sicurezza o Proprietario. I Visualizzatori vedono le valutazioni senza questi pulsanti.
+
+### La console invia per me le notifiche di incidente al CSIRT Italia?
+No. **Virtual CISO → Gestione Notifiche** prepara ogni fase NIS 2 con la sua scadenza: la
+pre-notifica entro 24 ore, la notifica entro 72 ore e la relazione finale entro un mese. Ogni fase
+va inviata sul portale ACN; poi clicca su **Conferma invio** nella console. Servono la licenza di
+notifica incidenti NIS 2 e il ruolo di Responsabile sicurezza o Proprietario.
+
+## Protezione perimetrale
+
+### Come controllo un IP, un URL, un dominio o un file?
+Apri **Protezione Perimetrale → Threat Intelligence**. Le schede controllano un **Indirizzo IP**
+(IPv4), un **URL**, un **Dominio**, un **Digest del file** (MD5, SHA1 o SHA256) o un **File**. Il
+file non viene caricato: il browser ne calcola l'hash SHA-256 e viene controllato solo l'hash. Ogni
+scheda richiede la propria licenza Threat Intelligence.
+
+### Come verifico lo stato della mia applicazione web?
+Apri **Protezione Perimetrale → Cloud Defender** e clicca sulla riga della tua applicazione. Si apre
+la pagina **Stato Cloud Defender**; **Esporta** la salva in PDF.
 
 ### Ogni quanto vengono aggiornati i dati del Cloud Defender?
-I dati del **Cloud Defender** vengono aggiornati **ogni 5 minuti**.
+Ogni ora. La pagina non si aggiorna da sola: ricaricala per vedere i dati più recenti. **Ultimo
+Aggiornamento** indica quando i dati sono stati scritti l'ultima volta. La pagina di stato mostra
+per impostazione predefinita gli ultimi 7 giorni.
 
-### Come posso creare un token API?
-Clicca sul tuo nome nell'angolo in alto a destra e scegli **Profilo**. Nella scheda **Token API** clicca su **Nuovo token**, inserisci un nome e clicca su **Genera**.  
-Copia subito il token: viene mostrato una sola volta. Vedi [Token](/api-reference/it/token) per i dettagli.
+### Ogni quanto vengono aggiornati i dati del Threat Blocker?
+Il dispositivo invia il proprio traffico alla console mentre è in funzione. Ricarica la pagina per
+vedere i nuovi dati: **Ultimo Aggiornamento** è l'orario dell'evento più recente ricevuto. Se la
+console non riceve nulla dal dispositivo per due ore, la sua scheda diventa rossa.
 
-### Dove posso trovare la documentazione API?
-Consulta la scheda [API](/api-reference/it/authentication) di questo sito.
+### Su quali dispositivi funziona Aegister VPN?
+L'app funziona su iOS e Android. Su Windows, macOS e Linux importa il certificato `.ovpn` del
+profilo in un client OpenVPN. Un Proprietario crea il profilo in **Virtual Private Network → Gestisci VPN → Nuova
+VPN** con l'email dell'utente. L'utente riceve un'email con i link all'app e installa il profilo da
+**Le mie VPN → Installa certificato**. Ogni profilo usa una postazione della licenza VPN;
+eliminandolo la postazione si libera.
+
+## API
+
+### Come creo un token API?
+Clicca sul tuo avatar in alto a destra e scegli **Profilo**. Nella scheda **Token API** clicca su
+**Nuovo token**, inserisci un nome e clicca su **Genera**. Copia subito il token: viene mostrato una
+sola volta. I token non scadono. Vedi [Token](/api-reference/it/token) per i dettagli.
+
+### Dove trovo la documentazione API?
+Nella scheda [API](/api-reference/it/authentication) di questo sito.
+
+## Supporto
+
+### Come contatto Aegister?
+Scrivi a [info@aegister.com](mailto:info@aegister.com). Anche le richieste di licenza arrivano a
+questo indirizzo tramite **Acquista licenza**.
