@@ -140,7 +140,7 @@ To attach **evidence** or a **justification**, send a composite answer
 { "answers": {
     "task-nisAnnual-q1": {
       "value": "Yes",
-      "evidence": ["media/docs/frameworks/65/oJJ…/task-nisAnnual-q1/tok_x.pdf"],
+      "evidence": ["media/docs/frameworks/123/oJJ…/task-nisAnnual-q1/tok_x.pdf"],
       "note": [{ "id": "note-1", "response": "Notified ACN on 2026-01-10." }] } } }
 ```
 
@@ -185,11 +185,11 @@ Attach evidence the same way as question tasks, with a composite value:
 { "answers": {
     "nis2-req-E - 2.1.1": {
       "value": "Implemented",
-      "evidence": ["media/docs/frameworks/65/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"] } } }
+      "evidence": ["media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"] } } }
 ```
 
 Dropping `dry_run` validates then submits via `/evaluate` (Aegister scores and persists),
-returning `{ "submitted": true, "evaluation_id": … }`.
+returning `{ "submitted": <number of answers>, "step": "E", "evaluation_id": … }`.
 
 ## 5. Evidence: the two-step upload
 
@@ -211,7 +211,7 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
 { "error": 0, "messages": [], "data": {
     "id": 91, "artifact_id": "nis2-req-E - 2.1.1", "original_name": "policy.pdf",
     "size": 51234, "content_type": "application/pdf",
-    "path": "media/docs/frameworks/65/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf" } }
+    "path": "media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf" } }
 ```
 
 Constraints: **at most 10 MB** (decoded, else `413`); allowed formats are **PDF, Word
@@ -223,5 +223,5 @@ dedupe by SHA-256 (identical content returns the existing version, `200`, instea
 (sections 3 and 4).
 
 To list existing evidence across a workflow (every artifact with its latest version and full
-history), call `GET .../workflows/{wid}/documents` (*List Documents* in the sidebar).
-Per-artifact history and downloads use the other *Documents* endpoints under *V-CISO*.
+history), call `GET .../workflows/{wid}/documents` (*List documents* in the sidebar).
+Per-artifact history and downloads use the other endpoints in the *V-CISO → Cyber Posture → Documents* group.

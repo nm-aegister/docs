@@ -55,7 +55,7 @@ curl -H "X-Aegister-Token: $TOKEN" \
 ```
 
 Usa il `workflow_id` + `task_id` restituiti per le chiamate per-attività. Il più datato
-`GET .../table-tasks` (*List table tasks*) restituisce solo le attività tabella; `/tasks` le copre entrambe.
+`GET .../table-tasks` (*Elenca attività tabella*) restituisce solo le attività tabella; `/tasks` le copre entrambe.
 
 ## 2. Attività tabella (righe)
 
@@ -85,9 +85,9 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
 ```json
 { "error": 0, "messages": [], "data": {
     "valid_count": 1, "error_count": 0,
-    "columns": [ /* the normalized column set */ ],
-    "rows": [ /* normalized, ready to submit */ ],
-    "errors": [ /* {row, column, message} per problem */ ] } }
+    "columns": [ /* l'insieme di colonne normalizzato */ ],
+    "rows": [ /* normalizzate, pronte per l'invio */ ],
+    "errors": [ /* {row, column, message} per ogni problema */ ] } }
 ```
 
 Correggi eventuali `errors` (scelta errata, data/numero non validi, un valore figlio non
@@ -142,7 +142,7 @@ Per allegare un'**evidenza** o una **giustificazione**, invia una risposta compo
 { "answers": {
     "task-nisAnnual-q1": {
       "value": "Yes",
-      "evidence": ["media/docs/frameworks/65/oJJ…/task-nisAnnual-q1/tok_x.pdf"],
+      "evidence": ["media/docs/frameworks/123/oJJ…/task-nisAnnual-q1/tok_x.pdf"],
       "note": [{ "id": "note-1", "response": "Notified ACN on 2026-01-10." }] } } }
 ```
 
@@ -154,11 +154,11 @@ Il framework di un workflow (l'insieme di controlli dietro il punteggio) ha il p
 trio spec/answers/submit, raggruppato in **step**. Lavora uno step alla volta con `?step=<stepId>`.
 
 ```bash
-# Contract: control id, type, choices, weight, step
+# Contratto: id del controllo, type, choices, weight, step
 curl -H "X-Aegister-Token: $TOKEN" \
   ".../workflows/oJJ…/framework/spec?lan=en&step=E"
 
-# Spec + current answers keyed by control id
+# Specifica + risposte correnti indicizzate per id del controllo
 curl -H "X-Aegister-Token: $TOKEN" \
   ".../workflows/oJJ…/framework/answers?lan=en&step=E"
 ```
@@ -178,7 +178,7 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
 ```json
 { "error": 0, "messages": [], "data": {
     "valid_count": 1, "error_count": 0,
-    "answers": { /* normalized */ }, "errors": [] } }
+    "answers": { /* normalizzate */ }, "errors": [] } }
 ```
 
 Allega l'evidenza nello stesso modo delle attività a domande, con un valore composito:
@@ -187,11 +187,11 @@ Allega l'evidenza nello stesso modo delle attività a domande, con un valore com
 { "answers": {
     "nis2-req-E - 2.1.1": {
       "value": "Implemented",
-      "evidence": ["media/docs/frameworks/65/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"] } } }
+      "evidence": ["media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"] } } }
 ```
 
 Rimuovendo `dry_run` valida e poi invia tramite `/evaluate` (Aegister calcola il punteggio e persiste),
-restituendo `{ "submitted": true, "evaluation_id": … }`.
+restituendo `{ "submitted": <numero di risposte>, "step": "E", "evaluation_id": … }`.
 
 ## 5. Evidenze: il caricamento in due passi
 
@@ -213,7 +213,7 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
 { "error": 0, "messages": [], "data": {
     "id": 91, "artifact_id": "nis2-req-E - 2.1.1", "original_name": "policy.pdf",
     "size": 51234, "content_type": "application/pdf",
-    "path": "media/docs/frameworks/65/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf" } }
+    "path": "media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf" } }
 ```
 
 Vincoli: **al massimo 10 MB** (decodificato, altrimenti `413`); i formati ammessi sono **PDF, Word
@@ -225,6 +225,6 @@ una nuova `201`), e per ogni artefatto vengono conservate solo le ultime **10 ve
 (sezioni 3 e 4).
 
 Per elencare le evidenze esistenti in un workflow (ogni artefatto con la sua ultima versione e
-l'intera cronologia), chiama `GET .../workflows/{wid}/documents` (*List Documents* nella barra laterale).
-La cronologia e i download per-artefatto usano gli altri endpoint *Documents* sotto
-*V-CISO*.
+l'intera cronologia), chiama `GET .../workflows/{wid}/documents` (*Elenca documenti* nella barra laterale).
+La cronologia e i download per-artefatto usano gli altri endpoint del gruppo
+*Virtual CISO → Cyber Posture → Documenti*.

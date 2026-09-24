@@ -1,6 +1,6 @@
 ---
 title: "Dissocia un workflow da un'organizzazione"
 sidebarTitle: "Dissocia workflow"
-description: "Disabilita per un'organizzazione un framework (workflow) precedentemente abilitato, l'operazione inversa dell'associazione. Rimozione logica: l'associazione viene nascosta ma lo storico delle valutazioni è mantenuto."
+description: "Disabilita per un'organizzazione un framework (workflow) precedentemente abilitato, l'operazione inversa dell'associazione. Operazione definitiva: elimina anche le valutazioni salvate e i documenti di evidenza caricati dall'organizzazione per quel framework, e non può essere annullata."
 openapi: delete /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}
 ---

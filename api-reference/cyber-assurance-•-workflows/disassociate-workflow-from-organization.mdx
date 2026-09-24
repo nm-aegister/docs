@@ -1,6 +1,6 @@
 ---
 title: "Disassociate workflow from organization"
 sidebarTitle: "Disassociate workflow"
-description: "Disable a previously enabled framework (workflow) for an organization, the reverse of associating it. Soft removal: the association is hidden but the evaluation history is retained."
+description: "Disable a previously enabled framework (workflow) for an organization, the reverse of associating it. Permanent: it also deletes the organization's saved evaluations and uploaded evidence documents for that framework, and cannot be undone."
 openapi: delete /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}
 ---
