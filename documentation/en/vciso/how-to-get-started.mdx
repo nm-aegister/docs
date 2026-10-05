@@ -15,37 +15,35 @@ To get started:
 
 ## 2. Verify Your Virtual CISO License
 
-After logging in, check that the Virtual CISO license is active for your [Organization](https://app.aegister.com/organizations/). You need an active license to access the Virtual CISO services.  
+After logging in, check that the Virtual CISO license is active for your [Organization](https://app.aegister.com/organizations/): open **Organizations**, click your organization and look at the **Licenses** tab. You need an active license to access the Virtual CISO services.
 <img className="block dark:hidden" src="/images/console/organizations-light.webp" alt="Organizations" />
-<img className="hidden dark:block" src="/images/console/organizations-dark.webp" alt="Organizations" />  
-To obtain a license, contact us.  
+<img className="hidden dark:block" src="/images/console/organizations-dark.webp" alt="Organizations" />
+To request a license, an Owner clicks **Acquire licenses** on that tab, picks the products and clicks **Request licenses**: this opens an email to Aegister.
 
 ## 3. Navigating the vCISO Section
 
-Once your license is confirmed, open **vCISO** in the side menu. It offers two main pages:
-- **Cyber Posture**: shows the current status of your security policy implementation and compliance standards. View it [here](https://app.aegister.com/V-Ciso/).  
+Once your license is confirmed, open **vCISO** in the side menu. It has three pages:
+- **Cyber Posture**: shows where your organization stands on each framework. The **Summary** tab gathers posture, controls, the tasks due next and progress over time; the **Documents** and **Tasks** tabs follow the documents and the remediation tasks; each framework (for example **ISO 27001** or **NIS 2**) has its own tab with its categories and controls. Open it [here](https://app.aegister.com/V-Ciso/).
   <img className="block dark:hidden" src="/images/console/cyber-posture-light.webp" alt="Cyber Posture" />
   <img className="hidden dark:block" src="/images/console/cyber-posture-dark.webp" alt="Cyber Posture" />
-- **Evaluations**: lets you add new security frameworks and complete the required tasks. Open it [here](https://app.aegister.com/V-Ciso/evaluations/).  
+- **Evaluations**: shows one card per framework associated with your organization, with its score, how many controls are answered and its trend. From here you evaluate a framework or associate a new one. Open it [here](https://app.aegister.com/V-Ciso/evaluations/).
   <img className="block dark:hidden" src="/images/console/evaluations-light.webp" alt="Evaluations" />
   <img className="hidden dark:block" src="/images/console/evaluations-dark.webp" alt="Evaluations" />
+- **Incident Notifications**: prepares the NIS 2 notifications of an incident for the ACN portal. See [the FAQ](/documentation/en/faq).
 
 ## 4. Structure of the vCISO Section
 
-The **vCISO** section has two main pages:
-
 ### 4.1 Cyber Posture
 - **Audience**: all users within an organization.
-- **Functionality**: shows the implementation status of the security activities defined in the frameworks associated with your organization.
+- **Functionality**: shows the implementation status of the controls, tasks and documents of the frameworks associated with your organization.
 
 ### 4.2 Evaluations
 - **Audience**: security officers and owners.
 - **Functionality**:
-  - Shows the security frameworks that Aegister has added to your organization.
-  - Lets you add new security frameworks yourself with **New framework** (Aegister tailors them to your needs).  
-    <img className="block dark:hidden" src="/images/console/new-framework-light.webp" alt="New framework" />
-    <img className="hidden dark:block" src="/images/console/new-framework-dark.webp" alt="New framework" />
-  - Starts the required remediation tasks.
+  - Shows the frameworks associated with your organization, one card each, with **Evaluate** and **Open dashboard**.
+  - Associates a new framework with **New association**, in three steps: **Organization**, **Framework** (for example NIS 2 or ISO 27001; the ones already associated are marked) and **Check the profile**.
+    <img className="block dark:hidden" src="/images/console/new-framework-light.webp" alt="New association" />
+    <img className="hidden dark:block" src="/images/console/new-framework-dark.webp" alt="New association" />
 
 ## 5. Task Management
 
@@ -54,21 +52,25 @@ Tasks fall into two types:
 - **Automated**: scheduled scripts defined in the security framework that run periodically, with a log of past executions.
 - **Self**: tasks that require manual work.
 
-### Task Evaluation and Documentation
+### Evaluating a Framework
 
-- **Evaluate**: on **vCISO → Evaluations**, click **Evaluate** on a framework's row. The framework opens
-  as a list of categories (for NIS 2, categories such as Asset Management or Supply Chain Management).
+- **Evaluate**: on **vCISO → Evaluations**, click **Evaluate** on a framework's card. The framework
+  opens as a list of steps, one per category (for NIS 2, categories such as Asset Management or
+  Supply Chain Management), each with its score and how many controls are answered.
   <img className="block dark:hidden" src="/images/console/framework-questions-light.webp" alt="Framework categories" />
   <img className="hidden dark:block" src="/images/console/framework-questions-dark.webp" alt="Framework categories" />
-- **Answer the questions**: pick a category to answer its questions one at a time. For each question,
-  choose the answer level, add a justification and upload evidence (PDF, Office documents or images),
-  then submit with **Save all & submit**.
-  <img className="block dark:hidden" src="/images/console/evaluate-light.webp" alt="Evaluate a question" />
-  <img className="hidden dark:block" src="/images/console/evaluate-dark.webp" alt="Evaluate a question" />
-- **Evaluation history**: on **Cyber Posture**, open a framework and click a control. Its
-  **Evaluation History** lists every past evaluation with date, evaluator, answer, justification and
-  attached files, so you can track your progress.
-  <img className="block dark:hidden" src="/images/console/evaluation-history-light.webp" alt="Evaluation history" />
-  <img className="hidden dark:block" src="/images/console/evaluation-history-dark.webp" alt="Evaluation history" />
+- **Answer the controls**: pick a category to answer its controls one at a time. For each control,
+  choose how far it is in place (from **Not Existent** to **Optimized**, or **Not Applicable**), write
+  a justification and add evidence (PDF, Office documents or images, up to 10 MB). Move with
+  **Next** and **Previous**, then click **Save step** to save the category.
+  <img className="block dark:hidden" src="/images/console/evaluate-light.webp" alt="Evaluate a control" />
+  <img className="hidden dark:block" src="/images/console/evaluate-dark.webp" alt="Evaluate a control" />
+- **Evaluation history**: on **Cyber Posture**, open a framework's tab and click a control. The
+  control opens with its status, score and last change. **How it got here** shows each level the
+  control reached and when, with the number of evaluations. **Answer** shows who gave the current
+  answer, when, the maturity and the justification; below are the description, the linked task and
+  the evidence. **Evaluate** reopens the control to answer it again.
+  <img className="block dark:hidden" src="/images/console/evaluation-history-light.webp" alt="Control history" />
+  <img className="hidden dark:block" src="/images/console/evaluation-history-dark.webp" alt="Control history" />
 
 These steps let you start using the Aegister Virtual CISO plan and manage your organization's security tasks.

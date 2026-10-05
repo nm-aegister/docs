@@ -4,20 +4,26 @@ sidebarTitle: "Leggere la pagina di stato"
 description: "Cosa conta ciascun dato della pagina di stato di Cloud Defender, e cosa non conta."
 ---
 
-La pagina di stato risponde a domande distinte, e i numeri non coincidono di proposito.
+La pagina di stato risponde a domande distinte, e i numeri non coincidono di proposito. Scegli il
+periodo in alto (**24h**, **7 giorni**, **30 giorni**, **12 mesi**); la **Panoramica delle minacce**
+riporta i dati chiave e le schede sotto entrano nel dettaglio: **Panoramica**, **Attaccanti** e
+**Registro delle minacce**.
 
 ## Minacce bloccate
 
 Le richieste che Cloud Defender ha **rifiutato** nell'intervallo selezionato. Ognuna è stata fermata
 prima di raggiungere la tua applicazione.
 
-## Analisi degli attaccanti
+## Attaccanti
 
-Le sorgenti che riusciamo a identificare, ordinate per numero di richieste rifiutate e arricchite
+La scheda **Attaccanti** elenca le sorgenti che riusciamo a identificare, ordinate per numero di richieste rifiutate e arricchite
 con Aegister Threat Intelligence: reputazione, paese di origine e rete di appartenenza.
+
+La scheda **Registro delle minacce** elenca ogni richiesta che Cloud Defender ha rifiutato, con il
+livello che l'ha fermata, più i rifiuti della tua stessa applicazione. **Esporta** la scarica.
 
 ## Stato della protezione
 
-**Attivo** significa licenza valida e controlli di salute superati. Un dominio risulta **Non attivo**
+Il dato **Protezione** vale **Attivo** quando la licenza è valida e i controlli di salute sono superati. Un dominio risulta **Non attivo**
 se una delle due condizioni non è vera, anche quando la licenza è scaduta, a prescindere dai
 controlli. Non descriviamo un dominio come protetto se non siamo più incaricati di proteggerlo.

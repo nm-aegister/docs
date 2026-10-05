@@ -1,6 +1,6 @@
 ---
 title: "Richieste bloccate negli ultimi 7 giorni"
 sidebarTitle: "Elenca richieste bloccate"
-description: "Restituisce il conteggio giornaliero delle richieste negate per l'istanza ATB specificata negli ultimi 7 giorni."
+description: "Restituisce il conteggio giornaliero delle richieste bloccate dal Threat Blocker nelle ultime 7 × 24 ore: ogni richiesta negata se è installato in serie (è il firewall), le richieste negate da IP della Threat Intelligence (livello di rischio alto) se è installato in parallelo."
 openapi: get /api/v1/atb/{atb_id}/blocked-requests
 ---

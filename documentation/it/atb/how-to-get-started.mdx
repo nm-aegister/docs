@@ -35,9 +35,9 @@ Questa guida descrive come collegare e attivare **Aegister Threat Blocker (ATB)*
   Il team Aegister verifica che il tunnel VPN integrato funzioni e consenta l’accesso remoto per manutenzione e aggiornamenti.
   
 - **IP locale ATB:**  
-  Nella tua [Aegister Cyber Console](/documentation/it/acc/how-get-account) apri **Protezione Perimetrale → [Threat Blocker](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/)** e fai clic sul tuo dispositivo. La pagina **Stato Threat Blocker** conferma che l'ATB è connesso (**Ultimo Aggiornamento**) e ne mostra gli indirizzi pubblico e locale nel campo **Endpoint / IP Privato**.  
-  <img className="block dark:hidden" src="/images/console/threat-blocker-light.webp" alt="Stato Threat Blocker" />
-  <img className="hidden dark:block" src="/images/console/threat-blocker-dark.webp" alt="Stato Threat Blocker" />
+  Nella tua [Aegister Cyber Console](/documentation/it/acc/how-get-account) apri **Protezione Perimetrale → [Threat Blocker](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/)**. L'elenco mostra il tuo dispositivo con l'**Endpoint** pubblico e lo **Stato**. Fai clic sul dispositivo: la pagina **Stato Threat Blocker** mostra il badge **Attivo**, le minacce bloccate dalla Threat Intelligence e una verifica per ogni servizio (**Console di gestione**, **Threat Intelligence**, **Monitoraggio eventi**). L'indirizzo locale dell'ATB è quello che ha nella tua rete: il team Aegister lo conferma con te durante queste verifiche.  
+  <img className="block dark:hidden" src="/images/console/threat-blocker-it-light.webp" alt="Stato Threat Blocker" />
+  <img className="hidden dark:block" src="/images/console/threat-blocker-it-dark.webp" alt="Stato Threat Blocker" />
 
 - **Call di Verifica:**  
   In caso di malfunzionamenti, organizza una call con un nostro esperto per verificare il funzionamento e il collegamento del dispositivo con [app.aegister.com](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/).
@@ -131,7 +131,7 @@ Se usi un firewall SonicWall, segui questi passaggi, basati sulla [guida del pro
    http://<IP_LOCALE_ATB>:8080/blacklist.txt
    ```
 
-   Sostituisci `<IP_LOCALE_ATB>` con l'IP locale del campo **Endpoint / IP Privato** nella [Aegister Cyber Console (Threat Blocker)](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/), come indicato al punto 3, oppure con l'indirizzo dell'ATB noto al tuo firewall.
+   Sostituisci `<IP_LOCALE_ATB>` con l'indirizzo locale dell'ATB confermato al punto 3, cioè l'indirizzo con cui il tuo firewall raggiunge l'ATB.
 
    **Dopo aver impostato le regole, comunica al team Aegister i nomi delle Firewall Rule usate.**
 

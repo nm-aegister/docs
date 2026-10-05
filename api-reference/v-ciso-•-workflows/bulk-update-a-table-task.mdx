@@ -88,8 +88,12 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
     "errors": [ /* {row, column, message} per problem */ ] } }
 ```
 
-Fix any `errors` (wrong choice, bad date/number, a child value not allowed for its parent,
-an unknown cross-task value) and re-run until `error_count` is 0.
+Fix any `errors` (a column id that is not in the spec, wrong choice, bad date/number, a child
+value not allowed for its parent, an unknown cross-task value) and re-run until `error_count` is 0.
+
+The JSON body must carry a `rows` array: without it the request fails with `400` and
+`Missing 'rows' array`. `dry_run` counts only when it is `true`, `1` or `yes` (in the body or as
+a query parameter); any other value means submit.
 
 ### Submit
 
@@ -122,7 +126,8 @@ curl -H "X-Aegister-Token: $TOKEN" \
 
 It returns the question spec plus the latest stored answers, keyed by question id. Choice
 answers accept the **label** or **value id**; multi-value answers go as an array or a
-comma/pipe-joined string.
+comma/pipe-joined string. An id that is not a question of the task is an error
+(`Unknown id: not a question of this task or step (see /spec)`).
 
 ```bash
 curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
@@ -134,14 +139,17 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
 
 To attach **evidence** or a **justification**, send a composite answer
 `{ "value", "evidence": [<path>], "note": [{ "id", "response" }] }`. Upload the file first
-(see [section 5](#5-evidence-the-two-step-upload)) and use the returned `path`:
+(see [section 5](#5-evidence-the-two-step-upload)) and use the returned `path`: it must be a
+file uploaded for the same organization, workflow and question, or the answer is rejected.
+Each note `id` must be one of the question's `notes` in `/spec`; for a task question it is
+`<question_id>_justification`:
 
 ```json
 { "answers": {
     "task-nisAnnual-q1": {
       "value": "Yes",
       "evidence": ["media/docs/frameworks/123/oJJ…/task-nisAnnual-q1/tok_x.pdf"],
-      "note": [{ "id": "note-1", "response": "Notified ACN on 2026-01-10." }] } } }
+      "note": [{ "id": "task-nisAnnual-q1_justification", "response": "Notified ACN on 2026-01-10." }] } } }
 ```
 
 Drop `dry_run` to persist; the response carries the new `evaluation_id`, same as tables.
@@ -163,7 +171,8 @@ curl -H "X-Aegister-Token: $TOKEN" \
 
 Each control carries `id`, `label`, `description`, `type`
 (`radio|select|checkbox|date|number|text|…`), `choices`, `required`, an `evidence` flag
-(whether files may be attached), `step`, `subframework`, `category`, and `weight`.
+(whether files may be attached), `notes` (the justification boxes, each with its `id`), `step`,
+`subframework`, `category`, and `weight`. A control id that is not in the step is an error.
 
 Submit a step's answers with `controls-import`: `dry_run` first, then persist.
 
@@ -179,13 +188,16 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
     "answers": { /* normalized */ }, "errors": [] } }
 ```
 
-Attach evidence the same way as question tasks, with a composite value:
+Attach evidence and a justification the same way as question tasks, with a composite value.
+The note `id` is the one listed in the control's `notes` (for NIS 2 controls, for example
+`2.1.1_justification`):
 
 ```json
 { "answers": {
     "nis2-req-E - 2.1.1": {
       "value": "Implemented",
-      "evidence": ["media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"] } } }
+      "evidence": ["media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"],
+      "note": [{ "id": "2.1.1_justification", "response": "Reviewed by the board on 2026-01-10." }] } } }
 ```
 
 Dropping `dry_run` validates then submits via `/evaluate` (Aegister scores and persists),

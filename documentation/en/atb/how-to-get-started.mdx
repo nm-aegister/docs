@@ -34,7 +34,7 @@ This guide covers the full procedure to connect and activate **Aegister Threat B
   The team confirms that the built-in VPN tunnel works, so remote maintenance and updates are possible.
   
 - **ATB local IP verification:**  
-  In your [Aegister Cyber Console](/documentation/en/acc/how-get-account), open **Perimeter Protection → [ATB](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/)** and click your device. Its **Threat Blocker status** page confirms the ATB is connected (**Last Update**) and shows its public and local addresses in the **Endpoint / Private IP** field.  
+  In your [Aegister Cyber Console](/documentation/en/acc/how-get-account), open **Perimeter Protection → [ATB](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/)**. The list shows your device with its public **Endpoint** and its **Status**. Click the device: its **Threat Blocker status** page shows the **Active** badge, the threats stopped by Threat Intelligence and a check for each service (**Management console**, **Threat Intelligence**, **Events monitoring**). The ATB's local address is the one it has on your network: the Aegister team confirms it with you during these checks.  
   <img className="block dark:hidden" src="/images/console/threat-blocker-light.webp" alt="Threat Blocker status" />
   <img className="hidden dark:block" src="/images/console/threat-blocker-dark.webp" alt="Threat Blocker status" />
 
@@ -130,7 +130,7 @@ If your environment uses a SonicWall firewall, follow these steps from the [manu
    http://<LOCAL_ATB_IP>:8080/blacklist.txt
    ```
 
-   Replace `<LOCAL_ATB_IP>` with the local IP from the **Endpoint / Private IP** field in the [Aegister Cyber Console (ATB)](https://app.aegister.com/perimeter-protection/aegister-threat-blocker/), as described in step 3, or with the ATB address known to your firewall.
+   Replace `<LOCAL_ATB_IP>` with the ATB's local address confirmed in step 3, the address your firewall reaches the ATB at.
 
    > **Note:** Once you apply the rules, tell the Aegister team the firewall rule names you used.
 

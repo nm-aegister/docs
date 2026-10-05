@@ -90,8 +90,13 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
     "errors": [ /* {row, column, message} per ogni problema */ ] } }
 ```
 
-Correggi eventuali `errors` (scelta errata, data/numero non validi, un valore figlio non
-ammesso per il suo genitore, un valore cross-attività sconosciuto) e ripeti finché `error_count` è 0.
+Correggi eventuali `errors` (un id di colonna che non è nella specifica, scelta errata,
+data/numero non validi, un valore figlio non ammesso per il suo genitore, un valore cross-attività
+sconosciuto) e ripeti finché `error_count` è 0.
+
+Il body JSON deve contenere un array `rows`: senza, la richiesta fallisce con `400` e
+`Missing 'rows' array`. `dry_run` vale solo se è `true`, `1` o `yes` (nel body o come parametro
+di query); qualsiasi altro valore significa invio.
 
 ### Invia
 
@@ -124,7 +129,8 @@ curl -H "X-Aegister-Token: $TOKEN" \
 
 Restituisce la specifica delle domande insieme alle ultime risposte memorizzate, indicizzate per
 id della domanda. Le risposte a scelta accettano il **label** o il **value id**; le risposte a valori
-multipli vanno come array o come stringa unita da virgola/pipe.
+multipli vanno come array o come stringa unita da virgola/pipe. Un id che non è una domanda
+dell'attività è un errore (`Unknown id: not a question of this task or step (see /spec)`).
 
 ```bash
 curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
@@ -136,14 +142,17 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
 
 Per allegare un'**evidenza** o una **giustificazione**, invia una risposta composita
 `{ "value", "evidence": [<path>], "note": [{ "id", "response" }] }`. Carica prima il file
-(vedi [sezione 5](#5-evidenze-il-caricamento-in-due-passi)) e usa il `path` restituito:
+(vedi [sezione 5](#5-evidenze-il-caricamento-in-due-passi)) e usa il `path` restituito: deve
+essere un file caricato per la stessa organizzazione, lo stesso workflow e la stessa domanda,
+altrimenti la risposta viene rifiutata. Ogni `id` di nota deve essere una delle `notes` della
+domanda in `/spec`; per una domanda di un'attività è `<question_id>_justification`:
 
 ```json
 { "answers": {
     "task-nisAnnual-q1": {
       "value": "Yes",
       "evidence": ["media/docs/frameworks/123/oJJ…/task-nisAnnual-q1/tok_x.pdf"],
-      "note": [{ "id": "note-1", "response": "Notified ACN on 2026-01-10." }] } } }
+      "note": [{ "id": "task-nisAnnual-q1_justification", "response": "Notified ACN on 2026-01-10." }] } } }
 ```
 
 Rimuovi `dry_run` per persistere; la risposta riporta il nuovo `evaluation_id`, come per le tabelle.
@@ -165,7 +174,8 @@ curl -H "X-Aegister-Token: $TOKEN" \
 
 Ogni controllo riporta `id`, `label`, `description`, `type`
 (`radio|select|checkbox|date|number|text|…`), `choices`, `required`, un flag `evidence`
-(se è possibile allegare file), `step`, `subframework`, `category` e `weight`.
+(se è possibile allegare file), `notes` (i campi di giustificazione, ciascuno con il suo `id`),
+`step`, `subframework`, `category` e `weight`. Un id di controllo che non è nello step è un errore.
 
 Invia le risposte di uno step con `controls-import`: prima `dry_run`, poi persisti.
 
@@ -181,13 +191,16 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
     "answers": { /* normalizzate */ }, "errors": [] } }
 ```
 
-Allega l'evidenza nello stesso modo delle attività a domande, con un valore composito:
+Allega evidenza e giustificazione nello stesso modo delle attività a domande, con un valore
+composito. L'`id` della nota è quello indicato nelle `notes` del controllo (per i controlli NIS 2,
+ad esempio `2.1.1_justification`):
 
 ```json
 { "answers": {
     "nis2-req-E - 2.1.1": {
       "value": "Implemented",
-      "evidence": ["media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"] } } }
+      "evidence": ["media/docs/frameworks/123/oJJ…/nis2-req-E - 2.1.1/tok_x.pdf"],
+      "note": [{ "id": "2.1.1_justification", "response": "Reviewed by the board on 2026-01-10." }] } } }
 ```
 
 Rimuovendo `dry_run` valida e poi invia tramite `/evaluate` (Aegister calcola il punteggio e persiste),

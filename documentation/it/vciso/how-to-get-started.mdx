@@ -4,7 +4,7 @@ sidebarTitle: "Come iniziare"
 description: "Guida rapida per iniziare a utilizzare i servizi inerenti il Virtual CISO attraverso la piattaforma ACC."
 ---
 
-Questa guida spiega come iniziare a usare i servizi del piano Aegister Virtual CISO: creare o accedere all'account, verificare la licenza e navigare nella sezione **vCISO** del menu laterale.
+Questa guida spiega come iniziare a usare i servizi del piano Aegister Virtual CISO: creare o accedere all'account, verificare la licenza e navigare nella sezione **Virtual CISO** del menu laterale.
 
 ## 1. Creazione o Accesso dell'Account
 
@@ -15,38 +15,36 @@ Per iniziare, devi:
 
 ## 2. Verifica della Licenza Virtual CISO
 
-Dopo l'accesso, controlla che la licenza Virtual CISO sia attiva per la tua [Organizzazione](https://app.aegister.com/organizations/). Senza questa licenza non puoi usare i servizi del Virtual CISO.
-<img className="block dark:hidden" src="/images/console/organizations-light.webp" alt="Organizzazioni" />
-<img className="hidden dark:block" src="/images/console/organizations-dark.webp" alt="Organizzazioni" />
-Per acquisire una licenza contattaci.
+Dopo l'accesso, controlla che la licenza Virtual CISO sia attiva per la tua [Organizzazione](https://app.aegister.com/organizations/): apri **Organizzazioni**, clicca sulla tua organizzazione e guarda la scheda **Licenze**. Senza questa licenza non puoi usare i servizi del Virtual CISO.
+<img className="block dark:hidden" src="/images/console/organizations-it-light.webp" alt="Organizzazioni" />
+<img className="hidden dark:block" src="/images/console/organizations-it-dark.webp" alt="Organizzazioni" />
+Per richiedere una licenza, un Proprietario clicca su **Acquista licenze** in quella scheda, sceglie i prodotti e clicca su **Richiedi licenze**: si apre un'email per Aegister.
 
-## 3. Navigare nella Sezione vCISO
+## 3. Navigare nella Sezione Virtual CISO
 
-Confermata la licenza, apri **vCISO** nel menu laterale, che offre due pagine principali:
-- **Postura Cyber**: mostra lo stato di implementazione delle politiche di sicurezza e degli standard di conformità. Aprila [qui](https://app.aegister.com/V-Ciso/).
-<img className="block dark:hidden" src="/images/console/cyber-posture-light.webp" alt="Postura Cyber" />
-<img className="hidden dark:block" src="/images/console/cyber-posture-dark.webp" alt="Postura Cyber" />
-- **Valutazione**: serve ad aggiungere nuovi framework di sicurezza e completare le attività previste. Aprila [qui](https://app.aegister.com/V-Ciso/evaluations/).
-<img className="block dark:hidden" src="/images/console/evaluations-light.webp" alt="Valutazione" />
-<img className="hidden dark:block" src="/images/console/evaluations-dark.webp" alt="Valutazione" />
+Confermata la licenza, apri **Virtual CISO** nel menu laterale. Contiene tre pagine:
+- **Postura Cyber**: mostra a che punto è la tua organizzazione su ogni framework. La scheda **Riepilogo** raccoglie postura, controlli, le prossime scadenze e i progressi nel tempo; le schede **Documenti** e **Task** seguono i documenti e le attività di remediation; ogni framework (ad esempio **ISO 27001** o **NIS 2**) ha la sua scheda con categorie e controlli. Aprila [qui](https://app.aegister.com/V-Ciso/).
+  <img className="block dark:hidden" src="/images/console/cyber-posture-it-light.webp" alt="Postura Cyber" />
+  <img className="hidden dark:block" src="/images/console/cyber-posture-it-dark.webp" alt="Postura Cyber" />
+- **Valutazione**: mostra una scheda per ogni framework associato alla tua organizzazione, con punteggio, controlli con risposta e andamento. Da qui valuti un framework o ne associ uno nuovo. Aprila [qui](https://app.aegister.com/V-Ciso/evaluations/).
+  <img className="block dark:hidden" src="/images/console/evaluations-it-light.webp" alt="Valutazione" />
+  <img className="hidden dark:block" src="/images/console/evaluations-it-dark.webp" alt="Valutazione" />
+- **Gestione Notifiche**: prepara le notifiche NIS 2 di un incidente per il portale ACN. Vedi [le FAQ](/documentation/it/faq).
 
-## 4. Struttura della Sezione vCISO
-
-La sezione **vCISO** è divisa in due pagine principali:
+## 4. Struttura della Sezione Virtual CISO
 
 ### 4.1 Postura Cyber
 - **Destinatari**: tutti gli utenti di un'organizzazione.
-- **Funzionalità**: mostra l'implementazione delle attività previste nei framework di sicurezza associati all'organizzazione.
+- **Funzionalità**: mostra lo stato di attuazione di controlli, attività e documenti dei framework associati all'organizzazione.
 
 ### 4.2 Valutazione
 
 - **Destinatari**: security officer e owner.
 - **Funzionalità**:
-  - Mostra i framework di sicurezza che Aegister ha aggiunto alla tua organizzazione.
-  - Permette di aggiungere nuovi framework di sicurezza con **Nuovo framework** (creati da Aegister per le esigenze del cliente).
-    <img className="block dark:hidden" src="/images/console/new-framework-light.webp" alt="Nuovo framework" />
-    <img className="hidden dark:block" src="/images/console/new-framework-dark.webp" alt="Nuovo framework" />
-  - Avvia le attività dei piani di remediation.
+  - Mostra i framework associati alla tua organizzazione, una scheda ciascuno, con **Valuta** e **Apri la dashboard**.
+  - Associa un nuovo framework con **Nuova associazione**, in tre passaggi: **Organizzazione**, **Framework** (ad esempio NIS 2 o ISO 27001; quelli già associati sono segnalati) e **Verifica il profilo**.
+    <img className="block dark:hidden" src="/images/console/new-framework-it-light.webp" alt="Nuova associazione" />
+    <img className="hidden dark:block" src="/images/console/new-framework-it-dark.webp" alt="Nuova associazione" />
 
 ## 5. Gestione delle Attività
 
@@ -55,22 +53,27 @@ Le attività (tasks) sono suddivise in due categorie:
 - **Automatizzate**: script previsti nel framework di sicurezza, eseguiti periodicamente, di cui puoi consultare lo storico.
 - **Self**: attività che richiedono un intervento manuale.
 
-### Valutazione e Documentazione delle Attività
+### Valutare un Framework
 
-- **Valuta**: in **vCISO → Valutazione**, fai clic su **Valuta** nella riga di un framework. Il framework
-  si apre come elenco di categorie (per NIS 2, categorie come Asset Management o Supply Chain
-  Management).
-  <img className="block dark:hidden" src="/images/console/framework-questions-light.webp" alt="Categorie del framework" />
-  <img className="hidden dark:block" src="/images/console/framework-questions-dark.webp" alt="Categorie del framework" />
-- **Rispondi alle domande**: scegli una categoria e rispondi alle sue domande una alla volta. Per ogni
-  domanda scegli il livello di risposta, aggiungi una giustificazione e carica le evidenze (PDF,
-  documenti Office o immagini), poi invia con **Salva tutto e invia**.
-  <img className="block dark:hidden" src="/images/console/evaluate-light.webp" alt="Valutazione di una domanda" />
-  <img className="hidden dark:block" src="/images/console/evaluate-dark.webp" alt="Valutazione di una domanda" />
-- **Storico delle valutazioni**: in **Postura Cyber** apri un framework e fai clic su un controllo. Lo
-  storico delle valutazioni elenca ogni valutazione passata con data, valutatore, risposta,
-  giustificazione e file allegati, così puoi seguire i progressi.
-  <img className="block dark:hidden" src="/images/console/evaluation-history-light.webp" alt="Storico delle valutazioni" />
-  <img className="hidden dark:block" src="/images/console/evaluation-history-dark.webp" alt="Storico delle valutazioni" />
+- **Valuta**: in **Virtual CISO → Valutazione**, fai clic su **Valuta** nella scheda di un framework.
+  Il framework si apre come elenco di passi, uno per categoria (per NIS 2, categorie come Gestione
+  degli Asset o Gestione della Supply Chain), ciascuno con il punteggio e i controlli con risposta.
+  <img className="block dark:hidden" src="/images/console/framework-questions-it-light.webp" alt="Categorie del framework" />
+  <img className="hidden dark:block" src="/images/console/framework-questions-it-dark.webp" alt="Categorie del framework" />
+- **Rispondi ai controlli**: scegli una categoria e rispondi ai suoi controlli uno alla volta. Per
+  ogni controllo indica a che punto è (da **Non Esistente** a **Ottimizzato**, oppure **Non
+  Applicabile**), scrivi una giustificazione e aggiungi le evidenze (PDF, documenti Office o
+  immagini, fino a 10 MB). Spostati con **Avanti** e **Precedente**, poi clicca su **Salva passo**
+  per salvare la categoria.
+  <img className="block dark:hidden" src="/images/console/evaluate-it-light.webp" alt="Valutazione di un controllo" />
+  <img className="hidden dark:block" src="/images/console/evaluate-it-dark.webp" alt="Valutazione di un controllo" />
+- **Storico di un controllo**: in **Postura Cyber** apri la scheda di un framework e fai clic su un
+  controllo. Il controllo si apre con stato, punteggio e ultima modifica. **Come ci è arrivato**
+  mostra ogni livello raggiunto dal controllo e quando, con il numero di valutazioni. **Risposta**
+  indica chi ha dato la risposta attuale, quando, la maturità e la giustificazione; sotto trovi la
+  descrizione, il task collegato e le evidenze. **Valuta** riapre il controllo per rispondere di
+  nuovo.
+  <img className="block dark:hidden" src="/images/console/evaluation-history-it-light.webp" alt="Storico del controllo" />
+  <img className="hidden dark:block" src="/images/console/evaluation-history-it-dark.webp" alt="Storico del controllo" />
 
 Con questi passaggi puoi iniziare a usare i servizi del Virtual CISO Aegister e gestire le attività di sicurezza della tua organizzazione.

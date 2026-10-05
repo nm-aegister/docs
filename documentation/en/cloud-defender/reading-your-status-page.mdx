@@ -4,20 +4,26 @@ sidebarTitle: "Reading your status page"
 description: "What each figure on the Cloud Defender status page counts, and what it does not."
 ---
 
-The status page answers separate questions, and they are deliberately not the same number.
+The status page answers separate questions, and they are deliberately not the same number. Choose
+the window at the top (**24h**, **7 days**, **30 days**, **12 months**); the **Threat overview**
+holds the key figures and the tabs below go into detail: **Overview**, **Attackers** and
+**Threat log**.
 
 ## Threats blocked
 
 Requests Cloud Defender **refused**, over the selected window. Every one of them was stopped before
 it reached your application.
 
-## Attacker insights
+## Attackers
 
-The sources we can identify, ranked by how many of their requests were refused, enriched with
+The **Attackers** tab lists the sources we can identify, ranked by how many of their requests were refused, enriched with
 Aegister Threat Intelligence: reputation, country of origin and the network each address belongs to.
+
+The **Threat log** tab lists every request Cloud Defender denied, with the layer that refused it,
+plus the refusals by your own application. **Export** downloads it.
 
 ## Protection status
 
-**Active** means the licence is live and the health checks pass. A domain reads **Not active** if
+The **Protection** figure reads **Active** when the licence is live and the health checks pass. A domain reads **Not active** if
 either is false, including when the licence has ended, whatever the health check says. We do not
 describe a domain as protected when we are no longer contracted to protect it.
