@@ -108,15 +108,22 @@ you looked up.
 
 ## What to do next
 
-- **High or Critical**: do not trust it. Block it on your firewall or mail filter, and check your logs for
-  other contacts with it.
-- **If you have [Threat Blocker](/documentation/en/atb/what-is-atb)**: it blocks the hosts whose crime
-  score is at or above your threshold, both attackers reaching in and hosts your devices try to reach. Its
-  status page shows your threshold and the hosts it blocked.
-- **If you have [Cloud Defender](/documentation/en/cloud-defender/what-is-cloud-defender)**: requests
-  from sources already known for attacking are refused before they reach your site. The **Attackers** tab
-  of its status page shows the reputation of each source.
-- **If it is part of an incident**: add it as an indicator when you
+Malicious addresses are handled for you by the Aegister services you have:
+
+- **[Threat Blocker](/documentation/en/atb/what-is-atb)** blocks the hosts whose crime score is at or
+  above your threshold, both attackers reaching in and hosts your devices try to reach, and reports the
+  malicious addresses it sees to the alliance automatically. Its status page shows your threshold and the
+  hosts it blocked.
+- **[Cloud Defender](/documentation/en/cloud-defender/what-is-cloud-defender)** does the same for your web
+  applications: requests from sources known for attacking are refused before they reach your site, and
+  the attacks it sees are reported automatically. The **Attackers** tab of its status page shows the
+  reputation of each source.
+
+Then:
+
+- **High or Critical** and the address is not covered by those services: block it on your firewall or mail
+  filter, and check your logs for other contacts with it.
+- **Part of an incident**: add it as an indicator when you
   [notify the incident to ACN](/documentation/en/vciso/notify-an-incident-to-acn); the console checks it
   against Threat Intelligence for you.
 - **Low, Medium or nothing reported**: use your judgement. A low score or no report does not prove that a

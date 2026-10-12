@@ -110,15 +110,22 @@ console. **Copia** copia il valore cercato.
 
 ## Cosa fare dopo
 
-- **Alto o Critico**: non fidarti. Bloccalo sul firewall o sul filtro della posta e controlla nei log se
-  ci sono stati altri contatti.
-- **Se hai [Threat Blocker](/documentation/it/atb/what-is-atb)**: blocca gli host il cui crime score è
-  pari o superiore alla tua soglia, sia gli attaccanti che entrano sia gli host che i tuoi dispositivi
-  cercano di raggiungere. La sua pagina di stato mostra la soglia e gli host bloccati.
-- **Se hai [Cloud Defender](/documentation/it/cloud-defender/what-is-cloud-defender)**: le richieste da
-  sorgenti già note per attacchi vengono rifiutate prima di raggiungere il sito. La scheda **Attaccanti**
-  della sua pagina di stato mostra la reputazione di ogni sorgente.
-- **Se fa parte di un incidente**: aggiungilo come indicatore quando
+Gli indirizzi malevoli li gestiscono per te i servizi Aegister che hai:
+
+- **[Threat Blocker](/documentation/it/atb/what-is-atb)** blocca gli host il cui crime score è pari o
+  superiore alla tua soglia, sia gli attaccanti che entrano sia gli host che i tuoi dispositivi cercano di
+  raggiungere, e segnala automaticamente all'alleanza gli indirizzi malevoli che vede. La sua pagina di
+  stato mostra la soglia e gli host bloccati.
+- **[Cloud Defender](/documentation/it/cloud-defender/what-is-cloud-defender)** fa lo stesso per le tue
+  applicazioni web: le richieste da sorgenti note per attacchi vengono rifiutate prima di raggiungere il
+  sito e gli attacchi che vede vengono segnalati automaticamente. La scheda **Attaccanti** della sua pagina
+  di stato mostra la reputazione di ogni sorgente.
+
+Poi:
+
+- **Alto o Critico** e l'indirizzo non è coperto da questi servizi: bloccalo sul firewall o sul filtro
+  della posta e controlla nei log se ci sono stati altri contatti.
+- **Fa parte di un incidente**: aggiungilo come indicatore quando
   [notifichi l'incidente all'ACN](/documentation/it/vciso/notify-an-incident-to-acn); la console lo
   verifica per te con la Threat Intelligence.
 - **Basso, Medio o nessuna segnalazione**: valuta tu. Un punteggio basso o l'assenza di segnalazioni non
