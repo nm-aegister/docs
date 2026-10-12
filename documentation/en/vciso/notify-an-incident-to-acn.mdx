@@ -1,0 +1,188 @@
+---
+title: "Notify an incident to ACN"
+sidebarTitle: "Notify an incident to ACN"
+description: "How to handle a NIS 2 incident in the Cyber Console: describe it, check whether it is significant, prepare each filing with AI and transfer it to the ACN portal."
+---
+
+When something happens, the Cyber Console helps you decide whether it must be notified to CSIRT Italia,
+counts the legal deadlines and prepares each filing for the ACN portal. The filing itself is always
+yours: you send it from the ACN portal, the console never sends anything on your behalf.
+
+**What you need:** the **NIS 2 incident notification** licence on your organization, and the
+**Security Officer** or **Owner** role. The entity class (essential or important) comes from the NIS 2
+section of your organization's profile: it decides which significance criteria apply.
+
+## Where it is
+
+Open **vCISO → Incident Notifications** in the side menu
+([app.aegister.com/V-Ciso/incidents/](https://app.aegister.com/V-Ciso/incidents/)). Each incident is a
+card with its legal basis, its reference code (for example `ACN-20261012-42`), the next deadline and how
+ready the filing in progress is. **How it works** sums up the whole process; **New incident** opens a new
+one.
+
+## Create a new incident
+
+A new incident takes three steps. **Next** stays disabled until the step is complete; the reason is shown
+beside it.
+
+### Step 1: What happened
+
+- **Start from a template** (optional): pick a common case from Aegister's catalogue (the templates are
+  in Italian, like the portal). The template writes the description for you and highlights the parts you fill in: click
+  one, or press Tab, and type. Delete the parts that do not apply.
+- **What happened**: describe what you saw, when, and what is affected, in a few sentences. Aegister drafts
+  the ACN form from this text.
+- **Detected at**: when you became aware of the incident, with its **Time zone** (Europe/Rome by default).
+  The legal clock starts here.
+- **When it happened (if known)**: leave it empty when it is not known yet.
+- **Evidence and indicators**: add files (email headers, EDR reports, logs: PDF, Office documents or
+  images, up to 10 MB each) and type the indicators you have, such as a domain, an IP address, a URL, a hash
+  or an email address, then press Enter. Domains, addresses, URLs and hashes are checked against
+  [Threat Intelligence](/documentation/en/threat-intelligence/check-an-ip-domain-or-url) and show their
+  risk level.
+
+### Step 2: Is it significant?
+
+The console shows the significance criteria of ACN determination 379907/2025 for your entity class:
+
+| Code | What it means |
+|---|---|
+| **IS-1** | Confidentiality lost towards the outside |
+| **IS-2** | Integrity lost, with external impact |
+| **IS-3** | Expected service levels breached (DE.CM-01) |
+| **IS-4** | Unauthorised access to data (essential entities only) |
+
+Answer what you already know with **Yes**, **No** or **Not sure**. The AI reads your description and
+suggests an answer for each criterion with its reason; your answer always wins. If you change the
+description, **Read it again** asks the AI to read the new text.
+
+### Step 3: Notification
+
+The verdict follows from the answers:
+
+- **At least one criterion is Yes**: it is a significant incident and the notification is mandatory
+  (art. 25 d.lgs. 138/2024). The console shows the dates of the pre-notification, the notification and the
+  final report for this incident. Click **Start the pre-notification**.
+- **No criterion is Yes**: notifying is not mandatory. Choose **Voluntary notification (art. 26)**, with
+  its **ENISA type** (Minaccia Cyber, Quasi incidente or Incidente), then **Open the voluntary
+  notification**; or choose **No notification: keep a record of the incident**, then **Record the
+  incident**.
+
+If a criterion is still **Not sure**, the console warns you: if the answer turns out to be yes, the
+notification becomes mandatory with the 24-hour clock running from detection.
+
+The incident opens and, unless you only recorded it, the AI starts drafting the first filing at once.
+
+## The deadlines
+
+For a mandatory notification the console counts the deadlines of art. 25 from the detection time you
+entered:
+
+| Filing | Deadline |
+|---|---|
+| **Pre-notification** | within 24 hours of detection |
+| **Notification (72 h)** | within 72 hours of detection |
+| **Interim report** | only if CSIRT Italia asks for it; it has no deadline of its own |
+| **Final report** | one month after the notification is filed |
+
+The incident page shows the time left for the next filing, and says when it is overdue. A voluntary
+notification has no legal deadline.
+
+## The filings and their order
+
+Each filing follows the ACN portal's order:
+
+1. **Pre-notification**: opens a mandatory case.
+2. **Notification (72 h)**: can start once the pre-notification is filed.
+3. **Interim report**: can start once the notification is filed, as many times as CSIRT Italia asks.
+4. **Final report**: can start once the notification is filed.
+
+A voluntary case opens directly with the notification. Only one filing is in progress at a time: file it
+before starting the next. Each new filing starts from the last one you sent, so you only add what
+changed. The left column of the incident page lists the filings: the ones sent with their date and
+protocol number, the next ones with **Start the notification**, **Start an interim report** or **Start the
+final report** when they can start.
+
+## Complete the filing
+
+The filing is shown field by field, section by section, as on the ACN portal (from **C · Descrizione
+dell'incidente** to **N · Relazione finale**, which appears in the final report only). The labels are the
+portal's own Italian ones; with the console in English, an English line under each label explains it.
+Values save as you type.
+
+Each field carries a tag:
+
+- **AI draft**: drafted by the AI. Check it.
+- **From the incident**: comes from the incident itself, such as the reference code and the detection
+  time. Change these in **Incident details**.
+- **You**: your answer.
+- **Needs you**: a required answer only you can give.
+
+### AI drafting
+
+When a filing starts, the AI drafts every field it can know from the incident, in parts: **Facts**
+(services, impact, evidence, indicators), **Classification** (ACN taxonomy, IS codes, MITRE ATT&CK),
+**Containment** (actions taken and planned), **Form text** (sections C and E in Italian) and, for the
+final report, the final report's texts. It runs in the background: you can keep working, and a value you
+type is never overwritten. When the description says nothing about a field, the AI leaves it empty
+rather than guess. **Draft again with AI** runs it again.
+
+### Readiness checks
+
+The **Before you transfer** panel, on the right, lists what the filing still needs, and a click takes you
+to the field:
+
+- the required answers still empty;
+- the rules of the ACN taxonomy for this filing (for example at least one value, or one value for each
+  predicate);
+- IS-4 selected by an organization that is not an essential entity;
+- a domain without its host part: the portal accepts a domain only with its host, such as
+  `www.example.com`.
+
+When nothing is missing, the panel says **Ready for the portal**.
+
+## Transfer the filing to the ACN portal
+
+Click **Transfer to ACN**. The window explains each step with a short animation:
+
+1. **Install once:** drag the **Aegister → ACN** button to your browser's bookmarks bar. If you
+   cannot see the bar, **Can’t see your bookmarks bar?** shows how to open it in your browser.
+2. **Copy the filing:** click **Copy for ACN**. The whole filing goes to the clipboard as one block of
+   text.
+3. **Open the portal and click the bookmark:** click **Open the ACN portal**, sign in, and open the NIS
+   report form (Apri segnalazione CSIRT → NIS → Nuova segnalazione; for a later filing, integrate the
+   report already sent). Click **Aegister → ACN** in the bookmarks bar: a small panel opens on the portal.
+   Press ⌘V or Ctrl+V there.
+
+The bookmark types the filing into the portal's fields. The fields it filled are outlined in blue, and
+the panel lists anything left for you to complete by hand.
+
+<Warning>
+The bookmark never presses **Salva la bozza**, **Invia segnalazione**, **Ricomincia** or **Annulla**.
+Check the form on the portal, then press **Invia segnalazione** yourself.
+</Warning>
+
+## Mark the filing as sent
+
+Back in the console, click **Mark as filed…** (in the transfer window). Enter when you sent it on the ACN
+portal and the **CSIRT protocol number** the portal showed after sending: it ties the next filings to this
+one. Click **Mark as filed**.
+
+The filing then locks and becomes read only. Corrections go into the next filing, as on the portal. Once
+a filing has been sent, the detection time can no longer be changed.
+
+## Exports and other views
+
+- **Export → PDF report** or **JSON**: the filing on screen, in the portal's order with the portal's
+  labels, to keep on file or share internally.
+- **Incident details**: the description, the times and the significance answers.
+- **Evidence**: the files attached to the incident; **Add file** adds more.
+- **History**: when the incident was recorded and detected, when each filing started and was sent.
+
+An incident that was never sent to ACN can be removed with **Delete incident**; its drafts and evidence
+are deleted too.
+
+<Note>
+The console counts the deadlines as described above and drafts the texts; it does not replace your
+assessment. The ACN guide to incident notification is linked from **How it works**.
+</Note>

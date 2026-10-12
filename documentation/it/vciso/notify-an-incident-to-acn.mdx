@@ -1,0 +1,191 @@
+---
+title: "Notificare un incidente all'ACN"
+sidebarTitle: "Notificare un incidente all'ACN"
+description: "Come gestire un incidente NIS 2 nella Cyber Console: descriverlo, verificare se è significativo, preparare ogni segnalazione con l'AI e trasferirla sul portale ACN."
+---
+
+Quando succede qualcosa, la Cyber Console ti aiuta a capire se va notificato al CSIRT Italia, calcola le
+scadenze di legge e prepara ogni segnalazione per il portale ACN. L'invio resta sempre tuo: lo fai dal
+portale ACN, la console non invia nulla al posto tuo.
+
+**Cosa serve:** la licenza di **notifica incidenti NIS 2** sulla tua organizzazione e il ruolo di
+**Responsabile sicurezza** o **Proprietario**. La classe del soggetto (essenziale o importante) viene dalla
+sezione NIS 2 del profilo dell'organizzazione e decide quali criteri di significatività si applicano.
+
+## Dove si trova
+
+Apri **Virtual CISO → Notifiche degli incidenti** nel menu laterale
+([app.aegister.com/V-Ciso/incidents/](https://app.aegister.com/V-Ciso/incidents/)). Ogni incidente è una
+scheda con la base giuridica, il codice di riferimento (ad esempio `ACN-20261012-42`), la prossima scadenza
+e lo stato di avanzamento della segnalazione in corso. **Come funziona** riassume l'intero processo;
+**Nuovo incidente** ne apre uno nuovo.
+
+## Creare un nuovo incidente
+
+Un nuovo incidente si crea in tre passaggi. **Avanti** resta disattivato finché il passaggio non è
+completo; accanto compare il motivo.
+
+### Passaggio 1: Cosa è successo
+
+- **Parti da un modello** (facoltativo): scegli un caso comune dal catalogo di Aegister (i modelli sono in
+  italiano, come il portale). Il modello scrive la descrizione al posto tuo ed evidenzia le parti da
+  completare: fai clic su una parte, oppure premi Tab, e scrivi. Elimina le parti che non si applicano.
+- **Cosa è successo**: descrivi in poche frasi cosa hai visto, quando e cosa è coinvolto. Aegister prepara
+  il modulo ACN a partire da questo testo.
+- **Rilevato il**: quando sei venuto a conoscenza dell'incidente, con il **Fuso orario** (Europe/Rome
+  di default). Da qui parte il conteggio delle scadenze di legge.
+- **Quando è avvenuto (se noto)**: lascialo vuoto se non lo sai ancora.
+- **Evidenze e indicatori**: aggiungi i file (intestazioni email, report EDR, log: PDF, documenti Office o
+  immagini, fino a 10 MB ciascuno) e scrivi gli indicatori che hai, ad esempio un dominio, un indirizzo IP,
+  un URL, un hash o un indirizzo email, poi premi Invio. Domini, indirizzi, URL e hash vengono verificati
+  con la [Threat Intelligence](/documentation/it/threat-intelligence/check-an-ip-domain-or-url) e mostrano
+  il loro livello di rischio.
+
+### Passaggio 2: È significativo?
+
+La console mostra i criteri di significatività della determinazione ACN 379907/2025 per la classe del tuo
+soggetto:
+
+| Codice | Cosa significa |
+|---|---|
+| **IS-1** | Perdita di riservatezza verso l'esterno |
+| **IS-2** | Perdita di integrità, con impatto verso l'esterno |
+| **IS-3** | Livelli di servizio attesi violati (DE.CM-01) |
+| **IS-4** | Accesso non autorizzato ai dati (solo soggetti essenziali) |
+
+Rispondi a quello che sai già con **Sì**, **No** o **Non lo sappiamo**. L'AI legge la descrizione e
+propone una risposta per ogni criterio, con la motivazione; la tua risposta prevale sempre. Se cambi la
+descrizione, **Rileggi** chiede all'AI di leggere il nuovo testo.
+
+### Passaggio 3: Notifica
+
+Il verdetto segue dalle risposte:
+
+- **Almeno un criterio è Sì**: è un incidente significativo e la notifica è obbligatoria (art. 25 d.lgs.
+  138/2024). La console mostra le date di pre-notifica, notifica e relazione finale per questo incidente.
+  Fai clic su **Avvia la prenotifica**.
+- **Nessun criterio è Sì**: la notifica non è obbligatoria. Scegli **Notifica volontaria (art. 26)**, con
+  la sua **Tipologia ENISA** (Minaccia Cyber, Quasi incidente o Incidente), poi **Apri la notifica
+  volontaria**; oppure scegli **Nessuna notifica: registra l'incidente**, poi **Registra l'incidente**.
+
+Se un criterio è ancora **Non lo sappiamo**, la console ti avvisa: se la risposta si rivela un sì, la
+notifica diventa obbligatoria, con le 24 ore che decorrono dal rilevamento.
+
+L'incidente si apre e, a meno che tu non l'abbia solo registrato, l'AI inizia subito a preparare la prima
+segnalazione.
+
+## Le scadenze
+
+Per una notifica obbligatoria la console calcola le scadenze dell'art. 25 a partire dall'ora di
+rilevamento che hai inserito:
+
+| Segnalazione | Scadenza |
+|---|---|
+| **Pre-notifica** | entro 24 ore dal rilevamento |
+| **Notifica (72 h)** | entro 72 ore dal rilevamento |
+| **Relazione intermedia** | solo se il CSIRT Italia la chiede; non ha una scadenza propria |
+| **Relazione finale** | un mese dopo l'invio della notifica |
+
+La pagina dell'incidente mostra il tempo che resta per la prossima segnalazione e segnala quando è
+scaduta. Una notifica volontaria non ha scadenze di legge.
+
+## Le segnalazioni e il loro ordine
+
+Ogni segnalazione segue l'ordine del portale ACN:
+
+1. **Pre-notifica**: apre un caso obbligatorio.
+2. **Notifica (72 h)**: si avvia quando la pre-notifica è stata inviata.
+3. **Relazione intermedia**: si avvia quando la notifica è stata inviata, tutte le volte che il CSIRT
+   Italia la chiede.
+4. **Relazione finale**: si avvia quando la notifica è stata inviata.
+
+Un caso volontario si apre direttamente con la notifica. Una sola segnalazione alla volta è in corso:
+inviala prima di avviare la successiva. Ogni nuova segnalazione parte dall'ultima inviata, così aggiungi
+solo quello che è cambiato. La colonna a sinistra della pagina dell'incidente elenca le segnalazioni:
+quelle inviate con data e numero di protocollo, le successive con **Avvia la notifica**, **Avvia una
+relazione intermedia** o **Avvia la relazione finale** quando si possono avviare.
+
+## Completare la segnalazione
+
+La segnalazione è mostrata campo per campo, sezione per sezione, come sul portale ACN (da **C ·
+Descrizione dell'incidente** a **N · Relazione finale**, che compare solo nella relazione finale). Le
+etichette sono quelle del portale. I valori si salvano mentre scrivi.
+
+Ogni campo ha un'etichetta:
+
+- **Bozza AI**: compilato dall'AI. Controllalo.
+- **Dall'incidente**: viene dall'incidente stesso, come il codice di riferimento e l'ora di rilevamento.
+  Si modifica in **Dettagli dell'incidente**.
+- **Tu**: la tua risposta.
+- **Da completare**: una risposta obbligatoria che solo tu puoi dare.
+
+### La compilazione con l'AI
+
+Quando una segnalazione si avvia, l'AI compila tutti i campi che può ricavare dall'incidente, per parti:
+**Fatti** (servizi, impatto, evidenze, indicatori), **Classificazione** (tassonomia ACN, codici IS, MITRE
+ATT&CK), **Contenimento** (azioni intraprese e pianificate), **Testi del modulo** (sezioni C ed E in
+italiano) e, per la relazione finale, i testi della relazione finale. Lavora in background: puoi
+continuare a lavorare, e i valori che inserisci non vengono mai sovrascritti. Quando la descrizione non
+dice nulla su un campo, l'AI lo lascia vuoto invece di indovinare. **Rigenera con l'AI** la fa ripartire.
+
+### I controlli prima dell'invio
+
+Il riquadro **Prima del trasferimento**, a destra, elenca quello che manca alla segnalazione; un clic ti
+porta al campo:
+
+- le risposte obbligatorie ancora vuote;
+- le regole della tassonomia ACN per questa segnalazione (ad esempio almeno un valore, oppure un valore
+  per ogni predicato);
+- IS-4 scelto da un'organizzazione che non è un soggetto essenziale;
+- un dominio senza il suo host: il portale accetta un dominio solo con il suo host, ad esempio
+  `www.example.com`.
+
+Quando non manca nulla, il riquadro indica **Pronta per il portale**.
+
+## Trasferire la segnalazione sul portale ACN
+
+Fai clic su **Trasferisci ad ACN**. La finestra spiega ogni passaggio con una breve animazione:
+
+1. **Da installare una volta:** trascina il pulsante **Aegister → ACN** nella barra dei preferiti del
+   browser. Se non vedi la barra, **Non vedi la barra dei preferiti?** mostra come aprirla nel tuo
+   browser.
+2. **Copia la segnalazione:** fai clic su **Copia per ACN**. L'intera segnalazione va negli appunti come
+   un unico blocco di testo.
+3. **Apri il portale e fai clic sul preferito:** fai clic su **Apri il portale ACN**, accedi e apri il
+   modulo di segnalazione NIS (Apri segnalazione CSIRT → NIS → Nuova segnalazione; per una segnalazione
+   successiva, integra quella già inviata). Fai clic su **Aegister → ACN** nella barra dei preferiti: sul
+   portale si apre un piccolo pannello. Lì premi ⌘V o Ctrl+V.
+
+Il preferito scrive la segnalazione nei campi del portale. I campi compilati sono bordati di blu e il
+pannello elenca quello che resta da completare a mano.
+
+<Warning>
+Il preferito non preme mai **Salva la bozza**, **Invia segnalazione**, **Ricomincia** o **Annulla**.
+Controlla il modulo sul portale, poi premi tu **Invia segnalazione**.
+</Warning>
+
+## Segnare la segnalazione come inviata
+
+Tornato nella console, fai clic su **Segna come inviata…** (nella finestra di trasferimento). Indica
+quando l'hai inviata sul portale ACN e il **Numero di protocollo CSIRT** che il portale mostra dopo
+l'invio: collega le segnalazioni successive a questa. Fai clic su **Segna come inviata**.
+
+La segnalazione si blocca e diventa di sola lettura. Le correzioni vanno nella segnalazione successiva,
+come sul portale. Dopo il primo invio, l'ora di rilevamento non si può più modificare.
+
+## Esportazioni e altre viste
+
+- **Esporta → Report PDF** o **JSON**: la segnalazione visualizzata, nell'ordine del portale e con le sue
+  etichette, da archiviare o condividere internamente.
+- **Dettagli dell'incidente**: la descrizione, gli orari e le risposte sulla significatività.
+- **Evidenza**: i file allegati all'incidente; **Aggiungi file** ne aggiunge altri.
+- **Cronologia**: quando l'incidente è stato registrato e rilevato, quando ogni segnalazione è stata
+  avviata e inviata.
+
+Un incidente mai inviato ad ACN si può eliminare con **Elimina incidente**; vengono eliminate anche le
+bozze e le evidenze.
+
+<Note>
+La console calcola le scadenze come descritto sopra e prepara i testi; non sostituisce la tua
+valutazione. La guida ACN alla notifica degli incidenti è collegata da **Come funziona**.
+</Note>

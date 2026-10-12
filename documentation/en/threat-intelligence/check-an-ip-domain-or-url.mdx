@@ -1,0 +1,123 @@
+---
+title: "Check an IP, domain or URL"
+sidebarTitle: "Check an IP, domain or URL"
+description: "Look up an IP address, a domain, a URL or a file in Aegister Threat Intelligence and read the result: crime score, threat level, reports, MITRE ATT&CK techniques and origin."
+---
+
+Before you trust an address that appears in your logs, a link in an email or a file someone sent you,
+you can check whether it has been reported. Threat Intelligence looks it up in the OneFirewall alliance, whose
+members report the threats they see, and tells you how risky it is.
+
+## What you can look up
+
+| What | Example | How to enter it |
+|---|---|---|
+| **IPv4 address** | `203.0.113.45` | the address alone |
+| **URL** | `https://www.example.com/login` | with `http://` or `https://` |
+| **Domain** | `example.com` | the name alone |
+| **File digest** | an MD5, SHA-1 or SHA-256 fingerprint | the hexadecimal string |
+| **File** | any file on your computer | drop it on the page |
+
+As you type, the field names the kind of value it recognised. A value it cannot look up is marked **Not
+something we can look up**. Only IPv4 addresses are recognised, not IPv6 ones.
+
+Each kind of lookup needs its own Threat Intelligence licence (IP addresses, URLs, domains, files). A kind
+your organization does not have is shown with a lock; looking it up says that these lookups are not in
+your plan, and an Owner can click **Acquire license** to ask Aegister for it. Every role (Viewer, Security
+Officer, Owner) can run lookups.
+
+## Where to look it up
+
+- **Perimeter Protection → Threat Intelligence** in the side menu
+  ([app.aegister.com/perimeter-protection/threat-intelligence/](https://app.aegister.com/perimeter-protection/threat-intelligence/)):
+  paste the value in the field and click **Check**, or drop a file on **Or drop a file here, or choose
+  one**.
+- **The home page**: the search field at the top, **Threat Intelligence: look up an IP, URL, domain or
+  hash**, opens the result directly. It is shown when your organization has the IP address licence.
+- **The search palette** (⌘K or Ctrl+K): type a value and pick **Look up … in Threat Intelligence**.
+
+<Note>
+A file is never uploaded: your browser computes its SHA-256 fingerprint and only that is looked up. Very
+large files (over about 2 GB on a computer, 500 MB on a phone) cannot be read in a browser.
+</Note>
+
+The page remembers your last six lookups under **Recent**, in this browser only. The address bar keeps
+the lookup (for example `…/threat-intelligence/#ip?q=203.0.113.45`), so you can send the link to a
+colleague who has access.
+
+## Read the result
+
+Every result opens with the same verdict.
+
+### Crime score and threat level
+
+The **Crime score** sums up how risky the value is. The bar below it places it on five levels:
+
+| Level | Crime score | Headline |
+|---|---|---|
+| **No risk** | 0 | No current risk |
+| **Low** | 1 to 49 | Reported, low risk |
+| **Medium** | 50 to 99 | Reported: treat with care |
+| **High** | 100 to 149 | Likely malicious |
+| **Critical** | 150 and above | Do not trust this address (or URL, domain, file) |
+
+A sentence beside the score says how many times it was reported, by how many alliance members and since
+when, and for an IP address what it was reported for most often.
+
+### The facts
+
+- **Reports**: how many reports it received.
+- **Alliance members**: how many members reported it.
+- **First reported** and **Last reported**: when it was first and last seen.
+
+For an IP address the verdict also shows **Network** (the autonomous system and its name), **Domain** and
+**Located in** (the country). For a file it shows its SHA-256, SHA-1 and MD5 fingerprints and its type.
+URLs, domains and files can also carry tags describing the threat.
+
+### The full report for an IP address
+
+An IP address gets a full report below the verdict, with an index of its sections:
+
+- **Score over time**: how the crime score changed, with the lowest and highest values.
+- **What it was reported for**: the kinds of activity reported, the number of Suricata / Emerging
+  Threats signatures it triggered and the **MITRE ATT&CK tactics** involved.
+- **Techniques and defences**: each MITRE ATT&CK technique (for example `T1110`), linked to the MITRE
+  site, with **How to defend** against it when a defence is known.
+- **Who reported it**: the alliance members that reported it and **Their sectors**.
+- **Where it was reported from**: the countries the reports came from.
+- **Seen by Aegister sensors**: what Aegister's own sensors (Cloud Defender, Threat Blocker) reported
+  about this address: **When**, **Source**, **Confidence** and **What was seen**.
+- **STIX indicators**: machine-readable indicators for a SIEM or firewall, which you can download as a
+  `.json` file.
+
+### When nothing is found
+
+**Nothing reported** means the value has no reports in the alliance. That is not a guarantee: new
+threats are reported every day.
+
+If the lookup service does not answer in time, the page says **The lookup did not answer**: click
+**Retry**.
+
+## The PDF report
+
+For an IP address, **Report PDF** at the top of the result opens a Threat Intelligence report in PDF:
+the crime score, the address's network details, its score over time, the MITRE ATT&CK techniques, the
+reporting members and the STIX indicators. Attach it to a ticket or share it with someone who has no
+access to the console. **Copy** copies the value
+you looked up.
+
+## What to do next
+
+- **High or Critical**: do not trust it. Block it on your firewall or mail filter, and check your logs for
+  other contacts with it.
+- **If you have [Threat Blocker](/documentation/en/atb/what-is-atb)**: it blocks the hosts whose crime
+  score is at or above your threshold, both attackers reaching in and hosts your devices try to reach. Its
+  status page shows your threshold and the hosts it blocked.
+- **If you have [Cloud Defender](/documentation/en/cloud-defender/what-is-cloud-defender)**: requests
+  from sources already known for attacking are refused before they reach your site. The **Attackers** tab
+  of its status page shows the reputation of each source.
+- **If it is part of an incident**: add it as an indicator when you
+  [notify the incident to ACN](/documentation/en/vciso/notify-an-incident-to-acn); the console checks it
+  against Threat Intelligence for you.
+- **Low, Medium or nothing reported**: use your judgement. A low score or no report does not prove that a
+  value is safe.

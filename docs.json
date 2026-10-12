@@ -40,7 +40,8 @@
                 "group": "Virtual CISO",
                 "pages": [
                   "documentation/it/vciso/what-is-vciso",
-                  "documentation/it/vciso/how-to-get-started"
+                  "documentation/it/vciso/how-to-get-started",
+                  "documentation/it/vciso/notify-an-incident-to-acn"
                 ]
               },
               {
@@ -62,6 +63,12 @@
                   "documentation/it/cloud-defender/alerts-and-reports",
                   "documentation/it/cloud-defender/when-a-licence-ends",
                   "documentation/it/cloud-defender/faq"
+                ]
+              },
+              {
+                "group": "Threat Intelligence",
+                "pages": [
+                  "documentation/it/threat-intelligence/check-an-ip-domain-or-url"
                 ]
               },
               {
@@ -374,7 +381,8 @@
                 "group": "Virtual CISO",
                 "pages": [
                   "documentation/en/vciso/what-is-vciso",
-                  "documentation/en/vciso/how-to-get-started"
+                  "documentation/en/vciso/how-to-get-started",
+                  "documentation/en/vciso/notify-an-incident-to-acn"
                 ]
               },
               {
@@ -396,6 +404,12 @@
                   "documentation/en/cloud-defender/alerts-and-reports",
                   "documentation/en/cloud-defender/when-a-licence-ends",
                   "documentation/en/cloud-defender/faq"
+                ]
+              },
+              {
+                "group": "Threat Intelligence",
+                "pages": [
+                  "documentation/en/threat-intelligence/check-an-ip-domain-or-url"
                 ]
               },
               {

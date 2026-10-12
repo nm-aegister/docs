@@ -1,0 +1,125 @@
+---
+title: "Verificare un IP, un dominio o un URL"
+sidebarTitle: "Verificare un IP, un dominio o un URL"
+description: "Cerca un indirizzo IP, un dominio, un URL o un file nella Threat Intelligence di Aegister e leggi il risultato: crime score, livello di rischio, segnalazioni, tecniche MITRE ATT&CK e provenienza."
+---
+
+Prima di fidarti di un indirizzo che compare nei tuoi log, di un link in un'email o di un file che ti
+hanno inviato, puoi verificare se è stato segnalato. La Threat Intelligence lo cerca nell'alleanza
+OneFirewall, i cui membri segnalano le minacce che vedono, e ti dice quanto è rischioso.
+
+## Cosa puoi cercare
+
+| Cosa | Esempio | Come inserirlo |
+|---|---|---|
+| **Indirizzo IPv4** | `203.0.113.45` | solo l'indirizzo |
+| **URL** | `https://www.example.com/login` | con `http://` o `https://` |
+| **Dominio** | `example.com` | solo il nome |
+| **Digest del file** | un'impronta MD5, SHA-1 o SHA-256 | la stringa esadecimale |
+| **File** | un qualsiasi file sul tuo computer | trascinalo nella pagina |
+
+Mentre scrivi, il campo indica il tipo di valore che ha riconosciuto. Un valore che non si può cercare è
+segnato come **Non è un valore che possiamo cercare**. Sono riconosciuti solo gli indirizzi IPv4, non gli
+IPv6.
+
+Ogni tipo di ricerca richiede una licenza Threat Intelligence dedicata (indirizzi IP, URL, domini, file).
+Un tipo che la tua organizzazione non ha è mostrato con un lucchetto; se lo cerchi, la pagina indica che
+queste ricerche non sono incluse nel tuo piano, e un Proprietario può fare clic su **Acquista licenza**
+per richiederlo ad Aegister. Tutti i ruoli (Visualizzatore, Responsabile sicurezza, Proprietario) possono
+fare ricerche.
+
+## Dove cercare
+
+- **Protezione Perimetrale → Threat Intelligence** nel menu laterale
+  ([app.aegister.com/perimeter-protection/threat-intelligence/](https://app.aegister.com/perimeter-protection/threat-intelligence/)):
+  incolla il valore nel campo e fai clic su **Verifica**, oppure trascina un file su **Oppure trascina
+  qui un file, o sceglilo**.
+- **La home page**: il campo di ricerca in alto, **Threat Intelligence: cerca un IP, URL, dominio o
+  hash**, apre direttamente il risultato. Compare quando la tua organizzazione ha la licenza per gli
+  indirizzi IP.
+- **La ricerca rapida** (⌘K o Ctrl+K): scrivi un valore e scegli **Cerca … in Threat Intelligence**.
+
+<Note>
+Il file non viene mai caricato: il browser ne calcola l'impronta SHA-256 e cerca solo quella. I file molto
+grandi (oltre 2 GB circa su un computer, 500 MB su un telefono) non possono essere letti in un browser.
+</Note>
+
+La pagina ricorda le ultime sei ricerche sotto **Recenti**, solo in questo browser. La barra degli
+indirizzi conserva la ricerca (ad esempio `…/threat-intelligence/#ip?q=203.0.113.45`), così puoi inviare
+il link a un collega che ha accesso.
+
+## Leggere il risultato
+
+Ogni risultato si apre con lo stesso verdetto.
+
+### Crime score e livello di rischio
+
+Il **Crime score** riassume quanto è rischioso il valore. La barra sotto lo colloca su cinque livelli:
+
+| Livello | Crime score | Titolo |
+|---|---|---|
+| **Nessun rischio** | 0 | Nessun rischio attuale |
+| **Basso** | da 1 a 49 | Segnalato, rischio basso |
+| **Medio** | da 50 a 99 | Segnalato: da trattare con cautela |
+| **Alto** | da 100 a 149 | Probabilmente malevolo |
+| **Critico** | 150 e oltre | Non fidarti di questo indirizzo (o URL, dominio, file) |
+
+Una frase accanto al punteggio dice quante volte è stato segnalato, da quanti membri dell'alleanza e da
+quando, e per un indirizzo IP per cosa è stato segnalato più spesso.
+
+### I dati
+
+- **Report**: quante segnalazioni ha ricevuto.
+- **Membri dell'alleanza**: quanti membri lo hanno segnalato.
+- **Prima segnalazione** e **Ultima segnalazione**: quando è stato visto la prima e l'ultima volta.
+
+Per un indirizzo IP il verdetto mostra anche **Rete** (il sistema autonomo e il suo nome), **Dominio** e
+**Si trova in** (il paese). Per un file mostra le impronte SHA-256, SHA-1 e MD5 e il tipo. URL, domini e
+file possono avere anche delle etichette che descrivono la minaccia.
+
+### Il report completo di un indirizzo IP
+
+Un indirizzo IP ha un report completo sotto il verdetto, con un indice delle sezioni:
+
+- **Punteggio nel tempo**: come è cambiato il crime score, con il valore più basso e il più alto.
+- **Per cosa è stato segnalato**: i tipi di attività segnalati, il numero di firme Suricata / Emerging
+  Threats attivate e le **Tattiche MITRE ATT&CK** coinvolte.
+- **Tecniche e difese**: ogni tecnica MITRE ATT&CK (ad esempio `T1110`), con il link al sito MITRE e,
+  quando è nota una difesa, **Come difendersi**.
+- **Chi lo ha segnalato**: i membri dell'alleanza che lo hanno segnalato e **I loro settori**.
+- **Da dove è stato segnalato**: i paesi da cui sono arrivate le segnalazioni.
+- **Visto dai sensori Aegister**: cosa hanno segnalato su questo indirizzo i sensori di Aegister (Cloud
+  Defender, Threat Blocker): **Quando**, **Sorgente**, **Affidabilità** e **Cosa è stato visto**.
+- **Indicatori STIX**: indicatori leggibili da un SIEM o da un firewall, che puoi scaricare come file
+  `.json`.
+
+### Quando non si trova nulla
+
+**Nessuna segnalazione** significa che il valore non ha segnalazioni nell'alleanza. Non è una garanzia:
+ogni giorno vengono segnalate nuove minacce.
+
+Se il servizio di ricerca non risponde in tempo, la pagina indica **La ricerca non ha risposto**: fai
+clic su **Riprova**.
+
+## Il report PDF
+
+Per un indirizzo IP, **Report PDF** in alto nel risultato apre un report Threat Intelligence in PDF: il
+crime score, i dati di rete dell'indirizzo, il punteggio nel tempo, le tecniche MITRE ATT&CK, i membri che
+lo hanno segnalato e gli indicatori STIX. Allegalo a un ticket o condividilo con chi non ha accesso alla
+console. **Copia** copia il valore cercato.
+
+## Cosa fare dopo
+
+- **Alto o Critico**: non fidarti. Bloccalo sul firewall o sul filtro della posta e controlla nei log se
+  ci sono stati altri contatti.
+- **Se hai [Threat Blocker](/documentation/it/atb/what-is-atb)**: blocca gli host il cui crime score è
+  pari o superiore alla tua soglia, sia gli attaccanti che entrano sia gli host che i tuoi dispositivi
+  cercano di raggiungere. La sua pagina di stato mostra la soglia e gli host bloccati.
+- **Se hai [Cloud Defender](/documentation/it/cloud-defender/what-is-cloud-defender)**: le richieste da
+  sorgenti già note per attacchi vengono rifiutate prima di raggiungere il sito. La scheda **Attaccanti**
+  della sua pagina di stato mostra la reputazione di ogni sorgente.
+- **Se fa parte di un incidente**: aggiungilo come indicatore quando
+  [notifichi l'incidente all'ACN](/documentation/it/vciso/notify-an-incident-to-acn); la console lo
+  verifica per te con la Threat Intelligence.
+- **Basso, Medio o nessuna segnalazione**: valuta tu. Un punteggio basso o l'assenza di segnalazioni non
+  dimostrano che un valore sia sicuro.
