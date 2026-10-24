@@ -4,11 +4,12 @@ sidebarTitle: "FAQs"
 description: "Domande frequenti su Aegister Cloud Defender."
 ---
 
-### È possibile escludere specifici percorsi o indirizzi IP dalla protezione del WAF?
+### È possibile bloccare o autorizzare indirizzi IP specifici, o limitare l'accesso a una pagina?
 
-Sì. È possibile escludere percorsi (path) o indirizzi IP specifici, così da evitare che il filtro interferisca con servizi interni o critici.
-
-Le esclusioni sono configurate da Aegister su richiesta: segnala il percorso o l'indirizzo al tuo referente e provvediamo noi ad applicarle.
+Non ancora. Oggi le regole non si possono personalizzare per singolo sito. In arrivo: liste per sito
+gestite dalla Cyber Console, per bloccare un indirizzo, revocare un blocco, tenere indirizzi sempre
+autorizzati e limitare una pagina (come l'area di amministrazione di WordPress) ai soli indirizzi in
+elenco.
 
 ### Da quali indirizzi deve accettare traffico la mia origine?
 
@@ -20,7 +21,12 @@ Sì, puoi effettuare un downgrade della sessione da HTTPS a HTTP tra il WAF e il
 
 ### Quali vantaggi offre il Cloud Defender rispetto ad altre soluzioni come AWS Cloudfront + WAF?
 
-Il Cloud Defender offre le funzionalità classiche: mascheramento degli IP, protezione DDoS, WAF tradizionale e caching. Si distingue perché blocca automaticamente il traffico proveniente da fonti malevoli grazie ai dati di threat intelligence di [OneFirewall](https://onefirewall.com/intelligence.html). Se un attaccante viene identificato durante un attacco su un altro target, il sistema blocca quella stessa origine anche sul tuo sito.
+Il Cloud Defender offre mascheramento degli IP, protezione DDoS, caching, blocco dell'origine,
+blocco degli URL di attacco e controlli con l'OWASP Core Rule Set. Si distingue perché blocca automaticamente il
+traffico proveniente da fonti malevole grazie alla Threat Intelligence di Aegister, alimentata da
+[OneFirewall](https://onefirewall.com/intelligence.html). Se un attaccante viene identificato
+durante un attacco su un altro obiettivo, Cloud Defender blocca quella stessa sorgente anche sul
+tuo sito. È inoltre un servizio gestito: Aegister gestisce le regole ed esamina ciò che rilevano.
 
 ### Perché il totale bloccato non torna con l'elenco delle sorgenti di attacco?
 
@@ -37,8 +43,21 @@ perché non siamo più incaricati di proteggerlo.
 
 ### Chi riceve il report settimanale e gli avvisi?
 
-Il report settimanale e gli avvisi via email sono in fase di attivazione e non vengono ancora inviati
-ai clienti. Una volta attivi, arrivano solo alle persone selezionate per Cloud Defender in
-Organizzazioni → la tua organizzazione → Membri. Nulla viene inviato in base al ruolo, e un'organizzazione senza nessuno selezionato non riceve nulla. Un
-Owner può modificarlo. Le comunicazioni su licenze e rinnovi sono separate: vanno agli Owner e al
-punto di contatto amministrativo.
+Le notifiche nella console, il report settimanale e gli avvisi via email non sono ancora
+disponibili per i clienti. Le notifiche sugli attacchi bloccati saranno visibili a chiunque possa
+aprire l'organizzazione. Le email arriveranno solo alle persone selezionate per Cloud Defender in
+Organizzazioni → la tua organizzazione → Membri. Nulla viene inviato in base al ruolo, e
+un'organizzazione senza nessuno selezionato non riceve alcuna email. Un Owner può modificarlo. Le
+comunicazioni su licenze e rinnovi sono separate: vanno agli Owner e al punto di contatto
+amministrativo.
+
+### Cloud Defender blocca SQL injection e cross-site scripting?
+
+Sì, su richiesta, per singolo sito. Ogni richiesta viene confrontata con l'OWASP Core Rule Set, che
+copre SQL injection, cross-site scripting e altri schemi di attacco. Aegister attiva il blocco sul
+tuo sito quando lo chiedi al tuo referente. Finché non è attivo, queste richieste vengono rilevate ed
+esaminate dagli analisti di Aegister, non bloccate. È in arrivo un interruttore nella Cyber Console
+per attivarlo e disattivarlo in autonomia.
+
+Gli altri livelli bloccano su ogni sito: il blocco dell'origine, la Threat Intelligence e la regola
+sugli URL di attacco, che valuta solo l'indirizzo e gli header di una richiesta.

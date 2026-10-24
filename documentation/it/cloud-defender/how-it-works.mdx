@@ -1,38 +1,60 @@
 ---
 title: "Come funziona Cloud Defender"
 sidebarTitle: "Come Funziona"
-description: "Scopri il funzionamento del sistema Cloud Defender, che integra Cloud WAF e OneFirewall Threat Prevention per analizzare e proteggere il traffico web."
+description: "Il percorso di una richiesta attraverso Cloud Defender, e cosa fa ciascun livello."
 ---
 
-Aegister Cloud Defender protegge le applicazioni web analizzando in tempo reale il traffico in ingresso. Il processo si articola in quattro fasi:
+Aegister Cloud Defender si trova tra i tuoi visitatori e il tuo sito. Ogni richiesta segue lo
+stesso percorso:
 
 ![How it works](/images/cloud-defender-how.png)
 
-## Connessione e Integrazione
+## Il percorso di una richiesta
 
-- Il dominio **secure.aegister.com** è collegato al Cloud Defender tramite l'indirizzo **Cloud_External_IP_Address**.
-- Il sistema integra **Cloud WAF** e **OneFirewall Threat Prevention** per una protezione multilivello.
+1. **DNS:** il tuo dominio, ad esempio **client1.domain1.com**, è un CNAME di
+   **secure.aegister.com**, quindi i visitatori raggiungono Cloud Defender invece del tuo server.
+2. **Cloudflare:** la richiesta entra da Cloudflare, che mitiga il traffico DDoS e serve i contenuti
+   in cache. Cloudflare trasmette l'indirizzo reale del visitatore nell'header
+   **CF-Connecting-IP**.
+3. **Load balancer di Google Cloud con Cloud Armor:** Cloud Armor accetta solo il traffico che
+   arriva da Cloudflare e rifiuta tutto il resto, quindi la protezione non si può aggirare
+   raggiungendo Cloud Defender per un'altra strada. Qui operano la regola sugli URL di attacco e il
+   rilevamento degli attacchi (vedi sotto).
+4. **Proxy di Aegister:** respinge le richieste dagli indirizzi presenti nella lista di Threat
+   Intelligence, poi inoltra le altre al tuo server, usando l'indirizzo reale del visitatore preso
+   da **CF-Connecting-IP**.
+5. **Il tuo sito:** le richieste che hanno superato ogni controllo arrivano al tuo server,
+   senza differenze percepibili per il visitatore.
 
-## Gestione delle Richieste
+Blocca il tuo server perché accetti traffico solo da Cloud Defender (passaggio 4 della
+[guida all'attivazione](/documentation/it/cloud-defender/how-to-get-started)). Altrimenti chiunque ne
+conosca l'indirizzo può saltare l'intero percorso descritto sopra.
 
-- Quando un client effettua una richiesta, ad esempio verso **client1.domain1.com**:
-  - **client1.domain1.com** è configurato come **CNAME di secure.aegister.com**.
-  - La richiesta include l'indirizzo IP di origine e l'header **X-Forwarded-For**, che descrivono il percorso del traffico.
+## Cosa fa ciascun livello
 
-## Analisi del Traffico
+- **Threat Intelligence (blocca):** la lista di threat intelligence di Aegister contiene indirizzi
+  già visti attaccare altri obiettivi ed è aggiornata di continuo. Una richiesta da uno di questi
+  indirizzi viene respinta prima di raggiungere il tuo sito.
+- **Regola sugli URL di attacco (blocca):** valuta solo l'indirizzo e
+  gli header di una richiesta: richieste di file sensibili come `/.env` o `/.git`, path traversal,
+  stringhe Log4Shell, HTTP malformato o abusivo e strumenti di scansione che si dichiarano tali. Non
+  legge mai campi dei moduli, corpi JSON o cookie, quindi i dati inseriti dai tuoi utenti non
+  vengono mai valutati da questa regola.
+- **Regole a firme (blocco su richiesta):** ogni richiesta viene confrontata con l'OWASP Core Rule
+  Set, che copre SQL injection, cross-site scripting e altri schemi di attacco. Il blocco è
+  disponibile su richiesta, per singolo sito: Aegister lo attiva quando lo chiedi. Finché non è
+  attivo, le corrispondenze vengono registrate come anomalie ed esaminate dagli analisti di
+  Aegister.
+- **Rilevamento degli scanner (solo rilevamento):** gli schemi di richiesta tipici degli scanner
+  automatici, come un'alta quota di pagine non trovate o una scansione di molti percorsi, vengono
+  registrati come anomalie. Il rilevamento guarda il comportamento, mai il nome con cui un client si
+  presenta.
+- **Controlli di salute:** Cloud Defender verifica periodicamente che il tuo dominio e il tuo
+  server rispondano, e che le richieste al tuo sito passino davvero attraverso la protezione.
+  L'esito è visibile nella pagina di stato.
 
-- Il traffico del cliente attraversa il Cloud Defender, **il tunnel azzurro mostrato nello schema**, dove viene sottoposto a:
-  - **Threat Intelligence:** le richieste provenienti da sorgenti già note per attaccare altri obiettivi vengono respinte, grazie a una blocklist aggiornata di continuo.
-  - **Controllo di raggiungibilità:** il sistema interroga periodicamente il dominio e l'endpoint del cliente per verificare che l'origine risponda. L'esito è visibile nella pagina di stato del Cloud Defender.
+## Cosa vedi
 
-## Decisione e Azione
-
-Ogni richiesta riceve una decisione prima di raggiungere la tua applicazione.
-
-Le richieste che superano i controlli proseguono verso l'endpoint associato a
-**client1.domain1.com**, senza differenze percepibili per l'utente. Vengono invece respinte le
-richieste che provengono da una sorgente già nota per attaccare altri obiettivi e quelle che tentano di raggiungere l'origine scavalcando il
-Cloud Defender.
-
-Ogni blocco viene registrato con orario, sorgente e richiesta, e resta consultabile nella pagina di
-stato.
+Ogni richiesta respinta da Cloud Defender viene registrata con orario, sorgente, richiesta e livello
+che l'ha respinta, e resta consultabile nella
+[pagina di stato](/documentation/it/cloud-defender/reading-your-status-page).

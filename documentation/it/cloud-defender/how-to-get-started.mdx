@@ -4,28 +4,39 @@ sidebarTitle: "Come Attivarlo"
 description: "Guida alla procedura di attivazione e configurazione di Aegister Cloud Defender per proteggere la tua applicazione web."
 ---
 
-## 1. Informazioni Richieste
+## 1. Aggiunta dell'applicazione web
 
-Per creare l’organizzazione e attivare il servizio, Aegister ha bisogno di questi dati dal Cliente:
+Quando la tua organizzazione è in fase di configurazione, la sua home page nella Cyber Console
+mostra una scheda con i primi passi. Il passo **Mettete il vostro sito dietro Cloud Defender**
+(**Aggiungi il sito**) apre **Proteggi un'applicazione web**, che compila un Owner o un Security
+Officer:
 
-- **Dati dell’organizzazione:** Ragione sociale e settore.
-- **Utenti di riferimento:** Nomi ed email dei referenti tecnici e/o amministrativi.
-- **Dominio (FQDN):** Il nome di dominio completo del sito (es. www.esempio.it).
-- **Endpoint:** L’indirizzo pubblico (IP o URL) a cui è esposta l’applicazione web.
-- **Email del referente tecnico:** Per notifiche e comunicazioni tecniche.
-- **Servizi richiesti:** Lista dei servizi da attivare (es. Caching, DDoS, Threat Intelligence, WAF).
+- **Organizzazione:** l'organizzazione a cui appartiene l'applicazione web.
+- **Dominio:** il nome completo che digitano i visitatori (es. www.esempio.it).
+- **Server di origine:** l'indirizzo IP pubblico o il nome host su cui l'applicazione web gira oggi.
+  Deve rispondere in HTTPS sulla porta 443.
+- **Email del referente tecnico:** Aegister ti scrive qui per concordare la modifica DNS.
+- **Servizi:** WAF, Threat Intelligence, DDoS e Caching. La maggior parte dei siti li mantiene tutti
+  e quattro. Cosa fa oggi ciascun livello è descritto in
+  [Come funziona](/documentation/it/cloud-defender/how-it-works).
+
+L'aggiunta dell'applicazione web avvisa Aegister, che la configura. La sua pagina di stato mostra poi
+una checklist di attivazione con ciascuno dei passaggi seguenti. Se la tua home page non mostra la
+scheda dei primi passi, invia gli stessi dati al tuo referente Aegister e aggiungiamo noi
+l'applicazione web.
 
 ---
 
 ## 2. Aggiornamento del DNS
 
-Dopo che Aegister ha configurato il Cloud Defender, aggiorna i record DNS del tuo dominio:
+Attendi che la checklist di attivazione mostri come completato **Aegister configura il dominio**:
+puntare il dominio prima mette il sito offline. Poi aggiorna i record DNS del tuo dominio:
 
 1. **Accesso al pannello DNS:**  
    Accedi al pannello di controllo del tuo provider DNS o hosting, dove gestisci i record del dominio.
 
 2. **Punta il dominio verso Cloud Defender:**  
-   Sostituisci il record dell’applicazione da proteggere con un CNAME che punti a `secure.aegister.com`
+   Sostituisci il record dell'applicazione da proteggere con un CNAME che punti a `secure.aegister.com`
    (sulla radice del dominio, dove un CNAME non è ammesso, usa il record ALIAS o ANAME del tuo provider).
 
 3. **Conferma e propagazione:**  
@@ -39,6 +50,10 @@ Dopo la propagazione dei DNS, esegui alcuni test per verificare che Aegister Clo
 
 - **Navigazione:**  
 Accedi al dominio (es. www.esempio.it) e verifica che il sito si carichi.
+
+- **Checklist di attivazione:**  
+Nella pagina di stato, **Verifica ora** ti dice se il dominio risponde già attraverso Cloud
+Defender. Aegister lo verifica anche una volta all'ora.
 
 - **Monitoraggio del Traffico:**  
 Apri la pagina del Cloud Defender nella Cyber Console: trovi il traffico gestito, le richieste
@@ -54,12 +69,12 @@ firewall dell'origine (oppure una regola a livello applicativo) perché accetti 
 Cloud Defender.
 
 Senza questo passaggio il sito resta raggiungibile in modo diretto al suo indirizzo IP pubblico: chi
-lo conosce aggira l'intera protezione, perché WAF, Threat Intelligence, mitigazione DDoS e caching
-vengono tutti saltati. È il passaggio che rende effettiva la protezione, non un'ottimizzazione
-successiva.
+lo conosce aggira l'intera protezione, perché Threat Intelligence, regole WAF, mitigazione DDoS e
+caching vengono tutti saltati. È il passaggio che rende effettiva la protezione, non
+un'ottimizzazione successiva.
 
-1. **Autorizza gli indirizzi del Cloud Defender:** Aegister ti comunica gli indirizzi da autorizzare
-   al momento dell'attivazione del dominio.
+1. **Autorizza gli indirizzi del Cloud Defender:** Aegister ti comunica gli indirizzi da
+   autorizzare al momento dell'attivazione del dominio.
 2. **Blocca tutto il resto** del traffico in ingresso sulle porte 80 e 443.
 3. **Dove applicarlo:** firewall perimetrale, security group del cloud provider oppure regola del web
    server (per esempio `allow` / `deny` in Apache o Nginx).
@@ -83,5 +98,6 @@ referente Aegister oppure scrivi a [info@aegister.com](mailto:info@aegister.com)
 
 ## 6. Conclusione
 
-Una volta aggiornati i record DNS, **Aegister Cloud Defender** protegge il tuo sito. I servizi abilitati (Caching, DDoS, Threat Intelligence, WAF) operano in modo trasparente, proteggendo e ottimizzando l'applicazione web.
-Per ulteriori informazioni, contatta il nostro supporto.
+Una volta che i record DNS puntano a Cloud Defender e l'origine è bloccata, **Aegister Cloud
+Defender** protegge il tuo sito e i servizi abilitati entrano in funzione. Per ulteriori
+informazioni, contatta il tuo referente Aegister.

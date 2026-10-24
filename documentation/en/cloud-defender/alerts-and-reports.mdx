@@ -1,24 +1,40 @@
 ---
 title: "Cloud Defender: alerts and reports"
 sidebarTitle: "Alerts and reports"
-description: "Who is emailed about Cloud Defender, and how to change it."
+description: "The notifications, alerts and weekly report Cloud Defender sends, and who receives them."
 ---
 
+Cloud Defender tells you about what it **blocked**. Traffic that was only detected and not blocked
+(an anomaly) produces no notification and no email: Aegister's analysts review it.
+
 <Note>
-**Coming soon.** The weekly report, the alerts and the licence expiry emails are being rolled out
-and are not sent to customers yet. You can already choose who receives them: the settings below
-apply as soon as sending starts.
+**Coming soon.** The in-app notifications and the emails on this page (alerts, the weekly report and
+the licence expiry warnings) are not available to customers yet. You can already choose who receives
+the emails: the settings below apply as soon as sending starts.
 </Note>
+
+## In-app notifications
+
+When Cloud Defender blocks an attack on one of your domains, a notification appears at once under
+the bell in the Cyber Console, for everyone who can open the organization. It links to the domain's
+status page.
+
+## Email alerts
+
+The people who opted in receive an email summing up the attacks Cloud Defender blocked, grouped by
+domain: at most one email per organization per hour.
 
 ## The weekly report
 
-Every Monday, a PDF covering the previous seven days: totals, the most active sources with their
-reputation and network, where the traffic came from, per-domain activity, and the most recent blocked
-requests with the path each one asked for.
+Every Monday at 08:00 (Italy time), a PDF covering the previous seven days, sent to the people who
+opted in: threats blocked, the attacking addresses with their reputation and network, managed
+requests, per-domain charts and the most recent blocked requests.
+
+Notifications, email alerts and the weekly report need a live Cloud Defender licence.
 
 ## Choosing who receives alerts
 
-Alerts are **opt-in, per person and per product**. Nobody receives them because of the role they
+Email alerts and the weekly report are **opt-in, per person and per product**. Nobody receives them because of the role they
 hold; somebody has to decide.
 
 On **Organizations → your organization → Members**, the **Alerts** column has a checkbox per

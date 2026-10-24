@@ -4,11 +4,11 @@ sidebarTitle: "FAQs"
 description: "Frequently asked questions about Aegister Cloud Defender."
 ---
 
-### Can specific paths or IP addresses be excluded from WAF protection?
+### Can I block or allow specific IP addresses, or restrict a page?
 
-Yes. Specific paths or IP addresses can be excluded, so the filter does not interfere with internal or critical services.
-
-Exclusions are configured by Aegister on request: tell your point of contact which path or address to exclude and we apply it for you.
+Not yet. Rules cannot be customised per site today. Coming soon: per-site lists managed from the
+Cyber Console, to block an address, lift a block, keep addresses that are always allowed, and
+restrict a page (such as a WordPress admin area) to listed addresses only.
 
 ### Which addresses should my origin accept traffic from?
 
@@ -20,7 +20,12 @@ Yes, you can downgrade from HTTPS to HTTP between the WAF and the protected site
 
 ### What advantages does Cloud Defender offer over solutions like AWS Cloudfront + WAF?
 
-Cloud Defender provides IP masking, DDoS protection, a conventional WAF, and caching. What sets it apart is that it blocks traffic from malicious sources automatically, using threat intelligence data from [OneFirewall](https://onefirewall.com/intelligence.html). If an attacker is identified during an attack on another target, the system blocks that source from reaching your site.
+Cloud Defender provides IP masking, DDoS protection, caching, origin lockdown, blocking of attack
+URLs and checks against the OWASP Core Rule Set. What sets it apart is that it blocks traffic from malicious sources
+automatically, using Aegister's Threat Intelligence, fed by
+[OneFirewall](https://onefirewall.com/intelligence.html). If an attacker is identified during an
+attack on another target, Cloud Defender blocks that source from reaching your site. It is also a
+managed service: Aegister runs the rules and reviews what they detect.
 
 ### Why does the blocked total not add up against the list of attacking sources?
 
@@ -37,8 +42,20 @@ because we are no longer contracted to protect it.
 
 ### Who receives the weekly report and the alerts?
 
-The weekly report and the email alerts are being rolled out and are not sent to customers yet. Once
-they are, they go only to the people ticked for Cloud Defender on Organizations → your organization → Members.
+The in-app notifications, the weekly report and the email alerts are not available to customers
+yet. Notifications about blocked attacks will be visible to everyone who can open the organization.
+The emails will go only to the people ticked for Cloud Defender on Organizations → your organization → Members.
 Nothing is sent on the basis of somebody's role, and an organization with nobody ticked receives
-nothing. An Owner can change it. Licence and renewal notices are separate: those go to Owners and to the administrative
+no email. An Owner can change it. Licence and renewal notices are separate: those go to Owners and to the administrative
 point of contact.
+
+### Does Cloud Defender block SQL injection and cross-site scripting?
+
+Yes, on request, per site. Every request is checked against the OWASP Core Rule Set, which covers
+SQL injection, cross-site scripting and other attack patterns. Aegister turns blocking on for your
+site when you ask your point of contact. Until it is on, those requests are detected and reviewed by
+Aegister's analysts, not blocked. A switch to turn it on and off yourself from the Cyber Console is
+coming.
+
+The other layers block on every site: the origin lockdown, Threat Intelligence and the attack URL
+rule, which judges only the address and headers of a request.

@@ -1,23 +1,36 @@
 ---
 title: "Cloud Defender: introduzione"
 sidebarTitle: "Introduzione"
-description: "Scopri Aegister Cloud Defender, il Web Application Firewall (WAF) avanzato per proteggere le applicazioni web dalle minacce comuni e mitigare i principali rischi OWASP."
+description: "Aegister Cloud Defender protegge siti e applicazioni web: il tuo sito dietro Cloudflare e Google Cloud, gli attaccanti noti bloccati dalla Threat Intelligence, ogni blocco visibile nella Cyber Console."
 ---
 
-**Aegister Cloud Defender** è un Web Application Firewall (WAF) che protegge le applicazioni web dalle minacce comuni e dagli attacchi DDoS, e mitiga i **Top 10 rischi OWASP** come SQL Injection e Cross-Site Scripting (XSS).  
+**Aegister Cloud Defender** protegge i siti e le applicazioni web esposti su internet. Il tuo sito
+viene servito attraverso Cloudflare e Google Cloud, e ogni richiesta attraversa diversi livelli di
+protezione prima di raggiungere il tuo server.
 
-Con regole **personalizzabili** e aggiornate di continuo tramite la Threat Intelligence, il sistema analizza il traffico HTTP/HTTPS in tempo reale e blocca i comportamenti anomali e dannosi.
+## Livelli di protezione
 
-## Moduli Chiave del Funzionamento
+- **Blocco dell'origine:** Cloud Defender accetta traffico solo da Cloudflare e rifiuta tutto il
+  resto, quindi nessuno può aggirare la protezione raggiungendolo per un'altra strada. Bloccando
+  anche il tuo server su Cloud Defender, come spiega la guida all'attivazione, chiudi l'ultimo
+  accesso diretto.
+- **Threat Intelligence:** le richieste dagli indirizzi presenti nella lista di threat intelligence
+  di Aegister, sorgenti già viste attaccare altri obiettivi, vengono respinte prima di raggiungere il
+  tuo sito.
+- **Regola sugli URL di attacco:** valuta solo l'indirizzo e gli header di una richiesta: ricerca di
+  file sensibili come `/.env` o `/.git`, path traversal, stringhe Log4Shell, HTTP malformato o
+  abusivo e strumenti di scansione che si dichiarano tali. Non legge mai campi dei moduli, corpi JSON
+  o cookie, quindi ciò che scrivono i tuoi utenti non viene mai valutato da questa regola.
+- **SQL injection e cross-site scripting:** ogni richiesta viene anche confrontata con l'OWASP Core
+  Rule Set (SQL injection, cross-site scripting e altri schemi di attacco). Il blocco è disponibile su
+  richiesta, per singolo sito: Aegister lo attiva quando lo chiedi. Finché non è attivo, queste
+  richieste vengono rilevate ed esaminate dagli analisti di Aegister.
+- **Rilevamento degli scanner:** gli schemi di richiesta tipici degli scanner vengono rilevati e
+  registrati per gli analisti di Aegister; non vengono bloccati.
+- **Controlli di salute:** Cloud Defender verifica che il tuo sito risponda e che il suo traffico
+  passi davvero attraverso la protezione, e mostra l'esito nella pagina di stato.
 
-- **Intrusion Prevention Module:**  
-  Blocca immediatamente le richieste identificate come malevole.
-  
-- **Score Engine:**  
-  Assegna priorità alle minacce, riduce i falsi positivi e ottimizza le risposte.
-  
-- **Network Threats Retriever:**  
-  Aggiorna le regole, le firme e i database usati dai moduli precedenti.
+Cloudflare, davanti al sito, fornisce anche mitigazione DDoS e caching.
 
 ## Caratteristiche Distintive
 
@@ -42,5 +55,6 @@ Aegister: reputazione, paese di origine e rete di appartenenza.
 
 - **Registro delle minacce bloccate:** ogni richiesta negata con orario, sorgente, richiesta e livello che
   l'ha fermata, filtrabile per livello ed esportabile.
-- **Report settimanale in PDF** e **avvisi via email**, con destinatari scelti persona per persona (in
-  arrivo).
+- **Notifiche** nella Cyber Console per gli attacchi bloccati da Cloud Defender, e **avvisi via
+  email** e un **report settimanale in PDF** per le persone che scegli (in arrivo, vedi
+  [Avvisi e report](/documentation/it/cloud-defender/alerts-and-reports)).
