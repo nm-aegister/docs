@@ -192,30 +192,20 @@
                         ]
                       },
                       {
-                        "group": "Store Window",
-                        "pages": [
-                          "api-reference/it/atb/get-atb-store-window",
-                          "api-reference/it/atb/post-atb-store-window"
-                        ]
-                      },
-                      {
                         "group": "Log di traffico",
                         "pages": [
-                          "api-reference/it/atb/list-threat-blocker-traffic-logs",
-                          "api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
-                          "api-reference/it/atb/upload-threat-blocker-traffic-logs",
-                          "api-reference/it/atb/upload-threat-blocker-traffic-v2-1"
+                          "api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1"
                         ]
                       },
                       {
                         "group": "Statistiche di traffico",
                         "pages": [
-                          "api-reference/it/atb/get-threat-blocker-traffic-statistics",
                           "api-reference/it/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
                           "api-reference/it/atb/blocked-requests-over-the-last-7-days",
                           "api-reference/it/atb/most-blocked-source-ips",
                           "api-reference/it/atb/traffic-stats-per-crime-level",
-                          "api-reference/it/atb/get-atb-attacker-insights"
+                          "api-reference/it/atb/get-atb-attacker-insights",
+                          "api-reference/it/atb/get-atb-activity-week"
                         ]
                       }
                     ]
@@ -568,30 +558,20 @@
                         ]
                       },
                       {
-                        "group": "Store Window",
-                        "pages": [
-                          "api-reference/atb/get-atb-store-window",
-                          "api-reference/atb/post-atb-store-window"
-                        ]
-                      },
-                      {
                         "group": "Traffic Logs",
                         "pages": [
-                          "api-reference/atb/list-threat-blocker-traffic-logs",
-                          "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
-                          "api-reference/atb/upload-threat-blocker-traffic-logs",
-                          "api-reference/atb/upload-threat-blocker-traffic-v2-1"
+                          "api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1"
                         ]
                       },
                       {
                         "group": "Traffic Statistics",
                         "pages": [
-                          "api-reference/atb/get-threat-blocker-traffic-statistics",
                           "api-reference/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
                           "api-reference/atb/blocked-requests-over-the-last-7-days",
                           "api-reference/atb/most-blocked-source-ips",
                           "api-reference/atb/traffic-stats-per-crime-level",
-                          "api-reference/atb/get-atb-attacker-insights"
+                          "api-reference/atb/get-atb-attacker-insights",
+                          "api-reference/atb/get-atb-activity-week"
                         ]
                       }
                     ]
@@ -856,7 +836,7 @@
     },
     {
       "source": "/api-reference/atb/upload-threat-blocker-traffic-v2",
-      "destination": "/api-reference/atb/upload-threat-blocker-traffic-v2-1",
+      "destination": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
       "permanent": true
     },
     {
@@ -866,7 +846,67 @@
     },
     {
       "source": "/api-reference/it/atb/upload-threat-blocker-traffic-v2",
-      "destination": "/api-reference/it/atb/upload-threat-blocker-traffic-v2-1",
+      "destination": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/get-atb-store-window",
+      "destination": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/get-atb-store-window",
+      "destination": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/post-atb-store-window",
+      "destination": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/post-atb-store-window",
+      "destination": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/list-threat-blocker-traffic-logs",
+      "destination": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/list-threat-blocker-traffic-logs",
+      "destination": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/upload-threat-blocker-traffic-logs",
+      "destination": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/upload-threat-blocker-traffic-logs",
+      "destination": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/upload-threat-blocker-traffic-v2-1",
+      "destination": "/api-reference/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/upload-threat-blocker-traffic-v2-1",
+      "destination": "/api-reference/it/atb/retrieve-latest-traffic-logs-for-a-specific-device-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/atb/get-threat-blocker-traffic-statistics",
+      "destination": "/api-reference/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/atb/get-threat-blocker-traffic-statistics",
+      "destination": "/api-reference/it/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
       "permanent": true
     },
     {
