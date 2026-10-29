@@ -1,0 +1,6 @@
+---
+title: "Recupera la proposta dell'AI per un'attività V-CISO"
+sidebarTitle: "Proposta dell'AI"
+description: "Interroga un job di compilazione: `status: running` mentre l'AI legge, poi la proposta. Per una tabella, `rows` è pronto per «Invia attività»; per le domande, `answers` indicizzato per id della domanda. `ai` la spiega: un riepilogo, quanti elementi sono stati compilati, la confidenza e il documento di origine di ogni risposta, e le righe escluse con il motivo. Un `msg` al posto della proposta indica che i documenti non contengono nulla per l'attività. Solo chi ha avviato il job può leggerlo."
+openapi: get /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/tasks/{taskid}/prefill/{job}
+---

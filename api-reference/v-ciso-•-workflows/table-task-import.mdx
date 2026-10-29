@@ -1,6 +1,6 @@
 ---
 title: "Import into a task"
 sidebarTitle: "Import task"
-description: "Import into a task: table rows (JSON/XLSX) or question answers (JSON). dry_run validates and returns normalized data plus errors without saving; otherwise it validates, submits to scoring, and records a new evaluation. Requires the edit role."
+description: "Import into a task: table rows (JSON/XLSX) or question answers (JSON). dry_run validates and returns normalized data, the table's current rows and errors without saving; otherwise it validates, submits to scoring, and records a new evaluation. By default the rows replace the table; keep_rows updates matching rows and keeps the others. Error messages follow lan (en or it). Requires the edit role."
 openapi: post /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/tasks/{taskid}/import
 ---

@@ -85,15 +85,38 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
     "valid_count": 1, "error_count": 0,
     "columns": [ /* the normalized column set */ ],
     "rows": [ /* normalized, ready to submit */ ],
-    "errors": [ /* {row, column, message} per problem */ ] } }
+    "current": [ /* the rows the table holds today */ ],
+    "errors": [ /* {row, column, message, code} per problem */ ] } }
 ```
 
 Fix any `errors` (a column id that is not in the spec, wrong choice, bad date/number, a child
 value not allowed for its parent, an unknown cross-task value) and re-run until `error_count` is 0.
+Messages and column labels follow `?lan=en|it` (English by default); a required value that is
+missing carries `"code": "required"`, so a script can tell it apart without parsing the text.
+`current` lets you compare what you send with what the table holds before you submit. It holds
+the cells as the console shows them (localized text, choices as labels), so don't send it back as
+`rows`: build your rows from the spec.
 
 The JSON body must carry a `rows` array: without it the request fails with `400` and
 `Missing 'rows' array`. `dry_run` counts only when it is `true`, `1` or `yes` (in the body or as
 a query parameter); any other value means submit.
+
+### Replace the table, or keep the rows you don't send
+
+By default the rows you send **replace** the whole table. Add `"keep_rows": true` (or
+`?keep_rows=1`, or a `keep_rows` form field with an XLSX upload) to update it instead: a row
+whose first column matches a row already in the table replaces that row, new rows go at the
+end, and the rows you did not send stay. It is read like `dry_run` (`true`, `1` or `yes`).
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/import?lan=en" \
+  -d '{ "dry_run": true, "keep_rows": true, "rows": [
+        { "asset_id": "HW-002", "device_input": "Firewalls",
+          "criticality": "High", "status": "Updated" } ] }'
+```
+
+The dry run then also returns `kept_count`, the number of current rows that stay.
 
 ### Submit
 
@@ -103,6 +126,8 @@ records a new evaluation, exactly like a save in the web app.
 ```json
 { "error": 0, "messages": [], "data": { "imported_rows": 1, "evaluation_id": 3780 } }
 ```
+
+With `keep_rows`, the response also carries `kept_rows`.
 
 A request with any validation error returns `400` with `error: 1` and the `data.errors`
 list; nothing is written.
@@ -200,6 +225,9 @@ The note `id` is the one listed in the control's `notes` (for NIS 2 controls, fo
       "note": [{ "id": "2.1.1_justification", "response": "Reviewed by the board on 2026-01-10." }] } } }
 ```
 
+Always send the `value` together with the note. On ISO 27001, an answer that carries only a
+justification, with no value, erases the control's level.
+
 Dropping `dry_run` validates then submits via `/evaluate` (Aegister scores and persists),
 returning `{ "submitted": <number of answers>, "step": "E", "evaluation_id": … }`.
 
@@ -237,3 +265,60 @@ dedupe by SHA-256 (identical content returns the existing version, `200`, instea
 To list existing evidence across a workflow (every artifact with its latest version and full
 history), call `GET .../workflows/{wid}/documents` (*List documents* in the sidebar).
 Per-artifact history and downloads use the other endpoints in the *V-CISO → Cyber Posture → Documents* group.
+
+## 6. Fill a task from your documents (AI)
+
+If the answers already live in your documents (a policy, an asset list, a register), let the AI
+read them and propose what to put in a table or question task. It is the same proposal as
+**Fill from your documents** in the console. Nothing is saved: you review the proposal and
+submit it through `/import` as in sections 2 and 3.
+
+**Step 1, start** the job with 1 to 5 documents in base64 (at most 10 MB each, 20 MB in all, else
+`413`). You can start 20 jobs an hour; past that the call answers `429`:
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/prefill?lan=en" \
+  -d '{ "documents": [
+        { "name": "assets.xlsx",
+          "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "content": "UEsDBBQABgAIAAAAIQ…" } ] }'
+```
+
+```json
+{ "error": 0, "messages": [], "data": {
+    "job": "resp_…",
+    "documents": { "used": ["assets.xlsx"], "skipped": [] } } }
+```
+
+The AI reads PDF, Word (.docx), Excel (.xlsx, .xlsm), images (.png, .jpg, .gif, .webp) and text
+files (.txt, .md, .csv, .tsv, .json, .xml, .log). Any other file is listed under `skipped` with
+the reason. The call fails with `400` when no document can be read, and with `502` when the AI
+service cannot be reached.
+
+**Step 2, poll** the job until `status` is `done`:
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/prefill/resp_…"
+```
+
+```json
+{ "error": 0, "messages": [], "data": {
+    "status": "done", "kind": "table",
+    "columns": [ /* the task's columns, as in /spec */ ],
+    "rows": [ /* the proposed rows, as /import takes them */ ],
+    "current": [ /* the rows the table holds today */ ],
+    "responses": [ /* the same proposal, as the console saves it */ ],
+    "ai": { "summary": "…", "filled": 12, "details": [ /* … */ ], "skipped_rows": [ /* … */ ] } } }
+```
+
+While the AI reads you get `{ "status": "running" }`. When the documents hold nothing for the
+task, the result carries a `msg` instead of a proposal. For a question task, `kind` is
+`questions` and the proposal is under `answers`, keyed by question id. `ai` explains the
+proposal: a summary, how many items were filled, for each answer the confidence and the document
+it came from, and the rows left out with the reason (for example a value missing from a linked
+list, which you add there first).
+
+**Step 3, submit** the proposal: send `rows` (tables) or `answers` (questions) to `/import`,
+`dry_run` first. Only the person who started the job can read it, and the documents are not kept.

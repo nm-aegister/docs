@@ -87,16 +87,40 @@ curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
     "valid_count": 1, "error_count": 0,
     "columns": [ /* l'insieme di colonne normalizzato */ ],
     "rows": [ /* normalizzate, pronte per l'invio */ ],
-    "errors": [ /* {row, column, message} per ogni problema */ ] } }
+    "current": [ /* le righe che la tabella contiene oggi */ ],
+    "errors": [ /* {row, column, message, code} per ogni problema */ ] } }
 ```
 
 Correggi eventuali `errors` (un id di colonna che non è nella specifica, scelta errata,
 data/numero non validi, un valore figlio non ammesso per il suo genitore, un valore cross-attività
 sconosciuto) e ripeti finché `error_count` è 0.
+Messaggi ed etichette delle colonne seguono `?lan=en|it` (inglese per impostazione predefinita);
+un valore obbligatorio mancante porta `"code": "required"`, così uno script lo riconosce senza
+leggere il testo. `current` ti permette di confrontare ciò che invii con ciò che la tabella
+contiene prima di inviare. Riporta le celle come le mostra la console (testo localizzato, scelte
+come etichette), quindi non rimandarlo come `rows`: costruisci le righe a partire dalla specifica.
 
 Il body JSON deve contenere un array `rows`: senza, la richiesta fallisce con `400` e
 `Missing 'rows' array`. `dry_run` vale solo se è `true`, `1` o `yes` (nel body o come parametro
 di query); qualsiasi altro valore significa invio.
+
+### Sostituisci la tabella, o mantieni le righe che non invii
+
+Per impostazione predefinita le righe che invii **sostituiscono** l'intera tabella. Aggiungi
+`"keep_rows": true` (oppure `?keep_rows=1`, o un campo `keep_rows` nel form con un caricamento
+XLSX) per aggiornarla invece: una riga la cui prima colonna corrisponde a una riga già presente
+la sostituisce, le righe nuove vanno in fondo e le righe che non hai inviato restano. Si legge
+come `dry_run` (`true`, `1` o `yes`).
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/import?lan=it" \
+  -d '{ "dry_run": true, "keep_rows": true, "rows": [
+        { "asset_id": "HW-002", "device_input": "Firewalls",
+          "criticality": "High", "status": "Updated" } ] }'
+```
+
+Il dry run restituisce anche `kept_count`, il numero di righe attuali che restano.
 
 ### Invia
 
@@ -106,6 +130,8 @@ punteggio e registra una nuova valutazione, esattamente come un salvataggio nell
 ```json
 { "error": 0, "messages": [], "data": { "imported_rows": 1, "evaluation_id": 3780 } }
 ```
+
+Con `keep_rows`, la risposta contiene anche `kept_rows`.
 
 Una richiesta con un qualsiasi errore di validazione restituisce `400` con `error: 1` e la lista
 `data.errors`; non viene scritto nulla.
@@ -203,6 +229,9 @@ ad esempio `2.1.1_justification`):
       "note": [{ "id": "2.1.1_justification", "response": "Reviewed by the board on 2026-01-10." }] } } }
 ```
 
+Invia sempre il `value` insieme alla nota. Su ISO 27001 una risposta che contiene solo la
+giustificazione, senza valore, cancella il livello del controllo.
+
 Rimuovendo `dry_run` valida e poi invia tramite `/evaluate` (Aegister calcola il punteggio e persiste),
 restituendo `{ "submitted": <numero di risposte>, "step": "E", "evaluation_id": … }`.
 
@@ -241,3 +270,60 @@ Per elencare le evidenze esistenti in un workflow (ogni artefatto con la sua ult
 l'intera cronologia), chiama `GET .../workflows/{wid}/documents` (*Elenca documenti* nella barra laterale).
 La cronologia e i download per-artefatto usano gli altri endpoint del gruppo
 *Virtual CISO → Cyber Posture → Documenti*.
+
+## 6. Compila un'attività dai tuoi documenti (AI)
+
+Se le risposte sono già nei tuoi documenti (una policy, un elenco di asset, un registro), lascia
+che l'AI li legga e proponga cosa inserire in un'attività tabella o a domande. È la stessa
+proposta di **Compila dai tuoi documenti** nella console. Non viene salvato nulla: rivedi la
+proposta e la invii tramite `/import` come nelle sezioni 2 e 3.
+
+**Passo 1, avvia** il job con da 1 a 5 documenti in base64 (al massimo 10 MB ciascuno, 20 MB in
+totale, altrimenti `413`). Puoi avviare 20 job all'ora; oltre, la chiamata risponde `429`:
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" -H "Content-Type: application/json" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/prefill?lan=it" \
+  -d '{ "documents": [
+        { "name": "asset.xlsx",
+          "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "content": "UEsDBBQABgAIAAAAIQ…" } ] }'
+```
+
+```json
+{ "error": 0, "messages": [], "data": {
+    "job": "resp_…",
+    "documents": { "used": ["asset.xlsx"], "skipped": [] } } }
+```
+
+L'AI legge PDF, Word (.docx), Excel (.xlsx, .xlsm), immagini (.png, .jpg, .gif, .webp) e file di
+testo (.txt, .md, .csv, .tsv, .json, .xml, .log). Ogni altro file finisce in `skipped` con il
+motivo. La chiamata fallisce con `400` quando nessun documento è leggibile e con `502` quando il
+servizio AI non è raggiungibile.
+
+**Passo 2, interroga** il job finché `status` è `done`:
+
+```bash
+curl -H "X-Aegister-Token: $TOKEN" \
+  ".../workflows/oJJ…/tasks/task-nis-inv-hardware/prefill/resp_…"
+```
+
+```json
+{ "error": 0, "messages": [], "data": {
+    "status": "done", "kind": "table",
+    "columns": [ /* le colonne dell'attività, come in /spec */ ],
+    "rows": [ /* le righe proposte, come le accetta /import */ ],
+    "current": [ /* le righe che la tabella contiene oggi */ ],
+    "responses": [ /* la stessa proposta, come la salva la console */ ],
+    "ai": { "summary": "…", "filled": 12, "details": [ /* … */ ], "skipped_rows": [ /* … */ ] } } }
+```
+
+Mentre l'AI legge ricevi `{ "status": "running" }`. Quando i documenti non contengono nulla per
+l'attività, il risultato porta un `msg` invece di una proposta. Per un'attività a domande, `kind`
+è `questions` e la proposta è in `answers`, indicizzata per id della domanda. `ai` spiega la
+proposta: un riepilogo, quanti elementi sono stati compilati, per ogni risposta la confidenza e il
+documento da cui viene, e le righe escluse con il motivo (per esempio un valore che manca in un
+elenco collegato, da aggiungere prima lì).
+
+**Passo 3, invia** la proposta: manda `rows` (tabelle) o `answers` (domande) a `/import`, prima
+con `dry_run`. Solo chi ha avviato il job può leggerlo, e i documenti non vengono conservati.

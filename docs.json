@@ -122,6 +122,8 @@
                           "api-reference/it/v-ciso-•-workflows/table-tasks-list",
                           "api-reference/it/v-ciso-•-workflows/table-task-spec",
                           "api-reference/it/v-ciso-•-workflows/task-answers",
+                          "api-reference/it/v-ciso-•-workflows/task-prefill-start",
+                          "api-reference/it/v-ciso-•-workflows/task-prefill-result",
                           "api-reference/it/v-ciso-•-workflows/table-task-import",
                           "api-reference/it/v-ciso-•-workflows/table-task-template",
                           "api-reference/it/v-ciso-•-workflows/table-task-export"
@@ -499,6 +501,8 @@
                           "api-reference/v-ciso-•-workflows/table-tasks-list",
                           "api-reference/v-ciso-•-workflows/table-task-spec",
                           "api-reference/v-ciso-•-workflows/task-answers",
+                          "api-reference/v-ciso-•-workflows/task-prefill-start",
+                          "api-reference/v-ciso-•-workflows/task-prefill-result",
                           "api-reference/v-ciso-•-workflows/table-task-import",
                           "api-reference/v-ciso-•-workflows/table-task-template",
                           "api-reference/v-ciso-•-workflows/table-task-export"

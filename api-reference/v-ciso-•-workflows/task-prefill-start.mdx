@@ -1,0 +1,6 @@
+---
+title: "Fill a V-CISO task from your documents with AI"
+sidebarTitle: "Fill from documents"
+description: "Send 1 to 5 documents (PDF, Word, Excel, images or text; up to 10 MB each, 20 MB in all) in base64 and let the AI propose answers for a table or question task from them alone. Returns a `job` to poll with “Get the AI proposal”. Nothing is saved and the documents are not kept; you submit the proposal through “Import task”. Owners and security officers."
+openapi: post /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/tasks/{taskid}/prefill
+---

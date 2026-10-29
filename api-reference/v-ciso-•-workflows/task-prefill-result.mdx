@@ -1,0 +1,6 @@
+---
+title: "Get the AI fill proposal for a V-CISO task"
+sidebarTitle: "Get the AI proposal"
+description: "Poll a fill job: `status: running` while the AI reads, then the proposal. For a table, `rows` are ready for “Import task”; for questions, `answers` keyed by question id. `ai` explains it: a summary, how many items were filled, the confidence and source document of each answer, and the rows left out with the reason. A `msg` instead means the documents hold nothing for the task. Only the person who started the job can read it."
+openapi: get /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/tasks/{taskid}/prefill/{job}
+---

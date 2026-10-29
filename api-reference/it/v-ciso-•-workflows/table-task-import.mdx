@@ -1,6 +1,6 @@
 ---
 title: "Invia i dati di un'attività"
 sidebarTitle: "Invia attività"
-description: "Invia i dati di un'attività: righe di tabella (JSON o caricamento XLSX) o risposte a domande (JSON). dry_run valida e restituisce i dati normalizzati con eventuali errori senza salvare; altrimenti valida, calcola il punteggio e registra una nuova valutazione. Richiede il ruolo edit."
+description: "Invia i dati di un'attività: righe di tabella (JSON o caricamento XLSX) o risposte a domande (JSON). dry_run valida e restituisce i dati normalizzati, le righe attuali della tabella ed eventuali errori senza salvare; altrimenti valida, calcola il punteggio e registra una nuova valutazione. Per impostazione predefinita le righe sostituiscono la tabella; keep_rows aggiorna le righe corrispondenti e mantiene le altre. I messaggi di errore seguono lan (en o it). Richiede il ruolo edit."
 openapi: post /api/v1/v-ciso/organizations/{organizationid}/workflows/{workflowid}/tasks/{taskid}/import
 ---
