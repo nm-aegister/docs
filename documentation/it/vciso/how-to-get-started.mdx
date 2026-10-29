@@ -26,7 +26,7 @@ Confermata la licenza, apri **Virtual CISO** nel menu laterale. Contiene tre pag
 - **Postura Cyber**: mostra a che punto è la tua organizzazione su ogni framework. La scheda **Riepilogo** raccoglie postura, controlli, le prossime scadenze e i progressi nel tempo; le schede **Documenti** e **Task** seguono i documenti e le attività di remediation; ogni framework (ad esempio **ISO 27001** o **NIS 2**) ha la sua scheda con categorie e controlli. Aprila [qui](https://app.aegister.com/V-Ciso/).
   <img className="block dark:hidden" src="/images/console/cyber-posture-it-light.webp" alt="Postura Cyber" />
   <img className="hidden dark:block" src="/images/console/cyber-posture-it-dark.webp" alt="Postura Cyber" />
-- **Valutazione**: mostra una scheda per ogni framework associato alla tua organizzazione, con punteggio, controlli con risposta e andamento. Da qui valuti un framework o ne associ uno nuovo. Aprila [qui](https://app.aegister.com/V-Ciso/evaluations/).
+- **Valutazione**: mostra una scheda per ogni framework associato alla tua organizzazione, con punteggio, controlli con risposta e andamento. Da qui valuti un framework. Aprila [qui](https://app.aegister.com/V-Ciso/evaluations/).
   <img className="block dark:hidden" src="/images/console/evaluations-it-light.webp" alt="Valutazione" />
   <img className="hidden dark:block" src="/images/console/evaluations-it-dark.webp" alt="Valutazione" />
 - **Notifiche degli incidenti**: prepara le notifiche NIS 2 di un incidente per il portale ACN. Vedi [la guida](/documentation/it/vciso/notify-an-incident-to-acn).
@@ -42,9 +42,15 @@ Confermata la licenza, apri **Virtual CISO** nel menu laterale. Contiene tre pag
 - **Destinatari**: security officer e owner.
 - **Funzionalità**:
   - Mostra i framework associati alla tua organizzazione, una scheda ciascuno, con **Valuta** e **Apri la dashboard**.
-  - Associa un nuovo framework con **Nuova associazione**, in tre passaggi: **Organizzazione**, **Framework** (ad esempio NIS 2 o ISO 27001; quelli già associati sono segnalati) e **Verifica il profilo**.
-    <img className="block dark:hidden" src="/images/console/new-framework-it-light.webp" alt="Nuova associazione" />
-    <img className="hidden dark:block" src="/images/console/new-framework-it-dark.webp" alt="Nuova associazione" />
+  - **Gestisci i framework**, nel menu di una scheda, apre la scheda **Conformità** dell'organizzazione,
+    dove si scelgono i framework dell'organizzazione (vedi sotto).
+
+### 4.3 Scegliere i framework
+- **Destinatari**: security officer e owner.
+- **Funzionalità**: i framework che la tua organizzazione segue (ad esempio NIS 2 o ISO 27001) si
+  impostano nella scheda **Conformità** dell'organizzazione: apri l'organizzazione da **Organizzazioni**. Attiva un framework e
+  clicca su **Salva**: compare in Virtual CISO con la sua scheda. Se lo disattivi, la console chiede
+  conferma mostrando quante valutazioni escono con lui; riattivandolo tornano.
 
 ## 5. Gestione delle Attività
 
@@ -52,6 +58,28 @@ Le attività (tasks) sono suddivise in due categorie:
 
 - **Automatizzate**: script previsti nel framework di sicurezza, eseguiti periodicamente, di cui puoi consultare lo storico.
 - **Self**: attività che richiedono un intervento manuale.
+
+### Compilare un'Attività
+
+- **Aprila**: in **Postura Cyber** apri la scheda **Task**, clicca su un'attività e poi su
+  **Completa task**. Un'attività tabella apre la sua tabella, dove **Aggiungi riga** aggiunge una
+  voce; un'attività a domande apre le sue domande.
+- **Azioni**, in alto a destra, raccoglie gli altri modi per compilarla:
+  - **Importa → Excel** (solo tabelle): scarica il modello, compilalo in Excel o Google Sheets,
+    caricalo e controlla ogni riga prima di confermare. Le righe sostituiscono la tabella, oppure si
+    aggiungono se mantieni le righe che il file non cita.
+  - **Importa → Dai tuoi documenti (AI)**: aggiungi fino a 5 documenti che hai già (PDF, Word, Excel,
+    CSV, testo o immagini, 10 MB ciascuno). L'AI li legge e propone le risposte, ognuna con la sua
+    confidenza e il documento da cui viene. Non viene salvato nulla finché non controlli le risposte
+    e salvi. Non è disponibile su una tabella costruita da un'altra, come il trattamento dei rischi.
+  - **Importa → Automaticamente, via API**: mostra come uno script o il vostro agente può tenere
+    aggiornata l'attività tramite l'API (vedi *Guida: l'API V-CISO spec-driven* nella scheda API).
+  - **Esporta → Excel** (solo tabelle) e **Elimina → Cancella tutte le risposte**.
+- Un controllo del framework e un documento hanno lo stesso menu **Azioni**, con solo
+  **Automaticamente, via API**.
+- Solo Responsabili sicurezza e Proprietari vedono **Azioni**.
+- Una valutazione salvata conta solo se contiene almeno una risposta: fino ad allora il framework
+  mostra "nessuna valutazione".
 
 ### Valutare un Framework
 

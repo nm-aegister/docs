@@ -1,6 +1,6 @@
 ---
 title: "Update organization"
 sidebarTitle: "Update organization"
-description: "Edit an organization's details. You can edit only an organization you belong to, with at least Security Officer privileges."
+description: "Edit an organization's details. You can edit only an organization you belong to, as a Security Officer or Owner. Keys you send in `data` are merged into the stored ones, except `data.compliance_frameworks`, the frameworks the organization follows (the Compliance tab): that list replaces the stored one, so send every framework the organization keeps, for example `[{\"value\": \"NIS2\", \"entity_type\": \"important\"}, {\"value\": \"ISO 27001:2023\"}]`. A framework you leave out leaves V-CISO with its evaluations; declaring it again brings them back. Frameworks reach V-CISO once the organization holds a live V-CISO licence."
 openapi: put /api/v1/organizations/{id}
 ---

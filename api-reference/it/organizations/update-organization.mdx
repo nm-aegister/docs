@@ -1,6 +1,6 @@
 ---
 title: "Aggiorna organizzazione"
 sidebarTitle: "Aggiorna organizzazione"
-description: "Modifica i dati di un'organizzazione. Puoi modificare solo un'organizzazione di cui fai parte, con almeno i privilegi di Security Officer."
+description: "Modifica i dati di un'organizzazione. Puoi modificare solo un'organizzazione di cui fai parte, come Security Officer o Owner. Le chiavi che invii in `data` vengono unite a quelle salvate, tranne `data.compliance_frameworks`, i framework che l'organizzazione segue (la scheda Conformità): quell'elenco sostituisce quello salvato, quindi invia tutti i framework che l'organizzazione mantiene, per esempio `[{\"value\": \"NIS2\", \"entity_type\": \"important\"}, {\"value\": \"ISO 27001:2023\"}]`. Un framework che lasci fuori esce da Virtual CISO con le sue valutazioni; dichiararlo di nuovo le riporta. I framework arrivano in Virtual CISO quando l'organizzazione ha una licenza Virtual CISO attiva."
 openapi: put /api/v1/organizations/{id}
 ---

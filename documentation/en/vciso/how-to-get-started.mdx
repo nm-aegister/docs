@@ -26,7 +26,7 @@ Once your license is confirmed, open **vCISO** in the side menu. It has three pa
 - **Cyber Posture**: shows where your organization stands on each framework. The **Summary** tab gathers posture, controls, the tasks due next and progress over time; the **Documents** and **Tasks** tabs follow the documents and the remediation tasks; each framework (for example **ISO 27001** or **NIS 2**) has its own tab with its categories and controls. Open it [here](https://app.aegister.com/V-Ciso/).
   <img className="block dark:hidden" src="/images/console/cyber-posture-light.webp" alt="Cyber Posture" />
   <img className="hidden dark:block" src="/images/console/cyber-posture-dark.webp" alt="Cyber Posture" />
-- **Evaluations**: shows one card per framework associated with your organization, with its score, how many controls are answered and its trend. From here you evaluate a framework or associate a new one. Open it [here](https://app.aegister.com/V-Ciso/evaluations/).
+- **Evaluations**: shows one card per framework associated with your organization, with its score, how many controls are answered and its trend. From here you evaluate a framework. Open it [here](https://app.aegister.com/V-Ciso/evaluations/).
   <img className="block dark:hidden" src="/images/console/evaluations-light.webp" alt="Evaluations" />
   <img className="hidden dark:block" src="/images/console/evaluations-dark.webp" alt="Evaluations" />
 - **Incident Notifications**: prepares the NIS 2 notifications of an incident for the ACN portal. See [the guide](/documentation/en/vciso/notify-an-incident-to-acn).
@@ -41,9 +41,15 @@ Once your license is confirmed, open **vCISO** in the side menu. It has three pa
 - **Audience**: security officers and owners.
 - **Functionality**:
   - Shows the frameworks associated with your organization, one card each, with **Evaluate** and **Open dashboard**.
-  - Associates a new framework with **New association**, in three steps: **Organization**, **Framework** (for example NIS 2 or ISO 27001; the ones already associated are marked) and **Check the profile**.
-    <img className="block dark:hidden" src="/images/console/new-framework-light.webp" alt="New association" />
-    <img className="hidden dark:block" src="/images/console/new-framework-dark.webp" alt="New association" />
+  - **Manage frameworks**, in a card's menu, opens the organization's **Compliance** tab, where the
+    organization's frameworks are chosen (see below).
+
+### 4.3 Choosing your frameworks
+- **Audience**: security officers and owners.
+- **Functionality**: the frameworks your organization follows (for example NIS 2 or ISO 27001) are
+  set on the organization's **Compliance** tab: open the organization from **Organizations**. Switch a framework on and
+  **Save**: it appears in vCISO with its own card. Switch it off and the console asks first, showing
+  how many evaluations leave with it; switching it on again brings them back.
 
 ## 5. Task Management
 
@@ -51,6 +57,27 @@ Tasks fall into two types:
 
 - **Automated**: scheduled scripts defined in the security framework that run periodically, with a log of past executions.
 - **Self**: tasks that require manual work.
+
+### Filling a Task
+
+- **Open it**: on **Cyber Posture**, open the **Tasks** tab, click a task and then **Complete task**.
+  A table task opens its table, where **Add row** adds an entry; a question task opens its questions.
+- **Actions**, at the top right, holds the other ways to fill it:
+  - **Import → Excel** (tables only): download the template, fill it in Excel or Google Sheets,
+    upload it and check every row before you confirm. The rows replace the table, or join it if you
+    keep the rows the file does not mention.
+  - **Import → From your documents (AI)**: add up to 5 documents you already have (PDF, Word, Excel,
+    CSV, text or images, 10 MB each). The AI reads them and proposes the answers, each with its
+    confidence and the document it came from. Nothing is saved until you check the answers and save.
+    It is not offered on a table built from another one, such as the risk treatment.
+  - **Import → Automatically, via API**: shows how a script or your own agent can keep the task
+    up to date through the API (see *Guide: the spec-driven V-CISO API* in the API Reference tab).
+  - **Export → Excel** (tables only) and **Delete → Clear all answers**.
+- A framework control and a document have the same **Actions** menu, with
+  **Automatically, via API** only.
+- Only Security Officers and Owners see **Actions**.
+- A saved evaluation counts only if it holds at least one answer: until then the framework shows
+  "no evaluation yet".
 
 ### Evaluating a Framework
 
