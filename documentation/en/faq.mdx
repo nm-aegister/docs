@@ -25,9 +25,16 @@ Use the **EN / IT** selector in the top bar. The choice is saved in your browser
 account.
 
 ### How do I find a page, a task or a control quickly?
-Press **Cmd+K** (Mac) or **Ctrl+K** (Windows, Linux), or click **Search** in the top bar. The search
-finds tasks, controls, documents, these guides, the FAQ and the training videos; **Enter** opens the
-result.
+Press **Cmd+K** (Mac) or **Ctrl+K** (Windows, Linux), or click **Search or jump to…** in the top bar.
+The search finds pages, actions and organizations; the selected organization's tasks, controls,
+documents and task FAQ; the training videos, down to the chapter; and these guides, down to the
+heading. **Enter** opens the result.
+
+### Can I use the console on a phone?
+Yes. On a narrow screen a bar at the bottom opens **Dashboard**, **Cyber Posture**, **Incidents**,
+**Cloud Defender** and **More**, for the menu; each item shows only with the licence and role it
+needs. Tap the organization name under the header to switch organization. Tables become lists with
+**Filter and sort** and **Show more**, and detail windows open full screen.
 
 ## Organizations, roles and licences
 
@@ -60,13 +67,15 @@ controls appear one at a time, each with its level, a justification and evidence
 from **Cyber Posture** and click **Evaluate** there.
 
 ### How do I add a compliance framework to my organization?
-Open **vCISO → Evaluations** and click **New association**. In three steps choose the
-**Organization**, the **Framework** (for example NIS 2 or ISO 27001; the ones it already has are
-marked) and **Check the profile**. The list shows the frameworks Aegister offers.
+Open the organization from **Organizations** and go to its **Compliance** tab (or click **Manage
+frameworks** in a framework card's menu on **vCISO → Evaluations**). Switch on the frameworks it
+follows, for example NIS 2 or ISO 27001, and click **Save**: each one gets its card in vCISO. The
+list shows the frameworks Aegister offers. Switching a framework off removes it from vCISO with its
+evaluations, and switching it on again brings them back. Owners and Security Officers manage the frameworks.
 
-### Why don't I see the Evaluate or New association buttons?
-Both need the organization's vCISO licence and the Security Officer or Owner role. Viewers see the
-evaluations without these buttons.
+### Why don't I see the Evaluate button?
+It needs the organization's vCISO licence and the Security Officer or Owner role. Viewers see the
+evaluations without it.
 
 ### Does the console send incident notifications to CSIRT Italia for me?
 No. In **vCISO → Incident Notifications** click **New incident** and go through three steps:
@@ -88,8 +97,10 @@ is checked. Each kind of lookup needs its own Threat Intelligence licence.
 
 ### How do I check the status of my web application?
 Open **Perimeter Protection → Cloud Defender** and click your application's row. The **Cloud
-Defender Status** page opens with the **Overview**, **Attackers** and **Threat log** tabs;
-**Export** saves it as a PDF. See [reading your status page](/documentation/en/cloud-defender/reading-your-status-page).
+Defender Status** page opens with five tabs: **Overview**, **Attackers**, **Blocked requests**,
+**Detections** (what was flagged but not blocked, for you to review) and **Protection** (your
+banned and allowed addresses, restricted pages and country rule). **Export** at the top saves the
+page as a PDF. See [reading your status page](/documentation/en/cloud-defender/reading-your-status-page).
 
 ### How often is Cloud Defender data updated?
 Every hour. The page does not refresh on its own: reload it to see the latest data. The status
@@ -119,7 +130,8 @@ In the [API Reference](/api-reference/authentication) tab of this site.
 ### Where are the guides and the training videos?
 Click the **?** icon in the top bar to open **Help and support**. The **Help** tab links to the
 guides for each service and to common tasks; the **Training** tab has short narrated videos on the
-console, the Virtual CISO and the other services.
+console, the Virtual CISO and the other services. The box at the top of **Help** filters the common
+tasks; when nothing matches, **Search the whole console** looks for the same words everywhere.
 
 ### How do I contact Aegister?
 Write to [info@aegister.com](mailto:info@aegister.com). Licence requests go to the same address
