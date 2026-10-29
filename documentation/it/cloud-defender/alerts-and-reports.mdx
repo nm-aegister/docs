@@ -4,8 +4,9 @@ sidebarTitle: "Avvisi e report"
 description: "Le notifiche, gli avvisi e il report settimanale di Cloud Defender, e chi li riceve."
 ---
 
-Cloud Defender ti informa di ciò che ha **bloccato**. Il traffico solo rilevato e non bloccato
-(un'anomalia) non genera notifiche né email: lo esaminano gli analisti di Aegister.
+Cloud Defender ti segnala solo ciò che richiede il tuo intervento: un dominio la cui protezione si è
+interrotta e i rilevamenti in attesa della tua valutazione. Ciò che ha **bloccato** non richiede
+nessuno: lo conta il report settimanale.
 
 <Note>
 **In arrivo.** Le notifiche nella console e le email descritte in questa pagina (avvisi, report
@@ -13,22 +14,30 @@ settimanale e avvisi di scadenza licenza) non sono ancora disponibili per i clie
 scegliere chi riceverà le email: le impostazioni qui sotto si applicano non appena l'invio parte.
 </Note>
 
-## Notifiche nella console
+## Quando la protezione si interrompe
 
-Quando Cloud Defender blocca un attacco su uno dei tuoi domini, compare subito una notifica sotto
-la campanella della Cyber Console, per chiunque possa aprire l'organizzazione. La notifica porta alla
-pagina di stato del dominio.
+Cloud Defender verifica ogni dominio una volta all'ora. Dopo due verifiche fallite di seguito
+compare una notifica sotto la campanella della Cyber Console e le persone che hanno aderito ricevono
+un'email. Quando il dominio torna protetto vieni avvisato di nuovo, se l'interruzione era stata
+comunicata via email.
 
-## Avvisi via email
+## Rilevamenti da valutare
 
-Le persone che hanno aderito ricevono un'email che riassume gli attacchi bloccati da Cloud Defender,
-raggruppati per dominio: al massimo un'email per organizzazione ogni ora.
+Una volta al giorno alle 08:00 (ora italiana), ogni dominio con nuove anomalie riceve una notifica
+sotto la campanella, che indica quanti nuovi rilevamenti attendono la tua valutazione. La notifica
+apre la scheda **Rilevamenti** del dominio. Per i rilevamenti non viene inviata nessuna email.
+
+## Ciò che Cloud Defender ha bloccato
+
+Nessuna notifica e nessuna email: bloccare è il lavoro di Cloud Defender. Lo trovi nella pagina di
+stato e nel report settimanale.
 
 ## Il report settimanale
 
 Ogni lunedì alle 08:00 (ora italiana) un PDF che copre i sette giorni precedenti, inviato alle
-persone che hanno aderito: minacce bloccate, indirizzi attaccanti con reputazione e rete, richieste
-gestite, grafici per dominio e le richieste bloccate più recenti.
+persone che hanno aderito. Si apre con **Richiede la vostra attenzione**, poi mostra cosa ha
+bloccato ciascun livello, gli attacchi e le anomalie per tipo, **Le vostre liste** e gli indirizzi
+attaccanti con reputazione e rete.
 
 Notifiche, avvisi via email e report settimanale richiedono una licenza Cloud Defender valida.
 
@@ -48,6 +57,10 @@ riceve gli avvisi di quel prodotto per quell'organizzazione. La selezione viene 
 - La casella di un prodotto è disabilitata se l'organizzazione non ha l'abbonamento a quel prodotto.
 - Un invito in sospeso mostra un trattino: finché l'invito non è accettato non esiste un'associazione
   a cui legare la preferenza.
+
+Le email sono scritte nella **Lingua delle comunicazioni** dell'organizzazione, impostata in
+**Organizzazioni → la tua organizzazione → Generale** (inglese se non la cambi). Le notifiche nella
+console sono visibili a chiunque possa aprire l'organizzazione.
 
 ## Comunicazioni amministrative
 

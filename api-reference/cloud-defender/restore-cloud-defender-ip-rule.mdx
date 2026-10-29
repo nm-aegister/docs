@@ -1,0 +1,6 @@
+---
+title: "Undo the removal of a Cloud Defender address"
+sidebarTitle: "Undo an IP removal"
+description: "Put back an address you unbanned or took off the Whitelist, within 10 minutes of “Unban or remove an IP”. The entry comes back as it was; a ban set from a detection brings its ban verdict back too. It answers 400 after 10 minutes, once a ban's time is up, when the address is on the other list again, or when the address could not be listed today. 503 means the threat feed that checks addresses could not be read: try again. Owners and security officers with a live licence."
+openapi: post /api/v1/cloud-defender/{id}/ip-rules/{rule_id}/restore
+---

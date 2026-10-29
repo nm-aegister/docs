@@ -6,10 +6,26 @@ description: "Domande frequenti su Aegister Cloud Defender."
 
 ### È possibile bloccare o autorizzare indirizzi IP specifici, o limitare l'accesso a una pagina?
 
-Non ancora. Oggi le regole non si possono personalizzare per singolo sito. In arrivo: liste per sito
-gestite dalla Cyber Console, per bloccare un indirizzo, revocare un blocco, tenere indirizzi sempre
-autorizzati e limitare una pagina (come l'area di amministrazione di WordPress) ai soli indirizzi in
-elenco.
+Sì, per singolo sito, dalla scheda **Protezione** della pagina di stato del dominio. Le modifiche
+le fa un Owner o un Security Officer; gli altri ruoli le vedono.
+
+- **IP bloccati:** rifiuta un indirizzo o una rete, per un giorno, una settimana, un mese o fino
+  alla rimozione. Un pulsante **Blocca** è presente anche nelle tabelle **Attaccanti**, **Richieste
+  bloccate** e **Rilevamenti**, e **Sblocca** toglie un blocco.
+- **Whitelist:** indirizzi che passano sempre, come quelli del tuo ufficio, così Cloud Defender non
+  li rifiuta mai per errore.
+- **Pagine riservate:** apri una pagina di login o di amministrazione (per esempio `/wp-admin/` e
+  `/wp-login.php` su WordPress) solo agli indirizzi e ai paesi che indichi.
+- **Regola paesi:** rifiuta i paesi che il tuo sito non serve, oppure accetta solo quelli che serve.
+
+Cloud Defender applica una modifica entro circa due minuti. Una nuova pagina riservata e una regola
+paesi partono in prova, senza rifiutare nessuno, finché non le applichi.
+
+### Perché nei miei IP bloccati c'è un indirizzo che nessuno ha bloccato?
+
+È un blocco automatico, indicato come **Blocco automatico**. Una sorgente che continua a inviare
+attacchi noti al tuo sito viene bloccata su di esso per 24 ore, e il blocco si toglie da solo. Gli
+indirizzi dei servizi di Google non vengono mai bloccati in questo modo.
 
 ### Da quali indirizzi deve accettare traffico la mia origine?
 
@@ -26,7 +42,7 @@ blocco degli URL di attacco e controlli con l'OWASP Core Rule Set. Si distingue 
 traffico proveniente da fonti malevole grazie alla Threat Intelligence di Aegister, alimentata da
 [OneFirewall](https://onefirewall.com/intelligence.html). Se un attaccante viene identificato
 durante un attacco su un altro obiettivo, Cloud Defender blocca quella stessa sorgente anche sul
-tuo sito. È inoltre un servizio gestito: Aegister gestisce le regole ed esamina ciò che rilevano.
+tuo sito. È inoltre un servizio gestito: Aegister gestisce e mantiene le regole per te.
 
 ### Perché il totale bloccato non torna con l'elenco delle sorgenti di attacco?
 
@@ -44,8 +60,8 @@ perché non siamo più incaricati di proteggerlo.
 ### Chi riceve il report settimanale e gli avvisi?
 
 Le notifiche nella console, il report settimanale e gli avvisi via email non sono ancora
-disponibili per i clienti. Le notifiche sugli attacchi bloccati saranno visibili a chiunque possa
-aprire l'organizzazione. Le email arriveranno solo alle persone selezionate per Cloud Defender in
+disponibili per i clienti. Quando partiranno, le notifiche saranno visibili a chiunque possa aprire
+l'organizzazione. Le email arriveranno solo alle persone selezionate per Cloud Defender in
 Organizzazioni → la tua organizzazione → Membri. Nulla viene inviato in base al ruolo, e
 un'organizzazione senza nessuno selezionato non riceve alcuna email. Un Owner può modificarlo. Le
 comunicazioni su licenze e rinnovi sono separate: vanno agli Owner e al punto di contatto
@@ -53,11 +69,25 @@ amministrativo.
 
 ### Cloud Defender blocca SQL injection e cross-site scripting?
 
-Sì, su richiesta, per singolo sito. Ogni richiesta viene confrontata con l'OWASP Core Rule Set, che
-copre SQL injection, cross-site scripting e altri schemi di attacco. Aegister attiva il blocco sul
-tuo sito quando lo chiedi al tuo referente. Finché non è attivo, queste richieste vengono rilevate ed
-esaminate dagli analisti di Aegister, non bloccate. È in arrivo un interruttore nella Cyber Console
-per attivarlo e disattivarlo in autonomia.
+Sì, quando attivi il blocco per il sito. Ogni richiesta viene confrontata con l'OWASP Core Rule Set,
+che copre SQL injection, cross-site scripting e altri schemi di attacco. Per impostazione predefinita
+questi controlli rilevano e non bloccano: le richieste corrispondenti vengono registrate come
+anomalie ed elencate nella scheda **Rilevamenti** della pagina di stato, dove segni una sorgente come
+**Legittimo** quando le sue richieste sono previste, oppure la blocchi con **Blocca**.
 
-Gli altri livelli bloccano su ogni sito: il blocco dell'origine, la Threat Intelligence e la regola
-sugli URL di attacco, che valuta solo l'indirizzo e gli header di una richiesta.
+Per bloccarle, un Owner o un Security Officer apre la scheda **Protezione** e porta **SQL injection
+e XSS** da **In rilevamento** a **Blocco attivo**. La conferma mostra quante richieste del periodo
+selezionato corrispondevano e sarebbero state rifiutate. Entro circa cinque minuti le richieste
+corrispondenti vengono rifiutate e compaiono in **Richieste bloccate** come **Regola di firma**.
+Tornare a **In rilevamento** lo annulla negli stessi tempi. Serve una licenza attiva.
+
+<Warning>
+Una firma può corrispondere anche a una richiesta di cui il tuo sito ha bisogno, e bloccarla può
+interrompere una parte del tuo servizio. Prima di attivarlo guarda **Rilevamenti**: ciò che elenca
+come non bloccato è ciò che il blocco rifiuterebbe. Dopo averlo attivato, prova le funzioni
+principali del sito (accesso, moduli, caricamenti, eventuali API) e controlla **Richieste bloccate**
+nei giorni successivi. Se una richiesta legittima viene rifiutata, torna a **In rilevamento**.
+</Warning>
+
+Gli altri livelli bloccano su ogni sito: il blocco dell'origine, la Threat Intelligence, la regola
+sugli URL di attacco, che valuta solo l'indirizzo e gli header di una richiesta, e le tue liste.

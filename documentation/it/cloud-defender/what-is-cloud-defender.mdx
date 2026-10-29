@@ -1,7 +1,7 @@
 ---
 title: "Cloud Defender: introduzione"
 sidebarTitle: "Introduzione"
-description: "Aegister Cloud Defender protegge siti e applicazioni web: il tuo sito dietro Cloudflare e Google Cloud, gli attaccanti noti bloccati dalla Threat Intelligence, ogni blocco visibile nella Cyber Console."
+description: "Aegister Cloud Defender protegge siti e applicazioni web: il tuo sito dietro Cloudflare e Google Cloud, gli attaccanti noti bloccati dalla Threat Intelligence, le tue liste di indirizzi bloccati e autorizzati, ogni blocco visibile nella Cyber Console."
 ---
 
 **Aegister Cloud Defender** protegge i siti e le applicazioni web esposti su internet. Il tuo sito
@@ -17,16 +17,22 @@ protezione prima di raggiungere il tuo server.
 - **Threat Intelligence:** le richieste dagli indirizzi presenti nella lista di threat intelligence
   di Aegister, sorgenti già viste attaccare altri obiettivi, vengono respinte prima di raggiungere il
   tuo sito.
-- **Regola sugli URL di attacco:** valuta solo l'indirizzo e gli header di una richiesta: ricerca di
-  file sensibili come `/.env` o `/.git`, path traversal, stringhe Log4Shell, HTTP malformato o
-  abusivo e strumenti di scansione che si dichiarano tali. Non legge mai campi dei moduli, corpi JSON
-  o cookie, quindi ciò che scrivono i tuoi utenti non viene mai valutato da questa regola.
+- **Regola sugli URL di attacco** (**Attacchi noti** nella Cyber Console): valuta solo l'indirizzo e
+  gli header di una richiesta: ricerca di file sensibili come `/.env` o `/.git`, path traversal,
+  stringhe Log4Shell, HTTP malformato o abusivo e strumenti di scansione che si dichiarano tali. Non
+  legge mai campi dei moduli, corpi JSON o cookie, quindi ciò che scrivono i tuoi utenti non viene
+  mai valutato da questa regola. Una sorgente che continua a inviare queste richieste viene inoltre
+  bloccata automaticamente sul tuo sito per 24 ore.
+- **Le tue liste:** blocchi indirizzi, tieni una whitelist di indirizzi sempre autorizzati, apri le
+  pagine di login e di amministrazione solo agli indirizzi o ai paesi che scegli e rifiuti i
+  visitatori per paese. Le modifiche si applicano entro circa due minuti.
 - **SQL injection e cross-site scripting:** ogni richiesta viene anche confrontata con l'OWASP Core
-  Rule Set (SQL injection, cross-site scripting e altri schemi di attacco). Il blocco è disponibile su
-  richiesta, per singolo sito: Aegister lo attiva quando lo chiedi. Finché non è attivo, queste
-  richieste vengono rilevate ed esaminate dagli analisti di Aegister.
-- **Rilevamento degli scanner:** gli schemi di richiesta tipici degli scanner vengono rilevati e
-  registrati per gli analisti di Aegister; non vengono bloccati.
+  Rule Set (SQL injection, cross-site scripting e altri schemi di attacco). Per impostazione
+  predefinita questi controlli rilevano e non bloccano: le richieste corrispondenti vengono
+  elencate perché tu le valuti. Un Owner o un Security Officer può attivare il blocco per ogni sito,
+  e da quel momento le richieste corrispondenti vengono rifiutate.
+- **Rilevamento degli scanner:** gli schemi di richiesta tipici degli scanner vengono rilevati ed
+  elencati perché tu li valuti; non vengono bloccati.
 - **Controlli di salute:** Cloud Defender verifica che il tuo sito risponda e che il suo traffico
   passi davvero attraverso la protezione, e mostra l'esito nella pagina di stato.
 
@@ -53,8 +59,15 @@ Aegister: reputazione, paese di origine e rete di appartenenza.
 
 ![Attaccanti](/images/cloud-defender-attacker-insights-it.png)
 
-- **Registro delle minacce bloccate:** ogni richiesta negata con orario, sorgente, richiesta e livello che
-  l'ha fermata, filtrabile per livello ed esportabile.
-- **Notifiche** nella Cyber Console per gli attacchi bloccati da Cloud Defender, e **avvisi via
-  email** e un **report settimanale in PDF** per le persone che scegli (in arrivo, vedi
+- **Richieste bloccate:** ogni richiesta negata con orario, sorgente, richiesta e livello che l'ha
+  fermata, filtrabile per livello ed esportabile.
+- **Rilevamenti:** ciò che Cloud Defender ha segnalato senza bloccarlo, perché tu lo valuti: segna
+  una sorgente come **Legittimo** quando le sue richieste sono previste, oppure bloccala con
+  **Blocca**.
+- **Protezione:** cosa ha fatto ciascun livello nel periodo, e le tue liste di indirizzi bloccati,
+  indirizzi sempre autorizzati, pagine riservate e paesi. Un pulsante **Blocca** è presente in ogni
+  tabella.
+- **Notifiche** nella Cyber Console e **avvisi via email** quando la protezione di un dominio si
+  interrompe, una notifica giornaliera quando ci sono rilevamenti da valutare e un **report
+  settimanale in PDF** per le persone che scegli (in arrivo, vedi
   [Avvisi e report](/documentation/it/cloud-defender/alerts-and-reports)).

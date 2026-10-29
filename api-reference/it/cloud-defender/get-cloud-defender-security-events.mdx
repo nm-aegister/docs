@@ -1,8 +1,6 @@
 ---
 title: "Recupera rilevamenti Cloud Defender"
 sidebarTitle: "Elenco rilevamenti"
-description: "Recupera le richieste che Cloud Defender ha riconosciuto come corrispondenti alle firme di attacco per un dominio protetto.
-
-Un rilevamento registra com'era la richiesta, non necessariamente cosa le è successo: le regole di firma sono attualmente in anteprima, quindi un rilevamento indica cosa sarebbe stato bloccato. Il campo outcome indica cosa è realmente accaduto."
+description: "Elenca ciò che Cloud Defender ha rilevato su un dominio protetto, dal più recente: corrispondenze SQL injection e XSS e comportamenti da scanner, come nella scheda Rilevamenti della pagina di stato. Ogni riga indica cosa è successo alle sue richieste (`result`: blocked, partial o open) e il tuo verdetto sulla sorgente (`legit`, `ban` o null); `counts` riporta quante righe ha ogni filtro `result`. Le corrispondenze SQL injection e XSS vengono rilevate, non bloccate, a meno che il blocco sia attivo per il dominio («Blocca SQL injection e XSS»), quindi le righe aperte sono anomalie da esaminare. Ogni ruolo può leggere l'elenco; solo proprietari e security officer ricevono anche la richiesta catturata (`matched_field`, `matched_value`)."
 openapi: get /api/v1/cloud-defender/{id}/security-events
 ---

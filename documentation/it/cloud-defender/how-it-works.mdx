@@ -21,8 +21,8 @@ stesso percorso:
    raggiungendo Cloud Defender per un'altra strada. Qui operano la regola sugli URL di attacco e il
    rilevamento degli attacchi (vedi sotto).
 4. **Proxy di Aegister:** respinge le richieste dagli indirizzi presenti nella lista di Threat
-   Intelligence, poi inoltra le altre al tuo server, usando l'indirizzo reale del visitatore preso
-   da **CF-Connecting-IP**.
+   Intelligence e applica le tue liste, poi inoltra le altre al tuo server, usando l'indirizzo reale
+   del visitatore preso da **CF-Connecting-IP**.
 5. **Il tuo sito:** le richieste che hanno superato ogni controllo arrivano al tuo server,
    senza differenze percepibili per il visitatore.
 
@@ -35,20 +35,43 @@ conosca l'indirizzo può saltare l'intero percorso descritto sopra.
 - **Threat Intelligence (blocca):** la lista di threat intelligence di Aegister contiene indirizzi
   già visti attaccare altri obiettivi ed è aggiornata di continuo. Una richiesta da uno di questi
   indirizzi viene respinta prima di raggiungere il tuo sito.
-- **Regola sugli URL di attacco (blocca):** valuta solo l'indirizzo e
-  gli header di una richiesta: richieste di file sensibili come `/.env` o `/.git`, path traversal,
-  stringhe Log4Shell, HTTP malformato o abusivo e strumenti di scansione che si dichiarano tali. Non
-  legge mai campi dei moduli, corpi JSON o cookie, quindi i dati inseriti dai tuoi utenti non
-  vengono mai valutati da questa regola.
-- **Regole a firme (blocco su richiesta):** ogni richiesta viene confrontata con l'OWASP Core Rule
-  Set, che copre SQL injection, cross-site scripting e altri schemi di attacco. Il blocco è
-  disponibile su richiesta, per singolo sito: Aegister lo attiva quando lo chiedi. Finché non è
-  attivo, le corrispondenze vengono registrate come anomalie ed esaminate dagli analisti di
-  Aegister.
+- **Regola sugli URL di attacco (blocca):** nella Cyber Console compare come **Attacchi noti**.
+  Valuta solo l'indirizzo e gli header di una richiesta: richieste di file sensibili come `/.env` o
+  `/.git`, path traversal, stringhe Log4Shell, HTTP malformato o abusivo e strumenti di scansione
+  che si dichiarano tali. Non legge mai campi dei moduli, corpi JSON o cookie, quindi i dati
+  inseriti dai tuoi utenti non vengono mai valutati da questa regola.
+- **Blocchi automatici (blocca):** una sorgente che continua a inviare questi attacchi al tuo sito
+  viene bloccata su di esso per 24 ore. Compare in **IP bloccati** con l'indicazione **Blocco
+  automatico**, e il blocco si toglie da solo. Gli indirizzi dei servizi di Google non vengono mai
+  bloccati in questo modo, e le richieste di pagine inesistenti non contano mai per un blocco.
+- **Le tue liste (bloccano, decidi tu):** un Owner o un Security Officer le imposta nella scheda
+  **Protezione** della pagina di stato, e Cloud Defender applica una modifica entro circa due
+  minuti.
+  - **IP bloccati:** un indirizzo o una rete rifiutati su questo sito, per un giorno, una
+    settimana, un mese o fino alla rimozione.
+  - **Whitelist:** indirizzi che passano sempre. Non vengono mai bloccati e mai rifiutati dalla
+    Threat Intelligence o dalla regola paesi. Gli attacchi noti vengono comunque rifiutati, e una
+    pagina riservata resta aperta solo alla propria lista.
+  - **Pagine riservate:** una pagina come un'area di login o di amministrazione (per esempio
+    `/wp-admin/`) aperta solo agli indirizzi e ai paesi che indichi. Chiunque altro riceve una
+    pagina di errore.
+  - **Regola paesi:** rifiuta i visitatori dai paesi che indichi, oppure accetta solo quelli, e
+    facoltativamente rifiuta anche la rete Tor e i visitatori di paese sconosciuto.
+
+  Una nuova pagina riservata e una regola paesi partono in prova: nessuno viene rifiutato e il
+  conteggio mostra chi lo sarebbe stato. Le applichi quando il conteggio ti convince.
+- **Regole a firme (rilevano, o bloccano se lo scegli):** ogni richiesta viene confrontata con
+  l'OWASP Core Rule Set, che copre SQL injection, cross-site scripting e altri schemi di attacco come
+  la command injection e la file inclusion. Per impostazione predefinita questi controlli rilevano
+  e non bloccano: le corrispondenze vengono registrate come anomalie ed elencate nella scheda
+  **Rilevamenti** della pagina di stato, dove le valuti tu. Un Owner o un Security Officer può
+  portare **SQL injection e XSS** nella scheda **Protezione** da **In rilevamento** a **Blocco
+  attivo**: le richieste corrispondenti vengono allora rifiutate, entro circa cinque minuti. Prima
+  di farlo leggi [le FAQ](/documentation/it/cloud-defender/faq).
 - **Rilevamento degli scanner (solo rilevamento):** gli schemi di richiesta tipici degli scanner
   automatici, come un'alta quota di pagine non trovate o una scansione di molti percorsi, vengono
-  registrati come anomalie. Il rilevamento guarda il comportamento, mai il nome con cui un client si
-  presenta.
+  registrati come anomalie ed elencati anch'essi in **Rilevamenti**. Il rilevamento guarda il
+  comportamento, mai il nome con cui un client si presenta.
 - **Controlli di salute:** Cloud Defender verifica periodicamente che il tuo dominio e il tuo
   server rispondano, e che le richieste al tuo sito passino davvero attraverso la protezione.
   L'esito è visibile nella pagina di stato.
@@ -56,5 +79,5 @@ conosca l'indirizzo può saltare l'intero percorso descritto sopra.
 ## Cosa vedi
 
 Ogni richiesta respinta da Cloud Defender viene registrata con orario, sorgente, richiesta e livello
-che l'ha respinta, e resta consultabile nella
-[pagina di stato](/documentation/it/cloud-defender/reading-your-status-page).
+che l'ha respinta. Le anomalie segnalate senza blocco attendono la tua valutazione. Trovi entrambe
+nella [pagina di stato](/documentation/it/cloud-defender/reading-your-status-page).

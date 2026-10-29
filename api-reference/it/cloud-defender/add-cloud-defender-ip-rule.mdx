@@ -1,0 +1,6 @@
+---
+title: "Blocca o consenti sempre un indirizzo su Cloud Defender"
+sidebarTitle: "Blocca o consenti un IP"
+description: "Aggiungi un indirizzo o un intervallo CIDR agli elenchi di un dominio. `action: block` lo blocca, per `hours` ore (da 1 a 2160) o finché non lo rimuovi; `action: allow` lo mette in Whitelist, così salta l'elenco degli IP bloccati e la Threat Intelligence. Cloud Defender applica la modifica entro circa due minuti. Indirizzi privati, rete di Cloudflare e servizi di Google vengono rifiutati con un `400` e un codice di motivo. Proprietari e security officer con licenza attiva."
+openapi: post /api/v1/cloud-defender/{id}/ip-rules
+---

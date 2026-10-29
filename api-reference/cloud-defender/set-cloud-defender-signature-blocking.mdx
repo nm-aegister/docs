@@ -1,0 +1,6 @@
+---
+title: "Block SQL injection and XSS on Cloud Defender"
+sidebarTitle: "Block SQL injection and XSS"
+description: "Switch blocking of SQL injection, cross-site scripting and the other attack signatures on or off for one domain, with `{\"enabled\": true}` or `{\"enabled\": false}`. It is off by default: matches are only detected and listed by “Get Cloud Defender detections”. When it is on, matching requests are refused at the edge within about five minutes; switching it off undoes it in the same time. “Get Cloud Defender configuration” returns the current state as `signature_blocking` (`enabled`, `at`, `by`); when it is absent, blocking is off. A signature can also match a request your site needs: test the site after switching it on, and switch it off if it refuses something legitimate. Owners and security officers with a live licence; anyone else gets 404, and an `enabled` that is not a boolean gets 400."
+openapi: put /api/v1/cloud-defender/{id}/signature-blocking
+---

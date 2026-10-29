@@ -1,0 +1,6 @@
+---
+title: "Mark a Cloud Defender detection legit or ban its source"
+sidebarTitle: "Mark legit or ban"
+description: "Decide on a detection from the Detections tab. `legit` says this source's matches of this kind are expected on your site: they stay on record, marked as legit, and are no longer counted or alerted. `ban` blocks the source on this domain for `hours`, or until you remove it; the ban appears in the banned addresses list. Owners and security officers with a live licence."
+openapi: post /api/v1/cloud-defender/{id}/security-events/{event_id}/verdict
+---

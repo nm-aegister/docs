@@ -230,16 +230,51 @@
                           "api-reference/it/cloud-defender/get-cloud-defender-configuration",
                           "api-reference/it/cloud-defender/create-cloud-defender-configuration",
                           "api-reference/it/cloud-defender/update-cloud-defender-configuration",
-                          "api-reference/it/cloud-defender/delete-cloud-defender-configuration"
+                          "api-reference/it/cloud-defender/delete-cloud-defender-configuration",
+                          "api-reference/it/cloud-defender/precheck-cloud-defender-web-app"
+                        ]
+                      },
+                      {
+                        "group": "Attivazione",
+                        "pages": [
+                          "api-reference/it/cloud-defender/get-cloud-defender-activation",
+                          "api-reference/it/cloud-defender/mark-cloud-defender-origin-locked",
+                          "api-reference/it/cloud-defender/withdraw-cloud-defender-origin-locked"
                         ]
                       },
                       {
                         "group": "Traffico",
                         "pages": [
                           "api-reference/it/cloud-defender/get-cloud-defender-traffic-logs",
-                          "api-reference/it/cloud-defender/get-cloud-defender-security-events",
                           "api-reference/it/cloud-defender/get-cloud-defender-traffic-summary",
-                          "api-reference/it/cloud-defender/upload-cloud-defender-traffic-logs"
+                          "api-reference/it/cloud-defender/get-cloud-defender-activity-week"
+                        ]
+                      },
+                      {
+                        "group": "Rilevamenti",
+                        "pages": [
+                          "api-reference/it/cloud-defender/get-cloud-defender-security-events",
+                          "api-reference/it/cloud-defender/set-cloud-defender-detection-verdict",
+                          "api-reference/it/cloud-defender/withdraw-cloud-defender-detection-verdict",
+                          "api-reference/it/cloud-defender/set-cloud-defender-signature-blocking"
+                        ]
+                      },
+                      {
+                        "group": "Elenchi di protezione",
+                        "pages": [
+                          "api-reference/it/cloud-defender/list-cloud-defender-ip-rules",
+                          "api-reference/it/cloud-defender/add-cloud-defender-ip-rule",
+                          "api-reference/it/cloud-defender/remove-cloud-defender-ip-rule",
+                          "api-reference/it/cloud-defender/restore-cloud-defender-ip-rule",
+                          "api-reference/it/cloud-defender/list-cloud-defender-restricted-pages",
+                          "api-reference/it/cloud-defender/add-cloud-defender-restricted-page",
+                          "api-reference/it/cloud-defender/update-cloud-defender-restricted-page",
+                          "api-reference/it/cloud-defender/remove-cloud-defender-restricted-page",
+                          "api-reference/it/cloud-defender/restore-cloud-defender-restricted-page",
+                          "api-reference/it/cloud-defender/get-cloud-defender-country-rule",
+                          "api-reference/it/cloud-defender/set-cloud-defender-country-rule",
+                          "api-reference/it/cloud-defender/remove-cloud-defender-country-rule",
+                          "api-reference/it/cloud-defender/restore-cloud-defender-country-rule"
                         ]
                       }
                     ]
@@ -571,16 +606,51 @@
                           "api-reference/cloud-defender/get-cloud-defender-configuration",
                           "api-reference/cloud-defender/create-cloud-defender-configuration",
                           "api-reference/cloud-defender/update-cloud-defender-configuration",
-                          "api-reference/cloud-defender/delete-cloud-defender-configuration"
+                          "api-reference/cloud-defender/delete-cloud-defender-configuration",
+                          "api-reference/cloud-defender/precheck-cloud-defender-web-app"
+                        ]
+                      },
+                      {
+                        "group": "Activation",
+                        "pages": [
+                          "api-reference/cloud-defender/get-cloud-defender-activation",
+                          "api-reference/cloud-defender/mark-cloud-defender-origin-locked",
+                          "api-reference/cloud-defender/withdraw-cloud-defender-origin-locked"
                         ]
                       },
                       {
                         "group": "Traffic",
                         "pages": [
                           "api-reference/cloud-defender/get-cloud-defender-traffic-logs",
-                          "api-reference/cloud-defender/get-cloud-defender-security-events",
                           "api-reference/cloud-defender/get-cloud-defender-traffic-summary",
-                          "api-reference/cloud-defender/upload-cloud-defender-traffic-logs"
+                          "api-reference/cloud-defender/get-cloud-defender-activity-week"
+                        ]
+                      },
+                      {
+                        "group": "Detections",
+                        "pages": [
+                          "api-reference/cloud-defender/get-cloud-defender-security-events",
+                          "api-reference/cloud-defender/set-cloud-defender-detection-verdict",
+                          "api-reference/cloud-defender/withdraw-cloud-defender-detection-verdict",
+                          "api-reference/cloud-defender/set-cloud-defender-signature-blocking"
+                        ]
+                      },
+                      {
+                        "group": "Protection lists",
+                        "pages": [
+                          "api-reference/cloud-defender/list-cloud-defender-ip-rules",
+                          "api-reference/cloud-defender/add-cloud-defender-ip-rule",
+                          "api-reference/cloud-defender/remove-cloud-defender-ip-rule",
+                          "api-reference/cloud-defender/restore-cloud-defender-ip-rule",
+                          "api-reference/cloud-defender/list-cloud-defender-restricted-pages",
+                          "api-reference/cloud-defender/add-cloud-defender-restricted-page",
+                          "api-reference/cloud-defender/update-cloud-defender-restricted-page",
+                          "api-reference/cloud-defender/remove-cloud-defender-restricted-page",
+                          "api-reference/cloud-defender/restore-cloud-defender-restricted-page",
+                          "api-reference/cloud-defender/get-cloud-defender-country-rule",
+                          "api-reference/cloud-defender/set-cloud-defender-country-rule",
+                          "api-reference/cloud-defender/remove-cloud-defender-country-rule",
+                          "api-reference/cloud-defender/restore-cloud-defender-country-rule"
                         ]
                       }
                     ]
@@ -797,6 +867,16 @@
     {
       "source": "/api-reference/it/atb/upload-threat-blocker-traffic-v2",
       "destination": "/api-reference/it/atb/upload-threat-blocker-traffic-v2-1",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/cloud-defender/upload-cloud-defender-traffic-logs",
+      "destination": "/api-reference/cloud-defender/get-cloud-defender-traffic-logs",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/cloud-defender/upload-cloud-defender-traffic-logs",
+      "destination": "/api-reference/it/cloud-defender/get-cloud-defender-traffic-logs",
       "permanent": true
     }
   ]

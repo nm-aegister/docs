@@ -73,7 +73,10 @@ Aegister Cloud Defender protects websites and web applications exposed on the in
 - Origin lockdown: traffic that does not come through the protection is refused
 - Threat Intelligence, updated continuously, blocks addresses already seen attacking other targets
 - Requests for sensitive files, path traversal and other attack URLs are blocked
-- SQL injection and cross-site scripting blocking on request, per site
+- Sources that keep requesting attack URLs are banned automatically for 24 hours
+- Your own lists for each site: banned and always-allowed addresses, restricted pages and a country rule
+- SQL injection, cross-site scripting and scanners are detected and listed for you to review
+- You can switch on blocking of SQL injection and XSS for each site
 - Every block is visible in the Cyber Console
 
 [Learn more about Aegister Cloud Defender](/documentation/en/cloud-defender/what-is-cloud-defender)

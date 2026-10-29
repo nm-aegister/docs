@@ -19,8 +19,10 @@ app**, which an Owner or Security Officer fills in:
   layer does today is described in [How it works](/documentation/en/cloud-defender/how-it-works).
 
 Adding the web app tells Aegister, who sets it up. Its status page then shows an activation
-checklist with each of the steps below. If your home page shows no first-steps card, send the same
-details to your Aegister point of contact and we add the web app for you.
+checklist with each of the steps below: **Domain added**, **Aegister sets up the domain**, **Point
+the domain at Cloud Defender**, **Traffic is flowing** and **Lock the origin**. If your home page
+shows no first-steps card, send the same details to your Aegister point of contact and we add the
+web app for you.
 
 ---
 
@@ -50,7 +52,8 @@ After DNS propagation, run these tests to confirm that Aegister Cloud Defender p
 
 - **Activation checklist:**  
   On the status page, **Check now** tells you whether the domain already answers through Cloud
-  Defender. Aegister also checks it once an hour.
+  Defender. Aegister also checks it once an hour. Once it does, **Point the domain at Cloud
+  Defender** turns **Done**.
 
 - **Traffic monitoring:**  
   Open the Cloud Defender page in the Cyber Console: it shows the traffic handled, the requests
@@ -80,6 +83,12 @@ has propagated will block legitimate traffic too.
 
 If you need to keep direct access for maintenance, explicitly allow the addresses you connect from
 alongside the Cloud Defender addresses.
+
+Locking the origin is the one step only you can do, so the checklist shows it as **Your step**.
+When it is done, tell Cloud Defender: in the first hours after the domain goes live, the
+**Overview** tab of its status page shows **Protection is live**, whose last step, **Lock the
+origin**, has a **Mark as done** button for Owners and Security Officers. Marking it completes the
+setup of the domain.
 
 ---
 

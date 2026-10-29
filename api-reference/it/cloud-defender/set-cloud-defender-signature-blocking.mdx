@@ -1,0 +1,6 @@
+---
+title: "Blocca SQL injection e XSS su Cloud Defender"
+sidebarTitle: "Blocca SQL injection e XSS"
+description: "Attiva o disattiva per un dominio il blocco di SQL injection, cross-site scripting e delle altre firme di attacco, con `{\"enabled\": true}` o `{\"enabled\": false}`. È disattivato per impostazione predefinita: le corrispondenze vengono solo rilevate ed elencate da «Recupera rilevamenti Cloud Defender». Quando è attivo, le richieste corrispondenti vengono rifiutate entro circa cinque minuti; disattivarlo lo annulla negli stessi tempi. «Recupera configurazione Cloud Defender» restituisce lo stato attuale in `signature_blocking` (`enabled`, `at`, `by`); se manca, il blocco è disattivato. Una firma può corrispondere anche a una richiesta di cui il tuo sito ha bisogno: prova il sito dopo averlo attivato e disattivalo se rifiuta qualcosa di legittimo. Proprietari e security officer con licenza attiva; chiunque altro riceve 404, e un `enabled` non booleano riceve 400."
+openapi: put /api/v1/cloud-defender/{id}/signature-blocking
+---

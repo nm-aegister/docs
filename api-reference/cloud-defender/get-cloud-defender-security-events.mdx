@@ -1,8 +1,6 @@
 ---
 title: "Get Cloud Defender detections"
 sidebarTitle: "List Detections"
-description: "Retrieve the requests Cloud Defender matched against its attack signatures for one protected domain.
-
-A detection records what a request looked like, not necessarily what happened to it: the signature rules currently run in preview, so a detection reports what would have been blocked. The outcome field states what actually happened."
+description: "List what Cloud Defender detected on a protected domain, newest first: SQL injection and XSS matches and scanner behaviour, as on the Detections tab of the status page. Each row says what happened to its requests (`result`: blocked, partial or open) and your verdict on its source (`legit`, `ban` or null); `counts` gives the size of each `result` filter. SQL injection and XSS matches are detected, not blocked, unless blocking is switched on for the domain (“Block SQL injection and XSS”), so the open rows are anomalies for you to review. Every role can read the list; only owners and security officers also get the captured request (`matched_field`, `matched_value`)."
 openapi: get /api/v1/cloud-defender/{id}/security-events
 ---

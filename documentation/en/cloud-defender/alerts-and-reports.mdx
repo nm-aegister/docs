@@ -4,8 +4,8 @@ sidebarTitle: "Alerts and reports"
 description: "The notifications, alerts and weekly report Cloud Defender sends, and who receives them."
 ---
 
-Cloud Defender tells you about what it **blocked**. Traffic that was only detected and not blocked
-(an anomaly) produces no notification and no email: Aegister's analysts review it.
+Cloud Defender tells you only what needs you: a domain whose protection went down, and detections
+waiting for your review. What it **blocked** needs nobody: the weekly report counts it.
 
 <Note>
 **Coming soon.** The in-app notifications and the emails on this page (alerts, the weekly report and
@@ -13,22 +13,29 @@ the licence expiry warnings) are not available to customers yet. You can already
 the emails: the settings below apply as soon as sending starts.
 </Note>
 
-## In-app notifications
+## When protection goes down
 
-When Cloud Defender blocks an attack on one of your domains, a notification appears at once under
-the bell in the Cyber Console, for everyone who can open the organization. It links to the domain's
-status page.
+Cloud Defender checks every domain once an hour. After two failed checks in a row, a notification
+appears under the bell in the Cyber Console and the people who opted in receive an email. When the
+domain is protected again you are told again, if the outage was emailed.
 
-## Email alerts
+## Detections to review
 
-The people who opted in receive an email summing up the attacks Cloud Defender blocked, grouped by
-domain: at most one email per organization per hour.
+Once a day at 08:00 (Italy time), each domain with new anomalies gets one notification under the
+bell, saying how many new detections wait for your review. It opens the domain's **Detections**
+tab. There is no email for detections.
+
+## What Cloud Defender blocked
+
+No notification and no email: blocking is Cloud Defender doing its job. You find it on the status
+page and in the weekly report.
 
 ## The weekly report
 
 Every Monday at 08:00 (Italy time), a PDF covering the previous seven days, sent to the people who
-opted in: threats blocked, the attacking addresses with their reputation and network, managed
-requests, per-domain charts and the most recent blocked requests.
+opted in. It opens with **Needs your attention**, then shows what each layer blocked, the attacks
+and anomalies by type, **Your lists** and the attacking addresses with their reputation and
+network.
 
 Notifications, email alerts and the weekly report need a live Cloud Defender licence.
 
@@ -47,6 +54,10 @@ that organization. Ticking saves immediately.
 - A product's checkbox is disabled where the organization has no subscription for that product.
 - A pending invitation shows a dash. There is no membership to attach a preference to until the
   invitation is accepted.
+
+The emails are written in the organization's **Communication language**, set on **Organizations →
+your organization → General** (English unless you change it). In-app notifications are visible to
+everyone who can open the organization.
 
 ## Administrative notices
 

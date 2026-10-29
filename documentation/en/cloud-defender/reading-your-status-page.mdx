@@ -1,13 +1,13 @@
 ---
 title: "Cloud Defender: reading your status page"
 sidebarTitle: "Reading your status page"
-description: "What each figure on the Cloud Defender status page counts, and what it does not."
+description: "What each figure and tab on the Cloud Defender status page shows, and what it does not."
 ---
 
 The status page answers separate questions, and they are deliberately not the same number. Choose
 the window at the top (**24h**, **7 days**, **30 days**, **12 months**); the **Threat overview**
-holds the key figures and the tabs below go into detail: **Overview**, **Attackers** and
-**Threat log**.
+holds the key figures and the tabs below go into detail: **Overview**, **Attackers**, **Blocked
+requests**, **Detections** and **Protection**.
 
 ## Threats blocked
 
@@ -19,8 +19,39 @@ it reached your application.
 The **Attackers** tab lists the sources we can identify, ranked by how many of their requests were refused, enriched with
 Aegister Threat Intelligence: reputation, country of origin and the network each address belongs to.
 
-The **Threat log** tab lists every request Cloud Defender denied, with the layer that refused it,
-plus the refusals by your own application. **Export** downloads it.
+## Blocked requests
+
+The **Blocked requests** tab lists every request Cloud Defender denied, with the layer that refused
+it in the **Blocked by** column: for example **Threat intelligence**, **Known attacks**, **IPs you
+banned**, **Auto-ban**, **Country rule**, **Restricted page** or **Signature rule**. It also lists the requests your own
+application refused, as **Your site**. **Export** downloads it.
+
+## Detections
+
+The **Detections** tab lists what Cloud Defender recognised, grouped by source: SQL injection and
+cross-site scripting matches and scanner behaviour. Most of it was blocked by another layer. A row
+that was not blocked reached your site: it is an anomaly, waiting for your decision. When SQL
+injection and XSS blocking is on for the site, those matches are refused and show as **Blocked**.
+
+- The filters at the top are **To review** (not blocked and still without a decision), **Not
+  blocked**, **Blocked** and **All**. The tab title shows how many rows are to review.
+- **Legit** says those requests are expected: the same kind of request from that source is no
+  longer counted or alerted. **Undo** takes it back.
+- **Ban** adds the source to your banned addresses.
+- Open a row for its details: the request, what matched and the source, with **Legit** and **Ban**.
+
+Everyone who can open the organization sees this tab. The captured request content is shown only
+to Owners and Security Officers.
+
+## Protection
+
+The **Protection** tab shows how the site is protected and what each protection did in the
+selected window, from **Direct access closed**, **Threat intelligence**, **Known attacks** and
+**SQL injection and XSS** to your own lists: **Banned IP addresses**, **Countries**, **Whitelist**
+and **Restricted pages**. An Owner or Security Officer edits the lists here, and switches the
+**SQL injection and XSS** row between **Detecting** and **Blocking**; the other roles see them.
+After you remove an entry, unban an address or mark a source **Legit**, **Undo** appears for a few
+seconds and puts it back.
 
 ## Protection status
 

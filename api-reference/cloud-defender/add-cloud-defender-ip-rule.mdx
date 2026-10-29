@@ -1,0 +1,6 @@
+---
+title: "Block or always allow an address on Cloud Defender"
+sidebarTitle: "Block or allow an IP"
+description: "Add an address or a CIDR range to a domain's lists. `action: block` bans it, for `hours` (1 to 2160) or until you remove it; `action: allow` puts it on the Whitelist, so it skips the banned list and Threat Intelligence. Cloud Defender applies the change within about two minutes. Private addresses, Cloudflare's network and Google's own services are refused with a `400` and a reason code. Owners and security officers with a live licence."
+openapi: post /api/v1/cloud-defender/{id}/ip-rules
+---

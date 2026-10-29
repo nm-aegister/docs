@@ -1,0 +1,6 @@
+---
+title: "Segna un rilevamento di Cloud Defender come legittimo o bloccane la sorgente"
+sidebarTitle: "Legittimo o blocca"
+description: "Decidi su un rilevamento della scheda Rilevamenti. `legit` indica che le corrispondenze di questo tipo da questa sorgente sono previste sul tuo sito: restano registrate, segnate come legittime, e non vengono più contate né segnalate. `ban` blocca la sorgente su questo dominio per `hours` ore, o finché non la rimuovi; il blocco compare nell'elenco degli IP bloccati. Proprietari e security officer con licenza attiva."
+openapi: post /api/v1/cloud-defender/{id}/security-events/{event_id}/verdict
+---

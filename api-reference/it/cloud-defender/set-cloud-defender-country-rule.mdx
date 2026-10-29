@@ -1,0 +1,6 @@
+---
+title: "Imposta la regola paesi di Cloud Defender"
+sidebarTitle: "Imposta regola paesi"
+description: "Crea o modifica la regola paesi di un dominio. `action: block` rifiuta i `countries` elencati, `action: allow` accetta solo quelli; `tor` e `unknown` decidono cosa succede alle uscite Tor e agli indirizzi senza paese noto. Una nuova regola parte in `test`, contando cosa avrebbe rifiutato, finché non imposti `mode: enforced`. Gli indirizzi in Whitelist passano sempre. Applicata entro circa due minuti. Proprietari e security officer con licenza attiva."
+openapi: put /api/v1/cloud-defender/{id}/countries
+---

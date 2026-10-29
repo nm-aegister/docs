@@ -1,8 +1,6 @@
 ---
 title: "Create Cloud Defender configuration"
 sidebarTitle: "Create Cloud Defender"
-description: "Create a new Cloud Defender configuration in the Web Application.
-
-You can create only Cloud Defender configurations for organizations you can manage."
+description: "Add a web application to Cloud Defender: its domain (`fqdn`; an international domain name goes in its `xn--` form, as the setup wizard sends it), the address of your origin server (`endpoint`) and the organization it belongs to. It is what the setup wizard does after its check; run “Check a web app” first to see whether the domain and your origin answer as expected. Aegister then prepares the domain, and “Get activation steps” follows it until it is live. You can add web applications only for organizations you can manage."
 openapi: post /api/v1/cloud-defender
 ---

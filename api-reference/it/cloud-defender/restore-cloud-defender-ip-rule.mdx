@@ -1,0 +1,6 @@
+---
+title: "Annulla la rimozione di un indirizzo da Cloud Defender"
+sidebarTitle: "Annulla rimozione IP"
+description: "Rimetti un indirizzo che hai sbloccato o tolto dalla Whitelist, entro 10 minuti da «Sblocca o rimuovi un IP». La voce torna com'era; un blocco impostato da un rilevamento riporta anche il suo verdetto di blocco. Risponde 400 dopo 10 minuti, quando la durata di un blocco è scaduta, quando l'indirizzo è di nuovo nell'altra lista o quando oggi non potrebbe essere inserito. 503 indica che non è stato possibile leggere il feed di minacce che verifica gli indirizzi: riprova. Proprietari e security officer con licenza attiva."
+openapi: post /api/v1/cloud-defender/{id}/ip-rules/{rule_id}/restore
+---

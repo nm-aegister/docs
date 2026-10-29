@@ -1,0 +1,6 @@
+---
+title: "Set a Cloud Defender country rule"
+sidebarTitle: "Set country rule"
+description: "Create or change a domain's country rule. `action: block` refuses the listed `countries`, `action: allow` accepts only them; `tor` and `unknown` decide what happens to Tor exits and addresses with no known country. A new rule starts in `test`, counting what it would have refused, until you set `mode: enforced`. Whitelisted addresses always pass. Applied within about two minutes. Owners and security officers with a live licence."
+openapi: put /api/v1/cloud-defender/{id}/countries
+---

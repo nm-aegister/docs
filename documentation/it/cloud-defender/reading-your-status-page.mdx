@@ -1,13 +1,13 @@
 ---
 title: "Cloud Defender: leggere la pagina di stato"
 sidebarTitle: "Leggere la pagina di stato"
-description: "Cosa conta ciascun dato della pagina di stato di Cloud Defender, e cosa non conta."
+description: "Cosa mostra ciascun dato e ciascuna scheda della pagina di stato di Cloud Defender, e cosa non mostra."
 ---
 
 La pagina di stato risponde a domande distinte, e i numeri non coincidono di proposito. Scegli il
 periodo in alto (**24h**, **7 giorni**, **30 giorni**, **12 mesi**); la **Panoramica delle minacce**
-riporta i dati chiave e le schede sotto entrano nel dettaglio: **Panoramica**, **Attaccanti** e
-**Registro delle minacce**.
+riporta i dati chiave e le schede sotto entrano nel dettaglio: **Panoramica**, **Attaccanti**,
+**Richieste bloccate**, **Rilevamenti** e **Protezione**.
 
 ## Minacce bloccate
 
@@ -19,8 +19,42 @@ prima di raggiungere la tua applicazione.
 La scheda **Attaccanti** elenca le sorgenti che riusciamo a identificare, ordinate per numero di richieste rifiutate e arricchite
 con Aegister Threat Intelligence: reputazione, paese di origine e rete di appartenenza.
 
-La scheda **Registro delle minacce** elenca ogni richiesta che Cloud Defender ha rifiutato, con il
-livello che l'ha fermata, più i rifiuti della tua stessa applicazione. **Esporta** la scarica.
+## Richieste bloccate
+
+La scheda **Richieste bloccate** elenca ogni richiesta che Cloud Defender ha rifiutato, con il
+livello che l'ha fermata nella colonna **Bloccato da**: per esempio **Threat Intelligence**,
+**Attacchi noti**, **IP bloccati da voi**, **Blocco automatico**, **Regola paesi**, **Pagina
+riservata** o **Regola di firma**. Elenca anche le richieste rifiutate dalla tua stessa applicazione, come **Il vostro
+sito**. **Esporta** la scarica.
+
+## Rilevamenti
+
+La scheda **Rilevamenti** elenca ciò che Cloud Defender ha riconosciuto, raggruppato per sorgente:
+corrispondenze di SQL injection e cross-site scripting e comportamenti da scanner. La maggior parte
+è stata bloccata da un altro livello. Una riga non bloccata ha raggiunto il tuo sito: è un'anomalia
+che attende la tua decisione. Quando il blocco di SQL injection e XSS è attivo per il sito, quelle
+corrispondenze vengono rifiutate e risultano **Bloccate**.
+
+- I filtri in alto sono **Da valutare** (non bloccate e ancora senza decisione), **Non bloccate**,
+  **Bloccate** e **Tutti**. Il titolo della scheda mostra quante righe sono da valutare.
+- **Legittimo** indica che quelle richieste sono previste: lo stesso tipo di richiesta da quella
+  sorgente non viene più contato né segnalato. **Annulla** torna indietro.
+- **Blocca** aggiunge la sorgente ai tuoi indirizzi bloccati.
+- Apri una riga per i dettagli: la richiesta, cosa corrispondeva e la sorgente, con **Legittimo** e
+  **Blocca**.
+
+Chiunque possa aprire l'organizzazione vede questa scheda. Il contenuto della richiesta catturata è
+visibile solo agli Owner e ai Security Officer.
+
+## Protezione
+
+La scheda **Protezione** mostra come è protetto il sito e cosa ha fatto ciascuna protezione nel
+periodo selezionato, da **Accesso diretto chiuso**, **Threat Intelligence**, **Attacchi noti** e
+**SQL injection e XSS** fino alle tue liste: **IP bloccati**, **Paesi**, **Whitelist** e **Pagine
+riservate**. Un Owner o un Security Officer modifica qui le liste e porta la riga **SQL injection e
+XSS** da **In rilevamento** a **Blocco attivo** o viceversa; gli altri ruoli le vedono. Dopo che
+hai rimosso una voce, sbloccato un indirizzo o segnato una sorgente come **Legittimo**, compare per
+qualche secondo **Annulla**, che la rimette.
 
 ## Stato della protezione
 
