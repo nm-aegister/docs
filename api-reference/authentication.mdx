@@ -38,7 +38,7 @@ curl -H "X-Aegister-Token: $TOKEN" https://app.aegister.com/api/v1/organizations
 }
 ```
 
-A missing or invalid token returns HTTP `403`:
+A missing or invalid token returns HTTP `401`:
 
 ```json
 { "error": 1, "messages": [2168] }
@@ -47,14 +47,38 @@ A missing or invalid token returns HTTP `403`:
 ### 2. Query Parameter Authentication (deprecated)
 
 <Warning>
-This method is deprecated and will be removed. A token in the URL ends up in proxy and server logs and in browser history. Use the header instead.
+Passing the token in the URL, as an `X-Aegister-Token` query parameter, is deprecated and will be removed. A token in the URL ends up in proxy and server logs and in browser history. Send the `X-Aegister-Token` header instead, as shown above.
 </Warning>
 
-The API still accepts `X-Aegister-Token` as a query parameter in the URL.
+## Rate limits
 
-**Example Request:**
+Every API call counts towards a limit per user account: 300 calls a minute, shared by all your
+tokens and your console session. Some costly calls have their own limit, also per user:
 
-```http
-GET /api/v1/organizations?X-Aegister-Token=your_token_here HTTP/1.1
-Host: app.aegister.com
+| Call | Limit |
+|---|---|
+| AI task fill (`POST …/tasks/{tid}/prefill`) | 20 an hour |
+| Cloud Defender web app check (precheck) | 30 a minute |
+| Reports and PDF exports | 10 a minute |
+
+Aegister can also set a daily cap on a token, or on one endpoint for your account. Over a limit the
+call answers HTTP `429` with a `Retry-After` header, in seconds:
+
+```json
+{ "error": 1, "messages": [4290] }
 ```
+
+Wait that many seconds and try again. After a daily cap, `Retry-After` counts to midnight UTC, and the
+refused call is not counted.
+
+## Request size
+
+A request body over 32 MB is refused with HTTP `413`:
+
+```json
+{ "error": 1, "messages": ["Payload too large"], "data": {} }
+```
+
+The server answers without reading the rest of the upload, so some clients report a dropped
+connection or a `502` instead. Send a large log file raw (`application/octet-stream`, up to 100 MB):
+see “Create log analysis”.

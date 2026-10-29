@@ -38,7 +38,7 @@ curl -H "X-Aegister-Token: $TOKEN" https://app.aegister.com/api/v1/organizations
 }
 ```
 
-Un token mancante o non valido restituisce HTTP `403`:
+Un token mancante o non valido restituisce HTTP `401`:
 
 ```json
 { "error": 1, "messages": [2168] }
@@ -47,14 +47,39 @@ Un token mancante o non valido restituisce HTTP `403`:
 ### 2. Autenticazione tramite parametro di query (deprecata)
 
 <Warning>
-Questo metodo è deprecato e verrà rimosso. Un token nell'URL finisce nei log di proxy e server e nella cronologia del browser. Usa l'header.
+Passare il token nell'URL, come parametro di query `X-Aegister-Token`, è deprecato e verrà rimosso. Un token nell'URL finisce nei log di proxy e server e nella cronologia del browser. Invia invece l'header `X-Aegister-Token`, come mostrato sopra.
 </Warning>
 
-Le API accettano ancora `X-Aegister-Token` come parametro di query nell'URL.
+## Limiti di frequenza
 
-**Esempio di richiesta:**
+Ogni chiamata API rientra in un limite per account utente: 300 chiamate al minuto, condivise da tutti
+i tuoi token e dalla tua sessione nella console. Alcune chiamate onerose hanno un limite proprio,
+sempre per utente:
 
-```http
-GET /api/v1/organizations?X-Aegister-Token=il_tuo_token HTTP/1.1
-Host: app.aegister.com
+| Chiamata | Limite |
+|---|---|
+| Compilazione AI di un'attività (`POST …/tasks/{tid}/prefill`) | 20 all'ora |
+| Verifica di un'applicazione web Cloud Defender (precheck) | 30 al minuto |
+| Report ed esportazioni PDF | 10 al minuto |
+
+Aegister può inoltre impostare un limite giornaliero su un token, o su un endpoint per il tuo
+account. Oltre un limite la chiamata risponde HTTP `429` con un header `Retry-After`, in secondi:
+
+```json
+{ "error": 1, "messages": [4290] }
 ```
+
+Attendi quei secondi e riprova. Dopo un limite giornaliero `Retry-After` conta fino alla mezzanotte
+UTC, e la chiamata rifiutata non viene conteggiata.
+
+## Dimensione della richiesta
+
+Un corpo della richiesta oltre i 32 MB viene rifiutato con HTTP `413`:
+
+```json
+{ "error": 1, "messages": ["Payload too large"], "data": {} }
+```
+
+Il server risponde senza leggere il resto del caricamento, quindi alcuni client segnalano una
+connessione interrotta o un `502`. Invia un file di log grande in forma grezza
+(`application/octet-stream`, fino a 100 MB): vedi «Crea analisi dei log».
