@@ -1,0 +1,6 @@
+---
+title: "Segna una notifica ACN come inviata"
+sidebarTitle: "Segna notifica inviata"
+description: "Registra che hai inviato la notifica sul portale ACN: `filed_at` (obbligatorio), quando l'hai inviata, e `csirt_protocol`, il numero di protocollo mostrato dal portale. La console non invia nulla ad ACN da sola. Da quel momento la notifica è bloccata e può partire la successiva. Proprietari e security officer."
+openapi: post /api/v1/v-ciso/incidents/{organizationid}/{incidentid}/filings/{filingid}/file
+---

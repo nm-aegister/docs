@@ -1,0 +1,6 @@
+---
+title: "Mark an ACN filing as sent"
+sidebarTitle: "Mark filing as sent"
+description: "Record that you sent the filing on the ACN portal: `filed_at` (required), when you sent it, and `csirt_protocol`, the protocol number the portal showed. The console does not send anything to ACN itself. From then on the filing is locked and the next one can start. Owners and security officers."
+openapi: post /api/v1/v-ciso/incidents/{organizationid}/{incidentid}/filings/{filingid}/file
+---

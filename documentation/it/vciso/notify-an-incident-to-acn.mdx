@@ -25,6 +25,10 @@ e lo stato di avanzamento della segnalazione in corso. **Come funziona** riassum
 Un nuovo incidente si crea in tre passaggi. **Avanti** resta disattivato finché il passaggio non è
 completo; accanto compare il motivo.
 
+Se esci prima di salvare, questo browser conserva il nuovo incidente per una settimana, tranne i file.
+Quando torni la console mostra "L'incidente non salvato è stato ripristinato." ed elenca i file da
+allegare di nuovo. La bozza resta solo in questo browser e viene cancellata quando esci dall'account.
+
 ### Passaggio 1: Cosa è successo
 
 - **Parti da un modello** (facoltativo): scegli un caso comune dal catalogo di Aegister (i modelli sono in
@@ -191,6 +195,13 @@ segnalazioni.
 
 Un incidente mai inviato ad ACN si può eliminare con **Elimina incidente**; vengono eliminate anche le
 bozze e le evidenze.
+
+## Tramite API
+
+Le notifiche sono disponibili anche tramite API, in **Notifiche ACN** nella scheda API:
+[elenca le notifiche di un incidente](/api-reference/it/v-ciso/list-incident-filings), avviane una,
+leggila e aggiornala, indica che è stata inviata ed esportala. La stesura con l'AI e il trasferimento sul
+portale ACN si fanno nella console.
 
 <Note>
 La console calcola le scadenze come descritto sopra e prepara i testi; non sostituisce la tua

@@ -158,8 +158,19 @@
                           "api-reference/it/v-ciso/get-incident",
                           "api-reference/it/v-ciso/create-incident",
                           "api-reference/it/v-ciso/update-incident",
-                          "api-reference/it/v-ciso/delete-incident",
-                          "api-reference/it/v-ciso/get-incident-taxonomy"
+                          "api-reference/it/v-ciso/delete-incident"
+                        ]
+                      },
+                      {
+                        "group": "Notifiche ACN",
+                        "pages": [
+                          "api-reference/it/v-ciso/get-acn-incident-form",
+                          "api-reference/it/v-ciso/list-incident-filings",
+                          "api-reference/it/v-ciso/start-incident-filing",
+                          "api-reference/it/v-ciso/get-incident-filing",
+                          "api-reference/it/v-ciso/update-incident-filing",
+                          "api-reference/it/v-ciso/mark-incident-filing-sent",
+                          "api-reference/it/v-ciso/export-incident-filing"
                         ]
                       },
                       {
@@ -524,8 +535,19 @@
                           "api-reference/v-ciso/get-incident",
                           "api-reference/v-ciso/create-incident",
                           "api-reference/v-ciso/update-incident",
-                          "api-reference/v-ciso/delete-incident",
-                          "api-reference/v-ciso/get-incident-taxonomy"
+                          "api-reference/v-ciso/delete-incident"
+                        ]
+                      },
+                      {
+                        "group": "ACN Filings",
+                        "pages": [
+                          "api-reference/v-ciso/get-acn-incident-form",
+                          "api-reference/v-ciso/list-incident-filings",
+                          "api-reference/v-ciso/start-incident-filing",
+                          "api-reference/v-ciso/get-incident-filing",
+                          "api-reference/v-ciso/update-incident-filing",
+                          "api-reference/v-ciso/mark-incident-filing-sent",
+                          "api-reference/v-ciso/export-incident-filing"
                         ]
                       },
                       {
@@ -907,6 +929,16 @@
     {
       "source": "/api-reference/it/atb/get-threat-blocker-traffic-statistics",
       "destination": "/api-reference/it/atb/retrieve-traffic-statistics-for-a-specific-atb-device",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/v-ciso/get-incident-taxonomy",
+      "destination": "/api-reference/v-ciso/get-acn-incident-form",
+      "permanent": true
+    },
+    {
+      "source": "/api-reference/it/v-ciso/get-incident-taxonomy",
+      "destination": "/api-reference/it/v-ciso/get-acn-incident-form",
       "permanent": true
     },
     {

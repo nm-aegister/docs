@@ -1,0 +1,6 @@
+---
+title: "Update the values of an ACN filing"
+sidebarTitle: "Update filing values"
+description: "Set a filing's values by ACN portal field id (see “ACN form schema”). Every value is checked against the portal's choices and limits. A filing already marked as sent is locked and returns `409`. Owners and security officers."
+openapi: patch /api/v1/v-ciso/incidents/{organizationid}/{incidentid}/filings/{filingid}
+---

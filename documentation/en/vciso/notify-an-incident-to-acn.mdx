@@ -25,6 +25,10 @@ one.
 A new incident takes three steps. **Next** stays disabled until the step is complete; the reason is shown
 beside it.
 
+If you leave before saving, this browser keeps the new incident for a week, except its files. When you
+come back the console says "Your unsaved incident was restored." and lists the files to attach again.
+The draft stays in this browser only and is cleared when you sign out.
+
 ### Step 1: What happened
 
 - **Start from a template** (optional): pick a common case from Aegister's catalogue (the templates are
@@ -187,6 +191,13 @@ filings and its deadline reminders stop. **Reopen** brings back its deadlines an
 
 An incident that was never sent to ACN can be removed with **Delete incident**; its drafts and evidence
 are deleted too.
+
+## Through the API
+
+The filings are also available through the API, under **ACN Filings** in the API Reference tab:
+[list the filings of an incident](/api-reference/v-ciso/list-incident-filings), start one, read and
+update it, mark it as sent and export it. AI drafting and the transfer to the ACN portal are done
+in the console.
 
 <Note>
 The console counts the deadlines as described above and drafts the texts; it does not replace your
