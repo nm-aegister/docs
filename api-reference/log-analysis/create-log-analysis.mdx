@@ -1,6 +1,6 @@
 ---
 title: "Create log analysis"
 sidebarTitle: "Create log analysis"
-description: "Upload a firewall log file (CSV, JSON, LOG or ZIP, up to 100 MB) to check its traffic against Threat Intelligence, like Analyze a log file under Perimeter Protection → Log Analysis. Send the file as the raw request body, or as JSON with filename and base64 content. The analysis runs in the background: poll Get log analysis until it completes."
+description: "Upload a firewall log file (CSV, JSON, LOG or ZIP) to check its traffic against Threat Intelligence, like Analyze a log file under Perimeter Protection → Log Analysis. Send the file as the raw request body (`application/octet-stream`, its name in `Content-Disposition: attachment; filename=…`), up to 100 MB; or as JSON with `filename` and base64 `content`, up to about 24 MB, since a JSON body is capped at 32 MB. For a larger log, send it raw or as a ZIP. The analysis runs in the background: poll Get log analysis until it completes. A ZIP holds at most 50 files and 500 MB unpacked; each file in it is read as if uploaded alone. A log longer than 50,000 lines is analysed on its latest 50,000."
 openapi: post /api/v1/log-analysis
 ---

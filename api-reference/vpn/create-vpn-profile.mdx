@@ -1,6 +1,6 @@
 ---
 title: "Create VPN profile"
 sidebarTitle: "Create VPN profile"
-description: "Create a VPN profile for a user of your organization, by `email` or `user_id` (the GUI's Secure VPN → Manage VPNs → New VPN). Requires the Owner role and an active VPN license with a free seat. The user receives an email with instructions to connect."
+description: "Create a VPN profile for a person in your organization: send the `organization` and the person's `email` (the GUI's Secure VPN → Manage VPNs → New VPN profile). Other fields are ignored: the profile gets the organization's certificate and account name from Aegister. Requires the Owner role and an active VPN license with a free seat. The person becomes a member of the organization and receives an email with instructions to connect."
 openapi: post /api/v1/vpn
 ---

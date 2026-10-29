@@ -288,6 +288,7 @@
                       "api-reference/it/log-analysis/list-log-analyses",
                       "api-reference/it/log-analysis/get-log-analysis",
                       "api-reference/it/log-analysis/create-log-analysis",
+                      "api-reference/it/log-analysis/rename-log-analysis",
                       "api-reference/it/log-analysis/delete-log-analysis"
                     ]
                   },
@@ -333,6 +334,7 @@
                     "pages": [
                       "api-reference/it/organizations/get-organization-branding",
                       "api-reference/it/organizations/upload-organization-logo",
+                      "api-reference/it/organizations/refresh-organization-logo",
                       "api-reference/it/organizations/update-organization-branding",
                       "api-reference/it/organizations/delete-organization-logo"
                     ]
@@ -372,7 +374,9 @@
                       "api-reference/it/notifications/list-notifications",
                       "api-reference/it/notifications/mark-notifications-as-read",
                       "api-reference/it/notifications/mark-all-notifications-as-read",
-                      "api-reference/it/notifications/dismiss-notification"
+                      "api-reference/it/notifications/dismiss-notification",
+                      "api-reference/it/notifications/dismiss-all-notifications",
+                      "api-reference/it/notifications/restore-notifications"
                     ]
                   },
                   {
@@ -667,6 +671,7 @@
                       "api-reference/log-analysis/list-log-analyses",
                       "api-reference/log-analysis/get-log-analysis",
                       "api-reference/log-analysis/create-log-analysis",
+                      "api-reference/log-analysis/rename-log-analysis",
                       "api-reference/log-analysis/delete-log-analysis"
                     ]
                   },
@@ -712,6 +717,7 @@
                     "pages": [
                       "api-reference/organizations/get-organization-branding",
                       "api-reference/organizations/upload-organization-logo",
+                      "api-reference/organizations/refresh-organization-logo",
                       "api-reference/organizations/update-organization-branding",
                       "api-reference/organizations/delete-organization-logo"
                     ]
@@ -751,7 +757,9 @@
                       "api-reference/notifications/list-notifications",
                       "api-reference/notifications/mark-notifications-as-read",
                       "api-reference/notifications/mark-all-notifications-as-read",
-                      "api-reference/notifications/dismiss-notification"
+                      "api-reference/notifications/dismiss-notification",
+                      "api-reference/notifications/dismiss-all-notifications",
+                      "api-reference/notifications/restore-notifications"
                     ]
                   },
                   {

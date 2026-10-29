@@ -1,6 +1,6 @@
 ---
 title: "Crea analisi dei log"
 sidebarTitle: "Crea analisi dei log"
-description: "Carica un file di log del firewall (CSV, JSON, LOG o ZIP, fino a 100 MB) per verificarne il traffico con la Threat Intelligence, come Analizza un file di log in Protezione Perimetrale → Analisi Log. Invia il file come corpo grezzo della richiesta, oppure come JSON con filename e content in base64. L'analisi gira in background: interroga Recupera analisi dei log finché non è completata."
+description: "Carica un file di log del firewall (CSV, JSON, LOG o ZIP) per verificarne il traffico con la Threat Intelligence, come Analizza un file di log in Protezione Perimetrale → Analisi Log. Invia il file come corpo grezzo della richiesta (`application/octet-stream`, con il nome in `Content-Disposition: attachment; filename=…`), fino a 100 MB; oppure come JSON con `filename` e `content` in base64, fino a circa 24 MB, perché un corpo JSON è limitato a 32 MB. Per un log più grande invialo grezzo o come ZIP. L'analisi gira in background: interroga Recupera analisi dei log finché non è completata. Uno ZIP contiene al massimo 50 file e 500 MB decompressi; ogni file al suo interno viene letto come se fosse caricato da solo. Un log più lungo di 50.000 righe viene analizzato sulle ultime 50.000."
 openapi: post /api/v1/log-analysis
 ---
